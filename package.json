@@ -1,0 +1,7 @@
+{
+  "name": "SDOH", 
+  "private": true, 
+  "workspaces": [
+    "web"
+  ]
+}
