@@ -49,11 +49,3 @@ fwrite(code_counts[status != "london"][order(-N)],
 used <- london_map[lsoa %in% code_counts[status == "london", lsoa]]
 fwrite(used, file.path(out_dir, "lsoa_lookup.csv"))
 message("Boroughs in output: ", uniqueN(used$lad_nm), " (must be 33)")
-
-
-
-crime_files <- list.files("data/raw/london_crime", pattern = "-street\\.csv$",
-                          recursive = TRUE, full.names = TRUE)
-length(crime_files)                       # how many street files total?
-sum(grepl("metropolitan",  crime_files))  # Met files found?  -> almost certainly 0
-sum(grepl("city-of-london", crime_files)) # City files found? -> ~11
