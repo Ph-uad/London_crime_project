@@ -4,6 +4,8 @@ env*
 .Rhistory
 .RData 
 *Rproj.user
+
+# Ignore the raw data files, which are too large to store in GitHub
 /data/raw
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
