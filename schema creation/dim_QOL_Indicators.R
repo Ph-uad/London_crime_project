@@ -30,7 +30,7 @@ dim_qol_indicators <- bind_rows(
 )
 
 
-dim_qol_indicators %>% view()
+dim_qol_indicators |> view()
 
 
 dim_qol_indicators <- copy_to(sc, dim_qol_indicators, "dim_qol_indicators", overwrite = TRUE)

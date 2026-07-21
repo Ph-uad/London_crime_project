@@ -23,13 +23,13 @@ dim_time <- spark_read_csv(
   infer_schema = TRUE, 
 )
 
-dim_time %>% count()
+dim_time |> count()
 
-crime_data %>% count()
+crime_data |> count()
 
-dim_borough <- crime_data %>% 
-  arrange(LSOA_name) %>%
-  collect() %>%  # Bring data into memory
+dim_borough <- crime_data |> 
+  arrange(LSOA_name) |>
+  collect() |>  # Bring data into memory
   mutate(borough_id = row_number())
 
 # London Region by boroughs
@@ -87,26 +87,26 @@ categorize_london_section <- function(borough) {
   }
 }
 
-dim_borough %>% view()
+dim_borough |> view()
 
-dim_borough <- dim_borough %>%
+dim_borough <- dim_borough |>
   rename(
     borough_name = LSOA_name
   )
 
-dim_borough <- dim_borough %>%
+dim_borough <- dim_borough |>
   mutate(sub_region = sapply(borough_name, categorize_subregion))
 
-dim_borough <- dim_borough %>% 
+dim_borough <- dim_borough |> 
   mutate(london_section = sapply(borough_name, categorize_london_section))
 
-dim_borough %>% count()
+dim_borough |> count()
 
-dim_borough %>% view()
+dim_borough |> view()
 
-# dim_borough_spark <- dim_borough %>%
-#   select(borough_name) %>%
-#   distinct() %>%
+# dim_borough_spark <- dim_borough |>
+#   select(borough_name) |>
+#   distinct() |>
 #   sdf_repartition(partitions = 1)
 
 dim_borough_spark <- copy_to(sc, dim_borough, "dim_borough", overwrite = TRUE)
@@ -134,15 +134,15 @@ dim_borough <- spark_read_csv(
   infer_schema = TRUE,
 )
 
-imd_data_2015 %>% glimpse()
+imd_data_2015 |> glimpse()
 
-imd_data_2015 <- imd_data_2015 %>%
+imd_data_2015 <- imd_data_2015 |>
   rename(
     borough_name = Local_Authority_District_name_2013,
     deprivation_score_2015	 = IMD__Average_score     
   )
 
-dim_borough <- dim_borough %>%  
+dim_borough <- dim_borough |>  
   left_join(select(imd_data_2015,borough_name, deprivation_score_2015), by = "borough_name")
 
 imd_data_2019 <- spark_read_csv(
@@ -153,18 +153,18 @@ imd_data_2019 <- spark_read_csv(
   infer_schema = TRUE, 
 )
 
-imd_data_2019 <- imd_data_2019 %>%
+imd_data_2019 <- imd_data_2019 |>
   rename(
     borough_name = Local_Authority_District_name_2019,
     deprivation_score_2019	 = IMD__Average_score     
   )
 
-dim_borough <- dim_borough %>%  
+dim_borough <- dim_borough |>  
   left_join(select(imd_data_2019, borough_name, deprivation_score_2019), by = "borough_name")
 
-dim_borough %>% view()
+dim_borough |> view()
 
-dim_borough <-  dim_borough %>%
+dim_borough <-  dim_borough |>
   select(borough_id, borough_name, sub_region, london_section, deprivation_score_2015, deprivation_score_2019)
 
 dim_borough_spark <- copy_to(sc, dim_borough, "dim_borough", overwrite = TRUE)
