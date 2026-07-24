@@ -13,11 +13,11 @@ library(stringr)
 # This script verifies the unzipped result is complete.
 # =============================================================
 
-raw_dir <- "data/raw/london_crime"
+raw_dir <- "data/raw/crime"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Define the window you documented in SOURCES.md
-start_month <- "2016-01"   # <-- set to your real start
+start_month <- "2011-01"   # <-- set to your real start
 end_month   <- "2026-04"   # <-- set to your real end
 
 # Build the list of months you EXPECT

@@ -15,13 +15,13 @@ crime_data <- spark_read_csv(
   infer_schema = TRUE, 
 )
 
-crime_data %>% count()
+crime_data |> count()
 
-dim_borough <- crime_data %>%
-  select(LSOA_name) %>%
-  distinct() %>%
-  arrange(LSOA_name) %>%
-  collect() %>%  # Bring data into memory
+dim_borough <- crime_data |>
+  select(LSOA_name) |>
+  distinct() |>
+  arrange(LSOA_name) |>
+  collect() |>  # Bring data into memory
   mutate(borough_id = row_number())
 
 # London Region by boroughs
@@ -79,26 +79,26 @@ categorize_london_section <- function(borough) {
   }
 }
 
-dim_borough %>% view()
+dim_borough |> view()
 
-dim_borough <- dim_borough %>%
+dim_borough <- dim_borough |>
   rename(
     borough_name = LSOA_name
   )
 
-dim_borough <- dim_borough %>%
+dim_borough <- dim_borough |>
   mutate(sub_region = sapply(borough_name, categorize_subregion))
 
-dim_borough <- dim_borough %>% 
+dim_borough <- dim_borough |> 
   mutate(london_section = sapply(borough_name, categorize_london_section))
 
-dim_borough %>% glimpse()
+dim_borough |> glimpse()
 
-dim_borough %>% view()
+dim_borough |> view()
 
-dim_borough_spark <- dim_borough %>%
-  select(borough_name) %>%
-  distinct() %>%
+dim_borough_spark <- dim_borough |>
+  select(borough_name) |>
+  distinct() |>
   sdf_repartition(partitions = 1)
 
 dim_borough_spark <- copy_to(sc, dim_borough, "dim_borough", overwrite = TRUE)

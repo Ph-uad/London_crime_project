@@ -6,7 +6,7 @@
 library(data.table)
 library(stringr)
 
-raw_dir <- "data/raw/london_crime"
+raw_dir <- "data/raw/crime"
 log_dir <- "pipeline/logs"
 dir.create(log_dir, recursive = TRUE, showWarnings = FALSE)
 
@@ -28,5 +28,5 @@ by_year <- counts[, .(rows = sum(rows)), by = .(year, force)][order(year, force)
 print(by_year)
 log_path <- file.path(log_dir, "rowcounts.log")
 fwrite(by_year, log_path)
-message("Total rows: ", sum(counts$rows),
+message("Total rows: ", format(sum(counts$rows), big.mark = ","),
         " across ", length(files), " files. Log -> ", log_path)

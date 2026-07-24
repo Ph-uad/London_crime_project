@@ -13,49 +13,49 @@ london_crime_data <- spark_read_csv(
   infer_schema = TRUE, 
 )
 
-london_crime_data %>% glimpse()
+london_crime_data |> glimpse()
 
-london_crime_data <- london_crime_data %>% 
+london_crime_data <- london_crime_data |> 
   rename(
     "time" = Month
   )
 
-dim_time <- london_crime_data %>%
+dim_time <- london_crime_data |>
   select(time)
 
-dim_time %>% view()
+dim_time |> view()
 
-dim_time <- dim_time %>%
+dim_time <- dim_time |>
   mutate(
     year = year(time),
     month = month(time),
     quarter = quarter(time)
   )
 
-dim_time <- dim_time %>% 
+dim_time <- dim_time |> 
   select(-time)
 
-dim_time %>% distinct(year) %>% print(n = Inf)
+dim_time |> distinct(year) |> print(n = Inf)
 
-dim_time <- dim_time %>%
+dim_time <- dim_time |>
   mutate(
     time_period =  sql("concat('Q', cast(quarter as string), ' ', cast(year as string))")
   )
 
-dim_time <- dim_time %>%
+dim_time <- dim_time |>
   mutate(
     time_id = sql("ROW_NUMBER() OVER (ORDER BY time_period)"),
   )
 
-dim_time <- dim_time %>%
+dim_time <- dim_time |>
   distinct(time_period, year, month, quarter)
 
-dim_time <- sdf_with_sequential_id(dim_time, id = "time_id") %>%
+dim_time <- sdf_with_sequential_id(dim_time, id = "time_id") |>
   arrange(time_period)
 
-dim_time %>% view()
+dim_time |> view()
 
-dim_time <- dim_time %>%
+dim_time <- dim_time |>
   select(time_id, everything())
 
 dim_time_spark <- copy_to(sc, dim_time, "dim_time", overwrite = TRUE)

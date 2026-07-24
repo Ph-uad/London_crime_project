@@ -4,7 +4,7 @@
 - **Source:** data.police.uk custom download
 - **URL:** https://data.police.uk/data/archive/
 - **Forces selected:** Metropolitan Police Service; City of London Police
-- **Date range:** [2016-01] to [2026-04]  (10-year window)
+- **Date range:** [2011-01] to [2026-04]  (15-year window)
 - **Data type:** Street-level crime CSVs (`*-street.csv`)
 - **Downloaded on:** [2026-06-18]
 - **Licence:** Open Government Licence v3.0 (OGL-UK-3.0)

@@ -13,28 +13,28 @@ dim_crime_type <- spark_read_csv(
   infer_schema = TRUE
 )
 
-crime_type_and_count <- dim_crime_type %>%
-  group_by(Crime_type) %>%
-  summarise(count = n()) %>%
-  arrange(desc(count)) %>%
+crime_type_and_count <- dim_crime_type |>
+  group_by(Crime_type) |>
+  summarise(count = n()) |>
+  arrange(desc(count)) |>
   collect()
 
 
 print(crime_type_and_count)
 
-crime_type_and_count <- crime_type_and_count  %>% 
+crime_type_and_count <- crime_type_and_count  |> 
   rename(
     crime_type_freq = count,
     crime_type = Crime_type
          )
 
-crime_subcategory_id <- crime_type_and_count %>% 
-  select(crime_subcategory, crime_subcategory_freq) %>%
-  distinct() %>%
-  arrange(crime_subcategory) %>%
+crime_subcategory_id <- crime_type_and_count |> 
+  select(crime_subcategory, crime_subcategory_freq) |>
+  distinct() |>
+  arrange(crime_subcategory) |>
   mutate(crime_type_id = row_number())
 
-crime_subcategory_id %>% print()
+crime_subcategory_id |> print()
 
 
 violence_and_sexual_offences <- c("Violence and sexual offences")
@@ -63,20 +63,20 @@ categorize_crime <- function(crime) {
   }
 }
 
-crime_subcategory_id <- crime_subcategory_id %>%
+crime_subcategory_id <- crime_subcategory_id |>
   mutate(crime_category = sapply(crime_subcategory, categorize_crime))
 
 
-crime_type <- crime_subcategory_id  %>% 
+crime_type <- crime_subcategory_id  |> 
   rename(
     crime_type = crime_subcategory,
     crime_type_freq = crime_subcategory_freq, 
   )
 
-crime_type <- crime_type %>% 
+crime_type <- crime_type |> 
   select(crime_type_id, everything())
  
-crime_type %>% print()
+crime_type |> print()
 
 dim_crime_type_spark <- copy_to(sc, crime_type, "crime_type", overwrite = TRUE)
 spark_write_csv(dim_crime_type_spark, path = "/Users/tsumizu/Documents/School/Sem. 2/ADMP/Assignment/Assignment 2/schema_data/dim_crime_type", overwrite = TRUE)
