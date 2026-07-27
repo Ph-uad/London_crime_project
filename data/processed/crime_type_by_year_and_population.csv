@@ -1,0 +1,463 @@
+"","lsoa_code","borough","lsoa_name","year","population","crime_type_count","crime_rate_per_1000"
+"1","E09000007","Camden","London Borough",2011,220087,50399,229
+"2","E09000007","Camden","London Borough",2012,219647,15865,72.23
+"3","E09000007","Camden","London Borough",2013,221348,6008,27.14
+"4","E09000007","Camden","London Borough",2014,221095,9035,40.86
+"5","E09000007","Camden","London Borough",2015,221032,18872,85.38
+"6","E09000007","Camden","London Borough",2016,221024,38760,175.37
+"7","E09000007","Camden","London Borough",2017,218833,46231,211.26
+"8","E09000007","Camden","London Borough",2018,217915,44484,204.13
+"9","E09000007","Camden","London Borough",2019,217136,47062,216.74
+"10","E09000007","Camden","London Borough",2020,214768,42808,199.32
+"11","E09000007","Camden","London Borough",2021,210968,38017,180.2
+"12","E09000007","Camden","London Borough",2022,217352,43882,201.89
+"13","E09000007","Camden","London Borough",2023,217235,48825,224.76
+"14","E09000007","Camden","London Borough",2024,216943,50970,234.95
+"15","E09000001","City of London","London Borough",2011,7412,7493,1010.93
+"16","E09000001","City of London","London Borough",2012,7514,7015,933.59
+"17","E09000001","City of London","London Borough",2013,7537,6121,812.13
+"18","E09000001","City of London","London Borough",2014,7567,6044,798.73
+"19","E09000001","City of London","London Borough",2015,7668,5842,761.87
+"20","E09000001","City of London","London Borough",2016,7737,6617,855.24
+"21","E09000001","City of London","London Borough",2017,7877,7311,928.15
+"22","E09000001","City of London","London Borough",2018,8165,8244,1009.68
+"23","E09000001","City of London","London Borough",2019,8765,9930,1132.92
+"24","E09000001","City of London","London Borough",2020,8331,5658,679.15
+"25","E09000001","City of London","London Borough",2021,8689,6415,738.29
+"26","E09000001","City of London","London Borough",2022,11615,8889,765.3
+"27","E09000001","City of London","London Borough",2023,13606,9502,698.37
+"28","E09000001","City of London","London Borough",2024,15111,10139,670.97
+"29","E09000012","Hackney","London Borough",2011,247182,41393,167.46
+"30","E09000012","Hackney","London Borough",2012,251193,13754,54.75
+"31","E09000012","Hackney","London Borough",2013,255646,5663,22.15
+"32","E09000012","Hackney","London Borough",2014,258735,8425,32.56
+"33","E09000012","Hackney","London Borough",2015,261929,18203,69.5
+"34","E09000012","Hackney","London Borough",2016,264892,37113,140.11
+"35","E09000012","Hackney","London Borough",2017,264834,39700,149.91
+"36","E09000012","Hackney","London Borough",2018,266210,38581,144.93
+"37","E09000012","Hackney","London Borough",2019,265825,40809,153.52
+"38","E09000012","Hackney","London Borough",2020,263782,47048,178.36
+"39","E09000012","Hackney","London Borough",2021,260082,41244,158.58
+"40","E09000012","Hackney","London Borough",2022,261814,39112,149.39
+"41","E09000012","Hackney","London Borough",2023,265411,38834,146.32
+"42","E09000012","Hackney","London Borough",2024,266758,40538,151.97
+"43","E09000013","Hammersmith and Fulham","London Borough",2011,182445,34330,188.17
+"44","E09000013","Hammersmith and Fulham","London Borough",2012,184439,10646,57.72
+"45","E09000013","Hammersmith and Fulham","London Borough",2013,186056,3882,20.86
+"46","E09000013","Hammersmith and Fulham","London Borough",2014,186659,6161,33.01
+"47","E09000013","Hammersmith and Fulham","London Borough",2015,187246,12801,68.36
+"48","E09000013","Hammersmith and Fulham","London Borough",2016,187472,26523,141.48
+"49","E09000013","Hammersmith and Fulham","London Borough",2017,187720,27030,143.99
+"50","E09000013","Hammersmith and Fulham","London Borough",2018,189037,26775,141.64
+"51","E09000013","Hammersmith and Fulham","London Borough",2019,188562,27275,144.65
+"52","E09000013","Hammersmith and Fulham","London Borough",2020,186555,27947,149.81
+"53","E09000013","Hammersmith and Fulham","London Borough",2021,183310,26352,143.76
+"54","E09000013","Hammersmith and Fulham","London Borough",2022,185822,25460,137.01
+"55","E09000013","Hammersmith and Fulham","London Borough",2023,187479,26725,142.55
+"56","E09000013","Hammersmith and Fulham","London Borough",2024,188687,26969,142.93
+"57","E09000014","Haringey","London Borough",2011,255540,40909,160.09
+"58","E09000014","Haringey","London Borough",2012,259312,12837,49.5
+"59","E09000014","Haringey","London Borough",2013,265054,4541,17.13
+"60","E09000014","Haringey","London Borough",2014,268901,7761,28.86
+"61","E09000014","Haringey","London Borough",2015,272938,15900,58.25
+"62","E09000014","Haringey","London Borough",2016,276262,35200,127.42
+"63","E09000014","Haringey","London Borough",2017,274463,37229,135.64
+"64","E09000014","Haringey","London Borough",2018,274240,38360,139.88
+"65","E09000014","Haringey","London Borough",2019,273716,38518,140.72
+"66","E09000014","Haringey","London Borough",2020,269534,43529,161.5
+"67","E09000014","Haringey","London Borough",2021,264317,38886,147.12
+"68","E09000014","Haringey","London Borough",2022,262078,36921,140.88
+"69","E09000014","Haringey","London Borough",2023,263362,37399,142.01
+"70","E09000014","Haringey","London Borough",2024,263850,35482,134.48
+"71","E09000019","Islington","London Borough",2011,206285,42271,204.92
+"72","E09000019","Islington","London Borough",2012,208762,13431,64.34
+"73","E09000019","Islington","London Borough",2013,212604,5424,25.51
+"74","E09000019","Islington","London Borough",2014,214986,8258,38.41
+"75","E09000019","Islington","London Borough",2015,218255,17291,79.22
+"76","E09000019","Islington","London Borough",2016,220620,34363,155.76
+"77","E09000019","Islington","London Borough",2017,221535,39331,177.54
+"78","E09000019","Islington","London Borough",2018,221453,35239,159.13
+"79","E09000019","Islington","London Borough",2019,221994,36647,165.08
+"80","E09000019","Islington","London Borough",2020,221018,38665,174.94
+"81","E09000019","Islington","London Borough",2021,217050,34005,156.67
+"82","E09000019","Islington","London Borough",2022,219769,35653,162.23
+"83","E09000019","Islington","London Borough",2023,222333,36426,163.84
+"84","E09000019","Islington","London Borough",2024,223024,39968,179.21
+"85","E09000020","Kensington and Chelsea","London Borough",2011,158251,27538,174.01
+"86","E09000020","Kensington and Chelsea","London Borough",2012,157240,9487,60.33
+"87","E09000020","Kensington and Chelsea","London Borough",2013,156823,3769,24.03
+"88","E09000020","Kensington and Chelsea","London Borough",2014,156178,6416,41.08
+"89","E09000020","Kensington and Chelsea","London Borough",2015,156149,11987,76.77
+"90","E09000020","Kensington and Chelsea","London Borough",2016,152708,24592,161.04
+"91","E09000020","Kensington and Chelsea","London Borough",2017,149651,25564,170.82
+"92","E09000020","Kensington and Chelsea","London Borough",2018,148471,25582,172.3
+"93","E09000020","Kensington and Chelsea","London Borough",2019,146805,28025,190.9
+"94","E09000020","Kensington and Chelsea","London Borough",2020,144874,26305,181.57
+"95","E09000020","Kensington and Chelsea","London Borough",2021,144266,24916,172.71
+"96","E09000020","Kensington and Chelsea","London Borough",2022,146336,26133,178.58
+"97","E09000020","Kensington and Chelsea","London Borough",2023,146499,26742,182.54
+"98","E09000020","Kensington and Chelsea","London Borough",2024,144518,26874,185.96
+"99","E09000022","Lambeth","London Borough",2011,304481,53892,177
+"100","E09000022","Lambeth","London Borough",2012,310449,17448,56.2
+"101","E09000022","Lambeth","London Borough",2013,314375,6958,22.13
+"102","E09000022","Lambeth","London Borough",2014,318196,10556,33.17
+"103","E09000022","Lambeth","London Borough",2015,322881,22055,68.31
+"104","E09000022","Lambeth","London Borough",2016,326613,44863,137.36
+"105","E09000022","Lambeth","London Borough",2017,327227,43757,133.72
+"106","E09000022","Lambeth","London Borough",2018,328923,43394,131.93
+"107","E09000022","Lambeth","London Borough",2019,329513,43338,131.52
+"108","E09000022","Lambeth","London Borough",2020,325527,47914,147.19
+"109","E09000022","Lambeth","London Borough",2021,317691,43299,136.29
+"110","E09000022","Lambeth","London Borough",2022,317657,43438,136.74
+"111","E09000022","Lambeth","London Borough",2023,318738,44135,138.47
+"112","E09000022","Lambeth","London Borough",2024,316920,47641,150.33
+"113","E09000023","Lewisham","London Borough",2011,276938,42851,154.73
+"114","E09000023","Lewisham","London Borough",2012,281011,12774,45.46
+"115","E09000023","Lewisham","London Borough",2013,286056,5166,18.06
+"116","E09000023","Lewisham","London Borough",2014,291086,7097,24.38
+"117","E09000023","Lewisham","London Borough",2015,295364,15502,52.48
+"118","E09000023","Lewisham","London Borough",2016,298809,31004,103.76
+"119","E09000023","Lewisham","London Borough",2017,300924,31117,103.4
+"120","E09000023","Lewisham","London Borough",2018,303127,32087,105.85
+"121","E09000023","Lewisham","London Borough",2019,305906,34341,112.26
+"122","E09000023","Lewisham","London Borough",2020,304169,39683,130.46
+"123","E09000023","Lewisham","London Borough",2021,300013,34879,116.26
+"124","E09000023","Lewisham","London Borough",2022,299164,34611,115.69
+"125","E09000023","Lewisham","London Borough",2023,300225,35656,118.76
+"126","E09000023","Lewisham","London Borough",2024,301255,36557,121.35
+"127","E09000025","Newham","London Borough",2011,310460,50024,161.13
+"128","E09000025","Newham","London Borough",2012,313750,16021,51.06
+"129","E09000025","Newham","London Borough",2013,316952,6165,19.45
+"130","E09000025","Newham","London Borough",2014,322984,9600,29.72
+"131","E09000025","Newham","London Borough",2015,330322,19173,58.04
+"132","E09000025","Newham","London Borough",2016,335337,39889,118.95
+"133","E09000025","Newham","London Borough",2017,338333,41764,123.44
+"134","E09000025","Newham","London Borough",2018,344570,42931,124.59
+"135","E09000025","Newham","London Borough",2019,349786,42573,121.71
+"136","E09000025","Newham","London Borough",2020,350025,48620,138.9
+"137","E09000025","Newham","London Borough",2021,351256,44243,125.96
+"138","E09000025","Newham","London Borough",2022,357327,44582,124.77
+"139","E09000025","Newham","London Borough",2023,368194,46505,126.31
+"140","E09000025","Newham","London Borough",2024,374523,49441,132.01
+"141","E09000028","Southwark","London Borough",2011,288717,51533,178.49
+"142","E09000028","Southwark","London Borough",2012,293078,15437,52.67
+"143","E09000028","Southwark","London Borough",2013,297868,6626,22.24
+"144","E09000028","Southwark","London Borough",2014,299685,9243,30.84
+"145","E09000028","Southwark","London Borough",2015,304048,19316,63.53
+"146","E09000028","Southwark","London Borough",2016,306720,40032,130.52
+"147","E09000028","Southwark","London Borough",2017,307640,41417,134.63
+"148","E09000028","Southwark","London Borough",2018,310492,43258,139.32
+"149","E09000028","Southwark","London Borough",2019,312591,46332,148.22
+"150","E09000028","Southwark","London Borough",2020,312055,47707,152.88
+"151","E09000028","Southwark","London Borough",2021,306762,42224,137.64
+"152","E09000028","Southwark","London Borough",2022,309327,42836,138.48
+"153","E09000028","Southwark","London Borough",2023,313485,44756,142.77
+"154","E09000028","Southwark","London Borough",2024,314786,47984,152.43
+"155","E09000030","Tower Hamlets","London Borough",2011,256012,47990,187.45
+"156","E09000030","Tower Hamlets","London Borough",2012,261936,15351,58.61
+"157","E09000030","Tower Hamlets","London Borough",2013,270294,6427,23.78
+"158","E09000030","Tower Hamlets","London Borough",2014,277060,10119,36.52
+"159","E09000030","Tower Hamlets","London Borough",2015,282674,21196,74.98
+"160","E09000030","Tower Hamlets","London Borough",2016,289011,44952,155.54
+"161","E09000030","Tower Hamlets","London Borough",2017,293526,43755,149.07
+"162","E09000030","Tower Hamlets","London Borough",2018,300050,46090,153.61
+"163","E09000030","Tower Hamlets","London Borough",2019,305066,47794,156.67
+"164","E09000030","Tower Hamlets","London Borough",2020,306780,55191,179.9
+"165","E09000030","Tower Hamlets","London Borough",2021,312715,49259,157.52
+"166","E09000030","Tower Hamlets","London Borough",2022,324881,45424,139.82
+"167","E09000030","Tower Hamlets","London Borough",2023,329143,46211,140.4
+"168","E09000030","Tower Hamlets","London Borough",2024,331886,46481,140.05
+"169","E09000032","Wandsworth","London Borough",2011,307710,34929,113.51
+"170","E09000032","Wandsworth","London Borough",2012,312262,12751,40.83
+"171","E09000032","Wandsworth","London Borough",2013,316810,4933,15.57
+"172","E09000032","Wandsworth","London Borough",2014,319898,6826,21.34
+"173","E09000032","Wandsworth","London Borough",2015,322658,14291,44.29
+"174","E09000032","Wandsworth","London Borough",2016,326413,29887,91.56
+"175","E09000032","Wandsworth","London Borough",2017,329493,30491,92.54
+"176","E09000032","Wandsworth","London Borough",2018,331069,31115,93.98
+"177","E09000032","Wandsworth","London Borough",2019,334558,31261,93.44
+"178","E09000032","Wandsworth","London Borough",2020,333678,37494,112.37
+"179","E09000032","Wandsworth","London Borough",2021,328429,34371,104.65
+"180","E09000032","Wandsworth","London Borough",2022,330447,31281,94.66
+"181","E09000032","Wandsworth","London Borough",2023,333859,33209,99.47
+"182","E09000032","Wandsworth","London Borough",2024,337655,32708,96.87
+"183","E09000033","Westminster","London Borough",2011,219582,87086,396.6
+"184","E09000033","Westminster","London Borough",2012,219539,28108,128.03
+"185","E09000033","Westminster","London Borough",2013,215907,11566,53.57
+"186","E09000033","Westminster","London Borough",2014,214341,16546,77.19
+"187","E09000033","Westminster","London Borough",2015,215876,30442,141.02
+"188","E09000033","Westminster","London Borough",2016,213193,64974,304.77
+"189","E09000033","Westminster","London Borough",2017,210459,69422,329.86
+"190","E09000033","Westminster","London Borough",2018,209868,76281,363.47
+"191","E09000033","Westminster","London Borough",2019,208415,90973,436.5
+"192","E09000033","Westminster","London Borough",2020,205624,65678,319.41
+"193","E09000033","Westminster","London Borough",2021,205759,62880,305.6
+"194","E09000033","Westminster","London Borough",2022,209333,89083,425.56
+"195","E09000033","Westminster","London Borough",2023,210665,101247,480.61
+"196","E09000033","Westminster","London Borough",2024,209996,103141,491.16
+"197","E09000002","Barking and Dagenham","London Borough",2011,187029,28875,154.39
+"198","E09000002","Barking and Dagenham","London Borough",2012,191453,8759,45.75
+"199","E09000002","Barking and Dagenham","London Borough",2013,196204,3813,19.43
+"200","E09000002","Barking and Dagenham","London Borough",2014,201244,5172,25.7
+"201","E09000002","Barking and Dagenham","London Borough",2015,206450,10738,52.01
+"202","E09000002","Barking and Dagenham","London Borough",2016,211047,22368,105.99
+"203","E09000002","Barking and Dagenham","London Borough",2017,214017,23392,109.3
+"204","E09000002","Barking and Dagenham","London Borough",2018,216298,22350,103.33
+"205","E09000002","Barking and Dagenham","London Borough",2019,218828,23332,106.62
+"206","E09000002","Barking and Dagenham","London Borough",2020,219227,26350,120.2
+"207","E09000002","Barking and Dagenham","London Borough",2021,218714,24067,110.04
+"208","E09000002","Barking and Dagenham","London Borough",2022,220392,24764,112.36
+"209","E09000002","Barking and Dagenham","London Borough",2023,226301,24854,109.83
+"210","E09000002","Barking and Dagenham","London Borough",2024,232747,24139,103.71
+"211","E09000003","Barnet","London Borough",2011,357538,40123,112.22
+"212","E09000003","Barnet","London Borough",2012,363260,12815,35.28
+"213","E09000003","Barnet","London Borough",2013,368611,5492,14.9
+"214","E09000003","Barnet","London Borough",2014,373853,7962,21.3
+"215","E09000003","Barnet","London Borough",2015,377826,15954,42.23
+"216","E09000003","Barnet","London Borough",2016,382925,33289,86.93
+"217","E09000003","Barnet","London Borough",2017,384117,33563,87.38
+"218","E09000003","Barnet","London Borough",2018,387574,34751,89.66
+"219","E09000003","Barnet","London Borough",2019,390590,37706,96.54
+"220","E09000003","Barnet","London Borough",2020,391046,41077,105.04
+"221","E09000003","Barnet","London Borough",2021,388955,37457,96.3
+"222","E09000003","Barnet","London Borough",2022,390371,36303,93
+"223","E09000003","Barnet","London Borough",2023,398191,35921,90.21
+"224","E09000003","Barnet","London Borough",2024,405050,35949,88.75
+"225","E09000004","Bexley","London Borough",2011,232774,20026,86.03
+"226","E09000004","Bexley","London Borough",2012,234435,6581,28.07
+"227","E09000004","Bexley","London Borough",2013,236169,2816,11.92
+"228","E09000004","Bexley","London Borough",2014,239112,4224,17.67
+"229","E09000004","Bexley","London Borough",2015,241427,7890,32.68
+"230","E09000004","Bexley","London Borough",2016,244006,17492,71.69
+"231","E09000004","Bexley","London Borough",2017,244494,19071,78
+"232","E09000004","Bexley","London Borough",2018,245244,19169,78.16
+"233","E09000004","Bexley","London Borough",2019,246622,21335,86.51
+"234","E09000004","Bexley","London Borough",2020,246924,22961,92.99
+"235","E09000004","Bexley","London Borough",2021,246637,20051,81.3
+"236","E09000004","Bexley","London Borough",2022,247875,20076,80.99
+"237","E09000004","Bexley","London Borough",2023,252124,19915,78.99
+"238","E09000004","Bexley","London Borough",2024,256434,20237,78.92
+"239","E09000005","Brent","London Borough",2011,312245,45232,144.86
+"240","E09000005","Brent","London Borough",2012,317984,14024,44.1
+"241","E09000005","Brent","London Borough",2013,324345,5488,16.92
+"242","E09000005","Brent","London Borough",2014,329981,8178,24.78
+"243","E09000005","Brent","London Borough",2015,335605,16411,48.9
+"244","E09000005","Brent","London Borough",2016,339524,36441,107.33
+"245","E09000005","Brent","London Borough",2017,342439,37933,110.77
+"246","E09000005","Brent","London Borough",2018,345558,38576,111.63
+"247","E09000005","Brent","London Borough",2019,347424,37916,109.13
+"248","E09000005","Brent","London Borough",2020,343988,43648,126.89
+"249","E09000005","Brent","London Borough",2021,339248,38478,113.42
+"250","E09000005","Brent","London Borough",2022,341505,39514,115.71
+"251","E09000005","Brent","London Borough",2023,348751,40381,115.79
+"252","E09000005","Brent","London Borough",2024,352976,42439,120.23
+"253","E09000006","Bromley","London Borough",2011,310554,33747,108.67
+"254","E09000006","Bromley","London Borough",2012,314663,10398,33.04
+"255","E09000006","Bromley","London Borough",2013,318582,4293,13.48
+"256","E09000006","Bromley","London Borough",2014,321800,6507,20.22
+"257","E09000006","Bromley","London Borough",2015,325653,13208,40.56
+"258","E09000006","Bromley","London Borough",2016,327701,26471,80.78
+"259","E09000006","Bromley","London Borough",2017,329134,28035,85.18
+"260","E09000006","Bromley","London Borough",2018,330367,27866,84.35
+"261","E09000006","Bromley","London Borough",2019,331192,29456,88.94
+"262","E09000006","Bromley","London Borough",2020,331247,32077,96.84
+"263","E09000006","Bromley","London Borough",2021,329899,29106,88.23
+"264","E09000006","Bromley","London Borough",2022,329930,28246,85.61
+"265","E09000006","Bromley","London Borough",2023,332482,28563,85.91
+"266","E09000006","Bromley","London Borough",2024,335319,29127,86.86
+"267","E09000008","Croydon","London Borough",2011,364815,48473,132.87
+"268","E09000008","Croydon","London Borough",2012,369617,16088,43.53
+"269","E09000008","Croydon","London Borough",2013,374270,6338,16.93
+"270","E09000008","Croydon","London Borough",2014,378244,9009,23.82
+"271","E09000008","Croydon","London Borough",2015,381277,18270,47.92
+"272","E09000008","Croydon","London Borough",2016,384382,38070,99.04
+"273","E09000008","Croydon","London Borough",2017,385567,37659,97.67
+"274","E09000008","Croydon","London Borough",2018,386999,37764,97.58
+"275","E09000008","Croydon","London Borough",2019,390643,39493,101.1
+"276","E09000008","Croydon","London Borough",2020,392101,46915,119.65
+"277","E09000008","Croydon","London Borough",2021,390691,42703,109.3
+"278","E09000008","Croydon","London Borough",2022,393547,42299,107.48
+"279","E09000008","Croydon","London Borough",2023,402217,40853,101.57
+"280","E09000008","Croydon","London Borough",2024,409342,43495,106.26
+"281","E09000009","Ealing","London Borough",2011,339314,50901,150.01
+"282","E09000009","Ealing","London Borough",2012,344834,15563,45.13
+"283","E09000009","Ealing","London Borough",2013,350650,6009,17.14
+"284","E09000009","Ealing","London Borough",2014,354660,8726,24.6
+"285","E09000009","Ealing","London Borough",2015,359144,18348,51.09
+"286","E09000009","Ealing","London Borough",2016,362163,37486,103.51
+"287","E09000009","Ealing","London Borough",2017,362670,37276,102.78
+"288","E09000009","Ealing","London Borough",2018,364208,37168,102.05
+"289","E09000009","Ealing","London Borough",2019,367284,39777,108.3
+"290","E09000009","Ealing","London Borough",2020,367936,44646,121.34
+"291","E09000009","Ealing","London Borough",2021,366762,39521,107.76
+"292","E09000009","Ealing","London Borough",2022,370315,39350,106.26
+"293","E09000009","Ealing","London Borough",2023,379203,41144,108.5
+"294","E09000009","Ealing","London Borough",2024,385985,41831,108.37
+"295","E09000010","Enfield","London Borough",2011,313935,38547,122.79
+"296","E09000010","Enfield","London Borough",2012,317780,11842,37.26
+"297","E09000010","Enfield","London Borough",2013,321754,4980,15.48
+"298","E09000010","Enfield","London Borough",2014,326340,7406,22.69
+"299","E09000010","Enfield","London Borough",2015,330868,14575,44.05
+"300","E09000010","Enfield","London Borough",2016,333295,30865,92.61
+"301","E09000010","Enfield","London Borough",2017,333077,32403,97.28
+"302","E09000010","Enfield","London Borough",2018,334000,35441,106.11
+"303","E09000010","Enfield","London Borough",2019,335151,36565,109.1
+"304","E09000010","Enfield","London Borough",2020,333149,42590,127.84
+"305","E09000010","Enfield","London Borough",2021,329876,38439,116.53
+"306","E09000010","Enfield","London Borough",2022,326867,38014,116.3
+"307","E09000010","Enfield","London Borough",2023,328014,37293,113.69
+"308","E09000010","Enfield","London Borough",2024,327434,37301,113.92
+"309","E09000011","Greenwich","London Borough",2011,255483,35109,137.42
+"310","E09000011","Greenwich","London Borough",2012,260360,10819,41.55
+"311","E09000011","Greenwich","London Borough",2013,264036,4215,15.96
+"312","E09000011","Greenwich","London Borough",2014,268305,6240,23.26
+"313","E09000011","Greenwich","London Borough",2015,274230,13365,48.74
+"314","E09000011","Greenwich","London Borough",2016,278768,29333,105.22
+"315","E09000011","Greenwich","London Borough",2017,282376,30997,109.77
+"316","E09000011","Greenwich","London Borough",2018,285773,30867,108.01
+"317","E09000011","Greenwich","London Borough",2019,288205,33035,114.62
+"318","E09000011","Greenwich","London Borough",2020,288384,35917,124.55
+"319","E09000011","Greenwich","London Borough",2021,289537,32900,113.63
+"320","E09000011","Greenwich","London Borough",2022,292381,32512,111.2
+"321","E09000011","Greenwich","London Borough",2023,296420,33530,113.12
+"322","E09000011","Greenwich","London Borough",2024,299528,33610,112.21
+"323","E09000015","Harrow","London Borough",2011,240499,21743,90.41
+"324","E09000015","Harrow","London Borough",2012,243800,7151,29.33
+"325","E09000015","Harrow","London Borough",2013,247018,2890,11.7
+"326","E09000015","Harrow","London Borough",2014,251618,4265,16.95
+"327","E09000015","Harrow","London Borough",2015,255308,8544,33.47
+"328","E09000015","Harrow","London Borough",2016,257317,18144,70.51
+"329","E09000015","Harrow","London Borough",2017,257881,18108,70.22
+"330","E09000015","Harrow","London Borough",2018,259861,19210,73.92
+"331","E09000015","Harrow","London Borough",2019,262065,21549,82.23
+"332","E09000015","Harrow","London Borough",2020,262281,23863,90.98
+"333","E09000015","Harrow","London Borough",2021,261159,20211,77.39
+"334","E09000015","Harrow","London Borough",2022,261798,20219,77.23
+"335","E09000015","Harrow","London Borough",2023,266891,19943,74.72
+"336","E09000015","Harrow","London Borough",2024,270724,21300,78.68
+"337","E09000016","Havering","London Borough",2011,237927,25942,109.03
+"338","E09000016","Havering","London Borough",2012,239946,8041,33.51
+"339","E09000016","Havering","London Borough",2013,242550,3412,14.07
+"340","E09000016","Havering","London Borough",2014,246771,4923,19.95
+"341","E09000016","Havering","London Borough",2015,250449,9866,39.39
+"342","E09000016","Havering","London Borough",2016,254487,21962,86.3
+"343","E09000016","Havering","London Borough",2017,257429,23099,89.73
+"344","E09000016","Havering","London Borough",2018,259229,22768,87.83
+"345","E09000016","Havering","London Borough",2019,261296,22530,86.22
+"346","E09000016","Havering","London Borough",2020,261906,24722,94.39
+"347","E09000016","Havering","London Borough",2021,262086,22636,86.37
+"348","E09000016","Havering","London Borough",2022,264786,23719,89.58
+"349","E09000016","Havering","London Borough",2023,270305,25068,92.74
+"350","E09000016","Havering","London Borough",2024,276274,24969,90.38
+"351","E09000017","Hillingdon","London Borough",2011,275499,41349,150.09
+"352","E09000017","Hillingdon","London Borough",2012,281263,12659,45.01
+"353","E09000017","Hillingdon","London Borough",2013,285982,4894,17.11
+"354","E09000017","Hillingdon","London Borough",2014,290225,7938,27.35
+"355","E09000017","Hillingdon","London Borough",2015,294011,15835,53.86
+"356","E09000017","Hillingdon","London Borough",2016,297451,33838,113.76
+"357","E09000017","Hillingdon","London Borough",2017,299469,35776,119.46
+"358","E09000017","Hillingdon","London Borough",2018,302263,35672,118.02
+"359","E09000017","Hillingdon","London Borough",2019,305641,37367,122.26
+"360","E09000017","Hillingdon","London Borough",2020,306460,39106,127.61
+"361","E09000017","Hillingdon","London Borough",2021,305107,33972,111.34
+"362","E09000017","Hillingdon","London Borough",2022,312162,34984,112.07
+"363","E09000017","Hillingdon","London Borough",2023,321977,35033,108.81
+"364","E09000017","Hillingdon","London Borough",2024,329185,37926,115.21
+"365","E09000018","Hounslow","London Borough",2011,254927,36858,144.58
+"366","E09000018","Hounslow","London Borough",2012,260584,12000,46.05
+"367","E09000018","Hounslow","London Borough",2013,265547,4578,17.24
+"368","E09000018","Hounslow","London Borough",2014,270773,6789,25.07
+"369","E09000018","Hounslow","London Borough",2015,275097,14237,51.75
+"370","E09000018","Hounslow","London Borough",2016,278601,29525,105.98
+"371","E09000018","Hounslow","London Borough",2017,281117,31282,111.28
+"372","E09000018","Hounslow","London Borough",2018,285430,31982,112.05
+"373","E09000018","Hounslow","London Borough",2019,289652,32293,111.49
+"374","E09000018","Hounslow","London Borough",2020,289773,35779,123.47
+"375","E09000018","Hounslow","London Borough",2021,288164,31778,110.28
+"376","E09000018","Hounslow","London Borough",2022,289196,31441,108.72
+"377","E09000018","Hounslow","London Borough",2023,295221,33766,114.38
+"378","E09000018","Hounslow","London Borough",2024,299424,33016,110.27
+"379","E09000021","Kingston upon Thames","London Borough",2011,160436,17771,110.77
+"380","E09000021","Kingston upon Thames","London Borough",2012,162562,5438,33.45
+"381","E09000021","Kingston upon Thames","London Borough",2013,164418,2223,13.52
+"382","E09000021","Kingston upon Thames","London Borough",2014,165791,3377,20.37
+"383","E09000021","Kingston upon Thames","London Borough",2015,167594,6886,41.09
+"384","E09000021","Kingston upon Thames","London Borough",2016,168617,14091,83.57
+"385","E09000021","Kingston upon Thames","London Borough",2017,168781,14372,85.15
+"386","E09000021","Kingston upon Thames","London Borough",2018,168729,14943,88.56
+"387","E09000021","Kingston upon Thames","London Borough",2019,169797,15302,90.12
+"388","E09000021","Kingston upon Thames","London Borough",2020,169770,16825,99.1
+"389","E09000021","Kingston upon Thames","London Borough",2021,167992,14776,87.96
+"390","E09000021","Kingston upon Thames","London Borough",2022,169076,14831,87.72
+"391","E09000021","Kingston upon Thames","London Borough",2023,170780,14899,87.24
+"392","E09000021","Kingston upon Thames","London Borough",2024,172692,14271,82.64
+"393","E09000024","Merton","London Borough",2011,200543,21669,108.05
+"394","E09000024","Merton","London Borough",2012,205166,6745,32.88
+"395","E09000024","Merton","London Borough",2013,208529,2696,12.93
+"396","E09000024","Merton","London Borough",2014,211025,3929,18.62
+"397","E09000024","Merton","London Borough",2015,213791,8070,37.75
+"398","E09000024","Merton","London Borough",2016,215514,16714,77.55
+"399","E09000024","Merton","London Borough",2017,215431,17061,79.19
+"400","E09000024","Merton","London Borough",2018,216171,17152,79.34
+"401","E09000024","Merton","London Borough",2019,217219,17574,80.9
+"402","E09000024","Merton","London Borough",2020,217101,20097,92.57
+"403","E09000024","Merton","London Borough",2021,215426,17791,82.59
+"404","E09000024","Merton","London Borough",2022,215105,17955,83.47
+"405","E09000024","Merton","London Borough",2023,217135,17512,80.65
+"406","E09000024","Merton","London Borough",2024,218539,17436,79.78
+"407","E09000026","Redbridge","London Borough",2011,281395,37233,132.32
+"408","E09000026","Redbridge","London Borough",2012,285437,11383,39.88
+"409","E09000026","Redbridge","London Borough",2013,289976,4693,16.18
+"410","E09000026","Redbridge","London Borough",2014,295837,6579,22.24
+"411","E09000026","Redbridge","London Borough",2015,301022,12334,40.97
+"412","E09000026","Redbridge","London Borough",2016,304369,26092,85.72
+"413","E09000026","Redbridge","London Borough",2017,305937,29503,96.43
+"414","E09000026","Redbridge","London Borough",2018,308841,29187,94.5
+"415","E09000026","Redbridge","London Borough",2019,311780,28996,93
+"416","E09000026","Redbridge","London Borough",2020,311750,33196,106.48
+"417","E09000026","Redbridge","London Borough",2021,310130,31773,102.45
+"418","E09000026","Redbridge","London Borough",2022,311629,30667,98.41
+"419","E09000026","Redbridge","London Borough",2023,316556,29567,93.4
+"420","E09000026","Redbridge","London Borough",2024,321231,29387,91.48
+"421","E09000027","Richmond upon Thames","London Borough",2011,187527,18060,96.31
+"422","E09000027","Richmond upon Thames","London Borough",2012,189934,5928,31.21
+"423","E09000027","Richmond upon Thames","London Borough",2013,192375,2387,12.41
+"424","E09000027","Richmond upon Thames","London Borough",2014,194492,3422,17.59
+"425","E09000027","Richmond upon Thames","London Borough",2015,194966,7039,36.1
+"426","E09000027","Richmond upon Thames","London Borough",2016,196293,15062,76.73
+"427","E09000027","Richmond upon Thames","London Borough",2017,196849,16520,83.92
+"428","E09000027","Richmond upon Thames","London Borough",2018,197119,15786,80.08
+"429","E09000027","Richmond upon Thames","London Borough",2019,198185,15894,80.2
+"430","E09000027","Richmond upon Thames","London Borough",2020,197797,19132,96.73
+"431","E09000027","Richmond upon Thames","London Borough",2021,195315,15388,78.79
+"432","E09000027","Richmond upon Thames","London Borough",2022,195295,14741,75.48
+"433","E09000027","Richmond upon Thames","London Borough",2023,196061,15073,76.88
+"434","E09000027","Richmond upon Thames","London Borough",2024,196678,15032,76.43
+"435","E09000029","Sutton","London Borough",2011,191123,18275,95.62
+"436","E09000029","Sutton","London Borough",2012,193982,5811,29.96
+"437","E09000029","Sutton","London Borough",2013,196678,2253,11.46
+"438","E09000029","Sutton","London Borough",2014,199144,3436,17.25
+"439","E09000029","Sutton","London Borough",2015,201208,6714,33.37
+"440","E09000029","Sutton","London Borough",2016,203299,13897,68.36
+"441","E09000029","Sutton","London Borough",2017,204824,14851,72.51
+"442","E09000029","Sutton","London Borough",2018,206286,15006,72.74
+"443","E09000029","Sutton","London Borough",2019,208516,17181,82.4
+"444","E09000029","Sutton","London Borough",2020,209921,19113,91.05
+"445","E09000029","Sutton","London Borough",2021,209617,16872,80.49
+"446","E09000029","Sutton","London Borough",2022,210369,16929,80.47
+"447","E09000029","Sutton","London Borough",2023,212336,16074,75.7
+"448","E09000029","Sutton","London Borough",2024,214525,15969,74.44
+"449","E09000031","Waltham Forest","London Borough",2011,259742,38667,148.87
+"450","E09000031","Waltham Forest","London Borough",2012,263575,11660,44.24
+"451","E09000031","Waltham Forest","London Borough",2013,267963,4523,16.88
+"452","E09000031","Waltham Forest","London Borough",2014,270606,6954,25.7
+"453","E09000031","Waltham Forest","London Borough",2015,274579,14184,51.66
+"454","E09000031","Waltham Forest","London Borough",2016,277081,28324,102.22
+"455","E09000031","Waltham Forest","London Borough",2017,278105,29102,104.64
+"456","E09000031","Waltham Forest","London Borough",2018,279795,29801,106.51
+"457","E09000031","Waltham Forest","London Borough",2019,281015,29668,105.57
+"458","E09000031","Waltham Forest","London Borough",2020,279527,36330,129.97
+"459","E09000031","Waltham Forest","London Borough",2021,278147,30520,109.73
+"460","E09000031","Waltham Forest","London Borough",2022,275847,29509,106.98
+"461","E09000031","Waltham Forest","London Borough",2023,278506,30154,108.27
+"462","E09000031","Waltham Forest","London Borough",2024,279737,31906,114.06

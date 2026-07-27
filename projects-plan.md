@@ -1,5 +1,8 @@
 # London Quality of Life × Crime — Web Rebuild: GitHub Projects Plan
 
+> Note: this file is a roadmap; the current repo state is documented in README.md and pipeline/README.md.
+
+
 **Architecture (locked):** Next.js (App Router, TypeScript) serving both the frontend and the data API via API routes · R data pipeline (offline, outputs versioned JSON/GeoJSON) · Deployed on Vercel free tier.
 **Total estimate:** ~55–70 hrs across 5 epics.
 **Dependency rule:** no issue depends on a later-numbered issue. `blocked-by:*` labels encode hard dependencies.
@@ -9,6 +12,7 @@
 ## Epic 0 — Repository & Infrastructure Setup
 
 ### Issue 0.1 — Initialise monorepo structure
+**Status: Done**
 **Branch:** `chore/setup/monorepo-init`
 **Labels:** `setup` `no-dependencies`
 **Estimate:** 1–2 hrs
@@ -29,6 +33,7 @@ Scaffold the repository with `web/` (Next.js app) and `pipeline/` (R scripts) di
 ---
 
 ### Issue 0.2 — Scaffold Next.js application
+**Status: Done**
 **Branch:** `chore/setup/nextjs-scaffold`
 **Labels:** `setup` `frontend` `blocked-by:0.1`
 **Estimate:** 1–2 hrs
@@ -48,6 +53,7 @@ Initialise the Next.js app in `web/` with TypeScript, ESLint, Tailwind CSS, and 
 ---
 
 ### Issue 0.3 — CI workflow for lint and build
+**Status: Planned**
 **Branch:** `chore/setup/ci-lint-build`
 **Labels:** `setup` `ci` `blocked-by:0.2`
 **Estimate:** 1–2 hrs
@@ -66,6 +72,7 @@ Add a GitHub Actions workflow that runs ESLint and `next build` on every pull re
 ---
 
 ### Issue 0.4 — Vercel deployment pipeline
+**Status: Planned**
 **Branch:** `chore/setup/vercel-deploy`
 **Labels:** `setup` `deploy` `blocked-by:0.2`
 **Estimate:** 1 hr
@@ -86,6 +93,7 @@ Connect the repo to Vercel with `web/` as the project root. Production deploys f
 ## Epic 1 — Data Pipeline (R)
 
 ### Issue 1.1 — Acquire raw crime data (Met + City of London)
+**Status: In progress**
 **Branch:** `feat/data/crime-acquisition`
 **Labels:** `data` `no-dependencies`
 **Estimate:** 2–3 hrs
@@ -105,6 +113,7 @@ Download the 10-year custom archive from data.police.uk filtered to Metropolitan
 ---
 
 ### Issue 1.2 — LSOA→borough lookup and code harmonisation
+**Status: Done**
 **Branch:** `feat/data/lsoa-borough-lookup`
 **Labels:** `data` `blocked-by:1.1`
 **Estimate:** 3–4 hrs
@@ -124,6 +133,7 @@ Download the ONS Open Geography Portal LSOA-to-local-authority lookup. Harmonise
 ---
 
 ### Issue 1.3 — Aggregate crime to borough-year rates
+**Status: In progress**
 **Branch:** `feat/data/crime-aggregation`
 **Labels:** `data` `blocked-by:1.2`
 **Estimate:** 3–4 hrs
@@ -143,6 +153,7 @@ Join crime records to the lookup, aggregate to borough × year (and borough × y
 ---
 
 ### Issue 1.4 — Ingest income, life expectancy, IMD, well-being
+**Status: In progress**
 **Branch:** `feat/data/qol-dimensions`
 **Labels:** `data` `no-dependencies`
 **Estimate:** 3–4 hrs
@@ -162,6 +173,7 @@ Download and tidy the four quality-of-life datasets from the GLA London Datastor
 ---
 
 ### Issue 1.5 — Build unified dataset and export JSON
+**Status: Planned**
 **Branch:** `feat/data/unified-export`
 **Labels:** `data` `blocked-by:1.3` `blocked-by:1.4`
 **Estimate:** 2–3 hrs
@@ -181,6 +193,7 @@ Join crime rates with the four QoL dimensions into one tidy long-format dataset.
 ---
 
 ### Issue 1.6 — Borough boundaries GeoJSON
+**Status: Planned**
 **Branch:** `feat/data/boundaries-geojson`
 **Labels:** `data` `no-dependencies`
 **Estimate:** 2 hrs
@@ -202,6 +215,7 @@ Download the London Datastore statistical GIS borough boundaries, convert to Geo
 ## Epic 2 — API Layer (Next.js Routes)
 
 ### Issue 2.1 — Metrics API route
+**Status: Planned**
 **Branch:** `feat/api/metrics-route`
 **Labels:** `backend` `blocked-by:0.2` `blocked-by:1.5`
 **Estimate:** 2–3 hrs
@@ -221,6 +235,7 @@ Implement `GET /api/metrics` serving the unified dataset with query-parameter fi
 ---
 
 ### Issue 2.2 — Boundaries API route
+**Status: Planned**
 **Branch:** `feat/api/geo-route`
 **Labels:** `backend` `blocked-by:0.2` `blocked-by:1.6`
 **Estimate:** 1–2 hrs
@@ -241,6 +256,7 @@ Serve `GET /api/geo` returning the simplified borough GeoJSON with long-lived ca
 ## Epic 3 — Frontend
 
 ### Issue 3.1 — Responsive layout shell
+**Status: In progress**
 **Branch:** `feat/frontend/layout-shell`
 **Labels:** `frontend` `blocked-by:0.2`
 **Estimate:** 2–3 hrs
@@ -260,6 +276,7 @@ Build the app shell: header, navigation, main content grid, and footer with data
 ---
 
 ### Issue 3.2 — Choropleth map component
+**Status: Planned**
 **Branch:** `feat/frontend/choropleth-map`
 **Labels:** `frontend` `blocked-by:2.1` `blocked-by:2.2` `blocked-by:3.1`
 **Estimate:** 5–6 hrs
@@ -279,6 +296,7 @@ Render the borough choropleth with MapLibre GL via react-map-gl, joining `/api/g
 ---
 
 ### Issue 3.3 — Metric switcher and feature toggles
+**Status: Planned**
 **Branch:** `feat/frontend/metric-controls`
 **Labels:** `frontend` `blocked-by:3.2`
 **Estimate:** 3–4 hrs
@@ -298,6 +316,7 @@ Control panel to switch the mapped metric and toggle features on/off — hide/sh
 ---
 
 ### Issue 3.4 — Year slider with crime trend
+**Status: Planned**
 **Branch:** `feat/frontend/year-slider`
 **Labels:** `frontend` `blocked-by:3.2`
 **Estimate:** 2–3 hrs
@@ -316,6 +335,7 @@ Year slider scrubbing the crime layer across the 10-year window, with debounced 
 ---
 
 ### Issue 3.5 — Borough tooltip and detail panel
+**Status: Planned**
 **Branch:** `feat/frontend/borough-detail`
 **Labels:** `frontend` `blocked-by:3.2`
 **Estimate:** 3–4 hrs
@@ -334,6 +354,7 @@ Hover tooltip (desktop) and tap-to-open detail panel (mobile) showing all six me
 ---
 
 ### Issue 3.6 — Crime-vs-metric scatterplot
+**Status: Planned**
 **Branch:** `feat/frontend/scatterplot`
 **Labels:** `frontend` `blocked-by:3.3`
 **Estimate:** 4–5 hrs
@@ -353,6 +374,7 @@ Scatterplot of crime rate against the selected QoL metric, one point per borough
 ---
 
 ### Issue 3.7 — KPI summary panel
+**Status: Planned**
 **Branch:** `feat/frontend/kpi-panel`
 **Labels:** `frontend` `blocked-by:3.3`
 **Estimate:** 2–3 hrs
@@ -371,6 +393,7 @@ At-a-glance KPI strip: highest/lowest borough for the active metric, London-wide
 ---
 
 ### Issue 3.8 — Cross-device and accessibility pass
+**Status: Planned**
 **Branch:** `fix/frontend/responsive-a11y`
 **Labels:** `frontend` `qa` `blocked-by:3.4` `blocked-by:3.5` `blocked-by:3.6` `blocked-by:3.7`
 **Estimate:** 3–4 hrs
@@ -392,6 +415,7 @@ Systematic pass on real or emulated devices (small phone, tablet, desktop): touc
 ## Epic 4 — Narrative & Release
 
 ### Issue 4.1 — Insights and methodology content
+**Status: Planned**
 **Branch:** `feat/docs/insights-content`
 **Labels:** `docs` `blocked-by:3.7`
 **Estimate:** 3–4 hrs
@@ -411,6 +435,7 @@ Write the landing narrative: 3–4 headline findings with numbers, the original 
 ---
 
 ### Issue 4.2 — Performance audit and release
+**Status: Planned**
 **Branch:** `chore/release/perf-v1`
 **Labels:** `deploy` `qa` `blocked-by:3.8` `blocked-by:4.1`
 **Estimate:** 2–3 hrs

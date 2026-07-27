@@ -1,22 +1,9 @@
 library(stringr)
-# =============================================================
-# 00_download.R — Crime data acquisition (documented + verified)
-#
-# MANUAL STEPS (custom download cannot be scripted from the form):
-#   1. Go to https://data.police.uk/data/
-#   2. Set date range: [START YYYY-MM] to [END YYYY-MM]
-#   3. Under "Forces", tick ONLY:
-#        - Metropolitan Police Service
-#        - City of London Police
-#   4. Tick "Include crime data". Download and unzip into data/raw/
-#
-# This script verifies the unzipped result is complete.
-# =============================================================
-
 raw_dir <- "data/raw/crime"
 dir.create(raw_dir, recursive = TRUE, showWarnings = FALSE)
 
 # Define the window you documented in SOURCES.md
+# This script verifies the raw crime CSVs are present for the expected months.
 start_month <- "2011-01"   # <-- set to your real start
 end_month   <- "2026-04"   # <-- set to your real end
 

@@ -1,8 +1,3 @@
-if (!requireNamespace("lazyeval", quietly = TRUE)) {
-  install.packages("lazyeval")
-}
-line_length_linter(length = 100L, ignore_string_bodies = TRUE)
-object_length_linter(length = 50L)
 
 # Goal
 ## Create a reliable mapping from each crime record's LSOA to its borough.
@@ -14,7 +9,7 @@ object_length_linter(length = 50L)
 
 
 
-spark_install(version = "3.4.0") # pick a recent Spark version
+# Required packages: sparklyr, dplyr, tidyverse, digest
 library(sparklyr)
 library(dplyr)
 library(tidyverse)
@@ -37,21 +32,12 @@ crime <- spark_read_csv(sc,
   header = TRUE, infer_schema = TRUE
 )
 
-head(lk, 5)
-count(lk)
-count(crime)
-head(crime, 10)
-
-glimpse(crime)
-
-
 # Check for missing Crime_IDs and frequency of crime types
 crime |>
   filter(is.na(Crime_ID)) |>
   group_by(Crime_type) |>
   summarise(count = n()) |>
-  arrange(desc(count)) |>
-  print(n = Inf)
+  arrange(desc(count))
 
 # 1 Anti-social behaviour 3434827
 # 2 Other crime 294211
@@ -84,8 +70,6 @@ crime <- crime |>
     )
   )
 
-crime |> view()
-
 sdf_register(crime, "crime_hashed")
 
 # make sure the all in one partition
@@ -113,14 +97,11 @@ crime <- spark_read_csv(sc, crime_files, colClasses = "character")
 lsoa_lookup <- spark_read_csv(sc, lookup_path, colClasses = "character")
 
 
-glimpse(crime)
-glimpse(lsoa_lookup)
 # Check for empty LSOA codes in the crime data and print the results
 crime |>
   filter(is.na(`LSOA_code`) | `LSOA_code` == "") |>
   select(`LSOA_code`, `LSOA_name`, `Longitude`, `Latitude`, `Location`) |>
-  collect() |>
-  view(n = Inf)
+  collect()
 # 139,764 missing of 13,000,000 records (1.07%) missing. 
 # small enough to ignore, as our main concern has to do with borough mapping
 # Therefore drop rows with missing LSOA codes
@@ -131,8 +112,6 @@ crime <- crime |>
 # Join crime with lsoa_lookup on LSOA_code to get borough information
 crime_with_borough <- crime |>
   left_join(lsoa_lookup, by = c("LSOA_code" = "lsoa"))
-
-glimpse(crime_with_borough)
 
 single_file_tbl <- crime_with_borough |>
   sdf_repartition(partitions = 1)
@@ -156,14 +135,11 @@ crime_with_borough <- spark_read_csv(sc, str_c(getwd(),"/data/processed/crime_by
 crime_with_borough <- crime_with_borough |>
   mutate(year = substr(`Month`, 1, 4))
 
-glimpse(crime_with_borough)
-
 crime_counts_by_year <- crime_with_borough |>
   group_by(`lad_nm`,`year`) |>
   summarise(crime_type_count = n()) |>
   arrange(Borough = `lad_nm`, Year = `year`) |>
-  collect() |>
-  view(n = Inf)
+  collect()
 
 # Save the aggregated crime counts by borough and year to a CSV file
 output_path <- "data/processed/crime_counts_by_year.csv"
@@ -184,8 +160,7 @@ crime_counts_by_year_and_category <- crime_with_borough |>
     Crime_Subcategory = `Crime_type`,
     Crime_Type_Count = crime_type_count
   ) |>
-  collect() |>
-  view(n = Inf)
+  collect()
 
 # Add Main category feature
 # Create categories for crime types
@@ -227,8 +202,8 @@ categorize_crime <- function(crime) {
 crime_counts_by_crime_type <- crime_counts_by_year_and_category |>
   mutate(crime_category = sapply(`Crime_Subcategory`, categorize_crime)) |>
   select(Borough, Year, Crime_Subcategory, Crime_Subcategory_Count = `Crime_Type_Count`, Crime_Category = `crime_category`) |>
-  collect() |> view(n = Inf)
-  
+  collect()
+   
 output_path <- "data/processed/crime_counts_by_crime_subcategory_type.csv"
 crime_counts_by_crime_type |>
   write.csv(output_path, row.names = FALSE)
@@ -238,7 +213,7 @@ crime_counts_by_crime_type <- crime_counts_by_crime_type |>
   group_by(Borough, Year, Crime_Category) |>
   summarise(Crime_Category_Count = sum(Crime_Subcategory_Count)) |>
   arrange(Borough, Year, Crime_Category) |>
-  collect() |> view(n = Inf)
+  collect()
 
 # Save the aggregated crime counts by borough, year, and category to a CSV file
 output_path <- "data/processed/crime_counts_by_crime_type.csv"

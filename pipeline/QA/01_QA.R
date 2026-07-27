@@ -1,8 +1,3 @@
-if (!requireNamespace("lazyeval", quietly = TRUE)) {
-  install.packages("lazyeval")
-}
-
-
 library(sparklyr)
 library(dplyr)
 
@@ -31,11 +26,7 @@ crime_count <- crime |>
 #-------------------------
 # Read lookup
 #-------------------------
-lsoa_lookup <- paste0(
-  "data/raw/LSAO_lookup/LSOA_(2011)_to_LSOA_(2021)",
-  "_to_Local_Authority_District_(2022)_Exact_Fit_",
-  "Lookup_for_EW_(V3).csv"
-)
+lsoa_lookup <- paste0("data/raw/LSAO_lookup/LSOA_(2011)_to_LSOA_(2021)", "_to_Local_Authority_District_(2022)_Exact_Fit_", "Lookup_for_EW_(V3).csv")
 
 lk <- spark_read_csv(
   sc,
@@ -123,7 +114,7 @@ qa_report |>
   ) |>
   print(n = Inf)
 
-# Pass/fail
+# Pass divided by fail
 stopifnot(abs(difference_pct) <= 0.5)
 
 library(stringr)
