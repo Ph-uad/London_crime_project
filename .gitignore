@@ -6,7 +6,13 @@ env*
 *Rproj.user
 
 # Ignore the raw data files, which are too large to store in GitHub
-/data
+data/raw/
+
+# Ignore large intermediate processed outputs that should not be tracked
+data/processed/crime/
+data/processed/crime.csv
+data/processed/crime_by_borough.csv
+data/processed/crime
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
@@ -48,4 +54,4 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.tsdata/processed/
+next-env.d.ts
