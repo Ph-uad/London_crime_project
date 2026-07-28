@@ -1,6 +1,10 @@
-library(sparklyr)
+install.packages(zoo)
 # Required packages: sparklyr, dplyr, tidyverse, stringr, tidyr, zoo
+library(zoo)
 library(dplyr)
+library(tidyr)
+library(stringr)
+library(sparklyr)
 library(tidyverse)
 
 
@@ -16,7 +20,6 @@ deprivation_summary_2015 <- deprivation_summary_2015 |>
   select(where(~ !all(is.na(.))))
 deprivation_summary_2019 <- deprivation_summary_2019 |>
   select(where(~ !all(is.na(.))))
-
 
 # Combine FIRST, then sort the final result
 combined_deprivation <- deprivation_summary_2015 |>
@@ -44,30 +47,22 @@ combined_deprivation <- combined_deprivation |>
 combined_deprivation <- combined_deprivation |>
   select(-Local_Authority_District_name_2013_)
 
-
 output_path <- "data/processed/IDMP_2015_n_2019.csv"
 combined_deprivation |>
   write.csv(output_path, row.names = FALSE)
 
 
-# income-of-tax-payers
-library(dplyr)
-library(tidyverse)
-library(stringr)
-library(tidyr)
-# Required package: zoo
-library(zoo)
 
+# income-of-tax-payers
 london_average_income_by_borough <- read.csv("data/raw/personal_well_being/income-of-tax-payers/Total Income-Table 1.csv")
 
 colnames(london_average_income_by_borough) <- london_average_income_by_borough[1, ]
 
-
-row_labels <- as.character(london_average_income_by_borough[1, ]) 
+row_labels <- as.character(london_average_income_by_borough[1, ])
 years <- names(london_average_income_by_borough) |> 
   str_extract("(19|20)\\d{2}") |>       # Extract 4-digit years (e.g., 1999, 2000)
-  na.locf(na.rm = FALSE)                # Forward-fill the years over NA values 
-clean_labels <- row_labels |> 
+  na.locf(na.rm = FALSE)                # Forward-fill the years over NA values
+clean_labels <- row_labels |>
   str_remove_all("\\s*£") |>            # Strip out " £" symbols
   str_replace_all("\\s+", "_")          # Change spaces to underscores
 new_headers <- ifelse(
@@ -80,4 +75,17 @@ london_average_income_by_borough <- london_average_income_by_borough[-1, ]
 
 output_path <- "data/processed/London_average_income.csv"
 london_average_income_by_borough |>
+  write.csv(output_path, row.names = FALSE)
+
+
+
+# London well being probability 
+well_being_probability <- read.csv("data/raw/personal_well_being/london-ward-well-being-probability-scores/Data-Table 1.csv")
+well_being_probability <- well_being_probability[-1, ]
+names(well_being_probability) <- gsub("\\.+", "_", names(well_being_probability))
+
+view(well_being_probability)
+
+output_path <- "data/processed/well_being_probabilitye.csv"
+well_being_probability |>
   write.csv(output_path, row.names = FALSE)
