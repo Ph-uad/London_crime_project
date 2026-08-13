@@ -1,0 +1,221 @@
+year,crime_type,crime_category,vocabulary,records
+2011,Anti-social behaviour,Public Order Offences,both,426109
+2011,Burglary,Theft and Robbery,both,96141
+2011,Criminal damage and arson,Criminal Damage and Arson,both,22332
+2011,Drugs,Drug and Weapon Offences,both,17877
+2011,Other crime,Other Crimes,both,297493
+2011,Other theft,Theft and Robbery,both,61194
+2011,Public disorder and weapons,Public Order Offences,legacy_only,10543
+2011,Robbery,Theft and Robbery,both,37991
+2011,Shoplifting,Theft and Robbery,both,12641
+2011,Vehicle crime,Theft and Robbery,both,100111
+2011,Violent crime,Violence and Sexual Offences,legacy_only,148806
+2012,Anti-social behaviour,Public Order Offences,both,348910
+2012,Burglary,Theft and Robbery,both,94692
+2012,Criminal damage and arson,Criminal Damage and Arson,both,60656
+2012,Drugs,Drug and Weapon Offences,both,48670
+2012,Other crime,Other Crimes,both,48461
+2012,Other theft,Theft and Robbery,both,194290
+2012,Public disorder and weapons,Public Order Offences,legacy_only,30750
+2012,Robbery,Theft and Robbery,both,35537
+2012,Shoplifting,Theft and Robbery,both,37065
+2012,Vehicle crime,Theft and Robbery,both,95451
+2012,Violent crime,Violence and Sexual Offences,legacy_only,136332
+2013,Anti-social behaviour,Public Order Offences,both,289996
+2013,Bicycle theft,Theft and Robbery,current_only,14324
+2013,Burglary,Theft and Robbery,both,87781
+2013,Criminal damage and arson,Criminal Damage and Arson,both,55523
+2013,Drugs,Drug and Weapon Offences,both,46807
+2013,Other crime,Other Crimes,both,12811
+2013,Other theft,Theft and Robbery,both,137840
+2013,Possession of weapons,Drug and Weapon Offences,current_only,2245
+2013,Public disorder and weapons,Public Order Offences,legacy_only,8981
+2013,Public order,Public Order Offences,current_only,18316
+2013,Robbery,Theft and Robbery,both,29716
+2013,Shoplifting,Theft and Robbery,both,37235
+2013,Theft from the person,Theft and Robbery,current_only,29766
+2013,Vehicle crime,Theft and Robbery,both,89449
+2013,Violence and sexual offences,Violence and Sexual Offences,current_only,92282
+2013,Violent crime,Violence and Sexual Offences,legacy_only,41581
+2014,Anti-social behaviour,Public Order Offences,both,253124
+2014,Bicycle theft,Theft and Robbery,current_only,17562
+2014,Burglary,Theft and Robbery,both,76009
+2014,Criminal damage and arson,Criminal Damage and Arson,both,57376
+2014,Drugs,Drug and Weapon Offences,both,40019
+2014,Other crime,Other Crimes,both,7368
+2014,Other theft,Theft and Robbery,both,112093
+2014,Possession of weapons,Drug and Weapon Offences,current_only,3326
+2014,Public order,Public Order Offences,current_only,34705
+2014,Robbery,Theft and Robbery,both,22174
+2014,Shoplifting,Theft and Robbery,both,40511
+2014,Theft from the person,Theft and Robbery,current_only,31713
+2014,Vehicle crime,Theft and Robbery,both,81585
+2014,Violence and sexual offences,Violence and Sexual Offences,current_only,165593
+2015,Anti-social behaviour,Public Order Offences,both,222476
+2015,Bicycle theft,Theft and Robbery,current_only,16694
+2015,Burglary,Theft and Robbery,both,70210
+2015,Criminal damage and arson,Criminal Damage and Arson,both,60775
+2015,Drugs,Drug and Weapon Offences,both,34562
+2015,Other crime,Other Crimes,both,8893
+2015,Other theft,Theft and Robbery,both,110916
+2015,Possession of weapons,Drug and Weapon Offences,current_only,3654
+2015,Public order,Public Order Offences,current_only,41700
+2015,Robbery,Theft and Robbery,both,21374
+2015,Shoplifting,Theft and Robbery,both,42973
+2015,Theft from the person,Theft and Robbery,current_only,34505
+2015,Vehicle crime,Theft and Robbery,both,82080
+2015,Violence and sexual offences,Violence and Sexual Offences,current_only,190808
+2016,Anti-social behaviour,Public Order Offences,both,240186
+2016,Bicycle theft,Theft and Robbery,current_only,18492
+2016,Burglary,Theft and Robbery,both,68248
+2016,Criminal damage and arson,Criminal Damage and Arson,both,62130
+2016,Drugs,Drug and Weapon Offences,both,34105
+2016,Other crime,Other Crimes,both,10019
+2016,Other theft,Theft and Robbery,both,107507
+2016,Possession of weapons,Drug and Weapon Offences,current_only,4481
+2016,Public order,Public Order Offences,current_only,45232
+2016,Robbery,Theft and Robbery,both,22304
+2016,Shoplifting,Theft and Robbery,both,47423
+2016,Theft from the person,Theft and Robbery,current_only,35742
+2016,Vehicle crime,Theft and Robbery,both,89308
+2016,Violence and sexual offences,Violence and Sexual Offences,current_only,203056
+2017,Anti-social behaviour,Public Order Offences,both,227914
+2017,Bicycle theft,Theft and Robbery,current_only,21441
+2017,Burglary,Theft and Robbery,both,75753
+2017,Criminal damage and arson,Criminal Damage and Arson,both,61372
+2017,Drugs,Drug and Weapon Offences,both,32392
+2017,Other crime,Other Crimes,both,10031
+2017,Other theft,Theft and Robbery,both,108374
+2017,Possession of weapons,Drug and Weapon Offences,current_only,6589
+2017,Public order,Public Order Offences,current_only,47709
+2017,Robbery,Theft and Robbery,both,30800
+2017,Shoplifting,Theft and Robbery,both,47919
+2017,Theft from the person,Theft and Robbery,current_only,47350
+2017,Vehicle crime,Theft and Robbery,both,103043
+2017,Violence and sexual offences,Violence and Sexual Offences,current_only,213435
+2018,Anti-social behaviour,Public Order Offences,both,220301
+2018,Bicycle theft,Theft and Robbery,current_only,19794
+2018,Burglary,Theft and Robbery,both,80599
+2018,Criminal damage and arson,Criminal Damage and Arson,both,56581
+2018,Drugs,Drug and Weapon Offences,both,33251
+2018,Other crime,Other Crimes,both,10249
+2018,Other theft,Theft and Robbery,both,115791
+2018,Possession of weapons,Drug and Weapon Offences,current_only,6679
+2018,Public order,Public Order Offences,current_only,47527
+2018,Robbery,Theft and Robbery,both,32511
+2018,Shoplifting,Theft and Robbery,both,44718
+2018,Theft from the person,Theft and Robbery,current_only,43138
+2018,Vehicle crime,Theft and Robbery,both,112096
+2018,Violence and sexual offences,Violence and Sexual Offences,current_only,224645
+2019,Anti-social behaviour,Public Order Offences,both,240840
+2019,Bicycle theft,Theft and Robbery,current_only,18735
+2019,Burglary,Theft and Robbery,both,79258
+2019,Criminal damage and arson,Criminal Damage and Arson,both,53041
+2019,Drugs,Drug and Weapon Offences,both,43718
+2019,Other crime,Other Crimes,both,10124
+2019,Other theft,Theft and Robbery,both,124070
+2019,Possession of weapons,Drug and Weapon Offences,current_only,6429
+2019,Public order,Public Order Offences,current_only,49546
+2019,Robbery,Theft and Robbery,both,38412
+2019,Shoplifting,Theft and Robbery,both,43734
+2019,Theft from the person,Theft and Robbery,current_only,52298
+2019,Vehicle crime,Theft and Robbery,both,116482
+2019,Violence and sexual offences,Violence and Sexual Offences,current_only,225160
+2020,Anti-social behaviour,Public Order Offences,both,415523
+2020,Bicycle theft,Theft and Robbery,current_only,23774
+2020,Burglary,Theft and Robbery,both,60980
+2020,Criminal damage and arson,Criminal Damage and Arson,both,50776
+2020,Drugs,Drug and Weapon Offences,both,51581
+2020,Other crime,Other Crimes,both,10026
+2020,Other theft,Theft and Robbery,both,81852
+2020,Possession of weapons,Drug and Weapon Offences,current_only,5744
+2020,Public order,Public Order Offences,current_only,53161
+2020,Robbery,Theft and Robbery,both,27045
+2020,Shoplifting,Theft and Robbery,both,35110
+2020,Theft from the person,Theft and Robbery,current_only,31057
+2020,Vehicle crime,Theft and Robbery,both,107384
+2020,Violence and sexual offences,Violence and Sexual Offences,current_only,224578
+2021,Anti-social behaviour,Public Order Offences,both,302245
+2021,Bicycle theft,Theft and Robbery,current_only,20760
+2021,Burglary,Theft and Robbery,both,52355
+2021,Criminal damage and arson,Criminal Damage and Arson,both,51917
+2021,Drugs,Drug and Weapon Offences,both,42006
+2021,Other crime,Other Crimes,both,10026
+2021,Other theft,Theft and Robbery,both,87908
+2021,Possession of weapons,Drug and Weapon Offences,current_only,4770
+2021,Public order,Public Order Offences,current_only,57789
+2021,Robbery,Theft and Robbery,both,21913
+2021,Shoplifting,Theft and Robbery,both,33260
+2021,Theft from the person,Theft and Robbery,current_only,36977
+2021,Vehicle crime,Theft and Robbery,both,98205
+2021,Violence and sexual offences,Violence and Sexual Offences,current_only,239298
+2022,Anti-social behaviour,Public Order Offences,both,255541
+2022,Bicycle theft,Theft and Robbery,current_only,17775
+2022,Burglary,Theft and Robbery,both,51898
+2022,Criminal damage and arson,Criminal Damage and Arson,both,52563
+2022,Drugs,Drug and Weapon Offences,both,40238
+2022,Other crime,Other Crimes,both,10791
+2022,Other theft,Theft and Robbery,both,120321
+2022,Possession of weapons,Drug and Weapon Offences,current_only,4898
+2022,Public order,Public Order Offences,current_only,56180
+2022,Robbery,Theft and Robbery,both,26430
+2022,Shoplifting,Theft and Robbery,both,37927
+2022,Theft from the person,Theft and Robbery,current_only,56595
+2022,Vehicle crime,Theft and Robbery,both,105836
+2022,Violence and sexual offences,Violence and Sexual Offences,current_only,246385
+2023,Anti-social behaviour,Public Order Offences,both,223124
+2023,Bicycle theft,Theft and Robbery,current_only,16001
+2023,Burglary,Theft and Robbery,both,55269
+2023,Criminal damage and arson,Criminal Damage and Arson,both,56392
+2023,Drugs,Drug and Weapon Offences,both,36243
+2023,Other crime,Other Crimes,both,10400
+2023,Other theft,Theft and Robbery,both,134003
+2023,Possession of weapons,Drug and Weapon Offences,current_only,4933
+2023,Public order,Public Order Offences,current_only,56993
+2023,Robbery,Theft and Robbery,both,32052
+2023,Shoplifting,Theft and Robbery,both,57386
+2023,Theft from the person,Theft and Robbery,current_only,71317
+2023,Vehicle crime,Theft and Robbery,both,103141
+2023,Violence and sexual offences,Violence and Sexual Offences,current_only,258461
+2024,Anti-social behaviour,Public Order Offences,both,232663
+2024,Bicycle theft,Theft and Robbery,current_only,15540
+2024,Burglary,Theft and Robbery,both,52802
+2024,Criminal damage and arson,Criminal Damage and Arson,both,55545
+2024,Drugs,Drug and Weapon Offences,both,38240
+2024,Other crime,Other Crimes,both,11389
+2024,Other theft,Theft and Robbery,both,111963
+2024,Possession of weapons,Drug and Weapon Offences,current_only,4505
+2024,Public order,Public Order Offences,current_only,55167
+2024,Robbery,Theft and Robbery,both,33472
+2024,Shoplifting,Theft and Robbery,both,84162
+2024,Theft from the person,Theft and Robbery,current_only,98621
+2024,Vehicle crime,Theft and Robbery,both,96443
+2024,Violence and sexual offences,Violence and Sexual Offences,current_only,253721
+2025,Anti-social behaviour,Public Order Offences,both,235009
+2025,Bicycle theft,Theft and Robbery,current_only,14076
+2025,Burglary,Theft and Robbery,both,48068
+2025,Criminal damage and arson,Criminal Damage and Arson,both,54831
+2025,Drugs,Drug and Weapon Offences,both,54209
+2025,Other crime,Other Crimes,both,13006
+2025,Other theft,Theft and Robbery,both,101339
+2025,Possession of weapons,Drug and Weapon Offences,current_only,5704
+2025,Public order,Public Order Offences,current_only,58635
+2025,Robbery,Theft and Robbery,both,31491
+2025,Shoplifting,Theft and Robbery,both,88095
+2025,Theft from the person,Theft and Robbery,current_only,86293
+2025,Vehicle crime,Theft and Robbery,both,83868
+2025,Violence and sexual offences,Violence and Sexual Offences,current_only,268184
+2026,Anti-social behaviour,Public Order Offences,both,70802
+2026,Bicycle theft,Theft and Robbery,current_only,3847
+2026,Burglary,Theft and Robbery,both,15656
+2026,Criminal damage and arson,Criminal Damage and Arson,both,16970
+2026,Drugs,Drug and Weapon Offences,both,15863
+2026,Other crime,Other Crimes,both,4449
+2026,Other theft,Theft and Robbery,both,30131
+2026,Possession of weapons,Drug and Weapon Offences,current_only,2347
+2026,Public order,Public Order Offences,current_only,18794
+2026,Robbery,Theft and Robbery,both,9705
+2026,Shoplifting,Theft and Robbery,both,29508
+2026,Theft from the person,Theft and Robbery,current_only,23975
+2026,Vehicle crime,Theft and Robbery,both,26121
+2026,Violence and sexual offences,Violence and Sexual Offences,current_only,88095

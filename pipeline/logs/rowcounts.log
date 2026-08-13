@@ -1,33 +1,33 @@
-year,force,rows
-2011,City of London,8458
-2011,Metropolitan,1223176
-2012,City of London,7522
-2012,Metropolitan,388846
-2013,City of London,6613
-2013,Metropolitan,156704
-2014,City of London,6511
-2014,Metropolitan,233706
-2015,City of London,6185
-2015,Metropolitan,475956
-2016,City of London,6586
-2016,Metropolitan,994529
-2017,City of London,7312
-2017,Metropolitan,1041400
-2018,City of London,8546
-2018,Metropolitan,1054600
-2019,City of London,10032
-2019,Metropolitan,1108042
-2020,City of London,5925
-2020,Metropolitan,1181922
-2021,City of London,6391
-2021,Metropolitan,1072876
-2022,City of London,8469
-2022,Metropolitan,1106491
-2023,City of London,9298
-2023,Metropolitan,1135031
-2024,City of London,9992
-2024,Metropolitan,1139329
-2025,City of London,8875
-2025,Metropolitan,1140416
-2026,City of London,2877
-2026,Metropolitan,355793
+year,force,files,rows,rows_per_file
+2011,city-of-london,12,8458,705
+2011,metropolitan,12,1223176,101931
+2012,city-of-london,12,7522,627
+2012,metropolitan,12,1132378,94365
+2013,city-of-london,12,6613,551
+2013,metropolitan,12,1000387,83366
+2014,city-of-london,12,6511,543
+2014,metropolitan,12,948250,79021
+2015,city-of-london,12,6185,515
+2015,metropolitan,12,948265,79022
+2016,city-of-london,12,6586,549
+2016,metropolitan,12,994529,82877
+2017,city-of-london,12,7312,609
+2017,metropolitan,12,1041400,86783
+2018,city-of-london,12,8546,712
+2018,metropolitan,12,1054600,87883
+2019,city-of-london,12,10032,836
+2019,metropolitan,12,1108042,92337
+2020,city-of-london,12,5925,494
+2020,metropolitan,12,1181922,98494
+2021,city-of-london,12,6391,533
+2021,metropolitan,12,1072876,89406
+2022,city-of-london,12,8469,706
+2022,metropolitan,12,1106491,92208
+2023,city-of-london,12,9298,775
+2023,metropolitan,12,1135031,94586
+2024,city-of-london,12,9992,833
+2024,metropolitan,12,1139329,94944
+2025,city-of-london,12,8875,740
+2025,metropolitan,12,1140416,95035
+2026,city-of-london,4,2877,719
+2026,metropolitan,4,355793,88948

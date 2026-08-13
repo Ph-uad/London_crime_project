@@ -1,125 +1,154 @@
-library(sparklyr)
-library(dplyr)
+# =============================================================
+# QA/01_QA.R — cross-script reconciliation and schema conformance.
+#
+# The previous version could not fail. It computed
+#   aggregated_total <- sum of group counts over rows already filtered to
+#                       !is.na(LAD22CD)
+#   difference       <- aggregated_total - matched_rows
+# which is a quantity minus itself, then asserted the difference was under
+# 0.5%. dataQuality.log duly recorded "Difference 0" on every run. It also
+# joined on LSOA21CD alone (producing a spurious 7.5% unmatched rate) and
+# grouped by LSOA_name under the column alias `Borough`.
+#
+# This version compares quantities produced by DIFFERENT scripts reading the
+# source independently — 00_crime_rowcounts.R counts raw file rows,
+# 01_crime_by_borough.R classifies and aggregates them — so a disagreement
+# is real information. Every check can fail, and a failure exits non-zero.
+#
+# Writes pipeline/logs/dataQuality.log
+# =============================================================
 
-spark_install(version = "3.4.0")
+source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-sc <- spark_connect(master = "local", version = "3.4.0")
+banner("QA — reconciliation")
 
-crime_files <- normalizePath("data/raw/crime")
+results <- data.table(check = character(), expected = character(),
+                      actual = character(), status = character())
+record <- function(name, expected, actual, pass) {
+  results <<- rbind(results, data.table(
+    check = name, expected = as.character(expected),
+    actual = as.character(actual), status = if (pass) "PASS" else "FAIL"))
+  message(if (pass) "  ok  " else "  FAIL ", name,
+          if (pass) "" else paste0("  (expected ", expected,
+                                   ", got ", actual, ")"))
+  pass
+}
 
-crime <- spark_read_csv(
-  sc,
-  name = "crime",
-  path = file.path(crime_files, "*-street\\.csv"),
-  header = TRUE,
-  infer_schema = TRUE
-)
+need <- function(p, who) {
+  check(file.exists(p), "missing '", p, "'. Run ", who, " first.")
+  p
+}
 
-#-------------------------
-# Raw row count
-#-------------------------
-crime_count <- crime |>
-  tally() |>
-  collect() |>
-  pull(n)
+rowcounts <- fread(need(file.path(LOG_DIR, "rowcounts.log"),
+                        "00_crime_rowcounts.R"), showProgress = FALSE)
+ledger <- fread(need(file.path(LOG_DIR, "exclusions.log"),
+                     "01_crime_by_borough.R"), showProgress = FALSE)
+by_year <- fread(need(file.path(PROC_DIR, "crime_by_borough_year.csv"),
+                      "01_crime_by_borough.R"),
+                 colClasses = list(character = c("borough_gss", "borough_name",
+                                                 "year")),
+                 showProgress = FALSE)
+rates <- fread(need(file.path(PROC_DIR, "crime_rates_by_borough_year.csv"),
+                    "02_population_and_rates.R"),
+               colClasses = list(character = c("borough_gss", "borough_name",
+                                               "year")),
+               showProgress = FALSE)
 
-#-------------------------
-# Read lookup
-#-------------------------
-lsoa_lookup <- paste0("data/raw/LSAO_lookup/LSOA_(2011)_to_LSOA_(2021)", "_to_Local_Authority_District_(2022)_Exact_Fit_", "Lookup_for_EW_(V3).csv")
+pass <- TRUE
 
-lk <- spark_read_csv(
-  sc,
-  lsoa_lookup,
-  options = list(
-    header = TRUE,
-    inferSchema = FALSE
-  )
-)
+# --- 1. Two independent reads of the raw archive must agree ---------------
+raw_counted <- rowcounts[, sum(rows)]
+raw_ledger  <- ledger[, sum(records)]
+pass <- record("raw total: rowcounts vs exclusion ledger",
+               format(raw_counted, big.mark = ","),
+               format(raw_ledger, big.mark = ","),
+               raw_counted == raw_ledger) && pass
 
-crime_joined <- crime |>
-  left_join(lk, by = c("LSOA_code" = "LSOA21CD"))
+# --- 2. Per-year agreement, which a single global total can hide ----------
+rc_year <- rowcounts[, .(raw = sum(rows)), by = .(year = as.character(year))]
+lg_year <- ledger[, .(ledger = sum(records)), by = .(year = as.character(year))]
+yr <- merge(rc_year, lg_year, by = "year", all = TRUE)
+bad_years <- yr[is.na(raw) | is.na(ledger) | raw != ledger]
+pass <- record("raw total per year", "0 mismatched years",
+               paste0(nrow(bad_years), " mismatched"),
+               nrow(bad_years) == 0L) && pass
+if (nrow(bad_years)) print(bad_years)
 
-#-------------------------
-# QA counts
-#-------------------------
-unmatched_rows <- crime_joined |>
-  filter(is.na(LAD22CD)) |>
-  tally() |>
-  collect() |>
-  pull(n)
+# --- 3. Attributed records must equal the aggregate ------------------------
+attributed <- ledger[status == "attributed", sum(records)]
+agg <- by_year[, sum(crimes)]
+pass <- record("attributed records vs borough-year aggregate",
+               format(attributed, big.mark = ","),
+               format(agg, big.mark = ","), attributed == agg) && pass
 
-matched_rows <- crime_joined |>
-  filter(!is.na(LAD22CD)) |>
-  tally() |>
-  collect() |>
-  pull(n)
+# --- 4. Coverage against issue 1.2 ----------------------------------------
+blank <- ledger[status == "blank", sum(records)]
+blank <- if (length(blank) && !is.na(blank)) blank else 0L
+coverage <- attributed / (raw_ledger - blank)
+pass <- record("lookup coverage (non-blank denominator)", ">= 99.500%",
+               sprintf("%.3f%%", 100 * coverage), coverage >= 0.995) && pass
 
-#-------------------------
-# Aggregate
-#-------------------------
-crime_summary <- crime_joined |>
-  filter(!is.na(LAD22CD)) |>
-  group_by(
-    Borough = LSOA_name,
-    Month,
-    Crime_type
-  ) |>
-  summarise(
-    count = n(),
-    .groups = "drop"
-  )
+# --- 5. Geography ---------------------------------------------------------
+for (nm in c("crime_by_borough_year", "crime_rates_by_borough_year")) {
+  d <- if (nm == "crime_by_borough_year") by_year else rates
+  n <- uniqueN(d$borough_gss)
+  pass <- record(paste0(nm, ": borough count"), LONDON_BOROUGH_N, n,
+                 n == LONDON_BOROUGH_N && !anyNA(d$borough_gss)) && pass
+}
 
-aggregated_total <- crime_summary |>
-  summarise(total = sum(count)) |>
-  collect() |>
-  pull(total)
+# --- 6. Rates are only published for complete years -----------------------
+leaked <- rates[coverage_flag != "complete" & !is.na(crime_rate_per_1000), .N]
+pass <- record("no rate published for an incomplete year", 0, leaked,
+               leaked == 0L) && pass
+neg <- rates[!is.na(crime_rate_per_1000) & crime_rate_per_1000 <= 0, .N]
+pass <- record("no non-positive crime rate", 0, neg, neg == 0L) && pass
 
-#-------------------------
-# QA metrics
-#-------------------------
-difference <- aggregated_total - matched_rows
+# --- 7. Long-schema conformance of every metric export --------------------
+metric_files <- list.files(PROC_DIR, pattern = "^(metrics_|imd_crime_).*\\.csv$",
+                           full.names = TRUE)
+pass <- record("metric export files present", ">= 1", length(metric_files),
+               length(metric_files) > 0L) && pass
+for (f in metric_files) {
+  d <- fread(f, nrows = 5L, showProgress = FALSE)
+  pass <- record(paste0(basename(f), ": long schema"),
+                 paste(LONG_SCHEMA, collapse = ","),
+                 paste(names(d), collapse = ","),
+                 identical(names(d), LONG_SCHEMA)) && pass
+  full <- fread(f, showProgress = FALSE)
+  pass <- record(paste0(basename(f), ": no NA borough or value"), 0,
+                 sum(is.na(full$borough_gss)) + sum(is.na(full$value)),
+                 !anyNA(full$borough_gss) && !anyNA(full$value)) && pass
+}
 
-difference_pct <- round(
-  difference / matched_rows * 100,
-  4
-)
+# --- Superseded outputs (warning, not a failure) --------------------------
+# The retired scripts wrote these. They are not regenerated by the current
+# pipeline, so a stale copy on disk is a trap: it looks like current output.
+SUPERSEDED <- c("crime_counts_by_year.csv", "crime_counts_by_crime_type.csv",
+                "crime_counts_by_crime_subcategory_type.csv",
+                "crime_type_by_year_and_population.csv", "london_population.csv",
+                "IDMP_2015_n_2019.csv", "London_average_income.csv",
+                "well_being_probabilitye.csv", "crime.csv",
+                "crime_by_borough.csv")
+stale <- SUPERSEDED[file.exists(file.path(PROC_DIR, SUPERSEDED))]
+if (length(stale)) {
+  message("\nWARNING: ", length(stale), " superseded output(s) still in ",
+          PROC_DIR, ".\n  They were produced by the retired scripts and are ",
+          "NOT regenerated by this pipeline.\n  Delete them so nothing ",
+          "downstream reads a stale file:\n    ",
+          paste(stale, collapse = "\n    "))
+}
 
-#-------------------------
-# QA report
-#-------------------------
-qa_report <- tibble(
-  Metric = c(
-    "Raw rows",
-    "Unmatched rows",
-    "Matched rows",
-    "Aggregated total",
-    "Difference",
-    "Difference (%)"
-  ),
-  Value = c(
-    crime_count,
-    unmatched_rows,
-    matched_rows,
-    aggregated_total,
-    difference,
-    difference_pct
-  )
-)
+# --- Report ---------------------------------------------------------------
+message("")
+print(results[, .(status, check,
+                  result = ifelse(status == "PASS", actual,
+                                  paste0(actual, " (expected ", expected, ")")))],
+      nrows = Inf)
+write_log(results, "dataQuality.log")
 
-# Pretty print
-qa_report |>
-  mutate(
-    Value = format(Value, big.mark = ",", scientific = FALSE)
-  ) |>
-  print(n = Inf)
-
-# Pass divided by fail
-stopifnot(abs(difference_pct) <= 0.5)
-
-library(stringr)
-library(data.table)
-# log it
-log_dir <- "pipeline/logs"
-log_path <- file.path(log_dir, "dataQuality.log")
-fwrite(qa_report, log_path)
+failed <- results[status == "FAIL"]
+if (nrow(failed)) {
+  fail(nrow(failed), " of ", nrow(results), " QA checks failed. See ",
+       file.path(LOG_DIR, "dataQuality.log"), ".")
+}
+ok("all ", nrow(results), " QA checks passed")

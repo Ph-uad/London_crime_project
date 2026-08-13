@@ -1,32 +1,45 @@
 # =============================================================
-# 01_rowcounts.R — Per-year row totals as a sanity check.
-# Writes a log to pipeline/logs/rowcounts.log
+# 00_crime_rowcounts.R — per-year row totals as a sanity check.
+#
+# The log now carries a `files` column alongside `rows`. Reading rows alone
+# invites the wrong conclusion: Metropolitan rows fell 87% in 2013, which
+# looks like a collapse in crime and was actually ten missing files.
+# rows_per_file is stable (~78-102k) whenever coverage is complete, so the
+# two columns together make a gap self-evident.
+#
+# Writes pipeline/logs/rowcounts.log
 # =============================================================
 
-library(data.table)
-library(stringr)
+source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-raw_dir <- "data/raw/crime"
-log_dir <- "pipeline/logs"
-dir.create(log_dir, recursive = TRUE, showWarnings = FALSE)
+banner("00_crime_rowcounts — per-year totals")
 
-files <- list.files(raw_dir, pattern = "-street\\.csv$",
-                    recursive = TRUE, full.names = TRUE)
+files <- crime_files()
 
-# Count data rows per file (fast: read one column only)
 counts <- data.table(
   file  = files,
-  year  = str_extract(basename(files), "^\\d{4}"),
-  force = ifelse(grepl("city-of-london", files), "City of London", "Metropolitan"),
-  rows  = vapply(files, \(f) nrow(fread(f, select = 1L)), integer(1))
+  year  = substr(basename(files), 1L, 4L),
+  force = force_of(files),
+  rows  = vapply(files, function(f) nrow(fread(f, select = 1L,
+                                               showProgress = FALSE)),
+                 integer(1))
 )
 
-# Aggregate to per-year, per-force totals
-by_year <- counts[, .(rows = sum(rows)), by = .(year, force)][order(year, force)]
+by_year <- counts[, .(files = .N, rows = sum(rows)), by = .(year, force)][
+  order(year, force)
+][, rows_per_file := round(rows / files)]
 
-# Print and log
 print(by_year)
-log_path <- file.path(log_dir, "rowcounts.log")
-fwrite(by_year, log_path)
-message("Total rows: ", format(sum(counts$rows), big.mark = ","),
-        " across ", length(files), " files. Log -> ", log_path)
+write_log(by_year, "rowcounts.log")
+
+# Flag years whose per-file volume departs sharply from the force's median.
+# This is a smell test, not a gate: 00_download.R owns the hard coverage check.
+by_year[, med := median(rows_per_file), by = force]
+odd <- by_year[rows_per_file < 0.5 * med | rows_per_file > 2 * med]
+if (nrow(odd)) {
+  message("\nUnusual per-file volume (investigate before trusting these years):")
+  print(odd[, .(year, force, files, rows, rows_per_file, median = med)])
+}
+
+message("\nTotal rows: ", format(sum(counts$rows), big.mark = ","),
+        " across ", length(files), " files.")
