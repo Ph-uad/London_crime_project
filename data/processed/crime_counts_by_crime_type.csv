@@ -1,0 +1,3269 @@
+"Borough","Year","Crime_Category","Crime_Category_Count"
+"Barking and Dagenham","2011","Criminal Damage and Arson",633
+"Barking and Dagenham","2011","Drug and Weapon Offences",286
+"Barking and Dagenham","2011","No-category",4216
+"Barking and Dagenham","2011","Other Crimes",6192
+"Barking and Dagenham","2011","Public Order Offences",10214
+"Barking and Dagenham","2011","Theft And Robbery",7334
+"Barking and Dagenham","2012","Criminal Damage and Arson",582
+"Barking and Dagenham","2012","Drug and Weapon Offences",291
+"Barking and Dagenham","2012","No-category",1526
+"Barking and Dagenham","2012","Other Crimes",464
+"Barking and Dagenham","2012","Public Order Offences",2697
+"Barking and Dagenham","2012","Theft And Robbery",3199
+"Barking and Dagenham","2013","Criminal Damage and Arson",264
+"Barking and Dagenham","2013","Drug and Weapon Offences",175
+"Barking and Dagenham","2013","No-category",655
+"Barking and Dagenham","2013","Other Crimes",80
+"Barking and Dagenham","2013","Public Order Offences",938
+"Barking and Dagenham","2013","Theft And Robbery",1701
+"Barking and Dagenham","2014","Criminal Damage and Arson",417
+"Barking and Dagenham","2014","Drug and Weapon Offences",182
+"Barking and Dagenham","2014","Other Crimes",56
+"Barking and Dagenham","2014","Public Order Offences",1386
+"Barking and Dagenham","2014","Theft And Robbery",1980
+"Barking and Dagenham","2014","Violence and Sexual Offences",1151
+"Barking and Dagenham","2015","Criminal Damage and Arson",859
+"Barking and Dagenham","2015","Drug and Weapon Offences",455
+"Barking and Dagenham","2015","Other Crimes",124
+"Barking and Dagenham","2015","Public Order Offences",3164
+"Barking and Dagenham","2015","Theft And Robbery",3555
+"Barking and Dagenham","2015","Violence and Sexual Offences",2581
+"Barking and Dagenham","2016","Criminal Damage and Arson",1856
+"Barking and Dagenham","2016","Drug and Weapon Offences",921
+"Barking and Dagenham","2016","Other Crimes",218
+"Barking and Dagenham","2016","Public Order Offences",6439
+"Barking and Dagenham","2016","Theft And Robbery",7420
+"Barking and Dagenham","2016","Violence and Sexual Offences",5514
+"Barking and Dagenham","2017","Criminal Damage and Arson",1689
+"Barking and Dagenham","2017","Drug and Weapon Offences",819
+"Barking and Dagenham","2017","Other Crimes",223
+"Barking and Dagenham","2017","Public Order Offences",6331
+"Barking and Dagenham","2017","Theft And Robbery",8726
+"Barking and Dagenham","2017","Violence and Sexual Offences",5604
+"Barking and Dagenham","2018","Criminal Damage and Arson",1432
+"Barking and Dagenham","2018","Drug and Weapon Offences",988
+"Barking and Dagenham","2018","Other Crimes",243
+"Barking and Dagenham","2018","Public Order Offences",5467
+"Barking and Dagenham","2018","Theft And Robbery",8302
+"Barking and Dagenham","2018","Violence and Sexual Offences",5918
+"Barking and Dagenham","2019","Criminal Damage and Arson",1404
+"Barking and Dagenham","2019","Drug and Weapon Offences",1139
+"Barking and Dagenham","2019","Other Crimes",254
+"Barking and Dagenham","2019","Public Order Offences",5905
+"Barking and Dagenham","2019","Theft And Robbery",8426
+"Barking and Dagenham","2019","Violence and Sexual Offences",6204
+"Barking and Dagenham","2020","Criminal Damage and Arson",1302
+"Barking and Dagenham","2020","Drug and Weapon Offences",1659
+"Barking and Dagenham","2020","Other Crimes",302
+"Barking and Dagenham","2020","Public Order Offences",9505
+"Barking and Dagenham","2020","Theft And Robbery",7216
+"Barking and Dagenham","2020","Violence and Sexual Offences",6366
+"Barking and Dagenham","2021","Criminal Damage and Arson",1409
+"Barking and Dagenham","2021","Drug and Weapon Offences",1500
+"Barking and Dagenham","2021","Other Crimes",278
+"Barking and Dagenham","2021","Public Order Offences",7268
+"Barking and Dagenham","2021","Theft And Robbery",7034
+"Barking and Dagenham","2021","Violence and Sexual Offences",6578
+"Barking and Dagenham","2022","Criminal Damage and Arson",1434
+"Barking and Dagenham","2022","Drug and Weapon Offences",1454
+"Barking and Dagenham","2022","Other Crimes",296
+"Barking and Dagenham","2022","Public Order Offences",6630
+"Barking and Dagenham","2022","Theft And Robbery",7981
+"Barking and Dagenham","2022","Violence and Sexual Offences",6969
+"Barking and Dagenham","2023","Criminal Damage and Arson",1331
+"Barking and Dagenham","2023","Drug and Weapon Offences",1432
+"Barking and Dagenham","2023","Other Crimes",254
+"Barking and Dagenham","2023","Public Order Offences",5685
+"Barking and Dagenham","2023","Theft And Robbery",8856
+"Barking and Dagenham","2023","Violence and Sexual Offences",7296
+"Barking and Dagenham","2024","Criminal Damage and Arson",1374
+"Barking and Dagenham","2024","Drug and Weapon Offences",1211
+"Barking and Dagenham","2024","Other Crimes",312
+"Barking and Dagenham","2024","Public Order Offences",5536
+"Barking and Dagenham","2024","Theft And Robbery",8269
+"Barking and Dagenham","2024","Violence and Sexual Offences",7437
+"Barking and Dagenham","2025","Criminal Damage and Arson",1418
+"Barking and Dagenham","2025","Drug and Weapon Offences",1655
+"Barking and Dagenham","2025","Other Crimes",316
+"Barking and Dagenham","2025","Public Order Offences",5751
+"Barking and Dagenham","2025","Theft And Robbery",7314
+"Barking and Dagenham","2025","Violence and Sexual Offences",7904
+"Barking and Dagenham","2026","Criminal Damage and Arson",410
+"Barking and Dagenham","2026","Drug and Weapon Offences",455
+"Barking and Dagenham","2026","Other Crimes",103
+"Barking and Dagenham","2026","Public Order Offences",1840
+"Barking and Dagenham","2026","Theft And Robbery",2331
+"Barking and Dagenham","2026","Violence and Sexual Offences",2549
+"Barnet","2011","Criminal Damage and Arson",689
+"Barnet","2011","Drug and Weapon Offences",363
+"Barnet","2011","No-category",4370
+"Barnet","2011","Other Crimes",8387
+"Barnet","2011","Public Order Offences",14288
+"Barnet","2011","Theft And Robbery",12026
+"Barnet","2012","Criminal Damage and Arson",658
+"Barnet","2012","Drug and Weapon Offences",302
+"Barnet","2012","No-category",1526
+"Barnet","2012","Other Crimes",891
+"Barnet","2012","Public Order Offences",4068
+"Barnet","2012","Theft And Robbery",5370
+"Barnet","2013","Criminal Damage and Arson",291
+"Barnet","2013","Drug and Weapon Offences",151
+"Barnet","2013","No-category",702
+"Barnet","2013","Other Crimes",273
+"Barnet","2013","Public Order Offences",1469
+"Barnet","2013","Theft And Robbery",2606
+"Barnet","2014","Criminal Damage and Arson",516
+"Barnet","2014","Drug and Weapon Offences",238
+"Barnet","2014","Other Crimes",71
+"Barnet","2014","Public Order Offences",2400
+"Barnet","2014","Theft And Robbery",3383
+"Barnet","2014","Violence and Sexual Offences",1354
+"Barnet","2015","Criminal Damage and Arson",1069
+"Barnet","2015","Drug and Weapon Offences",382
+"Barnet","2015","Other Crimes",146
+"Barnet","2015","Public Order Offences",4822
+"Barnet","2015","Theft And Robbery",6617
+"Barnet","2015","Violence and Sexual Offences",2918
+"Barnet","2016","Criminal Damage and Arson",2120
+"Barnet","2016","Drug and Weapon Offences",889
+"Barnet","2016","Other Crimes",284
+"Barnet","2016","Public Order Offences",9903
+"Barnet","2016","Theft And Robbery",13623
+"Barnet","2016","Violence and Sexual Offences",6470
+"Barnet","2017","Criminal Damage and Arson",2046
+"Barnet","2017","Drug and Weapon Offences",813
+"Barnet","2017","Other Crimes",243
+"Barnet","2017","Public Order Offences",9323
+"Barnet","2017","Theft And Robbery",14397
+"Barnet","2017","Violence and Sexual Offences",6741
+"Barnet","2018","Criminal Damage and Arson",1887
+"Barnet","2018","Drug and Weapon Offences",783
+"Barnet","2018","Other Crimes",361
+"Barnet","2018","Public Order Offences",8897
+"Barnet","2018","Theft And Robbery",15844
+"Barnet","2018","Violence and Sexual Offences",6979
+"Barnet","2019","Criminal Damage and Arson",1974
+"Barnet","2019","Drug and Weapon Offences",888
+"Barnet","2019","Other Crimes",313
+"Barnet","2019","Public Order Offences",10024
+"Barnet","2019","Theft And Robbery",17143
+"Barnet","2019","Violence and Sexual Offences",7364
+"Barnet","2020","Criminal Damage and Arson",1870
+"Barnet","2020","Drug and Weapon Offences",1211
+"Barnet","2020","Other Crimes",305
+"Barnet","2020","Public Order Offences",16487
+"Barnet","2020","Theft And Robbery",13641
+"Barnet","2020","Violence and Sexual Offences",7563
+"Barnet","2021","Criminal Damage and Arson",1772
+"Barnet","2021","Drug and Weapon Offences",1077
+"Barnet","2021","Other Crimes",354
+"Barnet","2021","Public Order Offences",13408
+"Barnet","2021","Theft And Robbery",12655
+"Barnet","2021","Violence and Sexual Offences",8191
+"Barnet","2022","Criminal Damage and Arson",1799
+"Barnet","2022","Drug and Weapon Offences",1013
+"Barnet","2022","Other Crimes",347
+"Barnet","2022","Public Order Offences",11212
+"Barnet","2022","Theft And Robbery",13817
+"Barnet","2022","Violence and Sexual Offences",8115
+"Barnet","2023","Criminal Damage and Arson",1867
+"Barnet","2023","Drug and Weapon Offences",1137
+"Barnet","2023","Other Crimes",334
+"Barnet","2023","Public Order Offences",10126
+"Barnet","2023","Theft And Robbery",14054
+"Barnet","2023","Violence and Sexual Offences",8403
+"Barnet","2024","Criminal Damage and Arson",1852
+"Barnet","2024","Drug and Weapon Offences",1252
+"Barnet","2024","Other Crimes",372
+"Barnet","2024","Public Order Offences",10185
+"Barnet","2024","Theft And Robbery",14397
+"Barnet","2024","Violence and Sexual Offences",7891
+"Barnet","2025","Criminal Damage and Arson",1933
+"Barnet","2025","Drug and Weapon Offences",2120
+"Barnet","2025","Other Crimes",390
+"Barnet","2025","Public Order Offences",10212
+"Barnet","2025","Theft And Robbery",13230
+"Barnet","2025","Violence and Sexual Offences",8428
+"Barnet","2026","Criminal Damage and Arson",600
+"Barnet","2026","Drug and Weapon Offences",618
+"Barnet","2026","Other Crimes",138
+"Barnet","2026","Public Order Offences",3357
+"Barnet","2026","Theft And Robbery",4627
+"Barnet","2026","Violence and Sexual Offences",3084
+"Bexley","2011","Criminal Damage and Arson",494
+"Bexley","2011","Drug and Weapon Offences",291
+"Bexley","2011","No-category",2802
+"Bexley","2011","Other Crimes",4444
+"Bexley","2011","Public Order Offences",7897
+"Bexley","2011","Theft And Robbery",4098
+"Bexley","2012","Criminal Damage and Arson",529
+"Bexley","2012","Drug and Weapon Offences",283
+"Bexley","2012","No-category",1027
+"Bexley","2012","Other Crimes",305
+"Bexley","2012","Public Order Offences",2270
+"Bexley","2012","Theft And Robbery",2167
+"Bexley","2013","Criminal Damage and Arson",233
+"Bexley","2013","Drug and Weapon Offences",121
+"Bexley","2013","No-category",489
+"Bexley","2013","Other Crimes",78
+"Bexley","2013","Public Order Offences",888
+"Bexley","2013","Theft And Robbery",1007
+"Bexley","2014","Criminal Damage and Arson",344
+"Bexley","2014","Drug and Weapon Offences",171
+"Bexley","2014","Other Crimes",46
+"Bexley","2014","Public Order Offences",1298
+"Bexley","2014","Theft And Robbery",1567
+"Bexley","2014","Violence and Sexual Offences",798
+"Bexley","2015","Criminal Damage and Arson",712
+"Bexley","2015","Drug and Weapon Offences",299
+"Bexley","2015","Other Crimes",101
+"Bexley","2015","Public Order Offences",2553
+"Bexley","2015","Theft And Robbery",2632
+"Bexley","2015","Violence and Sexual Offences",1593
+"Bexley","2016","Criminal Damage and Arson",1601
+"Bexley","2016","Drug and Weapon Offences",599
+"Bexley","2016","Other Crimes",185
+"Bexley","2016","Public Order Offences",5250
+"Bexley","2016","Theft And Robbery",5804
+"Bexley","2016","Violence and Sexual Offences",4053
+"Bexley","2017","Criminal Damage and Arson",1680
+"Bexley","2017","Drug and Weapon Offences",520
+"Bexley","2017","Other Crimes",191
+"Bexley","2017","Public Order Offences",5633
+"Bexley","2017","Theft And Robbery",6647
+"Bexley","2017","Violence and Sexual Offences",4400
+"Bexley","2018","Criminal Damage and Arson",1502
+"Bexley","2018","Drug and Weapon Offences",627
+"Bexley","2018","Other Crimes",185
+"Bexley","2018","Public Order Offences",5065
+"Bexley","2018","Theft And Robbery",7196
+"Bexley","2018","Violence and Sexual Offences",4594
+"Bexley","2019","Criminal Damage and Arson",1532
+"Bexley","2019","Drug and Weapon Offences",780
+"Bexley","2019","Other Crimes",205
+"Bexley","2019","Public Order Offences",5435
+"Bexley","2019","Theft And Robbery",7982
+"Bexley","2019","Violence and Sexual Offences",5401
+"Bexley","2020","Criminal Damage and Arson",1429
+"Bexley","2020","Drug and Weapon Offences",885
+"Bexley","2020","Other Crimes",231
+"Bexley","2020","Public Order Offences",8920
+"Bexley","2020","Theft And Robbery",5948
+"Bexley","2020","Violence and Sexual Offences",5548
+"Bexley","2021","Criminal Damage and Arson",1403
+"Bexley","2021","Drug and Weapon Offences",931
+"Bexley","2021","Other Crimes",273
+"Bexley","2021","Public Order Offences",6693
+"Bexley","2021","Theft And Robbery",5202
+"Bexley","2021","Violence and Sexual Offences",5549
+"Bexley","2022","Criminal Damage and Arson",1396
+"Bexley","2022","Drug and Weapon Offences",782
+"Bexley","2022","Other Crimes",252
+"Bexley","2022","Public Order Offences",5762
+"Bexley","2022","Theft And Robbery",5927
+"Bexley","2022","Violence and Sexual Offences",5957
+"Bexley","2023","Criminal Damage and Arson",1542
+"Bexley","2023","Drug and Weapon Offences",757
+"Bexley","2023","Other Crimes",232
+"Bexley","2023","Public Order Offences",4943
+"Bexley","2023","Theft And Robbery",6326
+"Bexley","2023","Violence and Sexual Offences",6115
+"Bexley","2024","Criminal Damage and Arson",1701
+"Bexley","2024","Drug and Weapon Offences",765
+"Bexley","2024","Other Crimes",272
+"Bexley","2024","Public Order Offences",4870
+"Bexley","2024","Theft And Robbery",7020
+"Bexley","2024","Violence and Sexual Offences",5609
+"Bexley","2025","Criminal Damage and Arson",1689
+"Bexley","2025","Drug and Weapon Offences",1134
+"Bexley","2025","Other Crimes",274
+"Bexley","2025","Public Order Offences",4877
+"Bexley","2025","Theft And Robbery",5947
+"Bexley","2025","Violence and Sexual Offences",5844
+"Bexley","2026","Criminal Damage and Arson",471
+"Bexley","2026","Drug and Weapon Offences",350
+"Bexley","2026","Other Crimes",99
+"Bexley","2026","Public Order Offences",1645
+"Bexley","2026","Theft And Robbery",1816
+"Bexley","2026","Violence and Sexual Offences",1928
+"Brent","2011","Criminal Damage and Arson",722
+"Brent","2011","Drug and Weapon Offences",1170
+"Brent","2011","No-category",7279
+"Brent","2011","Other Crimes",9895
+"Brent","2011","Public Order Offences",14985
+"Brent","2011","Theft And Robbery",11181
+"Brent","2012","Criminal Damage and Arson",707
+"Brent","2012","Drug and Weapon Offences",1095
+"Brent","2012","No-category",2396
+"Brent","2012","Other Crimes",670
+"Brent","2012","Public Order Offences",4191
+"Brent","2012","Theft And Robbery",4965
+"Brent","2013","Criminal Damage and Arson",276
+"Brent","2013","Drug and Weapon Offences",525
+"Brent","2013","No-category",969
+"Brent","2013","Other Crimes",117
+"Brent","2013","Public Order Offences",1472
+"Brent","2013","Theft And Robbery",2129
+"Brent","2014","Criminal Damage and Arson",493
+"Brent","2014","Drug and Weapon Offences",675
+"Brent","2014","Other Crimes",59
+"Brent","2014","Public Order Offences",2599
+"Brent","2014","Theft And Robbery",2664
+"Brent","2014","Violence and Sexual Offences",1688
+"Brent","2015","Criminal Damage and Arson",1016
+"Brent","2015","Drug and Weapon Offences",861
+"Brent","2015","Other Crimes",125
+"Brent","2015","Public Order Offences",5158
+"Brent","2015","Theft And Robbery",5609
+"Brent","2015","Violence and Sexual Offences",3642
+"Brent","2016","Criminal Damage and Arson",2192
+"Brent","2016","Drug and Weapon Offences",2101
+"Brent","2016","Other Crimes",264
+"Brent","2016","Public Order Offences",11306
+"Brent","2016","Theft And Robbery",12510
+"Brent","2016","Violence and Sexual Offences",8068
+"Brent","2017","Criminal Damage and Arson",2156
+"Brent","2017","Drug and Weapon Offences",1783
+"Brent","2017","Other Crimes",320
+"Brent","2017","Public Order Offences",10791
+"Brent","2017","Theft And Robbery",14199
+"Brent","2017","Violence and Sexual Offences",8684
+"Brent","2018","Criminal Damage and Arson",2085
+"Brent","2018","Drug and Weapon Offences",1888
+"Brent","2018","Other Crimes",334
+"Brent","2018","Public Order Offences",10851
+"Brent","2018","Theft And Robbery",14348
+"Brent","2018","Violence and Sexual Offences",9070
+"Brent","2019","Criminal Damage and Arson",2004
+"Brent","2019","Drug and Weapon Offences",1882
+"Brent","2019","Other Crimes",317
+"Brent","2019","Public Order Offences",11550
+"Brent","2019","Theft And Robbery",13333
+"Brent","2019","Violence and Sexual Offences",8830
+"Brent","2020","Criminal Damage and Arson",2020
+"Brent","2020","Drug and Weapon Offences",2304
+"Brent","2020","Other Crimes",360
+"Brent","2020","Public Order Offences",18237
+"Brent","2020","Theft And Robbery",11802
+"Brent","2020","Violence and Sexual Offences",8925
+"Brent","2021","Criminal Damage and Arson",1990
+"Brent","2021","Drug and Weapon Offences",1986
+"Brent","2021","Other Crimes",382
+"Brent","2021","Public Order Offences",14016
+"Brent","2021","Theft And Robbery",10944
+"Brent","2021","Violence and Sexual Offences",9160
+"Brent","2022","Criminal Damage and Arson",1935
+"Brent","2022","Drug and Weapon Offences",1777
+"Brent","2022","Other Crimes",377
+"Brent","2022","Public Order Offences",12927
+"Brent","2022","Theft And Robbery",12588
+"Brent","2022","Violence and Sexual Offences",9910
+"Brent","2023","Criminal Damage and Arson",2040
+"Brent","2023","Drug and Weapon Offences",1730
+"Brent","2023","Other Crimes",324
+"Brent","2023","Public Order Offences",11667
+"Brent","2023","Theft And Robbery",14582
+"Brent","2023","Violence and Sexual Offences",10038
+"Brent","2024","Criminal Damage and Arson",2043
+"Brent","2024","Drug and Weapon Offences",1830
+"Brent","2024","Other Crimes",342
+"Brent","2024","Public Order Offences",12211
+"Brent","2024","Theft And Robbery",15959
+"Brent","2024","Violence and Sexual Offences",10054
+"Brent","2025","Criminal Damage and Arson",2001
+"Brent","2025","Drug and Weapon Offences",3045
+"Brent","2025","Other Crimes",424
+"Brent","2025","Public Order Offences",12654
+"Brent","2025","Theft And Robbery",14742
+"Brent","2025","Violence and Sexual Offences",10532
+"Brent","2026","Criminal Damage and Arson",721
+"Brent","2026","Drug and Weapon Offences",789
+"Brent","2026","Other Crimes",149
+"Brent","2026","Public Order Offences",3783
+"Brent","2026","Theft And Robbery",4656
+"Brent","2026","Violence and Sexual Offences",3483
+"Bromley","2011","Criminal Damage and Arson",824
+"Bromley","2011","Drug and Weapon Offences",354
+"Bromley","2011","No-category",4819
+"Bromley","2011","Other Crimes",7665
+"Bromley","2011","Public Order Offences",11783
+"Bromley","2011","Theft And Robbery",8302
+"Bromley","2012","Criminal Damage and Arson",762
+"Bromley","2012","Drug and Weapon Offences",358
+"Bromley","2012","No-category",1574
+"Bromley","2012","Other Crimes",503
+"Bromley","2012","Public Order Offences",3299
+"Bromley","2012","Theft And Robbery",3902
+"Bromley","2013","Criminal Damage and Arson",334
+"Bromley","2013","Drug and Weapon Offences",152
+"Bromley","2013","No-category",681
+"Bromley","2013","Other Crimes",128
+"Bromley","2013","Public Order Offences",1100
+"Bromley","2013","Theft And Robbery",1898
+"Bromley","2014","Criminal Damage and Arson",540
+"Bromley","2014","Drug and Weapon Offences",232
+"Bromley","2014","Other Crimes",53
+"Bromley","2014","Public Order Offences",1801
+"Bromley","2014","Theft And Robbery",2698
+"Bromley","2014","Violence and Sexual Offences",1183
+"Bromley","2015","Criminal Damage and Arson",1130
+"Bromley","2015","Drug and Weapon Offences",404
+"Bromley","2015","Other Crimes",111
+"Bromley","2015","Public Order Offences",3666
+"Bromley","2015","Theft And Robbery",5160
+"Bromley","2015","Violence and Sexual Offences",2737
+"Bromley","2016","Criminal Damage and Arson",2137
+"Bromley","2016","Drug and Weapon Offences",728
+"Bromley","2016","Other Crimes",260
+"Bromley","2016","Public Order Offences",7395
+"Bromley","2016","Theft And Robbery",10178
+"Bromley","2016","Violence and Sexual Offences",5773
+"Bromley","2017","Criminal Damage and Arson",2162
+"Bromley","2017","Drug and Weapon Offences",755
+"Bromley","2017","Other Crimes",285
+"Bromley","2017","Public Order Offences",7069
+"Bromley","2017","Theft And Robbery",11406
+"Bromley","2017","Violence and Sexual Offences",6358
+"Bromley","2018","Criminal Damage and Arson",2115
+"Bromley","2018","Drug and Weapon Offences",846
+"Bromley","2018","Other Crimes",266
+"Bromley","2018","Public Order Offences",6513
+"Bromley","2018","Theft And Robbery",11711
+"Bromley","2018","Violence and Sexual Offences",6415
+"Bromley","2019","Criminal Damage and Arson",1917
+"Bromley","2019","Drug and Weapon Offences",1162
+"Bromley","2019","Other Crimes",271
+"Bromley","2019","Public Order Offences",7362
+"Bromley","2019","Theft And Robbery",11989
+"Bromley","2019","Violence and Sexual Offences",6755
+"Bromley","2020","Criminal Damage and Arson",1706
+"Bromley","2020","Drug and Weapon Offences",1348
+"Bromley","2020","Other Crimes",318
+"Bromley","2020","Public Order Offences",12415
+"Bromley","2020","Theft And Robbery",9719
+"Bromley","2020","Violence and Sexual Offences",6571
+"Bromley","2021","Criminal Damage and Arson",1793
+"Bromley","2021","Drug and Weapon Offences",1171
+"Bromley","2021","Other Crimes",335
+"Bromley","2021","Public Order Offences",9180
+"Bromley","2021","Theft And Robbery",9910
+"Bromley","2021","Violence and Sexual Offences",6717
+"Bromley","2022","Criminal Damage and Arson",1847
+"Bromley","2022","Drug and Weapon Offences",1263
+"Bromley","2022","Other Crimes",299
+"Bromley","2022","Public Order Offences",7766
+"Bromley","2022","Theft And Robbery",10081
+"Bromley","2022","Violence and Sexual Offences",6990
+"Bromley","2023","Criminal Damage and Arson",1947
+"Bromley","2023","Drug and Weapon Offences",1072
+"Bromley","2023","Other Crimes",305
+"Bromley","2023","Public Order Offences",7020
+"Bromley","2023","Theft And Robbery",10752
+"Bromley","2023","Violence and Sexual Offences",7467
+"Bromley","2024","Criminal Damage and Arson",2068
+"Bromley","2024","Drug and Weapon Offences",1011
+"Bromley","2024","Other Crimes",327
+"Bromley","2024","Public Order Offences",6860
+"Bromley","2024","Theft And Robbery",11585
+"Bromley","2024","Violence and Sexual Offences",7276
+"Bromley","2025","Criminal Damage and Arson",2177
+"Bromley","2025","Drug and Weapon Offences",1330
+"Bromley","2025","Other Crimes",361
+"Bromley","2025","Public Order Offences",7330
+"Bromley","2025","Theft And Robbery",10733
+"Bromley","2025","Violence and Sexual Offences",7546
+"Bromley","2026","Criminal Damage and Arson",619
+"Bromley","2026","Drug and Weapon Offences",444
+"Bromley","2026","Other Crimes",113
+"Bromley","2026","Public Order Offences",2292
+"Bromley","2026","Theft And Robbery",3322
+"Bromley","2026","Violence and Sexual Offences",2449
+"Camden","2011","Criminal Damage and Arson",639
+"Camden","2011","Drug and Weapon Offences",891
+"Camden","2011","No-category",5772
+"Camden","2011","Other Crimes",14976
+"Camden","2011","Public Order Offences",14958
+"Camden","2011","Theft And Robbery",13163
+"Camden","2012","Criminal Damage and Arson",632
+"Camden","2012","Drug and Weapon Offences",836
+"Camden","2012","No-category",1933
+"Camden","2012","Other Crimes",535
+"Camden","2012","Public Order Offences",4364
+"Camden","2012","Theft And Robbery",7565
+"Camden","2013","Criminal Damage and Arson",226
+"Camden","2013","Drug and Weapon Offences",318
+"Camden","2013","No-category",760
+"Camden","2013","Other Crimes",62
+"Camden","2013","Public Order Offences",1305
+"Camden","2013","Theft And Robbery",3337
+"Camden","2014","Criminal Damage and Arson",421
+"Camden","2014","Drug and Weapon Offences",434
+"Camden","2014","Other Crimes",42
+"Camden","2014","Public Order Offences",2506
+"Camden","2014","Theft And Robbery",4344
+"Camden","2014","Violence and Sexual Offences",1288
+"Camden","2015","Criminal Damage and Arson",908
+"Camden","2015","Drug and Weapon Offences",711
+"Camden","2015","Other Crimes",91
+"Camden","2015","Public Order Offences",5234
+"Camden","2015","Theft And Robbery",9022
+"Camden","2015","Violence and Sexual Offences",2906
+"Camden","2016","Criminal Damage and Arson",1836
+"Camden","2016","Drug and Weapon Offences",1433
+"Camden","2016","Other Crimes",242
+"Camden","2016","Public Order Offences",11531
+"Camden","2016","Theft And Robbery",17437
+"Camden","2016","Violence and Sexual Offences",6281
+"Camden","2017","Criminal Damage and Arson",1757
+"Camden","2017","Drug and Weapon Offences",1363
+"Camden","2017","Other Crimes",224
+"Camden","2017","Public Order Offences",11771
+"Camden","2017","Theft And Robbery",24292
+"Camden","2017","Violence and Sexual Offences",6824
+"Camden","2018","Criminal Damage and Arson",1647
+"Camden","2018","Drug and Weapon Offences",1334
+"Camden","2018","Other Crimes",225
+"Camden","2018","Public Order Offences",11332
+"Camden","2018","Theft And Robbery",22689
+"Camden","2018","Violence and Sexual Offences",7257
+"Camden","2019","Criminal Damage and Arson",1525
+"Camden","2019","Drug and Weapon Offences",1930
+"Camden","2019","Other Crimes",256
+"Camden","2019","Public Order Offences",12146
+"Camden","2019","Theft And Robbery",24595
+"Camden","2019","Violence and Sexual Offences",6610
+"Camden","2020","Criminal Damage and Arson",1479
+"Camden","2020","Drug and Weapon Offences",2085
+"Camden","2020","Other Crimes",215
+"Camden","2020","Public Order Offences",16257
+"Camden","2020","Theft And Robbery",16375
+"Camden","2020","Violence and Sexual Offences",6397
+"Camden","2021","Criminal Damage and Arson",1632
+"Camden","2021","Drug and Weapon Offences",1351
+"Camden","2021","Other Crimes",222
+"Camden","2021","Public Order Offences",13347
+"Camden","2021","Theft And Robbery",14921
+"Camden","2021","Violence and Sexual Offences",6544
+"Camden","2022","Criminal Damage and Arson",1551
+"Camden","2022","Drug and Weapon Offences",1544
+"Camden","2022","Other Crimes",213
+"Camden","2022","Public Order Offences",12229
+"Camden","2022","Theft And Robbery",21133
+"Camden","2022","Violence and Sexual Offences",7212
+"Camden","2023","Criminal Damage and Arson",1801
+"Camden","2023","Drug and Weapon Offences",1342
+"Camden","2023","Other Crimes",229
+"Camden","2023","Public Order Offences",12108
+"Camden","2023","Theft And Robbery",25485
+"Camden","2023","Violence and Sexual Offences",7860
+"Camden","2024","Criminal Damage and Arson",1721
+"Camden","2024","Drug and Weapon Offences",1529
+"Camden","2024","Other Crimes",242
+"Camden","2024","Public Order Offences",11969
+"Camden","2024","Theft And Robbery",28111
+"Camden","2024","Violence and Sexual Offences",7398
+"Camden","2025","Criminal Damage and Arson",1657
+"Camden","2025","Drug and Weapon Offences",1758
+"Camden","2025","Other Crimes",248
+"Camden","2025","Public Order Offences",11737
+"Camden","2025","Theft And Robbery",25575
+"Camden","2025","Violence and Sexual Offences",7769
+"Camden","2026","Criminal Damage and Arson",515
+"Camden","2026","Drug and Weapon Offences",609
+"Camden","2026","Other Crimes",125
+"Camden","2026","Public Order Offences",3677
+"Camden","2026","Theft And Robbery",7269
+"Camden","2026","Violence and Sexual Offences",2592
+"City of London","2011","Criminal Damage and Arson",76
+"City of London","2011","Drug and Weapon Offences",145
+"City of London","2011","No-category",729
+"City of London","2011","Other Crimes",3416
+"City of London","2011","Public Order Offences",1632
+"City of London","2011","Theft And Robbery",1495
+"City of London","2012","Criminal Damage and Arson",233
+"City of London","2012","Drug and Weapon Offences",460
+"City of London","2012","No-category",792
+"City of London","2012","Other Crimes",241
+"City of London","2012","Public Order Offences",1586
+"City of London","2012","Theft And Robbery",3703
+"City of London","2013","Criminal Damage and Arson",225
+"City of London","2013","Drug and Weapon Offences",397
+"City of London","2013","No-category",232
+"City of London","2013","Other Crimes",124
+"City of London","2013","Public Order Offences",1082
+"City of London","2013","Theft And Robbery",3653
+"City of London","2013","Violence and Sexual Offences",408
+"City of London","2014","Criminal Damage and Arson",201
+"City of London","2014","Drug and Weapon Offences",375
+"City of London","2014","Other Crimes",152
+"City of London","2014","Public Order Offences",1120
+"City of London","2014","Theft And Robbery",3507
+"City of London","2014","Violence and Sexual Offences",689
+"City of London","2015","Criminal Damage and Arson",228
+"City of London","2015","Drug and Weapon Offences",367
+"City of London","2015","Other Crimes",140
+"City of London","2015","Public Order Offences",1083
+"City of London","2015","Theft And Robbery",3178
+"City of London","2015","Violence and Sexual Offences",846
+"City of London","2016","Criminal Damage and Arson",233
+"City of London","2016","Drug and Weapon Offences",346
+"City of London","2016","Other Crimes",145
+"City of London","2016","Public Order Offences",1435
+"City of London","2016","Theft And Robbery",3518
+"City of London","2016","Violence and Sexual Offences",940
+"City of London","2017","Criminal Damage and Arson",244
+"City of London","2017","Drug and Weapon Offences",311
+"City of London","2017","Other Crimes",114
+"City of London","2017","Public Order Offences",1776
+"City of London","2017","Theft And Robbery",3934
+"City of London","2017","Violence and Sexual Offences",932
+"City of London","2018","Criminal Damage and Arson",226
+"City of London","2018","Drug and Weapon Offences",384
+"City of London","2018","Other Crimes",95
+"City of London","2018","Public Order Offences",1842
+"City of London","2018","Theft And Robbery",4517
+"City of London","2018","Violence and Sexual Offences",1180
+"City of London","2019","Criminal Damage and Arson",278
+"City of London","2019","Drug and Weapon Offences",652
+"City of London","2019","Other Crimes",150
+"City of London","2019","Public Order Offences",1651
+"City of London","2019","Theft And Robbery",5896
+"City of London","2019","Violence and Sexual Offences",1303
+"City of London","2020","Criminal Damage and Arson",211
+"City of London","2020","Drug and Weapon Offences",538
+"City of London","2020","Other Crimes",88
+"City of London","2020","Public Order Offences",1006
+"City of London","2020","Theft And Robbery",3142
+"City of London","2020","Violence and Sexual Offences",673
+"City of London","2021","Criminal Damage and Arson",244
+"City of London","2021","Drug and Weapon Offences",537
+"City of London","2021","Other Crimes",71
+"City of London","2021","Public Order Offences",1418
+"City of London","2021","Theft And Robbery",3102
+"City of London","2021","Violence and Sexual Offences",1043
+"City of London","2022","Criminal Damage and Arson",287
+"City of London","2022","Drug and Weapon Offences",527
+"City of London","2022","Other Crimes",94
+"City of London","2022","Public Order Offences",1409
+"City of London","2022","Theft And Robbery",5191
+"City of London","2022","Violence and Sexual Offences",1381
+"City of London","2023","Criminal Damage and Arson",335
+"City of London","2023","Drug and Weapon Offences",574
+"City of London","2023","Other Crimes",136
+"City of London","2023","Public Order Offences",980
+"City of London","2023","Theft And Robbery",5925
+"City of London","2023","Violence and Sexual Offences",1552
+"City of London","2024","Criminal Damage and Arson",379
+"City of London","2024","Drug and Weapon Offences",502
+"City of London","2024","Other Crimes",90
+"City of London","2024","Public Order Offences",1072
+"City of London","2024","Theft And Robbery",6479
+"City of London","2024","Violence and Sexual Offences",1617
+"City of London","2025","Criminal Damage and Arson",331
+"City of London","2025","Drug and Weapon Offences",481
+"City of London","2025","Other Crimes",67
+"City of London","2025","Public Order Offences",824
+"City of London","2025","Theft And Robbery",6655
+"City of London","2025","Violence and Sexual Offences",1645
+"City of London","2026","Criminal Damage and Arson",90
+"City of London","2026","Drug and Weapon Offences",215
+"City of London","2026","Other Crimes",15
+"City of London","2026","Public Order Offences",287
+"City of London","2026","Theft And Robbery",2214
+"City of London","2026","Violence and Sexual Offences",430
+"Croydon","2011","Criminal Damage and Arson",1035
+"Croydon","2011","Drug and Weapon Offences",829
+"Croydon","2011","No-category",6817
+"Croydon","2011","Other Crimes",10804
+"Croydon","2011","Public Order Offences",16686
+"Croydon","2011","Theft And Robbery",12302
+"Croydon","2012","Criminal Damage and Arson",1077
+"Croydon","2012","Drug and Weapon Offences",798
+"Croydon","2012","No-category",2524
+"Croydon","2012","Other Crimes",956
+"Croydon","2012","Public Order Offences",4835
+"Croydon","2012","Theft And Robbery",5898
+"Croydon","2013","Criminal Damage and Arson",435
+"Croydon","2013","Drug and Weapon Offences",360
+"Croydon","2013","No-category",1094
+"Croydon","2013","Other Crimes",155
+"Croydon","2013","Public Order Offences",1795
+"Croydon","2013","Theft And Robbery",2499
+"Croydon","2014","Criminal Damage and Arson",678
+"Croydon","2014","Drug and Weapon Offences",525
+"Croydon","2014","Other Crimes",58
+"Croydon","2014","Public Order Offences",2380
+"Croydon","2014","Theft And Robbery",3486
+"Croydon","2014","Violence and Sexual Offences",1882
+"Croydon","2015","Criminal Damage and Arson",1503
+"Croydon","2015","Drug and Weapon Offences",809
+"Croydon","2015","Other Crimes",180
+"Croydon","2015","Public Order Offences",5134
+"Croydon","2015","Theft And Robbery",6336
+"Croydon","2015","Violence and Sexual Offences",4308
+"Croydon","2016","Criminal Damage and Arson",3105
+"Croydon","2016","Drug and Weapon Offences",1404
+"Croydon","2016","Other Crimes",411
+"Croydon","2016","Public Order Offences",10854
+"Croydon","2016","Theft And Robbery",13061
+"Croydon","2016","Violence and Sexual Offences",9235
+"Croydon","2017","Criminal Damage and Arson",3005
+"Croydon","2017","Drug and Weapon Offences",1823
+"Croydon","2017","Other Crimes",359
+"Croydon","2017","Public Order Offences",10262
+"Croydon","2017","Theft And Robbery",12930
+"Croydon","2017","Violence and Sexual Offences",9280
+"Croydon","2018","Criminal Damage and Arson",2529
+"Croydon","2018","Drug and Weapon Offences",1868
+"Croydon","2018","Other Crimes",415
+"Croydon","2018","Public Order Offences",9492
+"Croydon","2018","Theft And Robbery",13742
+"Croydon","2018","Violence and Sexual Offences",9718
+"Croydon","2019","Criminal Damage and Arson",2273
+"Croydon","2019","Drug and Weapon Offences",2566
+"Croydon","2019","Other Crimes",412
+"Croydon","2019","Public Order Offences",10506
+"Croydon","2019","Theft And Robbery",13918
+"Croydon","2019","Violence and Sexual Offences",9818
+"Croydon","2020","Criminal Damage and Arson",2449
+"Croydon","2020","Drug and Weapon Offences",2869
+"Croydon","2020","Other Crimes",446
+"Croydon","2020","Public Order Offences",17546
+"Croydon","2020","Theft And Robbery",12704
+"Croydon","2020","Violence and Sexual Offences",10901
+"Croydon","2021","Criminal Damage and Arson",2548
+"Croydon","2021","Drug and Weapon Offences",2323
+"Croydon","2021","Other Crimes",486
+"Croydon","2021","Public Order Offences",13856
+"Croydon","2021","Theft And Robbery",12119
+"Croydon","2021","Violence and Sexual Offences",11371
+"Croydon","2022","Criminal Damage and Arson",2434
+"Croydon","2022","Drug and Weapon Offences",2136
+"Croydon","2022","Other Crimes",443
+"Croydon","2022","Public Order Offences",12050
+"Croydon","2022","Theft And Robbery",13753
+"Croydon","2022","Violence and Sexual Offences",11483
+"Croydon","2023","Criminal Damage and Arson",2788
+"Croydon","2023","Drug and Weapon Offences",1926
+"Croydon","2023","Other Crimes",423
+"Croydon","2023","Public Order Offences",10265
+"Croydon","2023","Theft And Robbery",13741
+"Croydon","2023","Violence and Sexual Offences",11710
+"Croydon","2024","Criminal Damage and Arson",2742
+"Croydon","2024","Drug and Weapon Offences",2070
+"Croydon","2024","Other Crimes",516
+"Croydon","2024","Public Order Offences",10940
+"Croydon","2024","Theft And Robbery",15044
+"Croydon","2024","Violence and Sexual Offences",12183
+"Croydon","2025","Criminal Damage and Arson",2538
+"Croydon","2025","Drug and Weapon Offences",2629
+"Croydon","2025","Other Crimes",545
+"Croydon","2025","Public Order Offences",11347
+"Croydon","2025","Theft And Robbery",13105
+"Croydon","2025","Violence and Sexual Offences",12419
+"Croydon","2026","Criminal Damage and Arson",839
+"Croydon","2026","Drug and Weapon Offences",870
+"Croydon","2026","Other Crimes",188
+"Croydon","2026","Public Order Offences",3414
+"Croydon","2026","Theft And Robbery",4375
+"Croydon","2026","Violence and Sexual Offences",4123
+"Ealing","2011","Criminal Damage and Arson",863
+"Ealing","2011","Drug and Weapon Offences",721
+"Ealing","2011","No-category",7550
+"Ealing","2011","Other Crimes",11351
+"Ealing","2011","Public Order Offences",18411
+"Ealing","2011","Theft And Robbery",12005
+"Ealing","2012","Criminal Damage and Arson",859
+"Ealing","2012","Drug and Weapon Offences",673
+"Ealing","2012","No-category",2508
+"Ealing","2012","Other Crimes",752
+"Ealing","2012","Public Order Offences",5059
+"Ealing","2012","Theft And Robbery",5712
+"Ealing","2013","Criminal Damage and Arson",332
+"Ealing","2013","Drug and Weapon Offences",360
+"Ealing","2013","No-category",1102
+"Ealing","2013","Other Crimes",160
+"Ealing","2013","Public Order Offences",1596
+"Ealing","2013","Theft And Robbery",2459
+"Ealing","2014","Criminal Damage and Arson",571
+"Ealing","2014","Drug and Weapon Offences",401
+"Ealing","2014","Other Crimes",47
+"Ealing","2014","Public Order Offences",2714
+"Ealing","2014","Theft And Robbery",3309
+"Ealing","2014","Violence and Sexual Offences",1684
+"Ealing","2015","Criminal Damage and Arson",1237
+"Ealing","2015","Drug and Weapon Offences",683
+"Ealing","2015","Other Crimes",150
+"Ealing","2015","Public Order Offences",6054
+"Ealing","2015","Theft And Robbery",6393
+"Ealing","2015","Violence and Sexual Offences",3831
+"Ealing","2016","Criminal Damage and Arson",2486
+"Ealing","2016","Drug and Weapon Offences",1348
+"Ealing","2016","Other Crimes",379
+"Ealing","2016","Public Order Offences",11835
+"Ealing","2016","Theft And Robbery",13243
+"Ealing","2016","Violence and Sexual Offences",8195
+"Ealing","2017","Criminal Damage and Arson",2271
+"Ealing","2017","Drug and Weapon Offences",1399
+"Ealing","2017","Other Crimes",373
+"Ealing","2017","Public Order Offences",11460
+"Ealing","2017","Theft And Robbery",13444
+"Ealing","2017","Violence and Sexual Offences",8329
+"Ealing","2018","Criminal Damage and Arson",2119
+"Ealing","2018","Drug and Weapon Offences",1212
+"Ealing","2018","Other Crimes",289
+"Ealing","2018","Public Order Offences",11354
+"Ealing","2018","Theft And Robbery",13621
+"Ealing","2018","Violence and Sexual Offences",8573
+"Ealing","2019","Criminal Damage and Arson",2091
+"Ealing","2019","Drug and Weapon Offences",1717
+"Ealing","2019","Other Crimes",318
+"Ealing","2019","Public Order Offences",12255
+"Ealing","2019","Theft And Robbery",14847
+"Ealing","2019","Violence and Sexual Offences",8549
+"Ealing","2020","Criminal Damage and Arson",2038
+"Ealing","2020","Drug and Weapon Offences",2262
+"Ealing","2020","Other Crimes",412
+"Ealing","2020","Public Order Offences",18573
+"Ealing","2020","Theft And Robbery",12368
+"Ealing","2020","Violence and Sexual Offences",8993
+"Ealing","2021","Criminal Damage and Arson",1974
+"Ealing","2021","Drug and Weapon Offences",1606
+"Ealing","2021","Other Crimes",402
+"Ealing","2021","Public Order Offences",14240
+"Ealing","2021","Theft And Robbery",11734
+"Ealing","2021","Violence and Sexual Offences",9565
+"Ealing","2022","Criminal Damage and Arson",2014
+"Ealing","2022","Drug and Weapon Offences",1385
+"Ealing","2022","Other Crimes",338
+"Ealing","2022","Public Order Offences",13106
+"Ealing","2022","Theft And Robbery",12518
+"Ealing","2022","Violence and Sexual Offences",9989
+"Ealing","2023","Criminal Damage and Arson",2216
+"Ealing","2023","Drug and Weapon Offences",1352
+"Ealing","2023","Other Crimes",353
+"Ealing","2023","Public Order Offences",12162
+"Ealing","2023","Theft And Robbery",14431
+"Ealing","2023","Violence and Sexual Offences",10630
+"Ealing","2024","Criminal Damage and Arson",1915
+"Ealing","2024","Drug and Weapon Offences",1356
+"Ealing","2024","Other Crimes",402
+"Ealing","2024","Public Order Offences",12794
+"Ealing","2024","Theft And Robbery",14914
+"Ealing","2024","Violence and Sexual Offences",10450
+"Ealing","2025","Criminal Damage and Arson",2187
+"Ealing","2025","Drug and Weapon Offences",2253
+"Ealing","2025","Other Crimes",394
+"Ealing","2025","Public Order Offences",13410
+"Ealing","2025","Theft And Robbery",14101
+"Ealing","2025","Violence and Sexual Offences",11129
+"Ealing","2026","Criminal Damage and Arson",695
+"Ealing","2026","Drug and Weapon Offences",592
+"Ealing","2026","Other Crimes",139
+"Ealing","2026","Public Order Offences",4291
+"Ealing","2026","Theft And Robbery",4590
+"Ealing","2026","Violence and Sexual Offences",3605
+"Enfield","2011","Criminal Damage and Arson",788
+"Enfield","2011","Drug and Weapon Offences",404
+"Enfield","2011","No-category",4482
+"Enfield","2011","Other Crimes",7601
+"Enfield","2011","Public Order Offences",15260
+"Enfield","2011","Theft And Robbery",10012
+"Enfield","2012","Criminal Damage and Arson",735
+"Enfield","2012","Drug and Weapon Offences",361
+"Enfield","2012","No-category",1590
+"Enfield","2012","Other Crimes",486
+"Enfield","2012","Public Order Offences",4173
+"Enfield","2012","Theft And Robbery",4497
+"Enfield","2013","Criminal Damage and Arson",303
+"Enfield","2013","Drug and Weapon Offences",230
+"Enfield","2013","No-category",794
+"Enfield","2013","Other Crimes",106
+"Enfield","2013","Public Order Offences",1480
+"Enfield","2013","Theft And Robbery",2067
+"Enfield","2014","Criminal Damage and Arson",491
+"Enfield","2014","Drug and Weapon Offences",392
+"Enfield","2014","Other Crimes",62
+"Enfield","2014","Public Order Offences",2160
+"Enfield","2014","Theft And Robbery",2929
+"Enfield","2014","Violence and Sexual Offences",1372
+"Enfield","2015","Criminal Damage and Arson",1014
+"Enfield","2015","Drug and Weapon Offences",538
+"Enfield","2015","Other Crimes",151
+"Enfield","2015","Public Order Offences",4338
+"Enfield","2015","Theft And Robbery",5606
+"Enfield","2015","Violence and Sexual Offences",2928
+"Enfield","2016","Criminal Damage and Arson",2065
+"Enfield","2016","Drug and Weapon Offences",1086
+"Enfield","2016","Other Crimes",280
+"Enfield","2016","Public Order Offences",9319
+"Enfield","2016","Theft And Robbery",11476
+"Enfield","2016","Violence and Sexual Offences",6639
+"Enfield","2017","Criminal Damage and Arson",2102
+"Enfield","2017","Drug and Weapon Offences",1137
+"Enfield","2017","Other Crimes",298
+"Enfield","2017","Public Order Offences",9097
+"Enfield","2017","Theft And Robbery",12856
+"Enfield","2017","Violence and Sexual Offences",6913
+"Enfield","2018","Criminal Damage and Arson",2114
+"Enfield","2018","Drug and Weapon Offences",1057
+"Enfield","2018","Other Crimes",392
+"Enfield","2018","Public Order Offences",9440
+"Enfield","2018","Theft And Robbery",14991
+"Enfield","2018","Violence and Sexual Offences",7447
+"Enfield","2019","Criminal Damage and Arson",1928
+"Enfield","2019","Drug and Weapon Offences",1209
+"Enfield","2019","Other Crimes",345
+"Enfield","2019","Public Order Offences",9711
+"Enfield","2019","Theft And Robbery",15302
+"Enfield","2019","Violence and Sexual Offences",8070
+"Enfield","2020","Criminal Damage and Arson",1824
+"Enfield","2020","Drug and Weapon Offences",1619
+"Enfield","2020","Other Crimes",396
+"Enfield","2020","Public Order Offences",16505
+"Enfield","2020","Theft And Robbery",13450
+"Enfield","2020","Violence and Sexual Offences",8796
+"Enfield","2021","Criminal Damage and Arson",1928
+"Enfield","2021","Drug and Weapon Offences",1227
+"Enfield","2021","Other Crimes",397
+"Enfield","2021","Public Order Offences",12320
+"Enfield","2021","Theft And Robbery",13222
+"Enfield","2021","Violence and Sexual Offences",9345
+"Enfield","2022","Criminal Damage and Arson",2006
+"Enfield","2022","Drug and Weapon Offences",1638
+"Enfield","2022","Other Crimes",405
+"Enfield","2022","Public Order Offences",10774
+"Enfield","2022","Theft And Robbery",13682
+"Enfield","2022","Violence and Sexual Offences",9509
+"Enfield","2023","Criminal Damage and Arson",2091
+"Enfield","2023","Drug and Weapon Offences",1307
+"Enfield","2023","Other Crimes",364
+"Enfield","2023","Public Order Offences",9878
+"Enfield","2023","Theft And Robbery",14026
+"Enfield","2023","Violence and Sexual Offences",9627
+"Enfield","2024","Criminal Damage and Arson",1939
+"Enfield","2024","Drug and Weapon Offences",1668
+"Enfield","2024","Other Crimes",391
+"Enfield","2024","Public Order Offences",9529
+"Enfield","2024","Theft And Robbery",14691
+"Enfield","2024","Violence and Sexual Offences",9083
+"Enfield","2025","Criminal Damage and Arson",1953
+"Enfield","2025","Drug and Weapon Offences",2218
+"Enfield","2025","Other Crimes",490
+"Enfield","2025","Public Order Offences",9445
+"Enfield","2025","Theft And Robbery",13546
+"Enfield","2025","Violence and Sexual Offences",9130
+"Enfield","2026","Criminal Damage and Arson",612
+"Enfield","2026","Drug and Weapon Offences",735
+"Enfield","2026","Other Crimes",191
+"Enfield","2026","Public Order Offences",2833
+"Enfield","2026","Theft And Robbery",4381
+"Enfield","2026","Violence and Sexual Offences",3246
+"Greenwich","2011","Criminal Damage and Arson",840
+"Greenwich","2011","Drug and Weapon Offences",339
+"Greenwich","2011","No-category",5479
+"Greenwich","2011","Other Crimes",7983
+"Greenwich","2011","Public Order Offences",12607
+"Greenwich","2011","Theft And Robbery",7861
+"Greenwich","2012","Criminal Damage and Arson",770
+"Greenwich","2012","Drug and Weapon Offences",495
+"Greenwich","2012","No-category",2005
+"Greenwich","2012","Other Crimes",493
+"Greenwich","2012","Public Order Offences",3539
+"Greenwich","2012","Theft And Robbery",3517
+"Greenwich","2013","Criminal Damage and Arson",357
+"Greenwich","2013","Drug and Weapon Offences",172
+"Greenwich","2013","No-category",815
+"Greenwich","2013","Other Crimes",132
+"Greenwich","2013","Public Order Offences",1144
+"Greenwich","2013","Theft And Robbery",1595
+"Greenwich","2014","Criminal Damage and Arson",449
+"Greenwich","2014","Drug and Weapon Offences",281
+"Greenwich","2014","Other Crimes",70
+"Greenwich","2014","Public Order Offences",1720
+"Greenwich","2014","Theft And Robbery",2336
+"Greenwich","2014","Violence and Sexual Offences",1384
+"Greenwich","2015","Criminal Damage and Arson",1092
+"Greenwich","2015","Drug and Weapon Offences",410
+"Greenwich","2015","Other Crimes",171
+"Greenwich","2015","Public Order Offences",3837
+"Greenwich","2015","Theft And Robbery",4667
+"Greenwich","2015","Violence and Sexual Offences",3188
+"Greenwich","2016","Criminal Damage and Arson",2364
+"Greenwich","2016","Drug and Weapon Offences",823
+"Greenwich","2016","Other Crimes",390
+"Greenwich","2016","Public Order Offences",8060
+"Greenwich","2016","Theft And Robbery",10253
+"Greenwich","2016","Violence and Sexual Offences",7443
+"Greenwich","2017","Criminal Damage and Arson",2490
+"Greenwich","2017","Drug and Weapon Offences",1059
+"Greenwich","2017","Other Crimes",405
+"Greenwich","2017","Public Order Offences",7834
+"Greenwich","2017","Theft And Robbery",11361
+"Greenwich","2017","Violence and Sexual Offences",7848
+"Greenwich","2018","Criminal Damage and Arson",2084
+"Greenwich","2018","Drug and Weapon Offences",960
+"Greenwich","2018","Other Crimes",400
+"Greenwich","2018","Public Order Offences",7344
+"Greenwich","2018","Theft And Robbery",11849
+"Greenwich","2018","Violence and Sexual Offences",8230
+"Greenwich","2019","Criminal Damage and Arson",2065
+"Greenwich","2019","Drug and Weapon Offences",1368
+"Greenwich","2019","Other Crimes",373
+"Greenwich","2019","Public Order Offences",8164
+"Greenwich","2019","Theft And Robbery",12811
+"Greenwich","2019","Violence and Sexual Offences",8254
+"Greenwich","2020","Criminal Damage and Arson",1952
+"Greenwich","2020","Drug and Weapon Offences",2024
+"Greenwich","2020","Other Crimes",390
+"Greenwich","2020","Public Order Offences",13512
+"Greenwich","2020","Theft And Robbery",9712
+"Greenwich","2020","Violence and Sexual Offences",8327
+"Greenwich","2021","Criminal Damage and Arson",1899
+"Greenwich","2021","Drug and Weapon Offences",1753
+"Greenwich","2021","Other Crimes",373
+"Greenwich","2021","Public Order Offences",10415
+"Greenwich","2021","Theft And Robbery",9557
+"Greenwich","2021","Violence and Sexual Offences",8903
+"Greenwich","2022","Criminal Damage and Arson",1891
+"Greenwich","2022","Drug and Weapon Offences",1686
+"Greenwich","2022","Other Crimes",370
+"Greenwich","2022","Public Order Offences",8838
+"Greenwich","2022","Theft And Robbery",10626
+"Greenwich","2022","Violence and Sexual Offences",9101
+"Greenwich","2023","Criminal Damage and Arson",2187
+"Greenwich","2023","Drug and Weapon Offences",1573
+"Greenwich","2023","Other Crimes",365
+"Greenwich","2023","Public Order Offences",8108
+"Greenwich","2023","Theft And Robbery",11591
+"Greenwich","2023","Violence and Sexual Offences",9706
+"Greenwich","2024","Criminal Damage and Arson",2012
+"Greenwich","2024","Drug and Weapon Offences",1616
+"Greenwich","2024","Other Crimes",417
+"Greenwich","2024","Public Order Offences",8366
+"Greenwich","2024","Theft And Robbery",11806
+"Greenwich","2024","Violence and Sexual Offences",9393
+"Greenwich","2025","Criminal Damage and Arson",1961
+"Greenwich","2025","Drug and Weapon Offences",2104
+"Greenwich","2025","Other Crimes",457
+"Greenwich","2025","Public Order Offences",8790
+"Greenwich","2025","Theft And Robbery",11013
+"Greenwich","2025","Violence and Sexual Offences",9970
+"Greenwich","2026","Criminal Damage and Arson",617
+"Greenwich","2026","Drug and Weapon Offences",604
+"Greenwich","2026","Other Crimes",162
+"Greenwich","2026","Public Order Offences",2684
+"Greenwich","2026","Theft And Robbery",3577
+"Greenwich","2026","Violence and Sexual Offences",3203
+"Hackney","2011","Criminal Damage and Arson",633
+"Hackney","2011","Drug and Weapon Offences",796
+"Hackney","2011","No-category",5502
+"Hackney","2011","Other Crimes",11003
+"Hackney","2011","Public Order Offences",14083
+"Hackney","2011","Theft And Robbery",9376
+"Hackney","2012","Criminal Damage and Arson",628
+"Hackney","2012","Drug and Weapon Offences",740
+"Hackney","2012","No-category",2169
+"Hackney","2012","Other Crimes",418
+"Hackney","2012","Public Order Offences",3876
+"Hackney","2012","Theft And Robbery",5923
+"Hackney","2013","Criminal Damage and Arson",253
+"Hackney","2013","Drug and Weapon Offences",290
+"Hackney","2013","No-category",921
+"Hackney","2013","Other Crimes",48
+"Hackney","2013","Public Order Offences",1593
+"Hackney","2013","Theft And Robbery",2558
+"Hackney","2014","Criminal Damage and Arson",473
+"Hackney","2014","Drug and Weapon Offences",319
+"Hackney","2014","Other Crimes",63
+"Hackney","2014","Public Order Offences",2541
+"Hackney","2014","Theft And Robbery",3482
+"Hackney","2014","Violence and Sexual Offences",1547
+"Hackney","2015","Criminal Damage and Arson",1016
+"Hackney","2015","Drug and Weapon Offences",666
+"Hackney","2015","Other Crimes",119
+"Hackney","2015","Public Order Offences",5395
+"Hackney","2015","Theft And Robbery",7362
+"Hackney","2015","Violence and Sexual Offences",3645
+"Hackney","2016","Criminal Damage and Arson",1921
+"Hackney","2016","Drug and Weapon Offences",1326
+"Hackney","2016","Other Crimes",243
+"Hackney","2016","Public Order Offences",10469
+"Hackney","2016","Theft And Robbery",15532
+"Hackney","2016","Violence and Sexual Offences",7622
+"Hackney","2017","Criminal Damage and Arson",1940
+"Hackney","2017","Drug and Weapon Offences",1386
+"Hackney","2017","Other Crimes",252
+"Hackney","2017","Public Order Offences",10466
+"Hackney","2017","Theft And Robbery",17536
+"Hackney","2017","Violence and Sexual Offences",8120
+"Hackney","2018","Criminal Damage and Arson",1805
+"Hackney","2018","Drug and Weapon Offences",1601
+"Hackney","2018","Other Crimes",262
+"Hackney","2018","Public Order Offences",9615
+"Hackney","2018","Theft And Robbery",17046
+"Hackney","2018","Violence and Sexual Offences",8252
+"Hackney","2019","Criminal Damage and Arson",1666
+"Hackney","2019","Drug and Weapon Offences",1828
+"Hackney","2019","Other Crimes",266
+"Hackney","2019","Public Order Offences",10695
+"Hackney","2019","Theft And Robbery",18390
+"Hackney","2019","Violence and Sexual Offences",7964
+"Hackney","2020","Criminal Damage and Arson",1738
+"Hackney","2020","Drug and Weapon Offences",1751
+"Hackney","2020","Other Crimes",285
+"Hackney","2020","Public Order Offences",19558
+"Hackney","2020","Theft And Robbery",15570
+"Hackney","2020","Violence and Sexual Offences",8146
+"Hackney","2021","Criminal Damage and Arson",1642
+"Hackney","2021","Drug and Weapon Offences",1665
+"Hackney","2021","Other Crimes",292
+"Hackney","2021","Public Order Offences",13967
+"Hackney","2021","Theft And Robbery",15205
+"Hackney","2021","Violence and Sexual Offences",8473
+"Hackney","2022","Criminal Damage and Arson",1750
+"Hackney","2022","Drug and Weapon Offences",1677
+"Hackney","2022","Other Crimes",286
+"Hackney","2022","Public Order Offences",11097
+"Hackney","2022","Theft And Robbery",15657
+"Hackney","2022","Violence and Sexual Offences",8645
+"Hackney","2023","Criminal Damage and Arson",1797
+"Hackney","2023","Drug and Weapon Offences",1309
+"Hackney","2023","Other Crimes",253
+"Hackney","2023","Public Order Offences",10132
+"Hackney","2023","Theft And Robbery",16320
+"Hackney","2023","Violence and Sexual Offences",9023
+"Hackney","2024","Criminal Damage and Arson",1727
+"Hackney","2024","Drug and Weapon Offences",1589
+"Hackney","2024","Other Crimes",278
+"Hackney","2024","Public Order Offences",10170
+"Hackney","2024","Theft And Robbery",18268
+"Hackney","2024","Violence and Sexual Offences",8506
+"Hackney","2025","Criminal Damage and Arson",1614
+"Hackney","2025","Drug and Weapon Offences",2483
+"Hackney","2025","Other Crimes",342
+"Hackney","2025","Public Order Offences",10138
+"Hackney","2025","Theft And Robbery",16386
+"Hackney","2025","Violence and Sexual Offences",8762
+"Hackney","2026","Criminal Damage and Arson",525
+"Hackney","2026","Drug and Weapon Offences",797
+"Hackney","2026","Other Crimes",96
+"Hackney","2026","Public Order Offences",2997
+"Hackney","2026","Theft And Robbery",4970
+"Hackney","2026","Violence and Sexual Offences",2741
+"Hammersmith and Fulham","2011","Criminal Damage and Arson",544
+"Hammersmith and Fulham","2011","Drug and Weapon Offences",484
+"Hammersmith and Fulham","2011","No-category",4436
+"Hammersmith and Fulham","2011","Other Crimes",8483
+"Hammersmith and Fulham","2011","Public Order Offences",11215
+"Hammersmith and Fulham","2011","Theft And Robbery",9168
+"Hammersmith and Fulham","2012","Criminal Damage and Arson",543
+"Hammersmith and Fulham","2012","Drug and Weapon Offences",529
+"Hammersmith and Fulham","2012","No-category",1551
+"Hammersmith and Fulham","2012","Other Crimes",457
+"Hammersmith and Fulham","2012","Public Order Offences",3027
+"Hammersmith and Fulham","2012","Theft And Robbery",4539
+"Hammersmith and Fulham","2013","Criminal Damage and Arson",180
+"Hammersmith and Fulham","2013","Drug and Weapon Offences",306
+"Hammersmith and Fulham","2013","No-category",718
+"Hammersmith and Fulham","2013","Other Crimes",58
+"Hammersmith and Fulham","2013","Public Order Offences",891
+"Hammersmith and Fulham","2013","Theft And Robbery",1729
+"Hammersmith and Fulham","2014","Criminal Damage and Arson",330
+"Hammersmith and Fulham","2014","Drug and Weapon Offences",454
+"Hammersmith and Fulham","2014","Other Crimes",63
+"Hammersmith and Fulham","2014","Public Order Offences",1664
+"Hammersmith and Fulham","2014","Theft And Robbery",2643
+"Hammersmith and Fulham","2014","Violence and Sexual Offences",1007
+"Hammersmith and Fulham","2015","Criminal Damage and Arson",737
+"Hammersmith and Fulham","2015","Drug and Weapon Offences",612
+"Hammersmith and Fulham","2015","Other Crimes",125
+"Hammersmith and Fulham","2015","Public Order Offences",3734
+"Hammersmith and Fulham","2015","Theft And Robbery",5348
+"Hammersmith and Fulham","2015","Violence and Sexual Offences",2245
+"Hammersmith and Fulham","2016","Criminal Damage and Arson",1383
+"Hammersmith and Fulham","2016","Drug and Weapon Offences",1266
+"Hammersmith and Fulham","2016","Other Crimes",296
+"Hammersmith and Fulham","2016","Public Order Offences",7648
+"Hammersmith and Fulham","2016","Theft And Robbery",10928
+"Hammersmith and Fulham","2016","Violence and Sexual Offences",5002
+"Hammersmith and Fulham","2017","Criminal Damage and Arson",1317
+"Hammersmith and Fulham","2017","Drug and Weapon Offences",1089
+"Hammersmith and Fulham","2017","Other Crimes",275
+"Hammersmith and Fulham","2017","Public Order Offences",7313
+"Hammersmith and Fulham","2017","Theft And Robbery",11949
+"Hammersmith and Fulham","2017","Violence and Sexual Offences",5087
+"Hammersmith and Fulham","2018","Criminal Damage and Arson",1219
+"Hammersmith and Fulham","2018","Drug and Weapon Offences",1019
+"Hammersmith and Fulham","2018","Other Crimes",236
+"Hammersmith and Fulham","2018","Public Order Offences",6908
+"Hammersmith and Fulham","2018","Theft And Robbery",11897
+"Hammersmith and Fulham","2018","Violence and Sexual Offences",5496
+"Hammersmith and Fulham","2019","Criminal Damage and Arson",1261
+"Hammersmith and Fulham","2019","Drug and Weapon Offences",1153
+"Hammersmith and Fulham","2019","Other Crimes",259
+"Hammersmith and Fulham","2019","Public Order Offences",7273
+"Hammersmith and Fulham","2019","Theft And Robbery",11955
+"Hammersmith and Fulham","2019","Violence and Sexual Offences",5374
+"Hammersmith and Fulham","2020","Criminal Damage and Arson",1122
+"Hammersmith and Fulham","2020","Drug and Weapon Offences",1227
+"Hammersmith and Fulham","2020","Other Crimes",218
+"Hammersmith and Fulham","2020","Public Order Offences",11151
+"Hammersmith and Fulham","2020","Theft And Robbery",9131
+"Hammersmith and Fulham","2020","Violence and Sexual Offences",5098
+"Hammersmith and Fulham","2021","Criminal Damage and Arson",1224
+"Hammersmith and Fulham","2021","Drug and Weapon Offences",1077
+"Hammersmith and Fulham","2021","Other Crimes",203
+"Hammersmith and Fulham","2021","Public Order Offences",9050
+"Hammersmith and Fulham","2021","Theft And Robbery",9331
+"Hammersmith and Fulham","2021","Violence and Sexual Offences",5467
+"Hammersmith and Fulham","2022","Criminal Damage and Arson",1182
+"Hammersmith and Fulham","2022","Drug and Weapon Offences",930
+"Hammersmith and Fulham","2022","Other Crimes",169
+"Hammersmith and Fulham","2022","Public Order Offences",7724
+"Hammersmith and Fulham","2022","Theft And Robbery",9900
+"Hammersmith and Fulham","2022","Violence and Sexual Offences",5555
+"Hammersmith and Fulham","2023","Criminal Damage and Arson",1285
+"Hammersmith and Fulham","2023","Drug and Weapon Offences",992
+"Hammersmith and Fulham","2023","Other Crimes",202
+"Hammersmith and Fulham","2023","Public Order Offences",6948
+"Hammersmith and Fulham","2023","Theft And Robbery",11334
+"Hammersmith and Fulham","2023","Violence and Sexual Offences",5964
+"Hammersmith and Fulham","2024","Criminal Damage and Arson",1228
+"Hammersmith and Fulham","2024","Drug and Weapon Offences",1112
+"Hammersmith and Fulham","2024","Other Crimes",228
+"Hammersmith and Fulham","2024","Public Order Offences",7661
+"Hammersmith and Fulham","2024","Theft And Robbery",10689
+"Hammersmith and Fulham","2024","Violence and Sexual Offences",6051
+"Hammersmith and Fulham","2025","Criminal Damage and Arson",1204
+"Hammersmith and Fulham","2025","Drug and Weapon Offences",1509
+"Hammersmith and Fulham","2025","Other Crimes",275
+"Hammersmith and Fulham","2025","Public Order Offences",7497
+"Hammersmith and Fulham","2025","Theft And Robbery",9787
+"Hammersmith and Fulham","2025","Violence and Sexual Offences",6492
+"Hammersmith and Fulham","2026","Criminal Damage and Arson",359
+"Hammersmith and Fulham","2026","Drug and Weapon Offences",389
+"Hammersmith and Fulham","2026","Other Crimes",81
+"Hammersmith and Fulham","2026","Public Order Offences",2403
+"Hammersmith and Fulham","2026","Theft And Robbery",3044
+"Hammersmith and Fulham","2026","Violence and Sexual Offences",2000
+"Haringey","2011","Criminal Damage and Arson",899
+"Haringey","2011","Drug and Weapon Offences",459
+"Haringey","2011","No-category",4901
+"Haringey","2011","Other Crimes",7662
+"Haringey","2011","Public Order Offences",15768
+"Haringey","2011","Theft And Robbery",11220
+"Haringey","2012","Criminal Damage and Arson",796
+"Haringey","2012","Drug and Weapon Offences",577
+"Haringey","2012","No-category",1831
+"Haringey","2012","Other Crimes",549
+"Haringey","2012","Public Order Offences",4085
+"Haringey","2012","Theft And Robbery",4999
+"Haringey","2013","Criminal Damage and Arson",255
+"Haringey","2013","Drug and Weapon Offences",168
+"Haringey","2013","No-category",781
+"Haringey","2013","Other Crimes",109
+"Haringey","2013","Public Order Offences",1340
+"Haringey","2013","Theft And Robbery",1888
+"Haringey","2014","Criminal Damage and Arson",529
+"Haringey","2014","Drug and Weapon Offences",283
+"Haringey","2014","Other Crimes",48
+"Haringey","2014","Public Order Offences",2267
+"Haringey","2014","Theft And Robbery",3169
+"Haringey","2014","Violence and Sexual Offences",1465
+"Haringey","2015","Criminal Damage and Arson",1037
+"Haringey","2015","Drug and Weapon Offences",646
+"Haringey","2015","Other Crimes",117
+"Haringey","2015","Public Order Offences",4477
+"Haringey","2015","Theft And Robbery",6438
+"Haringey","2015","Violence and Sexual Offences",3185
+"Haringey","2016","Criminal Damage and Arson",2171
+"Haringey","2016","Drug and Weapon Offences",1538
+"Haringey","2016","Other Crimes",292
+"Haringey","2016","Public Order Offences",9390
+"Haringey","2016","Theft And Robbery",14307
+"Haringey","2016","Violence and Sexual Offences",7502
+"Haringey","2017","Criminal Damage and Arson",2070
+"Haringey","2017","Drug and Weapon Offences",1444
+"Haringey","2017","Other Crimes",279
+"Haringey","2017","Public Order Offences",9624
+"Haringey","2017","Theft And Robbery",15878
+"Haringey","2017","Violence and Sexual Offences",7934
+"Haringey","2018","Criminal Damage and Arson",2008
+"Haringey","2018","Drug and Weapon Offences",1488
+"Haringey","2018","Other Crimes",327
+"Haringey","2018","Public Order Offences",9747
+"Haringey","2018","Theft And Robbery",16523
+"Haringey","2018","Violence and Sexual Offences",8267
+"Haringey","2019","Criminal Damage and Arson",1734
+"Haringey","2019","Drug and Weapon Offences",1685
+"Haringey","2019","Other Crimes",313
+"Haringey","2019","Public Order Offences",10149
+"Haringey","2019","Theft And Robbery",16899
+"Haringey","2019","Violence and Sexual Offences",7738
+"Haringey","2020","Criminal Damage and Arson",1765
+"Haringey","2020","Drug and Weapon Offences",2042
+"Haringey","2020","Other Crimes",321
+"Haringey","2020","Public Order Offences",17635
+"Haringey","2020","Theft And Robbery",14008
+"Haringey","2020","Violence and Sexual Offences",7758
+"Haringey","2021","Criminal Damage and Arson",1688
+"Haringey","2021","Drug and Weapon Offences",1196
+"Haringey","2021","Other Crimes",277
+"Haringey","2021","Public Order Offences",13156
+"Haringey","2021","Theft And Robbery",14098
+"Haringey","2021","Violence and Sexual Offences",8471
+"Haringey","2022","Criminal Damage and Arson",1634
+"Haringey","2022","Drug and Weapon Offences",1586
+"Haringey","2022","Other Crimes",302
+"Haringey","2022","Public Order Offences",11295
+"Haringey","2022","Theft And Robbery",13880
+"Haringey","2022","Violence and Sexual Offences",8224
+"Haringey","2023","Criminal Damage and Arson",1805
+"Haringey","2023","Drug and Weapon Offences",1758
+"Haringey","2023","Other Crimes",294
+"Haringey","2023","Public Order Offences",10235
+"Haringey","2023","Theft And Robbery",14999
+"Haringey","2023","Violence and Sexual Offences",8308
+"Haringey","2024","Criminal Damage and Arson",1688
+"Haringey","2024","Drug and Weapon Offences",1517
+"Haringey","2024","Other Crimes",285
+"Haringey","2024","Public Order Offences",9877
+"Haringey","2024","Theft And Robbery",14091
+"Haringey","2024","Violence and Sexual Offences",8024
+"Haringey","2025","Criminal Damage and Arson",1689
+"Haringey","2025","Drug and Weapon Offences",2209
+"Haringey","2025","Other Crimes",358
+"Haringey","2025","Public Order Offences",9938
+"Haringey","2025","Theft And Robbery",13747
+"Haringey","2025","Violence and Sexual Offences",8429
+"Haringey","2026","Criminal Damage and Arson",451
+"Haringey","2026","Drug and Weapon Offences",529
+"Haringey","2026","Other Crimes",95
+"Haringey","2026","Public Order Offences",3056
+"Haringey","2026","Theft And Robbery",3755
+"Haringey","2026","Violence and Sexual Offences",2815
+"Harrow","2011","Criminal Damage and Arson",470
+"Harrow","2011","Drug and Weapon Offences",203
+"Harrow","2011","No-category",2878
+"Harrow","2011","Other Crimes",4518
+"Harrow","2011","Public Order Offences",7863
+"Harrow","2011","Theft And Robbery",5811
+"Harrow","2012","Criminal Damage and Arson",406
+"Harrow","2012","Drug and Weapon Offences",215
+"Harrow","2012","No-category",1093
+"Harrow","2012","Other Crimes",339
+"Harrow","2012","Public Order Offences",2395
+"Harrow","2012","Theft And Robbery",2703
+"Harrow","2013","Criminal Damage and Arson",206
+"Harrow","2013","Drug and Weapon Offences",75
+"Harrow","2013","No-category",433
+"Harrow","2013","Other Crimes",60
+"Harrow","2013","Public Order Offences",827
+"Harrow","2013","Theft And Robbery",1289
+"Harrow","2014","Criminal Damage and Arson",264
+"Harrow","2014","Drug and Weapon Offences",244
+"Harrow","2014","Other Crimes",23
+"Harrow","2014","Public Order Offences",1371
+"Harrow","2014","Theft And Robbery",1590
+"Harrow","2014","Violence and Sexual Offences",773
+"Harrow","2015","Criminal Damage and Arson",568
+"Harrow","2015","Drug and Weapon Offences",300
+"Harrow","2015","Other Crimes",72
+"Harrow","2015","Public Order Offences",2862
+"Harrow","2015","Theft And Robbery",2942
+"Harrow","2015","Violence and Sexual Offences",1800
+"Harrow","2016","Criminal Damage and Arson",1135
+"Harrow","2016","Drug and Weapon Offences",436
+"Harrow","2016","Other Crimes",192
+"Harrow","2016","Public Order Offences",5490
+"Harrow","2016","Theft And Robbery",6975
+"Harrow","2016","Violence and Sexual Offences",3916
+"Harrow","2017","Criminal Damage and Arson",1046
+"Harrow","2017","Drug and Weapon Offences",530
+"Harrow","2017","Other Crimes",156
+"Harrow","2017","Public Order Offences",5244
+"Harrow","2017","Theft And Robbery",6958
+"Harrow","2017","Violence and Sexual Offences",4174
+"Harrow","2018","Criminal Damage and Arson",1045
+"Harrow","2018","Drug and Weapon Offences",635
+"Harrow","2018","Other Crimes",186
+"Harrow","2018","Public Order Offences",5428
+"Harrow","2018","Theft And Robbery",7453
+"Harrow","2018","Violence and Sexual Offences",4463
+"Harrow","2019","Criminal Damage and Arson",1036
+"Harrow","2019","Drug and Weapon Offences",821
+"Harrow","2019","Other Crimes",170
+"Harrow","2019","Public Order Offences",6300
+"Harrow","2019","Theft And Robbery",8585
+"Harrow","2019","Violence and Sexual Offences",4637
+"Harrow","2020","Criminal Damage and Arson",951
+"Harrow","2020","Drug and Weapon Offences",1089
+"Harrow","2020","Other Crimes",208
+"Harrow","2020","Public Order Offences",9917
+"Harrow","2020","Theft And Robbery",7114
+"Harrow","2020","Violence and Sexual Offences",4584
+"Harrow","2021","Criminal Damage and Arson",929
+"Harrow","2021","Drug and Weapon Offences",912
+"Harrow","2021","Other Crimes",190
+"Harrow","2021","Public Order Offences",7051
+"Harrow","2021","Theft And Robbery",6342
+"Harrow","2021","Violence and Sexual Offences",4787
+"Harrow","2022","Criminal Damage and Arson",1013
+"Harrow","2022","Drug and Weapon Offences",706
+"Harrow","2022","Other Crimes",218
+"Harrow","2022","Public Order Offences",6520
+"Harrow","2022","Theft And Robbery",6744
+"Harrow","2022","Violence and Sexual Offences",5018
+"Harrow","2023","Criminal Damage and Arson",1000
+"Harrow","2023","Drug and Weapon Offences",631
+"Harrow","2023","Other Crimes",195
+"Harrow","2023","Public Order Offences",5858
+"Harrow","2023","Theft And Robbery",7313
+"Harrow","2023","Violence and Sexual Offences",4946
+"Harrow","2024","Criminal Damage and Arson",969
+"Harrow","2024","Drug and Weapon Offences",662
+"Harrow","2024","Other Crimes",233
+"Harrow","2024","Public Order Offences",6198
+"Harrow","2024","Theft And Robbery",8019
+"Harrow","2024","Violence and Sexual Offences",5219
+"Harrow","2025","Criminal Damage and Arson",1009
+"Harrow","2025","Drug and Weapon Offences",1056
+"Harrow","2025","Other Crimes",235
+"Harrow","2025","Public Order Offences",6290
+"Harrow","2025","Theft And Robbery",7697
+"Harrow","2025","Violence and Sexual Offences",5395
+"Harrow","2026","Criminal Damage and Arson",355
+"Harrow","2026","Drug and Weapon Offences",318
+"Harrow","2026","Other Crimes",74
+"Harrow","2026","Public Order Offences",1958
+"Harrow","2026","Theft And Robbery",2550
+"Harrow","2026","Violence and Sexual Offences",1879
+"Havering","2011","Criminal Damage and Arson",545
+"Havering","2011","Drug and Weapon Offences",307
+"Havering","2011","No-category",3461
+"Havering","2011","Other Crimes",6072
+"Havering","2011","Public Order Offences",8626
+"Havering","2011","Theft And Robbery",6931
+"Havering","2012","Criminal Damage and Arson",559
+"Havering","2012","Drug and Weapon Offences",274
+"Havering","2012","No-category",1205
+"Havering","2012","Other Crimes",339
+"Havering","2012","Public Order Offences",2361
+"Havering","2012","Theft And Robbery",3303
+"Havering","2013","Criminal Damage and Arson",247
+"Havering","2013","Drug and Weapon Offences",179
+"Havering","2013","No-category",509
+"Havering","2013","Other Crimes",96
+"Havering","2013","Public Order Offences",802
+"Havering","2013","Theft And Robbery",1579
+"Havering","2014","Criminal Damage and Arson",385
+"Havering","2014","Drug and Weapon Offences",173
+"Havering","2014","Other Crimes",56
+"Havering","2014","Public Order Offences",1316
+"Havering","2014","Theft And Robbery",2101
+"Havering","2014","Violence and Sexual Offences",892
+"Havering","2015","Criminal Damage and Arson",758
+"Havering","2015","Drug and Weapon Offences",306
+"Havering","2015","Other Crimes",83
+"Havering","2015","Public Order Offences",2669
+"Havering","2015","Theft And Robbery",3973
+"Havering","2015","Violence and Sexual Offences",2077
+"Havering","2016","Criminal Damage and Arson",1728
+"Havering","2016","Drug and Weapon Offences",685
+"Havering","2016","Other Crimes",221
+"Havering","2016","Public Order Offences",5976
+"Havering","2016","Theft And Robbery",8067
+"Havering","2016","Violence and Sexual Offences",5285
+"Havering","2017","Criminal Damage and Arson",1749
+"Havering","2017","Drug and Weapon Offences",548
+"Havering","2017","Other Crimes",213
+"Havering","2017","Public Order Offences",5791
+"Havering","2017","Theft And Robbery",9446
+"Havering","2017","Violence and Sexual Offences",5352
+"Havering","2018","Criminal Damage and Arson",1433
+"Havering","2018","Drug and Weapon Offences",627
+"Havering","2018","Other Crimes",219
+"Havering","2018","Public Order Offences",5534
+"Havering","2018","Theft And Robbery",9290
+"Havering","2018","Violence and Sexual Offences",5665
+"Havering","2019","Criminal Damage and Arson",1259
+"Havering","2019","Drug and Weapon Offences",804
+"Havering","2019","Other Crimes",240
+"Havering","2019","Public Order Offences",5706
+"Havering","2019","Theft And Robbery",8948
+"Havering","2019","Violence and Sexual Offences",5573
+"Havering","2020","Criminal Damage and Arson",1129
+"Havering","2020","Drug and Weapon Offences",1221
+"Havering","2020","Other Crimes",264
+"Havering","2020","Public Order Offences",9528
+"Havering","2020","Theft And Robbery",7239
+"Havering","2020","Violence and Sexual Offences",5341
+"Havering","2021","Criminal Damage and Arson",1239
+"Havering","2021","Drug and Weapon Offences",968
+"Havering","2021","Other Crimes",236
+"Havering","2021","Public Order Offences",7435
+"Havering","2021","Theft And Robbery",6845
+"Havering","2021","Violence and Sexual Offences",5913
+"Havering","2022","Criminal Damage and Arson",1477
+"Havering","2022","Drug and Weapon Offences",1034
+"Havering","2022","Other Crimes",284
+"Havering","2022","Public Order Offences",6226
+"Havering","2022","Theft And Robbery",8287
+"Havering","2022","Violence and Sexual Offences",6411
+"Havering","2023","Criminal Damage and Arson",1475
+"Havering","2023","Drug and Weapon Offences",1218
+"Havering","2023","Other Crimes",271
+"Havering","2023","Public Order Offences",5862
+"Havering","2023","Theft And Robbery",9435
+"Havering","2023","Violence and Sexual Offences",6807
+"Havering","2024","Criminal Damage and Arson",1577
+"Havering","2024","Drug and Weapon Offences",1104
+"Havering","2024","Other Crimes",310
+"Havering","2024","Public Order Offences",6302
+"Havering","2024","Theft And Robbery",9048
+"Havering","2024","Violence and Sexual Offences",6628
+"Havering","2025","Criminal Damage and Arson",1379
+"Havering","2025","Drug and Weapon Offences",1459
+"Havering","2025","Other Crimes",315
+"Havering","2025","Public Order Offences",6569
+"Havering","2025","Theft And Robbery",7995
+"Havering","2025","Violence and Sexual Offences",6736
+"Havering","2026","Criminal Damage and Arson",489
+"Havering","2026","Drug and Weapon Offences",492
+"Havering","2026","Other Crimes",109
+"Havering","2026","Public Order Offences",2040
+"Havering","2026","Theft And Robbery",2480
+"Havering","2026","Violence and Sexual Offences",2172
+"Hillingdon","2011","Criminal Damage and Arson",921
+"Hillingdon","2011","Drug and Weapon Offences",454
+"Hillingdon","2011","No-category",5680
+"Hillingdon","2011","Other Crimes",9013
+"Hillingdon","2011","Public Order Offences",14984
+"Hillingdon","2011","Theft And Robbery",10297
+"Hillingdon","2012","Criminal Damage and Arson",768
+"Hillingdon","2012","Drug and Weapon Offences",375
+"Hillingdon","2012","No-category",1964
+"Hillingdon","2012","Other Crimes",553
+"Hillingdon","2012","Public Order Offences",4337
+"Hillingdon","2012","Theft And Robbery",4662
+"Hillingdon","2013","Criminal Damage and Arson",331
+"Hillingdon","2013","Drug and Weapon Offences",142
+"Hillingdon","2013","No-category",871
+"Hillingdon","2013","Other Crimes",137
+"Hillingdon","2013","Public Order Offences",1440
+"Hillingdon","2013","Theft And Robbery",1973
+"Hillingdon","2014","Criminal Damage and Arson",549
+"Hillingdon","2014","Drug and Weapon Offences",291
+"Hillingdon","2014","Other Crimes",205
+"Hillingdon","2014","Public Order Offences",2377
+"Hillingdon","2014","Theft And Robbery",3025
+"Hillingdon","2014","Violence and Sexual Offences",1491
+"Hillingdon","2015","Criminal Damage and Arson",1093
+"Hillingdon","2015","Drug and Weapon Offences",498
+"Hillingdon","2015","Other Crimes",442
+"Hillingdon","2015","Public Order Offences",5198
+"Hillingdon","2015","Theft And Robbery",5435
+"Hillingdon","2015","Violence and Sexual Offences",3169
+"Hillingdon","2016","Criminal Damage and Arson",2386
+"Hillingdon","2016","Drug and Weapon Offences",1008
+"Hillingdon","2016","Other Crimes",1152
+"Hillingdon","2016","Public Order Offences",10714
+"Hillingdon","2016","Theft And Robbery",11818
+"Hillingdon","2016","Violence and Sexual Offences",6760
+"Hillingdon","2017","Criminal Damage and Arson",2569
+"Hillingdon","2017","Drug and Weapon Offences",871
+"Hillingdon","2017","Other Crimes",1295
+"Hillingdon","2017","Public Order Offences",10281
+"Hillingdon","2017","Theft And Robbery",13749
+"Hillingdon","2017","Violence and Sexual Offences",7011
+"Hillingdon","2018","Criminal Damage and Arson",2061
+"Hillingdon","2018","Drug and Weapon Offences",1073
+"Hillingdon","2018","Other Crimes",1189
+"Hillingdon","2018","Public Order Offences",10068
+"Hillingdon","2018","Theft And Robbery",13932
+"Hillingdon","2018","Violence and Sexual Offences",7349
+"Hillingdon","2019","Criminal Damage and Arson",2112
+"Hillingdon","2019","Drug and Weapon Offences",1423
+"Hillingdon","2019","Other Crimes",1273
+"Hillingdon","2019","Public Order Offences",10474
+"Hillingdon","2019","Theft And Robbery",14421
+"Hillingdon","2019","Violence and Sexual Offences",7664
+"Hillingdon","2020","Criminal Damage and Arson",1893
+"Hillingdon","2020","Drug and Weapon Offences",1786
+"Hillingdon","2020","Other Crimes",794
+"Hillingdon","2020","Public Order Offences",15440
+"Hillingdon","2020","Theft And Robbery",11376
+"Hillingdon","2020","Violence and Sexual Offences",7817
+"Hillingdon","2021","Criminal Damage and Arson",1654
+"Hillingdon","2021","Drug and Weapon Offences",1546
+"Hillingdon","2021","Other Crimes",910
+"Hillingdon","2021","Public Order Offences",11916
+"Hillingdon","2021","Theft And Robbery",9831
+"Hillingdon","2021","Violence and Sexual Offences",8115
+"Hillingdon","2022","Criminal Damage and Arson",1776
+"Hillingdon","2022","Drug and Weapon Offences",1169
+"Hillingdon","2022","Other Crimes",1663
+"Hillingdon","2022","Public Order Offences",10647
+"Hillingdon","2022","Theft And Robbery",11304
+"Hillingdon","2022","Violence and Sexual Offences",8425
+"Hillingdon","2023","Criminal Damage and Arson",2058
+"Hillingdon","2023","Drug and Weapon Offences",989
+"Hillingdon","2023","Other Crimes",1539
+"Hillingdon","2023","Public Order Offences",9511
+"Hillingdon","2023","Theft And Robbery",12220
+"Hillingdon","2023","Violence and Sexual Offences",8716
+"Hillingdon","2024","Criminal Damage and Arson",2451
+"Hillingdon","2024","Drug and Weapon Offences",1036
+"Hillingdon","2024","Other Crimes",1732
+"Hillingdon","2024","Public Order Offences",10428
+"Hillingdon","2024","Theft And Robbery",13338
+"Hillingdon","2024","Violence and Sexual Offences",8941
+"Hillingdon","2025","Criminal Damage and Arson",2156
+"Hillingdon","2025","Drug and Weapon Offences",1711
+"Hillingdon","2025","Other Crimes",1883
+"Hillingdon","2025","Public Order Offences",11184
+"Hillingdon","2025","Theft And Robbery",13287
+"Hillingdon","2025","Violence and Sexual Offences",9647
+"Hillingdon","2026","Criminal Damage and Arson",628
+"Hillingdon","2026","Drug and Weapon Offences",540
+"Hillingdon","2026","Other Crimes",674
+"Hillingdon","2026","Public Order Offences",3242
+"Hillingdon","2026","Theft And Robbery",4285
+"Hillingdon","2026","Violence and Sexual Offences",3109
+"Hounslow","2011","Criminal Damage and Arson",843
+"Hounslow","2011","Drug and Weapon Offences",483
+"Hounslow","2011","No-category",5586
+"Hounslow","2011","Other Crimes",8562
+"Hounslow","2011","Public Order Offences",13135
+"Hounslow","2011","Theft And Robbery",8249
+"Hounslow","2012","Criminal Damage and Arson",817
+"Hounslow","2012","Drug and Weapon Offences",471
+"Hounslow","2012","No-category",1975
+"Hounslow","2012","Other Crimes",570
+"Hounslow","2012","Public Order Offences",3678
+"Hounslow","2012","Theft And Robbery",4489
+"Hounslow","2013","Criminal Damage and Arson",304
+"Hounslow","2013","Drug and Weapon Offences",242
+"Hounslow","2013","No-category",804
+"Hounslow","2013","Other Crimes",110
+"Hounslow","2013","Public Order Offences",1356
+"Hounslow","2013","Theft And Robbery",1762
+"Hounslow","2014","Criminal Damage and Arson",461
+"Hounslow","2014","Drug and Weapon Offences",341
+"Hounslow","2014","Other Crimes",69
+"Hounslow","2014","Public Order Offences",2150
+"Hounslow","2014","Theft And Robbery",2437
+"Hounslow","2014","Violence and Sexual Offences",1331
+"Hounslow","2015","Criminal Damage and Arson",1044
+"Hounslow","2015","Drug and Weapon Offences",490
+"Hounslow","2015","Other Crimes",177
+"Hounslow","2015","Public Order Offences",4565
+"Hounslow","2015","Theft And Robbery",4939
+"Hounslow","2015","Violence and Sexual Offences",3022
+"Hounslow","2016","Criminal Damage and Arson",2105
+"Hounslow","2016","Drug and Weapon Offences",1016
+"Hounslow","2016","Other Crimes",476
+"Hounslow","2016","Public Order Offences",8846
+"Hounslow","2016","Theft And Robbery",10606
+"Hounslow","2016","Violence and Sexual Offences",6476
+"Hounslow","2017","Criminal Damage and Arson",1997
+"Hounslow","2017","Drug and Weapon Offences",1232
+"Hounslow","2017","Other Crimes",456
+"Hounslow","2017","Public Order Offences",8722
+"Hounslow","2017","Theft And Robbery",11930
+"Hounslow","2017","Violence and Sexual Offences",6945
+"Hounslow","2018","Criminal Damage and Arson",1927
+"Hounslow","2018","Drug and Weapon Offences",1346
+"Hounslow","2018","Other Crimes",473
+"Hounslow","2018","Public Order Offences",8547
+"Hounslow","2018","Theft And Robbery",12084
+"Hounslow","2018","Violence and Sexual Offences",7605
+"Hounslow","2019","Criminal Damage and Arson",1744
+"Hounslow","2019","Drug and Weapon Offences",1743
+"Hounslow","2019","Other Crimes",364
+"Hounslow","2019","Public Order Offences",9059
+"Hounslow","2019","Theft And Robbery",11812
+"Hounslow","2019","Violence and Sexual Offences",7571
+"Hounslow","2020","Criminal Damage and Arson",1617
+"Hounslow","2020","Drug and Weapon Offences",1730
+"Hounslow","2020","Other Crimes",391
+"Hounslow","2020","Public Order Offences",14278
+"Hounslow","2020","Theft And Robbery",9928
+"Hounslow","2020","Violence and Sexual Offences",7835
+"Hounslow","2021","Criminal Damage and Arson",1611
+"Hounslow","2021","Drug and Weapon Offences",1308
+"Hounslow","2021","Other Crimes",341
+"Hounslow","2021","Public Order Offences",11367
+"Hounslow","2021","Theft And Robbery",8933
+"Hounslow","2021","Violence and Sexual Offences",8218
+"Hounslow","2022","Criminal Damage and Arson",1667
+"Hounslow","2022","Drug and Weapon Offences",1149
+"Hounslow","2022","Other Crimes",349
+"Hounslow","2022","Public Order Offences",9862
+"Hounslow","2022","Theft And Robbery",10005
+"Hounslow","2022","Violence and Sexual Offences",8409
+"Hounslow","2023","Criminal Damage and Arson",1969
+"Hounslow","2023","Drug and Weapon Offences",1038
+"Hounslow","2023","Other Crimes",344
+"Hounslow","2023","Public Order Offences",9277
+"Hounslow","2023","Theft And Robbery",12034
+"Hounslow","2023","Violence and Sexual Offences",9104
+"Hounslow","2024","Criminal Damage and Arson",1872
+"Hounslow","2024","Drug and Weapon Offences",1086
+"Hounslow","2024","Other Crimes",389
+"Hounslow","2024","Public Order Offences",8956
+"Hounslow","2024","Theft And Robbery",11874
+"Hounslow","2024","Violence and Sexual Offences",8839
+"Hounslow","2025","Criminal Damage and Arson",2001
+"Hounslow","2025","Drug and Weapon Offences",1557
+"Hounslow","2025","Other Crimes",407
+"Hounslow","2025","Public Order Offences",9279
+"Hounslow","2025","Theft And Robbery",10969
+"Hounslow","2025","Violence and Sexual Offences",9341
+"Hounslow","2026","Criminal Damage and Arson",610
+"Hounslow","2026","Drug and Weapon Offences",495
+"Hounslow","2026","Other Crimes",125
+"Hounslow","2026","Public Order Offences",2613
+"Hounslow","2026","Theft And Robbery",3504
+"Hounslow","2026","Violence and Sexual Offences",3046
+"Islington","2011","Criminal Damage and Arson",634
+"Islington","2011","Drug and Weapon Offences",488
+"Islington","2011","No-category",5256
+"Islington","2011","Other Crimes",10324
+"Islington","2011","Public Order Offences",15558
+"Islington","2011","Theft And Robbery",10011
+"Islington","2012","Criminal Damage and Arson",602
+"Islington","2012","Drug and Weapon Offences",479
+"Islington","2012","No-category",1976
+"Islington","2012","Other Crimes",461
+"Islington","2012","Public Order Offences",4021
+"Islington","2012","Theft And Robbery",5892
+"Islington","2013","Criminal Damage and Arson",264
+"Islington","2013","Drug and Weapon Offences",221
+"Islington","2013","No-category",895
+"Islington","2013","Other Crimes",85
+"Islington","2013","Public Order Offences",1208
+"Islington","2013","Theft And Robbery",2747
+"Islington","2013","Violence and Sexual Offences",4
+"Islington","2014","Criminal Damage and Arson",500
+"Islington","2014","Drug and Weapon Offences",329
+"Islington","2014","Other Crimes",55
+"Islington","2014","Public Order Offences",2325
+"Islington","2014","Theft And Robbery",3714
+"Islington","2014","Violence and Sexual Offences",1335
+"Islington","2015","Criminal Damage and Arson",988
+"Islington","2015","Drug and Weapon Offences",674
+"Islington","2015","Other Crimes",134
+"Islington","2015","Public Order Offences",4416
+"Islington","2015","Theft And Robbery",8082
+"Islington","2015","Violence and Sexual Offences",2997
+"Islington","2016","Criminal Damage and Arson",1892
+"Islington","2016","Drug and Weapon Offences",1710
+"Islington","2016","Other Crimes",264
+"Islington","2016","Public Order Offences",8602
+"Islington","2016","Theft And Robbery",15266
+"Islington","2016","Violence and Sexual Offences",6629
+"Islington","2017","Criminal Damage and Arson",1829
+"Islington","2017","Drug and Weapon Offences",1492
+"Islington","2017","Other Crimes",253
+"Islington","2017","Public Order Offences",8794
+"Islington","2017","Theft And Robbery",20098
+"Islington","2017","Violence and Sexual Offences",6865
+"Islington","2018","Criminal Damage and Arson",1668
+"Islington","2018","Drug and Weapon Offences",1364
+"Islington","2018","Other Crimes",283
+"Islington","2018","Public Order Offences",8275
+"Islington","2018","Theft And Robbery",16578
+"Islington","2018","Violence and Sexual Offences",7071
+"Islington","2019","Criminal Damage and Arson",1465
+"Islington","2019","Drug and Weapon Offences",1402
+"Islington","2019","Other Crimes",262
+"Islington","2019","Public Order Offences",9602
+"Islington","2019","Theft And Robbery",17290
+"Islington","2019","Violence and Sexual Offences",6626
+"Islington","2020","Criminal Damage and Arson",1459
+"Islington","2020","Drug and Weapon Offences",1578
+"Islington","2020","Other Crimes",231
+"Islington","2020","Public Order Offences",15795
+"Islington","2020","Theft And Robbery",13404
+"Islington","2020","Violence and Sexual Offences",6198
+"Islington","2021","Criminal Damage and Arson",1465
+"Islington","2021","Drug and Weapon Offences",1184
+"Islington","2021","Other Crimes",229
+"Islington","2021","Public Order Offences",12013
+"Islington","2021","Theft And Robbery",12332
+"Islington","2021","Violence and Sexual Offences",6782
+"Islington","2022","Criminal Damage and Arson",1574
+"Islington","2022","Drug and Weapon Offences",1236
+"Islington","2022","Other Crimes",306
+"Islington","2022","Public Order Offences",10757
+"Islington","2022","Theft And Robbery",14418
+"Islington","2022","Violence and Sexual Offences",7362
+"Islington","2023","Criminal Damage and Arson",1600
+"Islington","2023","Drug and Weapon Offences",1290
+"Islington","2023","Other Crimes",373
+"Islington","2023","Public Order Offences",9691
+"Islington","2023","Theft And Robbery",15817
+"Islington","2023","Violence and Sexual Offences",7655
+"Islington","2024","Criminal Damage and Arson",1662
+"Islington","2024","Drug and Weapon Offences",1248
+"Islington","2024","Other Crimes",274
+"Islington","2024","Public Order Offences",11304
+"Islington","2024","Theft And Robbery",17873
+"Islington","2024","Violence and Sexual Offences",7607
+"Islington","2025","Criminal Damage and Arson",1698
+"Islington","2025","Drug and Weapon Offences",2368
+"Islington","2025","Other Crimes",356
+"Islington","2025","Public Order Offences",11230
+"Islington","2025","Theft And Robbery",16859
+"Islington","2025","Violence and Sexual Offences",8188
+"Islington","2026","Criminal Damage and Arson",492
+"Islington","2026","Drug and Weapon Offences",714
+"Islington","2026","Other Crimes",109
+"Islington","2026","Public Order Offences",3685
+"Islington","2026","Theft And Robbery",5182
+"Islington","2026","Violence and Sexual Offences",2803
+"Kensington and Chelsea","2011","Criminal Damage and Arson",351
+"Kensington and Chelsea","2011","Drug and Weapon Offences",386
+"Kensington and Chelsea","2011","No-category",2754
+"Kensington and Chelsea","2011","Other Crimes",8623
+"Kensington and Chelsea","2011","Public Order Offences",8155
+"Kensington and Chelsea","2011","Theft And Robbery",7269
+"Kensington and Chelsea","2012","Criminal Damage and Arson",345
+"Kensington and Chelsea","2012","Drug and Weapon Offences",369
+"Kensington and Chelsea","2012","No-category",980
+"Kensington and Chelsea","2012","Other Crimes",364
+"Kensington and Chelsea","2012","Public Order Offences",2442
+"Kensington and Chelsea","2012","Theft And Robbery",4987
+"Kensington and Chelsea","2013","Criminal Damage and Arson",122
+"Kensington and Chelsea","2013","Drug and Weapon Offences",147
+"Kensington and Chelsea","2013","No-category",434
+"Kensington and Chelsea","2013","Other Crimes",60
+"Kensington and Chelsea","2013","Public Order Offences",870
+"Kensington and Chelsea","2013","Theft And Robbery",2136
+"Kensington and Chelsea","2014","Criminal Damage and Arson",264
+"Kensington and Chelsea","2014","Drug and Weapon Offences",221
+"Kensington and Chelsea","2014","Other Crimes",47
+"Kensington and Chelsea","2014","Public Order Offences",1619
+"Kensington and Chelsea","2014","Theft And Robbery",3401
+"Kensington and Chelsea","2014","Violence and Sexual Offences",864
+"Kensington and Chelsea","2015","Criminal Damage and Arson",495
+"Kensington and Chelsea","2015","Drug and Weapon Offences",522
+"Kensington and Chelsea","2015","Other Crimes",85
+"Kensington and Chelsea","2015","Public Order Offences",3311
+"Kensington and Chelsea","2015","Theft And Robbery",5763
+"Kensington and Chelsea","2015","Violence and Sexual Offences",1811
+"Kensington and Chelsea","2016","Criminal Damage and Arson",1004
+"Kensington and Chelsea","2016","Drug and Weapon Offences",1656
+"Kensington and Chelsea","2016","Other Crimes",233
+"Kensington and Chelsea","2016","Public Order Offences",6215
+"Kensington and Chelsea","2016","Theft And Robbery",11794
+"Kensington and Chelsea","2016","Violence and Sexual Offences",3690
+"Kensington and Chelsea","2017","Criminal Damage and Arson",1088
+"Kensington and Chelsea","2017","Drug and Weapon Offences",1616
+"Kensington and Chelsea","2017","Other Crimes",246
+"Kensington and Chelsea","2017","Public Order Offences",6013
+"Kensington and Chelsea","2017","Theft And Robbery",12522
+"Kensington and Chelsea","2017","Violence and Sexual Offences",4079
+"Kensington and Chelsea","2018","Criminal Damage and Arson",1049
+"Kensington and Chelsea","2018","Drug and Weapon Offences",1557
+"Kensington and Chelsea","2018","Other Crimes",199
+"Kensington and Chelsea","2018","Public Order Offences",5728
+"Kensington and Chelsea","2018","Theft And Robbery",12661
+"Kensington and Chelsea","2018","Violence and Sexual Offences",4388
+"Kensington and Chelsea","2019","Criminal Damage and Arson",974
+"Kensington and Chelsea","2019","Drug and Weapon Offences",1397
+"Kensington and Chelsea","2019","Other Crimes",132
+"Kensington and Chelsea","2019","Public Order Offences",6232
+"Kensington and Chelsea","2019","Theft And Robbery",14977
+"Kensington and Chelsea","2019","Violence and Sexual Offences",4313
+"Kensington and Chelsea","2020","Criminal Damage and Arson",849
+"Kensington and Chelsea","2020","Drug and Weapon Offences",1153
+"Kensington and Chelsea","2020","Other Crimes",156
+"Kensington and Chelsea","2020","Public Order Offences",10109
+"Kensington and Chelsea","2020","Theft And Robbery",9932
+"Kensington and Chelsea","2020","Violence and Sexual Offences",4106
+"Kensington and Chelsea","2021","Criminal Damage and Arson",981
+"Kensington and Chelsea","2021","Drug and Weapon Offences",1045
+"Kensington and Chelsea","2021","Other Crimes",156
+"Kensington and Chelsea","2021","Public Order Offences",8665
+"Kensington and Chelsea","2021","Theft And Robbery",9652
+"Kensington and Chelsea","2021","Violence and Sexual Offences",4417
+"Kensington and Chelsea","2022","Criminal Damage and Arson",1116
+"Kensington and Chelsea","2022","Drug and Weapon Offences",878
+"Kensington and Chelsea","2022","Other Crimes",140
+"Kensington and Chelsea","2022","Public Order Offences",7287
+"Kensington and Chelsea","2022","Theft And Robbery",12113
+"Kensington and Chelsea","2022","Violence and Sexual Offences",4599
+"Kensington and Chelsea","2023","Criminal Damage and Arson",1149
+"Kensington and Chelsea","2023","Drug and Weapon Offences",846
+"Kensington and Chelsea","2023","Other Crimes",126
+"Kensington and Chelsea","2023","Public Order Offences",5773
+"Kensington and Chelsea","2023","Theft And Robbery",14009
+"Kensington and Chelsea","2023","Violence and Sexual Offences",4839
+"Kensington and Chelsea","2024","Criminal Damage and Arson",1168
+"Kensington and Chelsea","2024","Drug and Weapon Offences",956
+"Kensington and Chelsea","2024","Other Crimes",174
+"Kensington and Chelsea","2024","Public Order Offences",5869
+"Kensington and Chelsea","2024","Theft And Robbery",13772
+"Kensington and Chelsea","2024","Violence and Sexual Offences",4935
+"Kensington and Chelsea","2025","Criminal Damage and Arson",1111
+"Kensington and Chelsea","2025","Drug and Weapon Offences",1356
+"Kensington and Chelsea","2025","Other Crimes",172
+"Kensington and Chelsea","2025","Public Order Offences",6437
+"Kensington and Chelsea","2025","Theft And Robbery",12930
+"Kensington and Chelsea","2025","Violence and Sexual Offences",5199
+"Kensington and Chelsea","2026","Criminal Damage and Arson",285
+"Kensington and Chelsea","2026","Drug and Weapon Offences",233
+"Kensington and Chelsea","2026","Other Crimes",59
+"Kensington and Chelsea","2026","Public Order Offences",1869
+"Kensington and Chelsea","2026","Theft And Robbery",3597
+"Kensington and Chelsea","2026","Violence and Sexual Offences",1583
+"Kingston upon Thames","2011","Criminal Damage and Arson",345
+"Kingston upon Thames","2011","Drug and Weapon Offences",221
+"Kingston upon Thames","2011","No-category",2270
+"Kingston upon Thames","2011","Other Crimes",4526
+"Kingston upon Thames","2011","Public Order Offences",6682
+"Kingston upon Thames","2011","Theft And Robbery",3727
+"Kingston upon Thames","2012","Criminal Damage and Arson",354
+"Kingston upon Thames","2012","Drug and Weapon Offences",149
+"Kingston upon Thames","2012","No-category",808
+"Kingston upon Thames","2012","Other Crimes",206
+"Kingston upon Thames","2012","Public Order Offences",1758
+"Kingston upon Thames","2012","Theft And Robbery",2163
+"Kingston upon Thames","2013","Criminal Damage and Arson",178
+"Kingston upon Thames","2013","Drug and Weapon Offences",78
+"Kingston upon Thames","2013","No-category",357
+"Kingston upon Thames","2013","Other Crimes",29
+"Kingston upon Thames","2013","Public Order Offences",652
+"Kingston upon Thames","2013","Theft And Robbery",929
+"Kingston upon Thames","2014","Criminal Damage and Arson",261
+"Kingston upon Thames","2014","Drug and Weapon Offences",193
+"Kingston upon Thames","2014","Other Crimes",15
+"Kingston upon Thames","2014","Public Order Offences",1043
+"Kingston upon Thames","2014","Theft And Robbery",1305
+"Kingston upon Thames","2014","Violence and Sexual Offences",560
+"Kingston upon Thames","2015","Criminal Damage and Arson",464
+"Kingston upon Thames","2015","Drug and Weapon Offences",425
+"Kingston upon Thames","2015","Other Crimes",58
+"Kingston upon Thames","2015","Public Order Offences",2321
+"Kingston upon Thames","2015","Theft And Robbery",2304
+"Kingston upon Thames","2015","Violence and Sexual Offences",1314
+"Kingston upon Thames","2016","Criminal Damage and Arson",1045
+"Kingston upon Thames","2016","Drug and Weapon Offences",691
+"Kingston upon Thames","2016","Other Crimes",106
+"Kingston upon Thames","2016","Public Order Offences",4550
+"Kingston upon Thames","2016","Theft And Robbery",4889
+"Kingston upon Thames","2016","Violence and Sexual Offences",2810
+"Kingston upon Thames","2017","Criminal Damage and Arson",965
+"Kingston upon Thames","2017","Drug and Weapon Offences",583
+"Kingston upon Thames","2017","Other Crimes",128
+"Kingston upon Thames","2017","Public Order Offences",3863
+"Kingston upon Thames","2017","Theft And Robbery",5712
+"Kingston upon Thames","2017","Violence and Sexual Offences",3121
+"Kingston upon Thames","2018","Criminal Damage and Arson",915
+"Kingston upon Thames","2018","Drug and Weapon Offences",467
+"Kingston upon Thames","2018","Other Crimes",122
+"Kingston upon Thames","2018","Public Order Offences",3793
+"Kingston upon Thames","2018","Theft And Robbery",6234
+"Kingston upon Thames","2018","Violence and Sexual Offences",3412
+"Kingston upon Thames","2019","Criminal Damage and Arson",894
+"Kingston upon Thames","2019","Drug and Weapon Offences",897
+"Kingston upon Thames","2019","Other Crimes",152
+"Kingston upon Thames","2019","Public Order Offences",4003
+"Kingston upon Thames","2019","Theft And Robbery",5935
+"Kingston upon Thames","2019","Violence and Sexual Offences",3421
+"Kingston upon Thames","2020","Criminal Damage and Arson",738
+"Kingston upon Thames","2020","Drug and Weapon Offences",1125
+"Kingston upon Thames","2020","Other Crimes",114
+"Kingston upon Thames","2020","Public Order Offences",6948
+"Kingston upon Thames","2020","Theft And Robbery",4486
+"Kingston upon Thames","2020","Violence and Sexual Offences",3414
+"Kingston upon Thames","2021","Criminal Damage and Arson",825
+"Kingston upon Thames","2021","Drug and Weapon Offences",922
+"Kingston upon Thames","2021","Other Crimes",135
+"Kingston upon Thames","2021","Public Order Offences",4825
+"Kingston upon Thames","2021","Theft And Robbery",4611
+"Kingston upon Thames","2021","Violence and Sexual Offences",3458
+"Kingston upon Thames","2022","Criminal Damage and Arson",814
+"Kingston upon Thames","2022","Drug and Weapon Offences",919
+"Kingston upon Thames","2022","Other Crimes",155
+"Kingston upon Thames","2022","Public Order Offences",4265
+"Kingston upon Thames","2022","Theft And Robbery",5268
+"Kingston upon Thames","2022","Violence and Sexual Offences",3410
+"Kingston upon Thames","2023","Criminal Damage and Arson",842
+"Kingston upon Thames","2023","Drug and Weapon Offences",839
+"Kingston upon Thames","2023","Other Crimes",151
+"Kingston upon Thames","2023","Public Order Offences",3870
+"Kingston upon Thames","2023","Theft And Robbery",5703
+"Kingston upon Thames","2023","Violence and Sexual Offences",3494
+"Kingston upon Thames","2024","Criminal Damage and Arson",976
+"Kingston upon Thames","2024","Drug and Weapon Offences",554
+"Kingston upon Thames","2024","Other Crimes",119
+"Kingston upon Thames","2024","Public Order Offences",3987
+"Kingston upon Thames","2024","Theft And Robbery",5235
+"Kingston upon Thames","2024","Violence and Sexual Offences",3400
+"Kingston upon Thames","2025","Criminal Damage and Arson",869
+"Kingston upon Thames","2025","Drug and Weapon Offences",792
+"Kingston upon Thames","2025","Other Crimes",173
+"Kingston upon Thames","2025","Public Order Offences",4237
+"Kingston upon Thames","2025","Theft And Robbery",5139
+"Kingston upon Thames","2025","Violence and Sexual Offences",3905
+"Kingston upon Thames","2026","Criminal Damage and Arson",238
+"Kingston upon Thames","2026","Drug and Weapon Offences",289
+"Kingston upon Thames","2026","Other Crimes",58
+"Kingston upon Thames","2026","Public Order Offences",1283
+"Kingston upon Thames","2026","Theft And Robbery",1558
+"Kingston upon Thames","2026","Violence and Sexual Offences",1391
+"Lambeth","2011","Criminal Damage and Arson",927
+"Lambeth","2011","Drug and Weapon Offences",842
+"Lambeth","2011","No-category",7329
+"Lambeth","2011","Other Crimes",12647
+"Lambeth","2011","Public Order Offences",18363
+"Lambeth","2011","Theft And Robbery",13784
+"Lambeth","2012","Criminal Damage and Arson",863
+"Lambeth","2012","Drug and Weapon Offences",809
+"Lambeth","2012","No-category",2524
+"Lambeth","2012","Other Crimes",506
+"Lambeth","2012","Public Order Offences",5302
+"Lambeth","2012","Theft And Robbery",7444
+"Lambeth","2013","Criminal Damage and Arson",385
+"Lambeth","2013","Drug and Weapon Offences",266
+"Lambeth","2013","No-category",1041
+"Lambeth","2013","Other Crimes",84
+"Lambeth","2013","Public Order Offences",1880
+"Lambeth","2013","Theft And Robbery",3302
+"Lambeth","2014","Criminal Damage and Arson",570
+"Lambeth","2014","Drug and Weapon Offences",636
+"Lambeth","2014","Other Crimes",83
+"Lambeth","2014","Public Order Offences",3100
+"Lambeth","2014","Theft And Robbery",4224
+"Lambeth","2014","Violence and Sexual Offences",1943
+"Lambeth","2015","Criminal Damage and Arson",1327
+"Lambeth","2015","Drug and Weapon Offences",1191
+"Lambeth","2015","Other Crimes",153
+"Lambeth","2015","Public Order Offences",6480
+"Lambeth","2015","Theft And Robbery",8388
+"Lambeth","2015","Violence and Sexual Offences",4516
+"Lambeth","2016","Criminal Damage and Arson",2688
+"Lambeth","2016","Drug and Weapon Offences",2624
+"Lambeth","2016","Other Crimes",395
+"Lambeth","2016","Public Order Offences",12461
+"Lambeth","2016","Theft And Robbery",17540
+"Lambeth","2016","Violence and Sexual Offences",9155
+"Lambeth","2017","Criminal Damage and Arson",2577
+"Lambeth","2017","Drug and Weapon Offences",2378
+"Lambeth","2017","Other Crimes",389
+"Lambeth","2017","Public Order Offences",11845
+"Lambeth","2017","Theft And Robbery",17218
+"Lambeth","2017","Violence and Sexual Offences",9350
+"Lambeth","2018","Criminal Damage and Arson",2351
+"Lambeth","2018","Drug and Weapon Offences",2357
+"Lambeth","2018","Other Crimes",407
+"Lambeth","2018","Public Order Offences",11007
+"Lambeth","2018","Theft And Robbery",17881
+"Lambeth","2018","Violence and Sexual Offences",9391
+"Lambeth","2019","Criminal Damage and Arson",1965
+"Lambeth","2019","Drug and Weapon Offences",2393
+"Lambeth","2019","Other Crimes",362
+"Lambeth","2019","Public Order Offences",11897
+"Lambeth","2019","Theft And Robbery",17346
+"Lambeth","2019","Violence and Sexual Offences",9375
+"Lambeth","2020","Criminal Damage and Arson",1998
+"Lambeth","2020","Drug and Weapon Offences",2572
+"Lambeth","2020","Other Crimes",344
+"Lambeth","2020","Public Order Offences",20850
+"Lambeth","2020","Theft And Robbery",13165
+"Lambeth","2020","Violence and Sexual Offences",8985
+"Lambeth","2021","Criminal Damage and Arson",2087
+"Lambeth","2021","Drug and Weapon Offences",2382
+"Lambeth","2021","Other Crimes",347
+"Lambeth","2021","Public Order Offences",15346
+"Lambeth","2021","Theft And Robbery",13401
+"Lambeth","2021","Violence and Sexual Offences",9736
+"Lambeth","2022","Criminal Damage and Arson",2079
+"Lambeth","2022","Drug and Weapon Offences",1777
+"Lambeth","2022","Other Crimes",307
+"Lambeth","2022","Public Order Offences",13608
+"Lambeth","2022","Theft And Robbery",15920
+"Lambeth","2022","Violence and Sexual Offences",9747
+"Lambeth","2023","Criminal Damage and Arson",2239
+"Lambeth","2023","Drug and Weapon Offences",1490
+"Lambeth","2023","Other Crimes",316
+"Lambeth","2023","Public Order Offences",11324
+"Lambeth","2023","Theft And Robbery",18432
+"Lambeth","2023","Violence and Sexual Offences",10334
+"Lambeth","2024","Criminal Damage and Arson",2283
+"Lambeth","2024","Drug and Weapon Offences",1664
+"Lambeth","2024","Other Crimes",343
+"Lambeth","2024","Public Order Offences",12074
+"Lambeth","2024","Theft And Robbery",21172
+"Lambeth","2024","Violence and Sexual Offences",10105
+"Lambeth","2025","Criminal Damage and Arson",2209
+"Lambeth","2025","Drug and Weapon Offences",2133
+"Lambeth","2025","Other Crimes",481
+"Lambeth","2025","Public Order Offences",12073
+"Lambeth","2025","Theft And Robbery",19728
+"Lambeth","2025","Violence and Sexual Offences",10642
+"Lambeth","2026","Criminal Damage and Arson",666
+"Lambeth","2026","Drug and Weapon Offences",663
+"Lambeth","2026","Other Crimes",150
+"Lambeth","2026","Public Order Offences",3582
+"Lambeth","2026","Theft And Robbery",6368
+"Lambeth","2026","Violence and Sexual Offences",3639
+"Lewisham","2011","Criminal Damage and Arson",887
+"Lewisham","2011","Drug and Weapon Offences",684
+"Lewisham","2011","No-category",6578
+"Lewisham","2011","Other Crimes",9648
+"Lewisham","2011","Public Order Offences",15301
+"Lewisham","2011","Theft And Robbery",9753
+"Lewisham","2012","Criminal Damage and Arson",881
+"Lewisham","2012","Drug and Weapon Offences",443
+"Lewisham","2012","No-category",2134
+"Lewisham","2012","Other Crimes",616
+"Lewisham","2012","Public Order Offences",4052
+"Lewisham","2012","Theft And Robbery",4648
+"Lewisham","2013","Criminal Damage and Arson",359
+"Lewisham","2013","Drug and Weapon Offences",292
+"Lewisham","2013","No-category",922
+"Lewisham","2013","Other Crimes",81
+"Lewisham","2013","Public Order Offences",1385
+"Lewisham","2013","Theft And Robbery",2127
+"Lewisham","2014","Criminal Damage and Arson",504
+"Lewisham","2014","Drug and Weapon Offences",314
+"Lewisham","2014","Other Crimes",40
+"Lewisham","2014","Public Order Offences",2144
+"Lewisham","2014","Theft And Robbery",2474
+"Lewisham","2014","Violence and Sexual Offences",1621
+"Lewisham","2015","Criminal Damage and Arson",1260
+"Lewisham","2015","Drug and Weapon Offences",721
+"Lewisham","2015","Other Crimes",116
+"Lewisham","2015","Public Order Offences",4538
+"Lewisham","2015","Theft And Robbery",5389
+"Lewisham","2015","Violence and Sexual Offences",3478
+"Lewisham","2016","Criminal Damage and Arson",2295
+"Lewisham","2016","Drug and Weapon Offences",1586
+"Lewisham","2016","Other Crimes",329
+"Lewisham","2016","Public Order Offences",8468
+"Lewisham","2016","Theft And Robbery",10642
+"Lewisham","2016","Violence and Sexual Offences",7684
+"Lewisham","2017","Criminal Damage and Arson",2259
+"Lewisham","2017","Drug and Weapon Offences",1351
+"Lewisham","2017","Other Crimes",320
+"Lewisham","2017","Public Order Offences",8285
+"Lewisham","2017","Theft And Robbery",10969
+"Lewisham","2017","Violence and Sexual Offences",7933
+"Lewisham","2018","Criminal Damage and Arson",2158
+"Lewisham","2018","Drug and Weapon Offences",1453
+"Lewisham","2018","Other Crimes",349
+"Lewisham","2018","Public Order Offences",8152
+"Lewisham","2018","Theft And Robbery",11903
+"Lewisham","2018","Violence and Sexual Offences",8072
+"Lewisham","2019","Criminal Damage and Arson",2054
+"Lewisham","2019","Drug and Weapon Offences",1548
+"Lewisham","2019","Other Crimes",362
+"Lewisham","2019","Public Order Offences",8805
+"Lewisham","2019","Theft And Robbery",12958
+"Lewisham","2019","Violence and Sexual Offences",8614
+"Lewisham","2020","Criminal Damage and Arson",2064
+"Lewisham","2020","Drug and Weapon Offences",1682
+"Lewisham","2020","Other Crimes",321
+"Lewisham","2020","Public Order Offences",15178
+"Lewisham","2020","Theft And Robbery",11799
+"Lewisham","2020","Violence and Sexual Offences",8639
+"Lewisham","2021","Criminal Damage and Arson",2144
+"Lewisham","2021","Drug and Weapon Offences",1572
+"Lewisham","2021","Other Crimes",348
+"Lewisham","2021","Public Order Offences",11235
+"Lewisham","2021","Theft And Robbery",10971
+"Lewisham","2021","Violence and Sexual Offences",8609
+"Lewisham","2022","Criminal Damage and Arson",2044
+"Lewisham","2022","Drug and Weapon Offences",1606
+"Lewisham","2022","Other Crimes",317
+"Lewisham","2022","Public Order Offences",9596
+"Lewisham","2022","Theft And Robbery",11949
+"Lewisham","2022","Violence and Sexual Offences",9099
+"Lewisham","2023","Criminal Damage and Arson",2243
+"Lewisham","2023","Drug and Weapon Offences",1519
+"Lewisham","2023","Other Crimes",300
+"Lewisham","2023","Public Order Offences",8617
+"Lewisham","2023","Theft And Robbery",12901
+"Lewisham","2023","Violence and Sexual Offences",10076
+"Lewisham","2024","Criminal Damage and Arson",2028
+"Lewisham","2024","Drug and Weapon Offences",1673
+"Lewisham","2024","Other Crimes",348
+"Lewisham","2024","Public Order Offences",9112
+"Lewisham","2024","Theft And Robbery",13617
+"Lewisham","2024","Violence and Sexual Offences",9779
+"Lewisham","2025","Criminal Damage and Arson",2024
+"Lewisham","2025","Drug and Weapon Offences",2237
+"Lewisham","2025","Other Crimes",451
+"Lewisham","2025","Public Order Offences",9421
+"Lewisham","2025","Theft And Robbery",11430
+"Lewisham","2025","Violence and Sexual Offences",10354
+"Lewisham","2026","Criminal Damage and Arson",630
+"Lewisham","2026","Drug and Weapon Offences",584
+"Lewisham","2026","Other Crimes",141
+"Lewisham","2026","Public Order Offences",2815
+"Lewisham","2026","Theft And Robbery",4065
+"Lewisham","2026","Violence and Sexual Offences",3452
+"Merton","2011","Criminal Damage and Arson",508
+"Merton","2011","Drug and Weapon Offences",301
+"Merton","2011","No-category",2570
+"Merton","2011","Other Crimes",4888
+"Merton","2011","Public Order Offences",7482
+"Merton","2011","Theft And Robbery",5920
+"Merton","2012","Criminal Damage and Arson",477
+"Merton","2012","Drug and Weapon Offences",259
+"Merton","2012","No-category",941
+"Merton","2012","Other Crimes",274
+"Merton","2012","Public Order Offences",2089
+"Merton","2012","Theft And Robbery",2705
+"Merton","2013","Criminal Damage and Arson",196
+"Merton","2013","Drug and Weapon Offences",95
+"Merton","2013","No-category",388
+"Merton","2013","Other Crimes",43
+"Merton","2013","Public Order Offences",754
+"Merton","2013","Theft And Robbery",1220
+"Merton","2014","Criminal Damage and Arson",324
+"Merton","2014","Drug and Weapon Offences",127
+"Merton","2014","Other Crimes",24
+"Merton","2014","Public Order Offences",1159
+"Merton","2014","Theft And Robbery",1638
+"Merton","2014","Violence and Sexual Offences",657
+"Merton","2015","Criminal Damage and Arson",696
+"Merton","2015","Drug and Weapon Offences",242
+"Merton","2015","Other Crimes",63
+"Merton","2015","Public Order Offences",2345
+"Merton","2015","Theft And Robbery",3058
+"Merton","2015","Violence and Sexual Offences",1666
+"Merton","2016","Criminal Damage and Arson",1375
+"Merton","2016","Drug and Weapon Offences",483
+"Merton","2016","Other Crimes",158
+"Merton","2016","Public Order Offences",4591
+"Merton","2016","Theft And Robbery",6569
+"Merton","2016","Violence and Sexual Offences",3538
+"Merton","2017","Criminal Damage and Arson",1232
+"Merton","2017","Drug and Weapon Offences",657
+"Merton","2017","Other Crimes",170
+"Merton","2017","Public Order Offences",4389
+"Merton","2017","Theft And Robbery",6761
+"Merton","2017","Violence and Sexual Offences",3852
+"Merton","2018","Criminal Damage and Arson",1130
+"Merton","2018","Drug and Weapon Offences",540
+"Merton","2018","Other Crimes",177
+"Merton","2018","Public Order Offences",4328
+"Merton","2018","Theft And Robbery",6999
+"Merton","2018","Violence and Sexual Offences",3978
+"Merton","2019","Criminal Damage and Arson",1054
+"Merton","2019","Drug and Weapon Offences",728
+"Merton","2019","Other Crimes",191
+"Merton","2019","Public Order Offences",4676
+"Merton","2019","Theft And Robbery",6838
+"Merton","2019","Violence and Sexual Offences",4087
+"Merton","2020","Criminal Damage and Arson",1008
+"Merton","2020","Drug and Weapon Offences",1040
+"Merton","2020","Other Crimes",212
+"Merton","2020","Public Order Offences",7904
+"Merton","2020","Theft And Robbery",5614
+"Merton","2020","Violence and Sexual Offences",4319
+"Merton","2021","Criminal Damage and Arson",980
+"Merton","2021","Drug and Weapon Offences",690
+"Merton","2021","Other Crimes",197
+"Merton","2021","Public Order Offences",6255
+"Merton","2021","Theft And Robbery",5214
+"Merton","2021","Violence and Sexual Offences",4455
+"Merton","2022","Criminal Damage and Arson",998
+"Merton","2022","Drug and Weapon Offences",623
+"Merton","2022","Other Crimes",209
+"Merton","2022","Public Order Offences",5399
+"Merton","2022","Theft And Robbery",6164
+"Merton","2022","Violence and Sexual Offences",4562
+"Merton","2023","Criminal Damage and Arson",1063
+"Merton","2023","Drug and Weapon Offences",551
+"Merton","2023","Other Crimes",156
+"Merton","2023","Public Order Offences",4850
+"Merton","2023","Theft And Robbery",6166
+"Merton","2023","Violence and Sexual Offences",4726
+"Merton","2024","Criminal Damage and Arson",1070
+"Merton","2024","Drug and Weapon Offences",619
+"Merton","2024","Other Crimes",181
+"Merton","2024","Public Order Offences",4630
+"Merton","2024","Theft And Robbery",6522
+"Merton","2024","Violence and Sexual Offences",4414
+"Merton","2025","Criminal Damage and Arson",1044
+"Merton","2025","Drug and Weapon Offences",814
+"Merton","2025","Other Crimes",207
+"Merton","2025","Public Order Offences",4593
+"Merton","2025","Theft And Robbery",5665
+"Merton","2025","Violence and Sexual Offences",4781
+"Merton","2026","Criminal Damage and Arson",259
+"Merton","2026","Drug and Weapon Offences",267
+"Merton","2026","Other Crimes",80
+"Merton","2026","Public Order Offences",1360
+"Merton","2026","Theft And Robbery",1749
+"Merton","2026","Violence and Sexual Offences",1501
+"Newham","2011","Criminal Damage and Arson",740
+"Newham","2011","Drug and Weapon Offences",582
+"Newham","2011","No-category",6690
+"Newham","2011","Other Crimes",10221
+"Newham","2011","Public Order Offences",18888
+"Newham","2011","Theft And Robbery",12903
+"Newham","2012","Criminal Damage and Arson",767
+"Newham","2012","Drug and Weapon Offences",541
+"Newham","2012","No-category",2405
+"Newham","2012","Other Crimes",724
+"Newham","2012","Public Order Offences",5318
+"Newham","2012","Theft And Robbery",6266
+"Newham","2013","Criminal Damage and Arson",298
+"Newham","2013","Drug and Weapon Offences",226
+"Newham","2013","No-category",903
+"Newham","2013","Other Crimes",100
+"Newham","2013","Public Order Offences",1818
+"Newham","2013","Theft And Robbery",2820
+"Newham","2014","Criminal Damage and Arson",524
+"Newham","2014","Drug and Weapon Offences",427
+"Newham","2014","Other Crimes",87
+"Newham","2014","Public Order Offences",2735
+"Newham","2014","Theft And Robbery",4070
+"Newham","2014","Violence and Sexual Offences",1757
+"Newham","2015","Criminal Damage and Arson",1163
+"Newham","2015","Drug and Weapon Offences",840
+"Newham","2015","Other Crimes",182
+"Newham","2015","Public Order Offences",5779
+"Newham","2015","Theft And Robbery",7073
+"Newham","2015","Violence and Sexual Offences",4136
+"Newham","2016","Criminal Damage and Arson",2414
+"Newham","2016","Drug and Weapon Offences",1663
+"Newham","2016","Other Crimes",441
+"Newham","2016","Public Order Offences",11173
+"Newham","2016","Theft And Robbery",15567
+"Newham","2016","Violence and Sexual Offences",8631
+"Newham","2017","Criminal Damage and Arson",2296
+"Newham","2017","Drug and Weapon Offences",2191
+"Newham","2017","Other Crimes",473
+"Newham","2017","Public Order Offences",10066
+"Newham","2017","Theft And Robbery",17512
+"Newham","2017","Violence and Sexual Offences",9226
+"Newham","2018","Criminal Damage and Arson",2305
+"Newham","2018","Drug and Weapon Offences",2234
+"Newham","2018","Other Crimes",534
+"Newham","2018","Public Order Offences",9711
+"Newham","2018","Theft And Robbery",18590
+"Newham","2018","Violence and Sexual Offences",9557
+"Newham","2019","Criminal Damage and Arson",2063
+"Newham","2019","Drug and Weapon Offences",3145
+"Newham","2019","Other Crimes",534
+"Newham","2019","Public Order Offences",10844
+"Newham","2019","Theft And Robbery",16743
+"Newham","2019","Violence and Sexual Offences",9244
+"Newham","2020","Criminal Damage and Arson",1951
+"Newham","2020","Drug and Weapon Offences",3071
+"Newham","2020","Other Crimes",449
+"Newham","2020","Public Order Offences",18897
+"Newham","2020","Theft And Robbery",14931
+"Newham","2020","Violence and Sexual Offences",9321
+"Newham","2021","Criminal Damage and Arson",2072
+"Newham","2021","Drug and Weapon Offences",2257
+"Newham","2021","Other Crimes",447
+"Newham","2021","Public Order Offences",14797
+"Newham","2021","Theft And Robbery",14555
+"Newham","2021","Violence and Sexual Offences",10115
+"Newham","2022","Criminal Damage and Arson",2115
+"Newham","2022","Drug and Weapon Offences",2449
+"Newham","2022","Other Crimes",485
+"Newham","2022","Public Order Offences",12753
+"Newham","2022","Theft And Robbery",16586
+"Newham","2022","Violence and Sexual Offences",10194
+"Newham","2023","Criminal Damage and Arson",2094
+"Newham","2023","Drug and Weapon Offences",1891
+"Newham","2023","Other Crimes",454
+"Newham","2023","Public Order Offences",11464
+"Newham","2023","Theft And Robbery",19690
+"Newham","2023","Violence and Sexual Offences",10912
+"Newham","2024","Criminal Damage and Arson",1977
+"Newham","2024","Drug and Weapon Offences",2295
+"Newham","2024","Other Crimes",544
+"Newham","2024","Public Order Offences",11952
+"Newham","2024","Theft And Robbery",21965
+"Newham","2024","Violence and Sexual Offences",10708
+"Newham","2025","Criminal Damage and Arson",2034
+"Newham","2025","Drug and Weapon Offences",2969
+"Newham","2025","Other Crimes",577
+"Newham","2025","Public Order Offences",12064
+"Newham","2025","Theft And Robbery",20975
+"Newham","2025","Violence and Sexual Offences",11499
+"Newham","2026","Criminal Damage and Arson",703
+"Newham","2026","Drug and Weapon Offences",994
+"Newham","2026","Other Crimes",186
+"Newham","2026","Public Order Offences",3737
+"Newham","2026","Theft And Robbery",6785
+"Newham","2026","Violence and Sexual Offences",4005
+"Redbridge","2011","Criminal Damage and Arson",786
+"Redbridge","2011","Drug and Weapon Offences",684
+"Redbridge","2011","No-category",3958
+"Redbridge","2011","Other Crimes",8072
+"Redbridge","2011","Public Order Offences",12965
+"Redbridge","2011","Theft And Robbery",10768
+"Redbridge","2012","Criminal Damage and Arson",590
+"Redbridge","2012","Drug and Weapon Offences",632
+"Redbridge","2012","No-category",1541
+"Redbridge","2012","Other Crimes",527
+"Redbridge","2012","Public Order Offences",3529
+"Redbridge","2012","Theft And Robbery",4564
+"Redbridge","2013","Criminal Damage and Arson",266
+"Redbridge","2013","Drug and Weapon Offences",294
+"Redbridge","2013","No-category",717
+"Redbridge","2013","Other Crimes",127
+"Redbridge","2013","Public Order Offences",1235
+"Redbridge","2013","Theft And Robbery",2054
+"Redbridge","2014","Criminal Damage and Arson",400
+"Redbridge","2014","Drug and Weapon Offences",341
+"Redbridge","2014","Other Crimes",76
+"Redbridge","2014","Public Order Offences",1827
+"Redbridge","2014","Theft And Robbery",2599
+"Redbridge","2014","Violence and Sexual Offences",1336
+"Redbridge","2015","Criminal Damage and Arson",739
+"Redbridge","2015","Drug and Weapon Offences",567
+"Redbridge","2015","Other Crimes",130
+"Redbridge","2015","Public Order Offences",3621
+"Redbridge","2015","Theft And Robbery",4680
+"Redbridge","2015","Violence and Sexual Offences",2597
+"Redbridge","2016","Criminal Damage and Arson",1584
+"Redbridge","2016","Drug and Weapon Offences",1021
+"Redbridge","2016","Other Crimes",228
+"Redbridge","2016","Public Order Offences",7353
+"Redbridge","2016","Theft And Robbery",10131
+"Redbridge","2016","Violence and Sexual Offences",5775
+"Redbridge","2017","Criminal Damage and Arson",1772
+"Redbridge","2017","Drug and Weapon Offences",783
+"Redbridge","2017","Other Crimes",227
+"Redbridge","2017","Public Order Offences",7673
+"Redbridge","2017","Theft And Robbery",13026
+"Redbridge","2017","Violence and Sexual Offences",6022
+"Redbridge","2018","Criminal Damage and Arson",1546
+"Redbridge","2018","Drug and Weapon Offences",739
+"Redbridge","2018","Other Crimes",209
+"Redbridge","2018","Public Order Offences",7335
+"Redbridge","2018","Theft And Robbery",12810
+"Redbridge","2018","Violence and Sexual Offences",6548
+"Redbridge","2019","Criminal Damage and Arson",1398
+"Redbridge","2019","Drug and Weapon Offences",1332
+"Redbridge","2019","Other Crimes",253
+"Redbridge","2019","Public Order Offences",7515
+"Redbridge","2019","Theft And Robbery",12047
+"Redbridge","2019","Violence and Sexual Offences",6451
+"Redbridge","2020","Criminal Damage and Arson",1396
+"Redbridge","2020","Drug and Weapon Offences",1828
+"Redbridge","2020","Other Crimes",271
+"Redbridge","2020","Public Order Offences",11997
+"Redbridge","2020","Theft And Robbery",10851
+"Redbridge","2020","Violence and Sexual Offences",6853
+"Redbridge","2021","Criminal Damage and Arson",1520
+"Redbridge","2021","Drug and Weapon Offences",1349
+"Redbridge","2021","Other Crimes",313
+"Redbridge","2021","Public Order Offences",9889
+"Redbridge","2021","Theft And Robbery",10694
+"Redbridge","2021","Violence and Sexual Offences",8008
+"Redbridge","2022","Criminal Damage and Arson",1498
+"Redbridge","2022","Drug and Weapon Offences",1210
+"Redbridge","2022","Other Crimes",306
+"Redbridge","2022","Public Order Offences",8418
+"Redbridge","2022","Theft And Robbery",11420
+"Redbridge","2022","Violence and Sexual Offences",7815
+"Redbridge","2023","Criminal Damage and Arson",1611
+"Redbridge","2023","Drug and Weapon Offences",1065
+"Redbridge","2023","Other Crimes",308
+"Redbridge","2023","Public Order Offences",7236
+"Redbridge","2023","Theft And Robbery",11155
+"Redbridge","2023","Violence and Sexual Offences",8192
+"Redbridge","2024","Criminal Damage and Arson",1464
+"Redbridge","2024","Drug and Weapon Offences",1061
+"Redbridge","2024","Other Crimes",328
+"Redbridge","2024","Public Order Offences",7278
+"Redbridge","2024","Theft And Robbery",10985
+"Redbridge","2024","Violence and Sexual Offences",8271
+"Redbridge","2025","Criminal Damage and Arson",1464
+"Redbridge","2025","Drug and Weapon Offences",1389
+"Redbridge","2025","Other Crimes",366
+"Redbridge","2025","Public Order Offences",7804
+"Redbridge","2025","Theft And Robbery",10486
+"Redbridge","2025","Violence and Sexual Offences",8836
+"Redbridge","2026","Criminal Damage and Arson",501
+"Redbridge","2026","Drug and Weapon Offences",436
+"Redbridge","2026","Other Crimes",143
+"Redbridge","2026","Public Order Offences",2352
+"Redbridge","2026","Theft And Robbery",3345
+"Redbridge","2026","Violence and Sexual Offences",2952
+"Richmond upon Thames","2011","Criminal Damage and Arson",402
+"Richmond upon Thames","2011","Drug and Weapon Offences",141
+"Richmond upon Thames","2011","No-category",2008
+"Richmond upon Thames","2011","Other Crimes",4389
+"Richmond upon Thames","2011","Public Order Offences",6186
+"Richmond upon Thames","2011","Theft And Robbery",4934
+"Richmond upon Thames","2012","Criminal Damage and Arson",473
+"Richmond upon Thames","2012","Drug and Weapon Offences",184
+"Richmond upon Thames","2012","No-category",788
+"Richmond upon Thames","2012","Other Crimes",224
+"Richmond upon Thames","2012","Public Order Offences",1689
+"Richmond upon Thames","2012","Theft And Robbery",2570
+"Richmond upon Thames","2013","Criminal Damage and Arson",203
+"Richmond upon Thames","2013","Drug and Weapon Offences",99
+"Richmond upon Thames","2013","No-category",339
+"Richmond upon Thames","2013","Other Crimes",36
+"Richmond upon Thames","2013","Public Order Offences",660
+"Richmond upon Thames","2013","Theft And Robbery",1050
+"Richmond upon Thames","2014","Criminal Damage and Arson",267
+"Richmond upon Thames","2014","Drug and Weapon Offences",84
+"Richmond upon Thames","2014","Other Crimes",30
+"Richmond upon Thames","2014","Public Order Offences",964
+"Richmond upon Thames","2014","Theft And Robbery",1525
+"Richmond upon Thames","2014","Violence and Sexual Offences",552
+"Richmond upon Thames","2015","Criminal Damage and Arson",542
+"Richmond upon Thames","2015","Drug and Weapon Offences",172
+"Richmond upon Thames","2015","Other Crimes",59
+"Richmond upon Thames","2015","Public Order Offences",2116
+"Richmond upon Thames","2015","Theft And Robbery",3004
+"Richmond upon Thames","2015","Violence and Sexual Offences",1146
+"Richmond upon Thames","2016","Criminal Damage and Arson",1106
+"Richmond upon Thames","2016","Drug and Weapon Offences",294
+"Richmond upon Thames","2016","Other Crimes",141
+"Richmond upon Thames","2016","Public Order Offences",4464
+"Richmond upon Thames","2016","Theft And Robbery",6335
+"Richmond upon Thames","2016","Violence and Sexual Offences",2722
+"Richmond upon Thames","2017","Criminal Damage and Arson",1114
+"Richmond upon Thames","2017","Drug and Weapon Offences",379
+"Richmond upon Thames","2017","Other Crimes",140
+"Richmond upon Thames","2017","Public Order Offences",4204
+"Richmond upon Thames","2017","Theft And Robbery",7645
+"Richmond upon Thames","2017","Violence and Sexual Offences",3038
+"Richmond upon Thames","2018","Criminal Damage and Arson",1074
+"Richmond upon Thames","2018","Drug and Weapon Offences",320
+"Richmond upon Thames","2018","Other Crimes",114
+"Richmond upon Thames","2018","Public Order Offences",3772
+"Richmond upon Thames","2018","Theft And Robbery",7353
+"Richmond upon Thames","2018","Violence and Sexual Offences",3153
+"Richmond upon Thames","2019","Criminal Damage and Arson",953
+"Richmond upon Thames","2019","Drug and Weapon Offences",383
+"Richmond upon Thames","2019","Other Crimes",106
+"Richmond upon Thames","2019","Public Order Offences",4283
+"Richmond upon Thames","2019","Theft And Robbery",7042
+"Richmond upon Thames","2019","Violence and Sexual Offences",3127
+"Richmond upon Thames","2020","Criminal Damage and Arson",908
+"Richmond upon Thames","2020","Drug and Weapon Offences",643
+"Richmond upon Thames","2020","Other Crimes",161
+"Richmond upon Thames","2020","Public Order Offences",7859
+"Richmond upon Thames","2020","Theft And Robbery",6323
+"Richmond upon Thames","2020","Violence and Sexual Offences",3238
+"Richmond upon Thames","2021","Criminal Damage and Arson",919
+"Richmond upon Thames","2021","Drug and Weapon Offences",430
+"Richmond upon Thames","2021","Other Crimes",121
+"Richmond upon Thames","2021","Public Order Offences",5267
+"Richmond upon Thames","2021","Theft And Robbery",5385
+"Richmond upon Thames","2021","Violence and Sexual Offences",3266
+"Richmond upon Thames","2022","Criminal Damage and Arson",894
+"Richmond upon Thames","2022","Drug and Weapon Offences",350
+"Richmond upon Thames","2022","Other Crimes",142
+"Richmond upon Thames","2022","Public Order Offences",4127
+"Richmond upon Thames","2022","Theft And Robbery",5979
+"Richmond upon Thames","2022","Violence and Sexual Offences",3249
+"Richmond upon Thames","2023","Criminal Damage and Arson",980
+"Richmond upon Thames","2023","Drug and Weapon Offences",338
+"Richmond upon Thames","2023","Other Crimes",124
+"Richmond upon Thames","2023","Public Order Offences",3953
+"Richmond upon Thames","2023","Theft And Robbery",6533
+"Richmond upon Thames","2023","Violence and Sexual Offences",3145
+"Richmond upon Thames","2024","Criminal Damage and Arson",944
+"Richmond upon Thames","2024","Drug and Weapon Offences",565
+"Richmond upon Thames","2024","Other Crimes",134
+"Richmond upon Thames","2024","Public Order Offences",3784
+"Richmond upon Thames","2024","Theft And Robbery",6290
+"Richmond upon Thames","2024","Violence and Sexual Offences",3315
+"Richmond upon Thames","2025","Criminal Damage and Arson",1046
+"Richmond upon Thames","2025","Drug and Weapon Offences",625
+"Richmond upon Thames","2025","Other Crimes",143
+"Richmond upon Thames","2025","Public Order Offences",3922
+"Richmond upon Thames","2025","Theft And Robbery",5644
+"Richmond upon Thames","2025","Violence and Sexual Offences",3287
+"Richmond upon Thames","2026","Criminal Damage and Arson",285
+"Richmond upon Thames","2026","Drug and Weapon Offences",160
+"Richmond upon Thames","2026","Other Crimes",58
+"Richmond upon Thames","2026","Public Order Offences",1206
+"Richmond upon Thames","2026","Theft And Robbery",1819
+"Richmond upon Thames","2026","Violence and Sexual Offences",1054
+"Southwark","2011","Criminal Damage and Arson",973
+"Southwark","2011","Drug and Weapon Offences",879
+"Southwark","2011","No-category",6876
+"Southwark","2011","Other Crimes",12659
+"Southwark","2011","Public Order Offences",17459
+"Southwark","2011","Theft And Robbery",12687
+"Southwark","2012","Criminal Damage and Arson",805
+"Southwark","2012","Drug and Weapon Offences",797
+"Southwark","2012","No-category",2365
+"Southwark","2012","Other Crimes",481
+"Southwark","2012","Public Order Offences",4671
+"Southwark","2012","Theft And Robbery",6318
+"Southwark","2013","Criminal Damage and Arson",361
+"Southwark","2013","Drug and Weapon Offences",393
+"Southwark","2013","No-category",1056
+"Southwark","2013","Other Crimes",135
+"Southwark","2013","Public Order Offences",1627
+"Southwark","2013","Theft And Robbery",3054
+"Southwark","2014","Criminal Damage and Arson",556
+"Southwark","2014","Drug and Weapon Offences",627
+"Southwark","2014","Other Crimes",68
+"Southwark","2014","Public Order Offences",2467
+"Southwark","2014","Theft And Robbery",3849
+"Southwark","2014","Violence and Sexual Offences",1676
+"Southwark","2015","Criminal Damage and Arson",1309
+"Southwark","2015","Drug and Weapon Offences",1004
+"Southwark","2015","Other Crimes",137
+"Southwark","2015","Public Order Offences",5037
+"Southwark","2015","Theft And Robbery",8077
+"Southwark","2015","Violence and Sexual Offences",3752
+"Southwark","2016","Criminal Damage and Arson",2537
+"Southwark","2016","Drug and Weapon Offences",1796
+"Southwark","2016","Other Crimes",302
+"Southwark","2016","Public Order Offences",9994
+"Southwark","2016","Theft And Robbery",17214
+"Southwark","2016","Violence and Sexual Offences",8189
+"Southwark","2017","Criminal Damage and Arson",2432
+"Southwark","2017","Drug and Weapon Offences",2284
+"Southwark","2017","Other Crimes",311
+"Southwark","2017","Public Order Offences",10170
+"Southwark","2017","Theft And Robbery",17904
+"Southwark","2017","Violence and Sexual Offences",8316
+"Southwark","2018","Criminal Damage and Arson",2300
+"Southwark","2018","Drug and Weapon Offences",2203
+"Southwark","2018","Other Crimes",333
+"Southwark","2018","Public Order Offences",10205
+"Southwark","2018","Theft And Robbery",18932
+"Southwark","2018","Violence and Sexual Offences",9285
+"Southwark","2019","Criminal Damage and Arson",2021
+"Southwark","2019","Drug and Weapon Offences",2711
+"Southwark","2019","Other Crimes",344
+"Southwark","2019","Public Order Offences",11159
+"Southwark","2019","Theft And Robbery",21039
+"Southwark","2019","Violence and Sexual Offences",9058
+"Southwark","2020","Criminal Damage and Arson",1924
+"Southwark","2020","Drug and Weapon Offences",2432
+"Southwark","2020","Other Crimes",308
+"Southwark","2020","Public Order Offences",19014
+"Southwark","2020","Theft And Robbery",15534
+"Southwark","2020","Violence and Sexual Offences",8495
+"Southwark","2021","Criminal Damage and Arson",1851
+"Southwark","2021","Drug and Weapon Offences",2237
+"Southwark","2021","Other Crimes",327
+"Southwark","2021","Public Order Offences",14055
+"Southwark","2021","Theft And Robbery",14983
+"Southwark","2021","Violence and Sexual Offences",8771
+"Southwark","2022","Criminal Damage and Arson",1935
+"Southwark","2022","Drug and Weapon Offences",1757
+"Southwark","2022","Other Crimes",293
+"Southwark","2022","Public Order Offences",11747
+"Southwark","2022","Theft And Robbery",18456
+"Southwark","2022","Violence and Sexual Offences",8648
+"Southwark","2023","Criminal Damage and Arson",2148
+"Southwark","2023","Drug and Weapon Offences",1532
+"Southwark","2023","Other Crimes",257
+"Southwark","2023","Public Order Offences",10559
+"Southwark","2023","Theft And Robbery",20902
+"Southwark","2023","Violence and Sexual Offences",9358
+"Southwark","2024","Criminal Damage and Arson",1956
+"Southwark","2024","Drug and Weapon Offences",1709
+"Southwark","2024","Other Crimes",298
+"Southwark","2024","Public Order Offences",11348
+"Southwark","2024","Theft And Robbery",23618
+"Southwark","2024","Violence and Sexual Offences",9055
+"Southwark","2025","Criminal Damage and Arson",1868
+"Southwark","2025","Drug and Weapon Offences",2238
+"Southwark","2025","Other Crimes",395
+"Southwark","2025","Public Order Offences",11673
+"Southwark","2025","Theft And Robbery",22329
+"Southwark","2025","Violence and Sexual Offences",9902
+"Southwark","2026","Criminal Damage and Arson",640
+"Southwark","2026","Drug and Weapon Offences",750
+"Southwark","2026","Other Crimes",148
+"Southwark","2026","Public Order Offences",3541
+"Southwark","2026","Theft And Robbery",7160
+"Southwark","2026","Violence and Sexual Offences",3129
+"Sutton","2011","Criminal Damage and Arson",474
+"Sutton","2011","Drug and Weapon Offences",137
+"Sutton","2011","No-category",2407
+"Sutton","2011","Other Crimes",4173
+"Sutton","2011","Public Order Offences",6634
+"Sutton","2011","Theft And Robbery",4450
+"Sutton","2012","Criminal Damage and Arson",467
+"Sutton","2012","Drug and Weapon Offences",171
+"Sutton","2012","No-category",1003
+"Sutton","2012","Other Crimes",178
+"Sutton","2012","Public Order Offences",1894
+"Sutton","2012","Theft And Robbery",2098
+"Sutton","2013","Criminal Damage and Arson",172
+"Sutton","2013","Drug and Weapon Offences",60
+"Sutton","2013","No-category",370
+"Sutton","2013","Other Crimes",37
+"Sutton","2013","Public Order Offences",651
+"Sutton","2013","Theft And Robbery",963
+"Sutton","2014","Criminal Damage and Arson",293
+"Sutton","2014","Drug and Weapon Offences",102
+"Sutton","2014","Other Crimes",19
+"Sutton","2014","Public Order Offences",988
+"Sutton","2014","Theft And Robbery",1305
+"Sutton","2014","Violence and Sexual Offences",729
+"Sutton","2015","Criminal Damage and Arson",649
+"Sutton","2015","Drug and Weapon Offences",187
+"Sutton","2015","Other Crimes",58
+"Sutton","2015","Public Order Offences",1714
+"Sutton","2015","Theft And Robbery",2484
+"Sutton","2015","Violence and Sexual Offences",1622
+"Sutton","2016","Criminal Damage and Arson",1287
+"Sutton","2016","Drug and Weapon Offences",431
+"Sutton","2016","Other Crimes",144
+"Sutton","2016","Public Order Offences",3747
+"Sutton","2016","Theft And Robbery",4953
+"Sutton","2016","Violence and Sexual Offences",3335
+"Sutton","2017","Criminal Damage and Arson",1203
+"Sutton","2017","Drug and Weapon Offences",419
+"Sutton","2017","Other Crimes",156
+"Sutton","2017","Public Order Offences",3813
+"Sutton","2017","Theft And Robbery",5488
+"Sutton","2017","Violence and Sexual Offences",3772
+"Sutton","2018","Criminal Damage and Arson",1157
+"Sutton","2018","Drug and Weapon Offences",412
+"Sutton","2018","Other Crimes",158
+"Sutton","2018","Public Order Offences",3821
+"Sutton","2018","Theft And Robbery",5634
+"Sutton","2018","Violence and Sexual Offences",3824
+"Sutton","2019","Criminal Damage and Arson",1090
+"Sutton","2019","Drug and Weapon Offences",607
+"Sutton","2019","Other Crimes",155
+"Sutton","2019","Public Order Offences",4820
+"Sutton","2019","Theft And Robbery",6160
+"Sutton","2019","Violence and Sexual Offences",4349
+"Sutton","2020","Criminal Damage and Arson",925
+"Sutton","2020","Drug and Weapon Offences",851
+"Sutton","2020","Other Crimes",201
+"Sutton","2020","Public Order Offences",7276
+"Sutton","2020","Theft And Robbery",5544
+"Sutton","2020","Violence and Sexual Offences",4316
+"Sutton","2021","Criminal Damage and Arson",1037
+"Sutton","2021","Drug and Weapon Offences",621
+"Sutton","2021","Other Crimes",155
+"Sutton","2021","Public Order Offences",5283
+"Sutton","2021","Theft And Robbery",5151
+"Sutton","2021","Violence and Sexual Offences",4625
+"Sutton","2022","Criminal Damage and Arson",1098
+"Sutton","2022","Drug and Weapon Offences",589
+"Sutton","2022","Other Crimes",166
+"Sutton","2022","Public Order Offences",4746
+"Sutton","2022","Theft And Robbery",5840
+"Sutton","2022","Violence and Sexual Offences",4490
+"Sutton","2023","Criminal Damage and Arson",1114
+"Sutton","2023","Drug and Weapon Offences",491
+"Sutton","2023","Other Crimes",185
+"Sutton","2023","Public Order Offences",4114
+"Sutton","2023","Theft And Robbery",5396
+"Sutton","2023","Violence and Sexual Offences",4774
+"Sutton","2024","Criminal Damage and Arson",1098
+"Sutton","2024","Drug and Weapon Offences",545
+"Sutton","2024","Other Crimes",192
+"Sutton","2024","Public Order Offences",4057
+"Sutton","2024","Theft And Robbery",5290
+"Sutton","2024","Violence and Sexual Offences",4787
+"Sutton","2025","Criminal Damage and Arson",980
+"Sutton","2025","Drug and Weapon Offences",778
+"Sutton","2025","Other Crimes",216
+"Sutton","2025","Public Order Offences",4179
+"Sutton","2025","Theft And Robbery",4933
+"Sutton","2025","Violence and Sexual Offences",5122
+"Sutton","2026","Criminal Damage and Arson",291
+"Sutton","2026","Drug and Weapon Offences",231
+"Sutton","2026","Other Crimes",80
+"Sutton","2026","Public Order Offences",1362
+"Sutton","2026","Theft And Robbery",1626
+"Sutton","2026","Violence and Sexual Offences",1648
+"Tower Hamlets","2011","Criminal Damage and Arson",735
+"Tower Hamlets","2011","Drug and Weapon Offences",1055
+"Tower Hamlets","2011","No-category",5936
+"Tower Hamlets","2011","Other Crimes",11046
+"Tower Hamlets","2011","Public Order Offences",19751
+"Tower Hamlets","2011","Theft And Robbery",9467
+"Tower Hamlets","2012","Criminal Damage and Arson",745
+"Tower Hamlets","2012","Drug and Weapon Offences",1024
+"Tower Hamlets","2012","No-category",2273
+"Tower Hamlets","2012","Other Crimes",494
+"Tower Hamlets","2012","Public Order Offences",5846
+"Tower Hamlets","2012","Theft And Robbery",4969
+"Tower Hamlets","2013","Criminal Damage and Arson",331
+"Tower Hamlets","2013","Drug and Weapon Offences",511
+"Tower Hamlets","2013","No-category",987
+"Tower Hamlets","2013","Other Crimes",81
+"Tower Hamlets","2013","Public Order Offences",2204
+"Tower Hamlets","2013","Theft And Robbery",2308
+"Tower Hamlets","2013","Violence and Sexual Offences",5
+"Tower Hamlets","2014","Criminal Damage and Arson",544
+"Tower Hamlets","2014","Drug and Weapon Offences",493
+"Tower Hamlets","2014","Other Crimes",53
+"Tower Hamlets","2014","Public Order Offences",3987
+"Tower Hamlets","2014","Theft And Robbery",3337
+"Tower Hamlets","2014","Violence and Sexual Offences",1705
+"Tower Hamlets","2015","Criminal Damage and Arson",1206
+"Tower Hamlets","2015","Drug and Weapon Offences",823
+"Tower Hamlets","2015","Other Crimes",137
+"Tower Hamlets","2015","Public Order Offences",8483
+"Tower Hamlets","2015","Theft And Robbery",6870
+"Tower Hamlets","2015","Violence and Sexual Offences",3677
+"Tower Hamlets","2016","Criminal Damage and Arson",2287
+"Tower Hamlets","2016","Drug and Weapon Offences",1585
+"Tower Hamlets","2016","Other Crimes",390
+"Tower Hamlets","2016","Public Order Offences",17657
+"Tower Hamlets","2016","Theft And Robbery",14966
+"Tower Hamlets","2016","Violence and Sexual Offences",8067
+"Tower Hamlets","2017","Criminal Damage and Arson",2319
+"Tower Hamlets","2017","Drug and Weapon Offences",1575
+"Tower Hamlets","2017","Other Crimes",345
+"Tower Hamlets","2017","Public Order Offences",15213
+"Tower Hamlets","2017","Theft And Robbery",16028
+"Tower Hamlets","2017","Violence and Sexual Offences",8275
+"Tower Hamlets","2018","Criminal Damage and Arson",2085
+"Tower Hamlets","2018","Drug and Weapon Offences",2277
+"Tower Hamlets","2018","Other Crimes",348
+"Tower Hamlets","2018","Public Order Offences",15489
+"Tower Hamlets","2018","Theft And Robbery",16823
+"Tower Hamlets","2018","Violence and Sexual Offences",9068
+"Tower Hamlets","2019","Criminal Damage and Arson",1938
+"Tower Hamlets","2019","Drug and Weapon Offences",2521
+"Tower Hamlets","2019","Other Crimes",328
+"Tower Hamlets","2019","Public Order Offences",17377
+"Tower Hamlets","2019","Theft And Robbery",16955
+"Tower Hamlets","2019","Violence and Sexual Offences",8675
+"Tower Hamlets","2020","Criminal Damage and Arson",1976
+"Tower Hamlets","2020","Drug and Weapon Offences",2979
+"Tower Hamlets","2020","Other Crimes",408
+"Tower Hamlets","2020","Public Order Offences",27320
+"Tower Hamlets","2020","Theft And Robbery",13970
+"Tower Hamlets","2020","Violence and Sexual Offences",8538
+"Tower Hamlets","2021","Criminal Damage and Arson",2100
+"Tower Hamlets","2021","Drug and Weapon Offences",2521
+"Tower Hamlets","2021","Other Crimes",376
+"Tower Hamlets","2021","Public Order Offences",20740
+"Tower Hamlets","2021","Theft And Robbery",13826
+"Tower Hamlets","2021","Violence and Sexual Offences",9696
+"Tower Hamlets","2022","Criminal Damage and Arson",1988
+"Tower Hamlets","2022","Drug and Weapon Offences",2088
+"Tower Hamlets","2022","Other Crimes",364
+"Tower Hamlets","2022","Public Order Offences",16125
+"Tower Hamlets","2022","Theft And Robbery",14967
+"Tower Hamlets","2022","Violence and Sexual Offences",9892
+"Tower Hamlets","2023","Criminal Damage and Arson",2104
+"Tower Hamlets","2023","Drug and Weapon Offences",2066
+"Tower Hamlets","2023","Other Crimes",325
+"Tower Hamlets","2023","Public Order Offences",13697
+"Tower Hamlets","2023","Theft And Robbery",17335
+"Tower Hamlets","2023","Violence and Sexual Offences",10684
+"Tower Hamlets","2024","Criminal Damage and Arson",2091
+"Tower Hamlets","2024","Drug and Weapon Offences",2111
+"Tower Hamlets","2024","Other Crimes",405
+"Tower Hamlets","2024","Public Order Offences",13808
+"Tower Hamlets","2024","Theft And Robbery",17611
+"Tower Hamlets","2024","Violence and Sexual Offences",10455
+"Tower Hamlets","2025","Criminal Damage and Arson",2004
+"Tower Hamlets","2025","Drug and Weapon Offences",3050
+"Tower Hamlets","2025","Other Crimes",486
+"Tower Hamlets","2025","Public Order Offences",13802
+"Tower Hamlets","2025","Theft And Robbery",16612
+"Tower Hamlets","2025","Violence and Sexual Offences",11528
+"Tower Hamlets","2026","Criminal Damage and Arson",660
+"Tower Hamlets","2026","Drug and Weapon Offences",859
+"Tower Hamlets","2026","Other Crimes",158
+"Tower Hamlets","2026","Public Order Offences",3921
+"Tower Hamlets","2026","Theft And Robbery",5348
+"Tower Hamlets","2026","Violence and Sexual Offences",3623
+"Waltham Forest","2011","Criminal Damage and Arson",690
+"Waltham Forest","2011","Drug and Weapon Offences",323
+"Waltham Forest","2011","No-category",5141
+"Waltham Forest","2011","Other Crimes",7961
+"Waltham Forest","2011","Public Order Offences",13327
+"Waltham Forest","2011","Theft And Robbery",11225
+"Waltham Forest","2012","Criminal Damage and Arson",683
+"Waltham Forest","2012","Drug and Weapon Offences",398
+"Waltham Forest","2012","No-category",1778
+"Waltham Forest","2012","Other Crimes",596
+"Waltham Forest","2012","Public Order Offences",3671
+"Waltham Forest","2012","Theft And Robbery",4534
+"Waltham Forest","2013","Criminal Damage and Arson",282
+"Waltham Forest","2013","Drug and Weapon Offences",286
+"Waltham Forest","2013","No-category",806
+"Waltham Forest","2013","Other Crimes",121
+"Waltham Forest","2013","Public Order Offences",988
+"Waltham Forest","2013","Theft And Robbery",2040
+"Waltham Forest","2014","Criminal Damage and Arson",421
+"Waltham Forest","2014","Drug and Weapon Offences",301
+"Waltham Forest","2014","Other Crimes",76
+"Waltham Forest","2014","Public Order Offences",2197
+"Waltham Forest","2014","Theft And Robbery",2627
+"Waltham Forest","2014","Violence and Sexual Offences",1332
+"Waltham Forest","2015","Criminal Damage and Arson",936
+"Waltham Forest","2015","Drug and Weapon Offences",739
+"Waltham Forest","2015","Other Crimes",102
+"Waltham Forest","2015","Public Order Offences",4436
+"Waltham Forest","2015","Theft And Robbery",5047
+"Waltham Forest","2015","Violence and Sexual Offences",2924
+"Waltham Forest","2016","Criminal Damage and Arson",1888
+"Waltham Forest","2016","Drug and Weapon Offences",1041
+"Waltham Forest","2016","Other Crimes",302
+"Waltham Forest","2016","Public Order Offences",8672
+"Waltham Forest","2016","Theft And Robbery",9847
+"Waltham Forest","2016","Violence and Sexual Offences",6574
+"Waltham Forest","2017","Criminal Damage and Arson",1865
+"Waltham Forest","2017","Drug and Weapon Offences",1004
+"Waltham Forest","2017","Other Crimes",216
+"Waltham Forest","2017","Public Order Offences",8189
+"Waltham Forest","2017","Theft And Robbery",11404
+"Waltham Forest","2017","Violence and Sexual Offences",6424
+"Waltham Forest","2018","Criminal Damage and Arson",1635
+"Waltham Forest","2018","Drug and Weapon Offences",1315
+"Waltham Forest","2018","Other Crimes",264
+"Waltham Forest","2018","Public Order Offences",7828
+"Waltham Forest","2018","Theft And Robbery",12014
+"Waltham Forest","2018","Violence and Sexual Offences",6745
+"Waltham Forest","2019","Criminal Damage and Arson",1589
+"Waltham Forest","2019","Drug and Weapon Offences",1878
+"Waltham Forest","2019","Other Crimes",268
+"Waltham Forest","2019","Public Order Offences",8115
+"Waltham Forest","2019","Theft And Robbery",11483
+"Waltham Forest","2019","Violence and Sexual Offences",6335
+"Waltham Forest","2020","Criminal Damage and Arson",1556
+"Waltham Forest","2020","Drug and Weapon Offences",1962
+"Waltham Forest","2020","Other Crimes",316
+"Waltham Forest","2020","Public Order Offences",14816
+"Waltham Forest","2020","Theft And Robbery",10874
+"Waltham Forest","2020","Violence and Sexual Offences",6806
+"Waltham Forest","2021","Criminal Damage and Arson",1515
+"Waltham Forest","2021","Drug and Weapon Offences",1499
+"Waltham Forest","2021","Other Crimes",266
+"Waltham Forest","2021","Public Order Offences",10532
+"Waltham Forest","2021","Theft And Robbery",9740
+"Waltham Forest","2021","Violence and Sexual Offences",6968
+"Waltham Forest","2022","Criminal Damage and Arson",1550
+"Waltham Forest","2022","Drug and Weapon Offences",1585
+"Waltham Forest","2022","Other Crimes",285
+"Waltham Forest","2022","Public Order Offences",8961
+"Waltham Forest","2022","Theft And Robbery",10153
+"Waltham Forest","2022","Violence and Sexual Offences",6975
+"Waltham Forest","2023","Criminal Damage and Arson",1637
+"Waltham Forest","2023","Drug and Weapon Offences",1364
+"Waltham Forest","2023","Other Crimes",262
+"Waltham Forest","2023","Public Order Offences",9016
+"Waltham Forest","2023","Theft And Robbery",10945
+"Waltham Forest","2023","Violence and Sexual Offences",6930
+"Waltham Forest","2024","Criminal Damage and Arson",1670
+"Waltham Forest","2024","Drug and Weapon Offences",1463
+"Waltham Forest","2024","Other Crimes",272
+"Waltham Forest","2024","Public Order Offences",8881
+"Waltham Forest","2024","Theft And Robbery",13006
+"Waltham Forest","2024","Violence and Sexual Offences",6614
+"Waltham Forest","2025","Criminal Damage and Arson",1582
+"Waltham Forest","2025","Drug and Weapon Offences",1873
+"Waltham Forest","2025","Other Crimes",299
+"Waltham Forest","2025","Public Order Offences",8332
+"Waltham Forest","2025","Theft And Robbery",11179
+"Waltham Forest","2025","Violence and Sexual Offences",6770
+"Waltham Forest","2026","Criminal Damage and Arson",487
+"Waltham Forest","2026","Drug and Weapon Offences",586
+"Waltham Forest","2026","Other Crimes",104
+"Waltham Forest","2026","Public Order Offences",2509
+"Waltham Forest","2026","Theft And Robbery",3411
+"Waltham Forest","2026","Violence and Sexual Offences",2345
+"Wandsworth","2011","Criminal Damage and Arson",677
+"Wandsworth","2011","Drug and Weapon Offences",260
+"Wandsworth","2011","No-category",4105
+"Wandsworth","2011","Other Crimes",7382
+"Wandsworth","2011","Public Order Offences",12479
+"Wandsworth","2011","Theft And Robbery",10026
+"Wandsworth","2012","Criminal Damage and Arson",737
+"Wandsworth","2012","Drug and Weapon Offences",285
+"Wandsworth","2012","No-category",1591
+"Wandsworth","2012","Other Crimes",425
+"Wandsworth","2012","Public Order Offences",3785
+"Wandsworth","2012","Theft And Robbery",5928
+"Wandsworth","2013","Criminal Damage and Arson",311
+"Wandsworth","2013","Drug and Weapon Offences",219
+"Wandsworth","2013","No-category",682
+"Wandsworth","2013","Other Crimes",99
+"Wandsworth","2013","Public Order Offences",1245
+"Wandsworth","2013","Theft And Robbery",2377
+"Wandsworth","2014","Criminal Damage and Arson",429
+"Wandsworth","2014","Drug and Weapon Offences",181
+"Wandsworth","2014","Other Crimes",59
+"Wandsworth","2014","Public Order Offences",1823
+"Wandsworth","2014","Theft And Robbery",3107
+"Wandsworth","2014","Violence and Sexual Offences",1227
+"Wandsworth","2015","Criminal Damage and Arson",944
+"Wandsworth","2015","Drug and Weapon Offences",386
+"Wandsworth","2015","Other Crimes",161
+"Wandsworth","2015","Public Order Offences",3807
+"Wandsworth","2015","Theft And Robbery",5990
+"Wandsworth","2015","Violence and Sexual Offences",3003
+"Wandsworth","2016","Criminal Damage and Arson",1765
+"Wandsworth","2016","Drug and Weapon Offences",842
+"Wandsworth","2016","Other Crimes",241
+"Wandsworth","2016","Public Order Offences",7265
+"Wandsworth","2016","Theft And Robbery",13740
+"Wandsworth","2016","Violence and Sexual Offences",6034
+"Wandsworth","2017","Criminal Damage and Arson",1920
+"Wandsworth","2017","Drug and Weapon Offences",899
+"Wandsworth","2017","Other Crimes",267
+"Wandsworth","2017","Public Order Offences",7508
+"Wandsworth","2017","Theft And Robbery",13345
+"Wandsworth","2017","Violence and Sexual Offences",6552
+"Wandsworth","2018","Criminal Damage and Arson",1687
+"Wandsworth","2018","Drug and Weapon Offences",802
+"Wandsworth","2018","Other Crimes",297
+"Wandsworth","2018","Public Order Offences",7526
+"Wandsworth","2018","Theft And Robbery",13717
+"Wandsworth","2018","Violence and Sexual Offences",7086
+"Wandsworth","2019","Criminal Damage and Arson",1550
+"Wandsworth","2019","Drug and Weapon Offences",1002
+"Wandsworth","2019","Other Crimes",258
+"Wandsworth","2019","Public Order Offences",8150
+"Wandsworth","2019","Theft And Robbery",13343
+"Wandsworth","2019","Violence and Sexual Offences",6958
+"Wandsworth","2020","Criminal Damage and Arson",1526
+"Wandsworth","2020","Drug and Weapon Offences",1531
+"Wandsworth","2020","Other Crimes",293
+"Wandsworth","2020","Public Order Offences",15360
+"Wandsworth","2020","Theft And Robbery",11736
+"Wandsworth","2020","Violence and Sexual Offences",7048
+"Wandsworth","2021","Criminal Damage and Arson",1629
+"Wandsworth","2021","Drug and Weapon Offences",1071
+"Wandsworth","2021","Other Crimes",289
+"Wandsworth","2021","Public Order Offences",12078
+"Wandsworth","2021","Theft And Robbery",11509
+"Wandsworth","2021","Violence and Sexual Offences",7795
+"Wandsworth","2022","Criminal Damage and Arson",1511
+"Wandsworth","2022","Drug and Weapon Offences",1048
+"Wandsworth","2022","Other Crimes",295
+"Wandsworth","2022","Public Order Offences",9594
+"Wandsworth","2022","Theft And Robbery",11395
+"Wandsworth","2022","Violence and Sexual Offences",7438
+"Wandsworth","2023","Criminal Damage and Arson",1741
+"Wandsworth","2023","Drug and Weapon Offences",915
+"Wandsworth","2023","Other Crimes",298
+"Wandsworth","2023","Public Order Offences",8704
+"Wandsworth","2023","Theft And Robbery",13659
+"Wandsworth","2023","Violence and Sexual Offences",7892
+"Wandsworth","2024","Criminal Damage and Arson",1570
+"Wandsworth","2024","Drug and Weapon Offences",1011
+"Wandsworth","2024","Other Crimes",300
+"Wandsworth","2024","Public Order Offences",9114
+"Wandsworth","2024","Theft And Robbery",13252
+"Wandsworth","2024","Violence and Sexual Offences",7461
+"Wandsworth","2025","Criminal Damage and Arson",1572
+"Wandsworth","2025","Drug and Weapon Offences",1499
+"Wandsworth","2025","Other Crimes",393
+"Wandsworth","2025","Public Order Offences",9321
+"Wandsworth","2025","Theft And Robbery",12943
+"Wandsworth","2025","Violence and Sexual Offences",8189
+"Wandsworth","2026","Criminal Damage and Arson",521
+"Wandsworth","2026","Drug and Weapon Offences",423
+"Wandsworth","2026","Other Crimes",122
+"Wandsworth","2026","Public Order Offences",2754
+"Wandsworth","2026","Theft And Robbery",3921
+"Wandsworth","2026","Violence and Sexual Offences",2632
+"Westminster","2011","Criminal Damage and Arson",745
+"Westminster","2011","Drug and Weapon Offences",1915
+"Westminster","2011","No-category",8712
+"Westminster","2011","Other Crimes",32907
+"Westminster","2011","Public Order Offences",22484
+"Westminster","2011","Theft And Robbery",20323
+"Westminster","2012","Criminal Damage and Arson",704
+"Westminster","2012","Drug and Weapon Offences",1510
+"Westminster","2012","No-category",2751
+"Westminster","2012","Other Crimes",1002
+"Westminster","2012","Public Order Offences",6731
+"Westminster","2012","Theft And Robbery",15410
+"Westminster","2013","Criminal Damage and Arson",297
+"Westminster","2013","Drug and Weapon Offences",565
+"Westminster","2013","No-category",1132
+"Westminster","2013","Other Crimes",128
+"Westminster","2013","Public Order Offences",2472
+"Westminster","2013","Theft And Robbery",6970
+"Westminster","2013","Violence and Sexual Offences",2
+"Westminster","2014","Criminal Damage and Arson",513
+"Westminster","2014","Drug and Weapon Offences",760
+"Westminster","2014","Other Crimes",80
+"Westminster","2014","Public Order Offences",4309
+"Westminster","2014","Theft And Robbery",8961
+"Westminster","2014","Violence and Sexual Offences",1923
+"Westminster","2015","Criminal Damage and Arson",952
+"Westminster","2015","Drug and Weapon Offences",1060
+"Westminster","2015","Other Crimes",167
+"Westminster","2015","Public Order Offences",8425
+"Westminster","2015","Theft And Robbery",15773
+"Westminster","2015","Violence and Sexual Offences",4065
+"Westminster","2016","Criminal Damage and Arson",2139
+"Westminster","2016","Drug and Weapon Offences",2210
+"Westminster","2016","Other Crimes",415
+"Westminster","2016","Public Order Offences",18346
+"Westminster","2016","Theft And Robbery",32815
+"Westminster","2016","Violence and Sexual Offences",9049
+"Westminster","2017","Criminal Damage and Arson",2211
+"Westminster","2017","Drug and Weapon Offences",2488
+"Westminster","2017","Other Crimes",429
+"Westminster","2017","Public Order Offences",16810
+"Westminster","2017","Theft And Robbery",37410
+"Westminster","2017","Violence and Sexual Offences",10074
+"Westminster","2018","Criminal Damage and Arson",2283
+"Westminster","2018","Drug and Weapon Offences",2154
+"Westminster","2018","Other Crimes",358
+"Westminster","2018","Public Order Offences",17414
+"Westminster","2018","Theft And Robbery",43483
+"Westminster","2018","Violence and Sexual Offences",10589
+"Westminster","2019","Criminal Damage and Arson",2230
+"Westminster","2019","Drug and Weapon Offences",3453
+"Westminster","2019","Other Crimes",318
+"Westminster","2019","Public Order Offences",18543
+"Westminster","2019","Theft And Robbery",55581
+"Westminster","2019","Violence and Sexual Offences",10848
+"Westminster","2020","Criminal Damage and Arson",2003
+"Westminster","2020","Drug and Weapon Offences",3228
+"Westminster","2020","Other Crimes",297
+"Westminster","2020","Public Order Offences",22891
+"Westminster","2020","Theft And Robbery",28596
+"Westminster","2020","Violence and Sexual Offences",8663
+"Westminster","2021","Criminal Damage and Arson",2213
+"Westminster","2021","Drug and Weapon Offences",2862
+"Westminster","2021","Other Crimes",298
+"Westminster","2021","Public Order Offences",18951
+"Westminster","2021","Theft And Robbery",28369
+"Westminster","2021","Violence and Sexual Offences",10187
+"Westminster","2022","Criminal Damage and Arson",2256
+"Westminster","2022","Drug and Weapon Offences",3565
+"Westminster","2022","Other Crimes",316
+"Westminster","2022","Public Order Offences",18264
+"Westminster","2022","Theft And Robbery",53080
+"Westminster","2022","Violence and Sexual Offences",11602
+"Westminster","2023","Criminal Damage and Arson",2293
+"Westminster","2023","Drug and Weapon Offences",2842
+"Westminster","2023","Other Crimes",348
+"Westminster","2023","Public Order Offences",16484
+"Westminster","2023","Theft And Robbery",67102
+"Westminster","2023","Violence and Sexual Offences",12178
+"Westminster","2024","Criminal Damage and Arson",2330
+"Westminster","2024","Drug and Weapon Offences",2355
+"Westminster","2024","Other Crimes",339
+"Westminster","2024","Public Order Offences",16708
+"Westminster","2024","Theft And Robbery",69193
+"Westminster","2024","Violence and Sexual Offences",12216
+"Westminster","2025","Criminal Damage and Arson",2429
+"Westminster","2025","Drug and Weapon Offences",3081
+"Westminster","2025","Other Crimes",510
+"Westminster","2025","Public Order Offences",17284
+"Westminster","2025","Theft And Robbery",60549
+"Westminster","2025","Violence and Sexual Offences",12864
+"Westminster","2026","Criminal Damage and Arson",706
+"Westminster","2026","Drug and Weapon Offences",1180
+"Westminster","2026","Other Crimes",177
+"Westminster","2026","Public Order Offences",5208
+"Westminster","2026","Theft And Robbery",15263
+"Westminster","2026","Violence and Sexual Offences",3884
+NA,"2011","Criminal Damage and Arson",8
+NA,"2011","Drug and Weapon Offences",5
+NA,"2011","No-category",20
+NA,"2011","Other Crimes",126
+NA,"2011","Public Order Offences",141
+NA,"2011","Theft And Robbery",88
+NA,"2012","Criminal Damage and Arson",12
+NA,"2012","Drug and Weapon Offences",5
+NA,"2012","No-category",111
+NA,"2012","Other Crimes",49
+NA,"2012","Public Order Offences",36
+NA,"2012","Theft And Robbery",79
+NA,"2013","Criminal Damage and Arson",6
+NA,"2013","Drug and Weapon Offences",2
+NA,"2013","No-category",43
+NA,"2013","Other Crimes",6
+NA,"2013","Public Order Offences",24
+NA,"2013","Theft And Robbery",38
+NA,"2014","Criminal Damage and Arson",7
+NA,"2014","Drug and Weapon Offences",10
+NA,"2014","Other Crimes",4
+NA,"2014","Public Order Offences",34
+NA,"2014","Theft And Robbery",63
+NA,"2014","Violence and Sexual Offences",74
+NA,"2015","Criminal Damage and Arson",13
+NA,"2015","Drug and Weapon Offences",16
+NA,"2015","Other Crimes",18
+NA,"2015","Public Order Offences",63
+NA,"2015","Theft And Robbery",154
+NA,"2015","Violence and Sexual Offences",208
+NA,"2016","Criminal Damage and Arson",67
+NA,"2016","Drug and Weapon Offences",89
+NA,"2016","Other Crimes",83
+NA,"2016","Public Order Offences",142
+NA,"2016","Theft And Robbery",670
+NA,"2016","Violence and Sexual Offences",681
+NA,"2017","Criminal Damage and Arson",74
+NA,"2017","Drug and Weapon Offences",81
+NA,"2017","Other Crimes",63
+NA,"2017","Public Order Offences",138
+NA,"2017","Theft And Robbery",679
+NA,"2017","Violence and Sexual Offences",669
+NA,"2018","Criminal Damage and Arson",56
+NA,"2018","Drug and Weapon Offences",80
+NA,"2018","Other Crimes",56
+NA,"2018","Public Order Offences",160
+NA,"2018","Theft And Robbery",593
+NA,"2018","Violence and Sexual Offences",595
+NA,"2019","Criminal Damage and Arson",82
+NA,"2019","Drug and Weapon Offences",102
+NA,"2019","Other Crimes",59
+NA,"2019","Public Order Offences",222
+NA,"2019","Theft And Robbery",665
+NA,"2019","Violence and Sexual Offences",1253
+NA,"2020","Criminal Damage and Arson",70
+NA,"2020","Drug and Weapon Offences",151
+NA,"2020","Other Crimes",93
+NA,"2020","Public Order Offences",316
+NA,"2020","Theft And Robbery",548
+NA,"2020","Violence and Sexual Offences",1905
+NA,"2021","Criminal Damage and Arson",94
+NA,"2021","Drug and Weapon Offences",171
+NA,"2021","Other Crimes",94
+NA,"2021","Public Order Offences",255
+NA,"2021","Theft And Robbery",705
+NA,"2021","Violence and Sexual Offences",2820
+NA,"2022","Criminal Damage and Arson",105
+NA,"2022","Drug and Weapon Offences",150
+NA,"2022","Other Crimes",111
+NA,"2022","Public Order Offences",313
+NA,"2022","Theft And Robbery",1083
+NA,"2022","Violence and Sexual Offences",3018
+NA,"2023","Criminal Damage and Arson",90
+NA,"2023","Drug and Weapon Offences",157
+NA,"2023","Other Crimes",102
+NA,"2023","Public Order Offences",261
+NA,"2023","Theft And Robbery",980
+NA,"2023","Violence and Sexual Offences",2639
+NA,"2024","Criminal Damage and Arson",85
+NA,"2024","Drug and Weapon Offences",182
+NA,"2024","Other Crimes",182
+NA,"2024","Public Order Offences",223
+NA,"2024","Theft And Robbery",877
+NA,"2024","Violence and Sexual Offences",1902
+NA,"2025","Criminal Damage and Arson",150
+NA,"2025","Drug and Weapon Offences",251
+NA,"2025","Other Crimes",242
+NA,"2025","Public Order Offences",350
+NA,"2025","Theft And Robbery",1452
+NA,"2025","Violence and Sexual Offences",3413
+NA,"2026","Criminal Damage and Arson",75
+NA,"2026","Drug and Weapon Offences",105
+NA,"2026","Other Crimes",104
+NA,"2026","Public Order Offences",117
+NA,"2026","Theft And Robbery",537
+NA,"2026","Violence and Sexual Offences",1274

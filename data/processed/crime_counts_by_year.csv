@@ -1,0 +1,545 @@
+"lad_nm","year","crime_type_count"
+NA,"2011",388
+NA,"2012",292
+NA,"2013",119
+NA,"2014",192
+NA,"2015",472
+NA,"2016",1732
+NA,"2017",1704
+NA,"2018",1540
+NA,"2019",2383
+NA,"2020",3083
+NA,"2021",4139
+NA,"2022",4780
+NA,"2023",4229
+NA,"2024",3451
+NA,"2025",5858
+NA,"2026",2212
+"Barking and Dagenham","2011",28875
+"Barking and Dagenham","2012",8759
+"Barking and Dagenham","2013",3813
+"Barking and Dagenham","2014",5172
+"Barking and Dagenham","2015",10738
+"Barking and Dagenham","2016",22368
+"Barking and Dagenham","2017",23392
+"Barking and Dagenham","2018",22350
+"Barking and Dagenham","2019",23332
+"Barking and Dagenham","2020",26350
+"Barking and Dagenham","2021",24067
+"Barking and Dagenham","2022",24764
+"Barking and Dagenham","2023",24854
+"Barking and Dagenham","2024",24139
+"Barking and Dagenham","2025",24358
+"Barking and Dagenham","2026",7688
+"Barnet","2011",40123
+"Barnet","2012",12815
+"Barnet","2013",5492
+"Barnet","2014",7962
+"Barnet","2015",15954
+"Barnet","2016",33289
+"Barnet","2017",33563
+"Barnet","2018",34751
+"Barnet","2019",37706
+"Barnet","2020",41077
+"Barnet","2021",37457
+"Barnet","2022",36303
+"Barnet","2023",35921
+"Barnet","2024",35949
+"Barnet","2025",36313
+"Barnet","2026",12424
+"Bexley","2011",20026
+"Bexley","2012",6581
+"Bexley","2013",2816
+"Bexley","2014",4224
+"Bexley","2015",7890
+"Bexley","2016",17492
+"Bexley","2017",19071
+"Bexley","2018",19169
+"Bexley","2019",21335
+"Bexley","2020",22961
+"Bexley","2021",20051
+"Bexley","2022",20076
+"Bexley","2023",19915
+"Bexley","2024",20237
+"Bexley","2025",19765
+"Bexley","2026",6309
+"Brent","2011",45232
+"Brent","2012",14024
+"Brent","2013",5488
+"Brent","2014",8178
+"Brent","2015",16411
+"Brent","2016",36441
+"Brent","2017",37933
+"Brent","2018",38576
+"Brent","2019",37916
+"Brent","2020",43648
+"Brent","2021",38478
+"Brent","2022",39514
+"Brent","2023",40381
+"Brent","2024",42439
+"Brent","2025",43398
+"Brent","2026",13581
+"Bromley","2011",33747
+"Bromley","2012",10398
+"Bromley","2013",4293
+"Bromley","2014",6507
+"Bromley","2015",13208
+"Bromley","2016",26471
+"Bromley","2017",28035
+"Bromley","2018",27866
+"Bromley","2019",29456
+"Bromley","2020",32077
+"Bromley","2021",29106
+"Bromley","2022",28246
+"Bromley","2023",28563
+"Bromley","2024",29127
+"Bromley","2025",29477
+"Bromley","2026",9239
+"Camden","2011",50399
+"Camden","2012",15865
+"Camden","2013",6008
+"Camden","2014",9035
+"Camden","2015",18872
+"Camden","2016",38760
+"Camden","2017",46231
+"Camden","2018",44484
+"Camden","2019",47062
+"Camden","2020",42808
+"Camden","2021",38017
+"Camden","2022",43882
+"Camden","2023",48825
+"Camden","2024",50970
+"Camden","2025",48744
+"Camden","2026",14787
+"City of London","2011",7493
+"City of London","2012",7015
+"City of London","2013",6121
+"City of London","2014",6044
+"City of London","2015",5842
+"City of London","2016",6617
+"City of London","2017",7311
+"City of London","2018",8244
+"City of London","2019",9930
+"City of London","2020",5658
+"City of London","2021",6415
+"City of London","2022",8889
+"City of London","2023",9502
+"City of London","2024",10139
+"City of London","2025",10003
+"City of London","2026",3251
+"Croydon","2011",48473
+"Croydon","2012",16088
+"Croydon","2013",6338
+"Croydon","2014",9009
+"Croydon","2015",18270
+"Croydon","2016",38070
+"Croydon","2017",37659
+"Croydon","2018",37764
+"Croydon","2019",39493
+"Croydon","2020",46915
+"Croydon","2021",42703
+"Croydon","2022",42299
+"Croydon","2023",40853
+"Croydon","2024",43495
+"Croydon","2025",42583
+"Croydon","2026",13809
+"Ealing","2011",50901
+"Ealing","2012",15563
+"Ealing","2013",6009
+"Ealing","2014",8726
+"Ealing","2015",18348
+"Ealing","2016",37486
+"Ealing","2017",37276
+"Ealing","2018",37168
+"Ealing","2019",39777
+"Ealing","2020",44646
+"Ealing","2021",39521
+"Ealing","2022",39350
+"Ealing","2023",41144
+"Ealing","2024",41831
+"Ealing","2025",43474
+"Ealing","2026",13912
+"Enfield","2011",38547
+"Enfield","2012",11842
+"Enfield","2013",4980
+"Enfield","2014",7406
+"Enfield","2015",14575
+"Enfield","2016",30865
+"Enfield","2017",32403
+"Enfield","2018",35441
+"Enfield","2019",36565
+"Enfield","2020",42590
+"Enfield","2021",38439
+"Enfield","2022",38014
+"Enfield","2023",37293
+"Enfield","2024",37301
+"Enfield","2025",36782
+"Enfield","2026",11998
+"Greenwich","2011",35109
+"Greenwich","2012",10819
+"Greenwich","2013",4215
+"Greenwich","2014",6240
+"Greenwich","2015",13365
+"Greenwich","2016",29333
+"Greenwich","2017",30997
+"Greenwich","2018",30867
+"Greenwich","2019",33035
+"Greenwich","2020",35917
+"Greenwich","2021",32900
+"Greenwich","2022",32512
+"Greenwich","2023",33530
+"Greenwich","2024",33610
+"Greenwich","2025",34295
+"Greenwich","2026",10847
+"Hackney","2011",41393
+"Hackney","2012",13754
+"Hackney","2013",5663
+"Hackney","2014",8425
+"Hackney","2015",18203
+"Hackney","2016",37113
+"Hackney","2017",39700
+"Hackney","2018",38581
+"Hackney","2019",40809
+"Hackney","2020",47048
+"Hackney","2021",41244
+"Hackney","2022",39112
+"Hackney","2023",38834
+"Hackney","2024",40538
+"Hackney","2025",39725
+"Hackney","2026",12126
+"Hammersmith and Fulham","2011",34330
+"Hammersmith and Fulham","2012",10646
+"Hammersmith and Fulham","2013",3882
+"Hammersmith and Fulham","2014",6161
+"Hammersmith and Fulham","2015",12801
+"Hammersmith and Fulham","2016",26523
+"Hammersmith and Fulham","2017",27030
+"Hammersmith and Fulham","2018",26775
+"Hammersmith and Fulham","2019",27275
+"Hammersmith and Fulham","2020",27947
+"Hammersmith and Fulham","2021",26352
+"Hammersmith and Fulham","2022",25460
+"Hammersmith and Fulham","2023",26725
+"Hammersmith and Fulham","2024",26969
+"Hammersmith and Fulham","2025",26764
+"Hammersmith and Fulham","2026",8276
+"Haringey","2011",40909
+"Haringey","2012",12837
+"Haringey","2013",4541
+"Haringey","2014",7761
+"Haringey","2015",15900
+"Haringey","2016",35200
+"Haringey","2017",37229
+"Haringey","2018",38360
+"Haringey","2019",38518
+"Haringey","2020",43529
+"Haringey","2021",38886
+"Haringey","2022",36921
+"Haringey","2023",37399
+"Haringey","2024",35482
+"Haringey","2025",36370
+"Haringey","2026",10701
+"Harrow","2011",21743
+"Harrow","2012",7151
+"Harrow","2013",2890
+"Harrow","2014",4265
+"Harrow","2015",8544
+"Harrow","2016",18144
+"Harrow","2017",18108
+"Harrow","2018",19210
+"Harrow","2019",21549
+"Harrow","2020",23863
+"Harrow","2021",20211
+"Harrow","2022",20219
+"Harrow","2023",19943
+"Harrow","2024",21300
+"Harrow","2025",21682
+"Harrow","2026",7134
+"Havering","2011",25942
+"Havering","2012",8041
+"Havering","2013",3412
+"Havering","2014",4923
+"Havering","2015",9866
+"Havering","2016",21962
+"Havering","2017",23099
+"Havering","2018",22768
+"Havering","2019",22530
+"Havering","2020",24722
+"Havering","2021",22636
+"Havering","2022",23719
+"Havering","2023",25068
+"Havering","2024",24969
+"Havering","2025",24453
+"Havering","2026",7782
+"Hillingdon","2011",41349
+"Hillingdon","2012",12659
+"Hillingdon","2013",4894
+"Hillingdon","2014",7938
+"Hillingdon","2015",15835
+"Hillingdon","2016",33838
+"Hillingdon","2017",35776
+"Hillingdon","2018",35672
+"Hillingdon","2019",37367
+"Hillingdon","2020",39106
+"Hillingdon","2021",33972
+"Hillingdon","2022",34984
+"Hillingdon","2023",35033
+"Hillingdon","2024",37926
+"Hillingdon","2025",39868
+"Hillingdon","2026",12478
+"Hounslow","2011",36858
+"Hounslow","2012",12000
+"Hounslow","2013",4578
+"Hounslow","2014",6789
+"Hounslow","2015",14237
+"Hounslow","2016",29525
+"Hounslow","2017",31282
+"Hounslow","2018",31982
+"Hounslow","2019",32293
+"Hounslow","2020",35779
+"Hounslow","2021",31778
+"Hounslow","2022",31441
+"Hounslow","2023",33766
+"Hounslow","2024",33016
+"Hounslow","2025",33554
+"Hounslow","2026",10393
+"Islington","2011",42271
+"Islington","2012",13431
+"Islington","2013",5424
+"Islington","2014",8258
+"Islington","2015",17291
+"Islington","2016",34363
+"Islington","2017",39331
+"Islington","2018",35239
+"Islington","2019",36647
+"Islington","2020",38665
+"Islington","2021",34005
+"Islington","2022",35653
+"Islington","2023",36426
+"Islington","2024",39968
+"Islington","2025",40699
+"Islington","2026",12985
+"Kensington and Chelsea","2011",27538
+"Kensington and Chelsea","2012",9487
+"Kensington and Chelsea","2013",3769
+"Kensington and Chelsea","2014",6416
+"Kensington and Chelsea","2015",11987
+"Kensington and Chelsea","2016",24592
+"Kensington and Chelsea","2017",25564
+"Kensington and Chelsea","2018",25582
+"Kensington and Chelsea","2019",28025
+"Kensington and Chelsea","2020",26305
+"Kensington and Chelsea","2021",24916
+"Kensington and Chelsea","2022",26133
+"Kensington and Chelsea","2023",26742
+"Kensington and Chelsea","2024",26874
+"Kensington and Chelsea","2025",27205
+"Kensington and Chelsea","2026",7626
+"Kingston upon Thames","2011",17771
+"Kingston upon Thames","2012",5438
+"Kingston upon Thames","2013",2223
+"Kingston upon Thames","2014",3377
+"Kingston upon Thames","2015",6886
+"Kingston upon Thames","2016",14091
+"Kingston upon Thames","2017",14372
+"Kingston upon Thames","2018",14943
+"Kingston upon Thames","2019",15302
+"Kingston upon Thames","2020",16825
+"Kingston upon Thames","2021",14776
+"Kingston upon Thames","2022",14831
+"Kingston upon Thames","2023",14899
+"Kingston upon Thames","2024",14271
+"Kingston upon Thames","2025",15115
+"Kingston upon Thames","2026",4817
+"Lambeth","2011",53892
+"Lambeth","2012",17448
+"Lambeth","2013",6958
+"Lambeth","2014",10556
+"Lambeth","2015",22055
+"Lambeth","2016",44863
+"Lambeth","2017",43757
+"Lambeth","2018",43394
+"Lambeth","2019",43338
+"Lambeth","2020",47914
+"Lambeth","2021",43299
+"Lambeth","2022",43438
+"Lambeth","2023",44135
+"Lambeth","2024",47641
+"Lambeth","2025",47266
+"Lambeth","2026",15068
+"Lewisham","2011",42851
+"Lewisham","2012",12774
+"Lewisham","2013",5166
+"Lewisham","2014",7097
+"Lewisham","2015",15502
+"Lewisham","2016",31004
+"Lewisham","2017",31117
+"Lewisham","2018",32087
+"Lewisham","2019",34341
+"Lewisham","2020",39683
+"Lewisham","2021",34879
+"Lewisham","2022",34611
+"Lewisham","2023",35656
+"Lewisham","2024",36557
+"Lewisham","2025",35917
+"Lewisham","2026",11687
+"Merton","2011",21669
+"Merton","2012",6745
+"Merton","2013",2696
+"Merton","2014",3929
+"Merton","2015",8070
+"Merton","2016",16714
+"Merton","2017",17061
+"Merton","2018",17152
+"Merton","2019",17574
+"Merton","2020",20097
+"Merton","2021",17791
+"Merton","2022",17955
+"Merton","2023",17512
+"Merton","2024",17436
+"Merton","2025",17104
+"Merton","2026",5216
+"Newham","2011",50024
+"Newham","2012",16021
+"Newham","2013",6165
+"Newham","2014",9600
+"Newham","2015",19173
+"Newham","2016",39889
+"Newham","2017",41764
+"Newham","2018",42931
+"Newham","2019",42573
+"Newham","2020",48620
+"Newham","2021",44243
+"Newham","2022",44582
+"Newham","2023",46505
+"Newham","2024",49441
+"Newham","2025",50118
+"Newham","2026",16410
+"Redbridge","2011",37233
+"Redbridge","2012",11383
+"Redbridge","2013",4693
+"Redbridge","2014",6579
+"Redbridge","2015",12334
+"Redbridge","2016",26092
+"Redbridge","2017",29503
+"Redbridge","2018",29187
+"Redbridge","2019",28996
+"Redbridge","2020",33196
+"Redbridge","2021",31773
+"Redbridge","2022",30667
+"Redbridge","2023",29567
+"Redbridge","2024",29387
+"Redbridge","2025",30345
+"Redbridge","2026",9729
+"Richmond upon Thames","2011",18060
+"Richmond upon Thames","2012",5928
+"Richmond upon Thames","2013",2387
+"Richmond upon Thames","2014",3422
+"Richmond upon Thames","2015",7039
+"Richmond upon Thames","2016",15062
+"Richmond upon Thames","2017",16520
+"Richmond upon Thames","2018",15786
+"Richmond upon Thames","2019",15894
+"Richmond upon Thames","2020",19132
+"Richmond upon Thames","2021",15388
+"Richmond upon Thames","2022",14741
+"Richmond upon Thames","2023",15073
+"Richmond upon Thames","2024",15032
+"Richmond upon Thames","2025",14667
+"Richmond upon Thames","2026",4582
+"Southwark","2011",51533
+"Southwark","2012",15437
+"Southwark","2013",6626
+"Southwark","2014",9243
+"Southwark","2015",19316
+"Southwark","2016",40032
+"Southwark","2017",41417
+"Southwark","2018",43258
+"Southwark","2019",46332
+"Southwark","2020",47707
+"Southwark","2021",42224
+"Southwark","2022",42836
+"Southwark","2023",44756
+"Southwark","2024",47984
+"Southwark","2025",48405
+"Southwark","2026",15368
+"Sutton","2011",18275
+"Sutton","2012",5811
+"Sutton","2013",2253
+"Sutton","2014",3436
+"Sutton","2015",6714
+"Sutton","2016",13897
+"Sutton","2017",14851
+"Sutton","2018",15006
+"Sutton","2019",17181
+"Sutton","2020",19113
+"Sutton","2021",16872
+"Sutton","2022",16929
+"Sutton","2023",16074
+"Sutton","2024",15969
+"Sutton","2025",16208
+"Sutton","2026",5238
+"Tower Hamlets","2011",47990
+"Tower Hamlets","2012",15351
+"Tower Hamlets","2013",6427
+"Tower Hamlets","2014",10119
+"Tower Hamlets","2015",21196
+"Tower Hamlets","2016",44952
+"Tower Hamlets","2017",43755
+"Tower Hamlets","2018",46090
+"Tower Hamlets","2019",47794
+"Tower Hamlets","2020",55191
+"Tower Hamlets","2021",49259
+"Tower Hamlets","2022",45424
+"Tower Hamlets","2023",46211
+"Tower Hamlets","2024",46481
+"Tower Hamlets","2025",47482
+"Tower Hamlets","2026",14569
+"Waltham Forest","2011",38667
+"Waltham Forest","2012",11660
+"Waltham Forest","2013",4523
+"Waltham Forest","2014",6954
+"Waltham Forest","2015",14184
+"Waltham Forest","2016",28324
+"Waltham Forest","2017",29102
+"Waltham Forest","2018",29801
+"Waltham Forest","2019",29668
+"Waltham Forest","2020",36330
+"Waltham Forest","2021",30520
+"Waltham Forest","2022",29509
+"Waltham Forest","2023",30154
+"Waltham Forest","2024",31906
+"Waltham Forest","2025",30035
+"Waltham Forest","2026",9442
+"Wandsworth","2011",34929
+"Wandsworth","2012",12751
+"Wandsworth","2013",4933
+"Wandsworth","2014",6826
+"Wandsworth","2015",14291
+"Wandsworth","2016",29887
+"Wandsworth","2017",30491
+"Wandsworth","2018",31115
+"Wandsworth","2019",31261
+"Wandsworth","2020",37494
+"Wandsworth","2021",34371
+"Wandsworth","2022",31281
+"Wandsworth","2023",33209
+"Wandsworth","2024",32708
+"Wandsworth","2025",33917
+"Wandsworth","2026",10373
+"Westminster","2011",87086
+"Westminster","2012",28108
+"Westminster","2013",11566
+"Westminster","2014",16546
+"Westminster","2015",30442
+"Westminster","2016",64974
+"Westminster","2017",69422
+"Westminster","2018",76281
+"Westminster","2019",90973
+"Westminster","2020",65678
+"Westminster","2021",62880
+"Westminster","2022",89083
+"Westminster","2023",101247
+"Westminster","2024",103141
+"Westminster","2025",96717
+"Westminster","2026",26418
