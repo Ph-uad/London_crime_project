@@ -1,23 +1,34 @@
-*/node_modules
-*.next
-env*
+# ---- R ----
 .Rhistory
-.RData 
-*Rproj.user
+.RData
+.Rproj.user
+*.Rproj.user
 
-# Ignore the raw data files, which are too large to store in GitHub
+# Apache Derby writes this wherever a Spark session starts. The retired
+# experimental scripts still do; catch it at any depth.
+derby.log
+**/derby.log
+metastore_db/
+spark-warehouse/
+
+# ---- Data ----
+# Raw source data is never committed: it is large, and SOURCES.md carries the
+# recipe to rebuild it.
 data/raw/
 
-# Ignore large intermediate processed outputs that should not be tracked
+# Raw crime CSVs must live in data/raw/crime/ ONLY. This rule stays as a
+# backstop in case a copy reappears here, but note that data/processed/ is a
+# pipeline output directory — anything the pipeline can overwrite belongs
+# nowhere near your only copy of the source data.
 data/processed/crime/
+
+# Retired Spark intermediates (3.7 GB and 3.9 GB). The current pipeline does
+# not produce these; the rules remain so an experimental/ run cannot commit them.
 data/processed/crime.csv
 data/processed/crime_by_borough.csv
-data/processed/crime
 
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
+# ---- Node / Next.js ----
+node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -25,34 +36,19 @@ data/processed/crime
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
+.next/
 /out/
-
-# production
 /build
+/coverage
+*.tsbuildinfo
+next-env.d.ts
 
-# misc
+# ---- Misc ----
 .DS_Store
 *.pem
-
-# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
 .env*
-
-# vercel
 .vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-data/derby.log

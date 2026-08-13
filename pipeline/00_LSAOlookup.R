@@ -1,51 +1,59 @@
 # =============================================================
-# 00_LSOAlookup.R — Build LSOA→borough lookup, harmonise 2011/2021,
-# log unmatched codes, and report coverage.
+# 00_LSOAlookup.R — build the LSOA -> borough lookup, harmonised across the
+# 2011 and 2021 code vintages.
+#
+# Change from the previous version: this script no longer reads the crime
+# files. It builds the complete London lookup from the ONS correspondence
+# table alone, and record-level exclusion accounting moved to
+# 01_crime_by_borough.R. Previously both scripts computed exclusions and
+# reported different totals for the same join.
+#
+# Writes data/processed/lsoa_lookup.csv
 # =============================================================
 
+source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-library(data.table)
+banner("00_LSOAlookup — borough lookup")
 
-crime_files <- list.files("data/raw/crime", pattern = "-street\\.csv$",
-                          recursive = TRUE, full.names = TRUE)
-lookup_path <- "data/raw/LSAO_lookup/LSOA_(2011)_to_LSOA_(2021)_to_Local_Authority_District_(2022)_Exact_Fit_Lookup_for_EW_(V3).csv"
-log_dir <- "pipeline/logs"; out_dir <- "data/processed"
-dir.create(log_dir, showWarnings = FALSE); dir.create(out_dir, showWarnings = FALSE)
+check(file.exists(LOOKUP_RAW),
+      "ONS lookup not found at '", LOOKUP_RAW, "'. See pipeline/SOURCES.md.")
 
+# encoding = "UTF-8" strips the byte-order mark; without it the first column
+# reads as "﻿LSOA11CD" and every reference to LSOA11CD fails.
+lk <- fread(LOOKUP_RAW, colClasses = "character", encoding = "UTF-8",
+            showProgress = FALSE)
 
-## 1. One borough map covering BOTH code vintages
-lk <- fread(lookup_path, colClasses = "character")
-borough_map <- unique(rbindlist(list(
-  lk[, .(lsoa = LSOA11CD, lad_cd = LAD22CD, lad_nm = LAD22NM)],
-  lk[, .(lsoa = LSOA21CD, lad_cd = LAD22CD, lad_nm = LAD22NM)]
-)))[lsoa != ""]
-## London-only map (E09 = the 33 London boroughs)
-map <- borough_map[grepl("^E09", lad_cd)]
+check(all(c("LSOA11CD", "LSOA21CD", "LAD22CD", "LAD22NM") %in% names(lk)),
+      "lookup is missing expected columns. Found: ",
+      paste(names(lk), collapse = ", "))
 
-## 2. Read every crime LSOA code ONCE, count per code in a single pass
-all_codes <- rbindlist(lapply(crime_files, \(f) fread(f, select = "LSOA code", colClasses = "character")))
-setnames(all_codes, "LSOA code", "lsoa")
-code_counts <- all_codes[, .N, by = lsoa]
-total_records  <- code_counts[, sum(N)]
+# One map covering BOTH code vintages. Crime records carry 2011-vintage codes
+# for most of the window and 2021-vintage codes at the end; a single-vintage
+# join silently loses whichever era it does not cover.
+both <- unique(rbindlist(list(
+  lk[, .(lsoa = LSOA11CD, borough_gss = LAD22CD, borough_name = LAD22NM)],
+  lk[, .(lsoa = LSOA21CD, borough_gss = LAD22CD, borough_name = LAD22NM)]
+)))[lsoa != "" & !is.na(lsoa)]
 
-## 3. Classify every distinct code into four states
-code_counts[, status := fifelse(lsoa == "",                     "blank",
-                        fifelse(lsoa %in% map$lsoa,       "london",
-                        fifelse(lsoa %in% borough_map$lsoa,      "outside_london",
-                                                                 "unmatched")))]
+london <- both[grepl(LONDON_GSS_PREFIX, borough_gss)]
 
-## 4. Coverage — report BOTH ways your criterion could be read
-total_records  <- code_counts[, sum(N)]
-records <- code_counts[status == "london", sum(N)]
+# A code appearing under two boroughs would duplicate every crime record
+# joined to it. It does not happen inside London today (four such codes exist
+# elsewhere in England and Wales), so assert it rather than assume it.
+dupes <- london[, .N, by = lsoa][N > 1L]
+check(nrow(dupes) == 0L,
+      nrow(dupes), " LSOA code(s) map to more than one London borough, ",
+      "e.g. ", paste(head(dupes$lsoa, 3), collapse = ", "),
+      ". Joining on these would duplicate crime records.")
+ok("every LSOA code maps to exactly one borough")
 
-message(sprintf("London record coverage: %.2f%%", 100 * records / total_records))
-print(code_counts[, .(records = sum(N)), by = status])   # see the split
+assert_london_boroughs(london$borough_gss, "lsoa_lookup")
 
-## 5. Log ONLY genuine problems, with real counts
-fwrite(code_counts[status != "london"][order(-N)],
-       file.path(log_dir, "lsoa_lookup.log"))
+setorder(london, borough_name, lsoa)
+write_out(london, LOOKUP_OUT)
 
-## 6. The deliverable: borough lookup for codes that actually appear
-used <- map[lsoa %in% code_counts[status == "london", lsoa]]
-fwrite(used, file.path(out_dir, "lsoa_lookup.csv"))
-message("Boroughs in output: ", uniqueN(used$lad_nm), " (must be 33)")
+message("\nCodes: ", format(nrow(london), big.mark = ","),
+        " (both vintages) across ", uniqueN(london$borough_name), " boroughs.")
+message("Vintage split: ",
+        sum(london$lsoa %in% lk$LSOA11CD), " appear as 2011 codes, ",
+        sum(london$lsoa %in% lk$LSOA21CD), " as 2021 codes.")
