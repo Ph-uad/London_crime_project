@@ -123,6 +123,46 @@ assert_london_boroughs <- function(gss, what = "output") {
   invisible(TRUE)
 }
 
+# Not every metric is published for all 33 boroughs. ONS suppresses or omits
+# small-population areas — City of London (~8,000 residents) has no life
+# expectancy at all and every well-being year is marked [u].
+#
+# A metric therefore declares which boroughs it is allowed to be missing, and
+# why. Missing a borough that was NOT declared is a failure; declaring one that
+# turns out to be present is also a failure, because the reason has gone stale.
+assert_metric_boroughs <- function(gss, what, all_gss,
+                                   allow_missing = character(), reason = "") {
+  check(!anyNA(gss), what, " contains rows with an NA borough code.")
+  u <- unique(gss)
+  check(all(grepl(LONDON_GSS_PREFIX, u)),
+        what, " contains non-London codes: ",
+        paste(head(setdiff(u, grep(LONDON_GSS_PREFIX, u, value = TRUE)), 5),
+              collapse = ", "))
+
+  missing <- setdiff(all_gss, u)
+  undeclared <- setdiff(missing, allow_missing)
+  check(!length(undeclared),
+        what, " is missing ", length(undeclared), " borough(s) with no ",
+        "declared reason: ", paste(undeclared, collapse = ", "),
+        ".\n       Either the source changed or the filter is wrong. Do not ",
+        "add them to allow_missing without checking which.")
+
+  stale <- intersect(allow_missing, u)
+  check(!length(stale),
+        what, " declares ", paste(stale, collapse = ", "), " as missing, but ",
+        "the data now contains ", if (length(stale) > 1) "them" else "it",
+        ". Remove the exception — the documented reason is out of date.")
+
+  if (length(missing)) {
+    message("  note  ", what, ": ", length(u), "/", length(all_gss),
+            " boroughs. Missing by design: ", paste(missing, collapse = ", "),
+            if (nzchar(reason)) paste0(" — ", reason) else "")
+  } else {
+    ok(what, ": all ", length(all_gss), " boroughs")
+  }
+  invisible(sort(missing))
+}
+
 # ---- Long-schema helper --------------------------------------------------
 
 as_long <- function(dt) {

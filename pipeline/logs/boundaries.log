@@ -1,0 +1,2 @@
+product,detail,simplification_applied,coordinate_precision_dp,features,bytes,crs
+ONS LAD BGC December 2022,"Generalised (20m), clipped to the coastline",none (ONS pre-generalised; topology preserved),6,33,175442,EPSG:4326 (RFC 7946)

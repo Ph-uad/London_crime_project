@@ -56,7 +56,67 @@ IMD_RAW <- c(
                      "Borough domain summaries-Table 1.csv")
 )
 
+# ---- Issue 1.4: annual well-being and life expectancy --------------------
+# Both come from ONS directly, NOT from the London Datastore mirrors. The
+# Datastore copies were checked on 2026-08-16 and rejected:
+#   personal-well-being-borough-2r87d   stops at 2018-19, last updated 2019
+#   life-expectancy-...-borough-23gm7   stops at 2008-2010, and is OGL v2
+# Licences below were read on the ONS dataset pages, not assumed.
+WELLBEING_RAW <- file.path(RAW_DIR, "wellbeing",
+                           "ons4-wellbeing-local-authority-timeseries-v4.csv")
+LIFEEXP_RAW   <- file.path(RAW_DIR, "life_expectancy",
+                           "ons-lifeexpectancylocalareas-2022to2024.xlsx")
+
+# Overridable so the acquisition script can be tested against file:// fixtures.
+WELLBEING_URL <- cfg_env(
+  "WELLBEING_URL",
+  paste0("https://download.ons.gov.uk/downloads/datasets/",
+         "wellbeing-local-authority/editions/time-series/versions/4.csv")
+)
+LIFEEXP_URL <- cfg_env(
+  "LIFEEXP_URL",
+  paste0("https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/",
+         "healthandsocialcare/healthandlifeexpectancies/datasets/",
+         "lifeexpectancyforlocalareasoftheuk/between2001to2003and2022to2024/",
+         "lifeexpectancylocalareas.xlsx")
+)
+
 LOOKUP_OUT <- file.path(PROC_DIR, "lsoa_lookup.csv")
+
+# ---- Issue 1.10: borough boundaries --------------------------------------
+# ONS Open Geography Portal, Local Authority Districts boundaries. Licences
+# read on the data.gov.uk dataset pages 2026-08-16: OGL v3.0 on both.
+#
+# Two generalisation levels, tried in order. BGC is the quality choice; BUC is
+# the fallback if the London subset will not fit the 500 KB budget. Both are
+# generalised BY ONS across the whole coverage, so adjacent boroughs still
+# share edges exactly. We never simplify ourselves — a non-topology-preserving
+# simplify opens slivers between neighbouring boroughs, which on a choropleth
+# shows up as hairline gaps you cannot fix afterwards.
+BOUNDARY_GEN <- cfg_env("BOUNDARY_GEN", "BGC")     # "BGC" (20m) or "BUC" (500m)
+BOUNDARY_ITEMS <- list(
+  BGC = list(item = "995533eee7e44848bf4e663498634849",
+             vintage = "December 2022",
+             detail = "Generalised (20m), clipped to the coastline"),
+  BUC = list(item = "79a4e87783be4b6bbb96ddad6dda52a3",
+             vintage = "December 2023",
+             detail = "Ultra generalised (500m), clipped to the coastline")
+)
+boundary_url <- function(gen = BOUNDARY_GEN) {
+  paste0("https://open-geography-portalx-ons.hub.arcgis.com/api/download/v1/",
+         "items/", BOUNDARY_ITEMS[[gen]]$item, "/geojson?layers=0")
+}
+BOUNDARY_URL <- cfg_env("BOUNDARY_URL", boundary_url())
+BOUNDARY_RAW <- file.path(RAW_DIR, "boundaries",
+                          paste0("ons-lad-uk-", tolower(BOUNDARY_GEN),
+                                 ".geojson"))
+BOUNDARY_OUT <- file.path(PROC_DIR, "london.geojson")
+
+# Issue 1.10's budget, and the coordinate precision used to meet it.
+# 6 decimal places is ~0.1 m at London's latitude — far finer than a 20 m
+# generalisation, so rounding to it discards nothing real.
+BOUNDARY_MAX_BYTES <- as.numeric(cfg_env("BOUNDARY_MAX_BYTES", "512000"))
+BOUNDARY_COORD_DP  <- as.integer(cfg_env("BOUNDARY_COORD_DP", "6"))
 
 # ---- Common long schema (issues 1.5–1.9) ----
 LONG_SCHEMA <- c("borough_gss", "borough_name", "year", "metric", "value",

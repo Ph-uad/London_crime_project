@@ -32,21 +32,16 @@ built as a reproducible R data pipeline feeding a Next.js web interface.
 
 | Source | Grain | Coverage used | State |
 |---|---|---|---|
-| UK Police street-level crime (Met + City of London) | LSOA → borough | 2011-01 – 2026-04 | **incomplete — see below** |
+| UK Police street-level crime (Met + City of London) | LSOA → borough | 2011-01 – 2026-04 | in pipeline — 368/368 months |
 | HMRC personal income (median) | borough, annual | 1999 – 2023 | in pipeline |
 | IMD deprivation domain scores (MHCLG) | borough summary | 2015, 2019 snapshots | in pipeline |
 | ONS mid-year population (rate denominator) | borough, annual | 2011 – 2024 | in pipeline |
-| ONS4 personal well-being | borough, annual | 2011/12 onward | not yet acquired |
-| Life expectancy (M/F) | borough, rolling annual | 2011 onward | not yet acquired |
+| ONS LAD boundaries (BGC, 20m generalised) | borough polygons | December 2022 | in pipeline |
+| ONS4 personal well-being | borough, annual | 2011/12 – 2022/23 | in pipeline — **32 boroughs** |
+| ONS life expectancy (M/F, birth & 65) | borough, 3-yr rolling | 2001-03 – 2022-24 | in pipeline — **32 boroughs** |
 
 Crime records are assigned to boroughs via the ONS LSOA(2011)→LSOA(2021)→
 LAD(2022) lookup, harmonising both code vintages across the window.
-
-> **Crime coverage gap.** 33 Metropolitan monthly files are missing across
-> 2012–2015. Metropolitan volume reads at 12–19% of normal in those years while
-> City of London — complete throughout — is flat, so this is file availability,
-> not a fall in crime. `pipeline/00_download.R` fails on it by design. Borough
-> rates for 2012–2015 must not be published until the files are re-downloaded.
 
 ## Analytical decisions (and why)
 
@@ -74,8 +69,15 @@ LAD(2022) lookup, harmonising both code vintages across the window.
   `vocabulary` column marking which side of the change its label belongs to.
   The mapping makes the series continuous, not comparable —
   see `SOURCES.md`.
-- **Per-capita caveat.** City of London's small resident population makes its
-  per-capita rates extreme; the interface will allow excluding it from scales.
+- **Per-capita caveat, and a coverage one.** City of London's small resident
+  population (~8,000) makes its per-capita crime rates extreme, and it is why
+  ONS publishes **no** well-being estimate for it (every cell marked `[u]`) and
+  **no** life expectancy at all. Those two metrics cover 32 boroughs, declared
+  per metric in `coverage.json` rather than left as a silent 32-vs-33 mismatch.
+- **Year conventions differ by metric, on purpose.** Financial years (income,
+  well-being) map to their start year; rolling three-year periods (life
+  expectancy) map to their end year. Each metric publishes its `year_rule`, so
+  a cross-metric pairing can be stated rather than assumed.
 
 ## Repository layout
 
@@ -92,7 +94,7 @@ projects-plan.md        roadmap: issues, branches, acceptance criteria
 ## Reproducing the pipeline
 
 1. Populate `data/raw/` as described in [`pipeline/SOURCES.md`](pipeline/SOURCES.md).
-2. Install R with `data.table` and `jsonlite`.
+2. Install R with `data.table`, `jsonlite`, `readxl` and `sf`.
 3. From the repository root, run the scripts in the order listed in
    [`pipeline/README.md`](pipeline/README.md). Any non-zero exit means the run
    failed; do not use the outputs.
@@ -110,28 +112,28 @@ To check the pipeline without raw data: `Rscript pipeline/tests/smoke.R`.
 - Crime→borough join with a single reconciling exclusion ledger, complete
   crime-type mapping, and borough-year and category aggregates.
 - Population parsing and crime rates per 1,000 with explicit coverage flags.
-- Income and IMD tidied to the common long schema; IMD Crime domain split out.
-- QA that reconciles independent artefacts and can fail.
-
-**Blocked**
-
-- Crime rates for 2012–2015 — 33 Metropolitan monthly files must be
-  re-downloaded first.
+- Income, IMD, well-being and life expectancy tidied to the common long schema;
+  IMD Crime domain split out to a validation-only file.
+- Unified `boroughs.json` (450 KB) and `coverage.json` — the contract that
+  carries years, cadence, direction, scale and borough coverage per metric.
+- Borough boundaries: 33 polygons, EPSG:4326, no self-intersections, GSS codes
+  asserted against `boroughs.json`, no topology-breaking simplification.
+- QA that reconciles independent artefacts and can fail (31 checks).
 
 **Next**
 
-- Acquire ONS4 well-being and borough life expectancy (issue 1.4), then tidy
-  them (1.7, 1.8).
-- Unified `boroughs.json` + `coverage.json` export (1.9).
-- Borough GeoJSON (1.6), API routes (2.1, 2.2), choropleth with coverage-aware
-  controls (Epic 3), narrative write-up (4.1).
+- API routes serving `boroughs.json`, `coverage.json` and `london.geojson`
+  (issues 2.1, 2.2) — Epic 1 is complete and nothing blocks these.
+- Choropleth with coverage-aware controls (Epic 3), narrative write-up (4.1).
 
 ## Known limitations
 
 Ecological analysis over 33 units — associations only, no causal
 identification. Police geocoding gaps (blank LSOAs) are excluded, not imputed.
 IMD exists at two snapshots, so deprivation supports cross-sectional comparison
-rather than trends, and its domains sit on three different scales. Crime
+rather than trends, and its domains sit on three different scales. Well-being
+ends at 2022-23, one year short of the analysis window, and is absent for City
+of London; life expectancy is absent for City of London too. Crime
 categories are not comparable across the April 2013 taxonomy change even after
 mapping. Population is a mid-year estimate against calendar-year crime, a
 constant six-month offset. British Transport Police records (rail-network

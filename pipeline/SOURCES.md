@@ -27,13 +27,13 @@ is rate-limited and impractical over fifteen years). `00_download.R` verifies
 the result rather than downloading it, and **fails** if any month is absent for
 any force.
 
-> **Known gap.** 33 Metropolitan monthly files are missing across 2012–2015
-> (2012: 02, 04, 06–09, 11, 12 · 2013: 01, 04–12 · 2014: 01, 02, 04–07, 09–11 ·
-> 2015: 01, 03, 09–12). Metropolitan volume in those years reads at 12–19% of
-> normal while City of London — complete throughout — is flat, so this is file
-> availability, not a fall in crime. Borough rates for 2012–2015 must not be
-> published until these are re-downloaded. `00_download.R` fails on this
-> condition by design; do not narrow the window to make it pass.
+> **Resolved 2026-08-16.** 33 Metropolitan monthly files were missing across
+> 2012–2015, which read as an 80% fall in crime rather than as absent files.
+> All 368 files (184 months x 2 forces) are now present and `00_download.R`
+> passes. Metropolitan volume for 2012–2015 went from 389k/157k/234k/476k rows
+> to 1.13M/1.00M/948k/948k — 2.77 million records recovered. Kept here as the
+> reason the coverage check is per force and fails hard: a pooled check passed
+> throughout, because City of London was complete the whole time.
 
 ### Crime taxonomy
 
@@ -143,10 +143,13 @@ dragged by high earners. Mean and taxpayer counts are retained as supplementary
 rows, not dropped.
 
 **Year convention: financial years are assigned to their START year.** Metric
-year 2011 means tax year 2011/12. This must be kept consistent with the
-life-expectancy rule in issue 1.8 — which assigns rolling periods to their END
-year — before the two are ever paired. They currently disagree; whichever
-survives, both must use it.
+year 2011 means tax year 2011/12. Well-being uses the same rule.
+
+Life expectancy deliberately uses the **END** year of its rolling three-year
+period. The two rules are not in conflict — a twelve-month accounting year and
+a three-year rolling window are different things — but the difference is real
+and is exposed per metric as `year_rule` in `coverage.json`, so issue 3.6 can
+print which years it actually paired instead of implying they are the same.
 
 The 2008-09 survey year is absent from the source (the sequence runs 2007-08 →
 2009-10). It is recorded as a gap and **not** interpolated. Two unlabelled
@@ -193,22 +196,197 @@ check is wrong and will fail on half of London.
 
 ---
 
-## Well-being and life expectancy — OPEN
+## Well-being — ONS4 personal well-being by local authority
 
-The ward well-being bundle previously used for both metrics covers **2009–2013
-only** and is ward-grain. It is retired to `pipeline/experimental/` and is
-**not** part of the canonical pipeline (see `decision.txt`).
+| | |
+|---|---|
+| Source | Office for National Statistics |
+| Dataset | Personal well-being estimates by local authority, time-series edition, **version 4** |
+| URL | https://www.ons.gov.uk/datasets/wellbeing-local-authority |
+| Download | https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/4.csv |
+| Coverage | **2011-12 to 2022-23** (financial years) |
+| Measures | life satisfaction, worthwhile, happiness, anxiety |
+| Geography | UK, country, region, county, local and unitary authority |
+| Released | 28 November 2023 |
+| Licence | Open Government Licence v3.0 — **verified** on the dataset page 2026-08-16 |
+| Expected file | `data/raw/wellbeing/ons4-wellbeing-local-authority-timeseries-v4.csv` |
+| Consumed by | `00_download_metrics.R`, then `12_tidy_wellbeing.R` (issue 1.7) |
 
-Plan issue 1.4 replaces it with two borough-level annual series:
+**Anxiety runs in the opposite direction to the other three.** Higher life
+satisfaction, worthwhile and happiness scores are better; a higher anxiety
+score is worse. Anything that ranks boroughs or colours a map across all four
+must handle this, or three-quarters of the scale will read backwards.
 
-- ONS4 personal well-being (life satisfaction, worthwhile, happiness, anxiety),
-  2011/12 onwards
-- Borough life expectancy, male and female, rolling annual
+**The series ends at 2022-23**, one year short of the 2011–2023 cross-metric
+analysis window. ONS has published no later local-authority edition as of
+2026-08-16. Well-being is therefore absent for 2023 in `coverage.json`; it is
+not carried forward or interpolated.
 
-Neither is in the repository yet, so `metrics_wellbeing.csv` and
-`metrics_life_expectancy.csv` do not exist. Licences must be **verified**, not
-assumed, when they are acquired — the previous entry cited one ward-file URL as
-the source for both metrics with the licence undocumented.
+**City of London has no well-being data at all.** All 48 of its cells (4
+measures x 12 years) are marked `[u]` — sample too small to publish. The
+metric covers **32 boroughs**, recorded in `coverage.json` under
+`boroughs_missing` and listed in `pipeline/logs/wellbeing_suppressed.log`.
+`12_tidy_wellbeing.R` declares this as a permitted absence and fails if any
+other borough goes missing, or if City of London ever appears.
+
+Only the `average-mean` estimate is used. The other four estimate types
+(poor, fair, good, very good) are the proportion of people in each rating
+band, not the borough's average score.
+
+Financial years are assigned to their **start** year, matching the income rule
+above: metric year 2011 means 2011-12.
+
+---
+
+## Life expectancy — ONS life expectancy for local areas of the UK
+
+| | |
+|---|---|
+| Source | Office for National Statistics |
+| Dataset | Life expectancy for local areas of the UK, edition "between 2001 to 2003 and 2022 to 2024" |
+| URL | https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/datasets/lifeexpectancyforlocalareasoftheuk |
+| Download | https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/datasets/lifeexpectancyforlocalareasoftheuk/between2001to2003and2022to2024/lifeexpectancylocalareas.xlsx |
+| Coverage | **2001-2003 to 2022-2024**, three-year rolling periods |
+| Measures | life expectancy at birth **and at age 65**, male and female separately — four metrics |
+| Geography | lower-tier local authorities (England), plus region and county |
+| Released | 10 December 2025 |
+| Licence | Open Government Licence v3.0 — **verified** on the dataset page 2026-08-16 |
+| Expected file | `data/raw/life_expectancy/ons-lifeexpectancylocalareas-2022to2024.xlsx` |
+| Consumed by | `00_download_metrics.R`, then `13_tidy_life_expectancy.R` (issue 1.8) |
+
+**Period-to-year rule (issue 1.8): rolling periods are assigned to their END
+year** — 2022-2024 becomes metric year 2024 — with the full period preserved in
+`notes`. Note this **differs from the income and well-being rule**, which uses
+the start year of a financial year. The two conventions are not in conflict
+(one is a 3-year rolling window, the other a 12-month accounting year) but the
+difference is deliberate and must be visible wherever the metrics are paired —
+issue 3.6's nearest-available-year rule has to print the pairing on the chart.
+
+**City of London is not in the source at all** — ONS does not publish life
+expectancy for it. The metric covers **32 boroughs**, declared the same way as
+well-being. `13_tidy_life_expectancy.R` also asserts that at-65 figures sit
+below at-birth figures for every borough-year, which is the check that would
+catch an age-group mix-up.
+
+### Why ONS and not the London Datastore
+
+Issue 1.4 named the London Datastore as the source for both series. Both
+Datastore copies were checked on 2026-08-16 and rejected:
+
+| Datastore dataset | Problem |
+|---|---|
+| `personal-well-being-borough-2r87d` | Apr 2011 – Mar 2019 only; last updated 2019 |
+| `life-expectancy-at-birth-and-at-age-65-borough-23gm7` | 2000-2002 to 2008-2010, and **Open Government Licence v2**, not v3 |
+
+Both are GLA re-publications of ONS data. Going to ONS directly gives a longer
+series, a current release, and OGL v3.0 on both — which is also what makes the
+"licence verified, not assumed" criterion pass rather than being waved through.
+
+The life-expectancy Datastore file being *older* than the ward bundle it was
+meant to replace is the reason this check happened before download rather than
+after tidying.
+
+---
+
+## Retired — ward well-being bundle (secondary use only)
+
+| | |
+|---|---|
+| Source | GLA, London ward well-being probability scores |
+| URL | https://data.london.gov.uk/dataset/london-ward-well-being-scores-2k843 |
+| Coverage | **2009–2013 only**, ward grain |
+| Licence | Open Government Licence v3.0 — assumed |
+| Status | **Not part of the canonical pipeline.** Retired to `pipeline/experimental/qol_tidy_original.R`. |
+
+This file was previously cited as the source for **both** well-being and life
+expectancy, under a single URL, with the licence undocumented. That is what
+issue 1.4 exists to fix, and the two entries above replace it.
+
+It is retained only for optional secondary features — unemployment, child
+poverty, GCSE, PTAL, greenspace — all of which are **2011–2013 coverage** and
+ward grain. If any of them is ever used, it must be aggregated ward→borough
+with a **population-weighted** mean (never a plain mean), and the
+export-mangled `Subjective_well_being_..._1/_2/_3` column labels must be
+recovered from the source workbook first. No column with an unverified label
+may enter an output.
+
+---
+
+## Borough boundaries — ONS Local Authority Districts
+
+| | |
+|---|---|
+| Source | ONS Open Geography Portal (via data.gov.uk) |
+| Default product | Local Authority Districts (**December 2022**) Boundaries UK **BGC** — Generalised (20m), clipped to the coastline |
+| URL | https://www.data.gov.uk/dataset/287aef0c-ef71-488e-a01d-3775b2366764/local-authority-districts-december-2022-boundaries-uk-bgc |
+| Fallback product | LAD (December 2023) UK **BUC** — Ultra generalised (500m), clipped |
+| Fallback URL | https://www.data.gov.uk/dataset/d75f8904-5ebc-45de-b81d-e113c7bd1998/local-authority-districts-december-2023-boundaries-uk-buc |
+| Licence | Open Government Licence v3.0 — **verified** on the data.gov.uk pages 2026-08-16 |
+| Rights | Contains both Ordnance Survey and ONS Intellectual Property Rights |
+| Expected file | `data/raw/boundaries/ons-lad-uk-{bgc,buc}.geojson` |
+| Consumed by | `00_download_metrics.R`, `03_borough_boundaries.R` |
+
+**No simplification is applied.** Issue 1.10 proposed `rmapshaper`; the file
+size target is met instead by keeping only the 33 London features and
+rounding coordinates to 6 decimal places (~0.1 m — far finer than a 20 m
+generalisation, so nothing real is discarded). Both ONS products are
+generalised across the whole UK coverage, so neighbouring boroughs still share
+their edges exactly. Simplifying here with `sf::st_simplify` would move each
+outline independently and open slivers between boroughs that no downstream
+step could repair.
+
+`pipeline/logs/boundaries.log` records the product, the coordinate precision,
+the feature count, the output size and the CRS.
+
+**Vintage.** The default boundary release is December 2022, matching the
+LAD22 lookup. The fallback is December 2023. That difference is safe because
+the script asserts the 33 GSS codes match `boroughs.json` **exactly** — if
+they do, the vintages agree for London, which is checked rather than assumed.
+
+**Projection.** ONS publishes in British National Grid (EPSG:27700); the
+output is EPSG:4326 / RFC 7946 for MapLibre. Geometry validity is checked in
+the source projection, before reprojection, because sf switches to spherical
+`s2` semantics for lon/lat and rejects duplicated vertices that are perfectly
+fine on a map. A bounding-box assertion catches the opposite failure — a file
+that claims WGS84 while still carrying BNG eastings, which renders in the
+North Sea and passes every other check.
+
+---
+
+## Unified export — boroughs.json and coverage.json
+
+`20_unify_metrics.R` (issue 1.9) binds every `metrics_*.csv` into
+`data/processed/boroughs.json`, and writes `data/processed/coverage.json`
+alongside it.
+
+`coverage.json` is the contract the frontend reads instead of hardcoding
+anything. Per metric it declares:
+
+| Field | Why it exists |
+|---|---|
+| `years`, `partial_years` | issue 3.4 — slider range, and years excluded from year-on-year comparison |
+| `cadence` | `snapshot` (IMD) renders as discrete points, `annual` as a slider |
+| `direction` | issue 3.7 — falling crime is good, falling life expectancy is not |
+| `scale`, `unit` | IMD domains span proportion, score and standardised; a shared colour scale across them is wrong |
+| `year_rule` | issue 3.6 — `calendar`, `financial_start`, `rolling_end` or `snapshot`, so a pairing can be explained |
+| `boroughs_missing` | City of London, per metric, with no silent 32-vs-33 mismatch |
+
+Every metric in the data must have a registry entry in `20_unify_metrics.R`.
+A metric with no entry fails the run rather than inheriting a default — a
+default `higher_is_better` applied to anxiety, crime, or any deprivation score
+inverts the entire reading.
+
+Array fields keep their shape at length 1: `partial_years` serialises as
+`[2026]`, never as `2026`.
+
+---
+
+## Acquisition record
+
+`pipeline/logs/acquisition.log` records, for every file
+`00_download_metrics.R` fetches: the dataset name, URL, byte size, MD5 and the
+UTC timestamp of the download. That answers "when did we pull this, and is it
+still the same file" without relying on filesystem timestamps.
 
 ---
 
