@@ -131,5 +131,5 @@ write_log(manifest, "acquisition.log")
 
 message("\nAcquired ", length(TARGETS), " dataset(s). Record of what was ",
         "pulled, when, and its MD5 is in ", log_path, ".")
-message("Next: 12_tidy_wellbeing.R (1.7), 13_tidy_life_expectancy.R (1.8), ",
-        "03_borough_boundaries.R (1.10).")
+
+# "Next: 12_tidy_wellbeing.R (1.7), 13_tidy_life_expectancy.R (1.8),03_borough_boundaries.R (1.10)."

@@ -1,0 +1,347 @@
+{
+  "generated_utc": "2026-08-18T12:09:11Z",
+  "window": {
+    "analysis_start": 2011,
+    "analysis_end": 2023,
+    "trend_end": 2024,
+    "note": "Cross-metric analysis is bounded by the shortest denominator. crime_count runs past it; years listed in partial_years are not twelve months and must never be compared year-on-year."
+  },
+  "boroughs": [
+    { "gss": "E09000002", "name": "Barking and Dagenham" },
+    { "gss": "E09000003", "name": "Barnet" },
+    { "gss": "E09000004", "name": "Bexley" },
+    { "gss": "E09000005", "name": "Brent" },
+    { "gss": "E09000006", "name": "Bromley" },
+    { "gss": "E09000007", "name": "Camden" },
+    { "gss": "E09000001", "name": "City of London" },
+    { "gss": "E09000008", "name": "Croydon" },
+    { "gss": "E09000009", "name": "Ealing" },
+    { "gss": "E09000010", "name": "Enfield" },
+    { "gss": "E09000011", "name": "Greenwich" },
+    { "gss": "E09000012", "name": "Hackney" },
+    { "gss": "E09000013", "name": "Hammersmith and Fulham" },
+    { "gss": "E09000014", "name": "Haringey" },
+    { "gss": "E09000015", "name": "Harrow" },
+    { "gss": "E09000016", "name": "Havering" },
+    { "gss": "E09000017", "name": "Hillingdon" },
+    { "gss": "E09000018", "name": "Hounslow" },
+    { "gss": "E09000019", "name": "Islington" },
+    { "gss": "E09000020", "name": "Kensington and Chelsea" },
+    { "gss": "E09000021", "name": "Kingston upon Thames" },
+    { "gss": "E09000022", "name": "Lambeth" },
+    { "gss": "E09000023", "name": "Lewisham" },
+    { "gss": "E09000024", "name": "Merton" },
+    { "gss": "E09000025", "name": "Newham" },
+    { "gss": "E09000026", "name": "Redbridge" },
+    { "gss": "E09000027", "name": "Richmond upon Thames" },
+    { "gss": "E09000028", "name": "Southwark" },
+    { "gss": "E09000029", "name": "Sutton" },
+    { "gss": "E09000030", "name": "Tower Hamlets" },
+    { "gss": "E09000031", "name": "Waltham Forest" },
+    { "gss": "E09000032", "name": "Wandsworth" },
+    { "gss": "E09000033", "name": "Westminster" }
+  ],
+  "metrics": {
+    "crime_count": {
+      "label": "Recorded crimes",
+      "cadence": "annual",
+      "direction": "higher_is_worse",
+      "scale": "count",
+      "unit": "crimes",
+      "year_rule": "calendar",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023, 2024, 2025, 2026
+      ],
+      "partial_years": [2026],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 528,
+      "source": "UK Police street-level crime (Met + City of London)"
+    },
+    "crime_rate_per_1000": {
+      "label": "Crime rate per 1,000 residents",
+      "cadence": "annual",
+      "direction": "higher_is_worse",
+      "scale": "rate",
+      "unit": "crimes per 1,000",
+      "year_rule": "calendar",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023, 2024
+      ],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 462,
+      "source": "UK Police street-level crime (Met + City of London)"
+    },
+    "imd_barriers_to_housing_and_services_score": {
+      "label": "IMD housing barriers",
+      "cadence": "snapshot",
+      "direction": "higher_is_worse",
+      "scale": "score",
+      "unit": "score",
+      "year_rule": "snapshot",
+      "years": [2015, 2019],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 66,
+      "source": "MHCLG Indices of Deprivation, borough domain summaries"
+    },
+    "imd_education_skills_and_training_score": {
+      "label": "IMD education deprivation",
+      "cadence": "snapshot",
+      "direction": "higher_is_worse",
+      "scale": "score",
+      "unit": "score",
+      "year_rule": "snapshot",
+      "years": [2015, 2019],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 66,
+      "source": "MHCLG Indices of Deprivation, borough domain summaries"
+    },
+    "imd_employment_score": {
+      "label": "IMD employment deprivation",
+      "cadence": "snapshot",
+      "direction": "higher_is_worse",
+      "scale": "proportion",
+      "unit": "proportion",
+      "year_rule": "snapshot",
+      "years": [2015, 2019],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 66,
+      "source": "MHCLG Indices of Deprivation, borough domain summaries"
+    },
+    "imd_health_deprivation_and_disability_score": {
+      "label": "IMD health deprivation",
+      "cadence": "snapshot",
+      "direction": "higher_is_worse",
+      "scale": "standardised",
+      "unit": "z-like",
+      "year_rule": "snapshot",
+      "years": [2015, 2019],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 66,
+      "source": "MHCLG Indices of Deprivation, borough domain summaries"
+    },
+    "imd_income_score": {
+      "label": "IMD income deprivation",
+      "cadence": "snapshot",
+      "direction": "higher_is_worse",
+      "scale": "proportion",
+      "unit": "proportion",
+      "year_rule": "snapshot",
+      "years": [2015, 2019],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 66,
+      "source": "MHCLG Indices of Deprivation, borough domain summaries"
+    },
+    "imd_living_environment_score": {
+      "label": "IMD living environment deprivation",
+      "cadence": "snapshot",
+      "direction": "higher_is_worse",
+      "scale": "score",
+      "unit": "score",
+      "year_rule": "snapshot",
+      "years": [2015, 2019],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 66,
+      "source": "MHCLG Indices of Deprivation, borough domain summaries"
+    },
+    "income_mean": {
+      "label": "Mean income",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "currency",
+      "unit": "GBP",
+      "year_rule": "financial_start",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023
+      ],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 429,
+      "source": "HMRC personal income by tax year (London Datastore)"
+    },
+    "income_median": {
+      "label": "Median income",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "currency",
+      "unit": "GBP",
+      "year_rule": "financial_start",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023
+      ],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 429,
+      "source": "HMRC personal income by tax year (London Datastore)"
+    },
+    "income_taxpayers": {
+      "label": "Taxpayers",
+      "cadence": "annual",
+      "direction": "neutral",
+      "scale": "count",
+      "unit": "individuals",
+      "year_rule": "financial_start",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023
+      ],
+      "partial_years": [],
+      "boroughs_covered": 33,
+      "boroughs_missing": [],
+      "observations": 429,
+      "source": "HMRC personal income by tax year (London Datastore)"
+    },
+    "life_expectancy_65_female": {
+      "label": "Life expectancy at 65, female",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "years",
+      "unit": "years",
+      "year_rule": "rolling_end",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023, 2024
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 448,
+      "source": "ONS life expectancy for local areas of the UK"
+    },
+    "life_expectancy_65_male": {
+      "label": "Life expectancy at 65, male",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "years",
+      "unit": "years",
+      "year_rule": "rolling_end",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023, 2024
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 448,
+      "source": "ONS life expectancy for local areas of the UK"
+    },
+    "life_expectancy_birth_female": {
+      "label": "Life expectancy at birth, female",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "years",
+      "unit": "years",
+      "year_rule": "rolling_end",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023, 2024
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 448,
+      "source": "ONS life expectancy for local areas of the UK"
+    },
+    "life_expectancy_birth_male": {
+      "label": "Life expectancy at birth, male",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "years",
+      "unit": "years",
+      "year_rule": "rolling_end",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
+        2023, 2024
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 448,
+      "source": "ONS life expectancy for local areas of the UK"
+    },
+    "wellbeing_anxiety": {
+      "label": "Anxiety yesterday",
+      "cadence": "annual",
+      "direction": "higher_is_worse",
+      "scale": "rating",
+      "unit": "mean 0-10",
+      "year_rule": "financial_start",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 384,
+      "source": "ONS personal well-being estimates by local authority (time series v4)"
+    },
+    "wellbeing_happiness": {
+      "label": "Happiness yesterday",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "rating",
+      "unit": "mean 0-10",
+      "year_rule": "financial_start",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 384,
+      "source": "ONS personal well-being estimates by local authority (time series v4)"
+    },
+    "wellbeing_life_satisfaction": {
+      "label": "Life satisfaction",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "rating",
+      "unit": "mean 0-10",
+      "year_rule": "financial_start",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 384,
+      "source": "ONS personal well-being estimates by local authority (time series v4)"
+    },
+    "wellbeing_worthwhile": {
+      "label": "Feeling things done are worthwhile",
+      "cadence": "annual",
+      "direction": "higher_is_better",
+      "scale": "rating",
+      "unit": "mean 0-10",
+      "year_rule": "financial_start",
+      "years": [
+        2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
+      ],
+      "partial_years": [],
+      "boroughs_covered": 32,
+      "boroughs_missing": [{ "gss": "E09000001", "name": "City of London" }],
+      "observations": 384,
+      "source": "ONS personal well-being estimates by local authority (time series v4)"
+    }
+  }
+}

@@ -1,7 +1,32 @@
-Metric,Value
-Raw rows,13928409
-Unmatched rows,1049757
-Matched rows,12963297
-Aggregated total,12963297
-Difference,0
-Difference (%),0
+check,expected,actual,status
+raw total: rowcounts vs exclusion ledger,"16,702,477","16,702,477",PASS
+raw total per year,0 mismatched years,0 mismatched,PASS
+attributed records vs borough-year aggregate,"16,493,982","16,493,982",PASS
+lookup coverage (non-blank denominator),>= 99.500%,99.763%,PASS
+crime_by_borough_year: borough count,33,33,PASS
+crime_rates_by_borough_year: borough count,33,33,PASS
+no rate published for an incomplete year,0,0,PASS
+no non-positive crime rate,0,0,PASS
+metric export files present,>= 1,6,PASS
+imd_crime_validation.csv: long schema,"borough_gss,borough_name,year,metric,value,source,geography_native,notes","borough_gss,borough_name,year,metric,value,source,geography_native,notes",PASS
+imd_crime_validation.csv: no NA borough or value,0,0,PASS
+metrics_crime.csv: long schema,"borough_gss,borough_name,year,metric,value,source,geography_native,notes","borough_gss,borough_name,year,metric,value,source,geography_native,notes",PASS
+metrics_crime.csv: no NA borough or value,0,0,PASS
+metrics_imd.csv: long schema,"borough_gss,borough_name,year,metric,value,source,geography_native,notes","borough_gss,borough_name,year,metric,value,source,geography_native,notes",PASS
+metrics_imd.csv: no NA borough or value,0,0,PASS
+metrics_income.csv: long schema,"borough_gss,borough_name,year,metric,value,source,geography_native,notes","borough_gss,borough_name,year,metric,value,source,geography_native,notes",PASS
+metrics_income.csv: no NA borough or value,0,0,PASS
+metrics_life_expectancy.csv: long schema,"borough_gss,borough_name,year,metric,value,source,geography_native,notes","borough_gss,borough_name,year,metric,value,source,geography_native,notes",PASS
+metrics_life_expectancy.csv: no NA borough or value,0,0,PASS
+metrics_wellbeing.csv: long schema,"borough_gss,borough_name,year,metric,value,source,geography_native,notes","borough_gss,borough_name,year,metric,value,source,geography_native,notes",PASS
+metrics_wellbeing.csv: no NA borough or value,0,0,PASS
+boroughs.json under the 1 MB budget,< 1024 KB,504 KB,PASS
+boroughs.json covers all boroughs,33,33,PASS
+every metric in boroughs.json is described in coverage.json,0,0,PASS
+anxiety and crime are marked higher_is_worse,0,0,PASS
+"IMD metrics are marked snapshot, not annual",0,0,PASS
+no IMD crime domain in the unified export,0,0,PASS
+london.geojson feature count,33,33,PASS
+london.geojson under the 500 KB budget,< 500 KB,171 KB,PASS
+london.geojson GSS codes match the crime aggregate,0,0,PASS
+london.geojson coordinates are WGS84 degrees,within London bbox,-0.5..51.7,PASS
