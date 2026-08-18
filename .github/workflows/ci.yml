@@ -2,14 +2,14 @@ name: CI
 
 on:
   pull_request:
-    branches: [v2]
+    branches: [main, v2]
+  push:
+    branches: [main, v2]
 
 jobs:
-  lint-and-build:
+  web:
+    name: Lint and build the web app
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: web   #Next.js app lives here, not the repo root
     steps:
       - name: Check out the code
         uses: actions/checkout@v4
@@ -21,11 +21,43 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
+      # Installed from the repository root, not from web/. The lockfile lives
+      # at the root because the root package.json declares `workspaces: [web]`,
+      # so `npm ci` inside web/ fails with EUSAGE — there is no lockfile there.
       - name: Install dependencies
         run: npm ci
 
       - name: Run ESLint
-        run: npm run lint
+        run: npm run lint --workspace web
 
       - name: Build the app
-        run: npm run build
+        run: npm run build --workspace web
+
+  pipeline:
+    name: Check the R pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Install R and pipeline dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            r-base-core r-cran-data.table r-cran-jsonlite
+
+      # Catches syntax errors only. It does NOT catch a call to an undefined
+      # function or a use of an undefined object — `tr(...)` parses fine — so
+      # the smoke test below is the check that actually matters.
+      - name: Parse every script
+        run: |
+          set -e
+          for f in $(find pipeline -name '*.R' | sort); do
+            Rscript -e "invisible(parse('$f'))" && echo "ok   $f"
+          done
+
+      # Runs the whole pipeline against synthetic fixtures built in a temp
+      # directory, then deliberately breaks two things and asserts the guards
+      # fire. No raw data required, so it runs on every PR.
+      - name: Smoke test the pipeline
+        run: Rscript pipeline/tests/smoke.R
