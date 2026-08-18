@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: web   # our Next.js app lives here, not the repo root
+        working-directory: web   #Next.js app lives here, not the repo root
     steps:
       - name: Check out the code
         uses: actions/checkout@v4

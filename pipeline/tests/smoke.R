@@ -137,16 +137,106 @@ for (y in c("2015", "2019")) {
   fwrite(d, file.path(dir, "Borough domain summaries-Table 1.csv"))
 }
 
+# ---- ONS4 well-being cube (v4 layout, with a suppressed borough) ---------
+wb_dir <- file.path(root, "data", "raw", "wellbeing")
+dir.create(wb_dir, recursive = TRUE)
+MEASURES <- c("Life satisfaction", "Worthwhile", "Happiness", "Anxiety")
+wb <- CJ(period = c("2011-12", "2012-13"), gss = BOROUGHS$gss,
+         MeasureOfWellbeing = MEASURES, sorted = FALSE)
+wb <- merge(wb, BOROUGHS[, .(gss, name)], by = "gss")
+wb[, `wellbeing-estimate` := "average-mean"]
+wb[, value := round(runif(.N, 6.5, 8.0), 2)]
+wb[MeasureOfWellbeing == "Anxiety", value := round(runif(.N, 2, 4), 2)]
+# City of London suppressed in every cell, exactly as ONS publishes it
+wb[gss == "E09000001", value := NA_real_]
+wb[, marking := fifelse(is.na(value), "[u]", NA_character_)]
+wb_out <- wb[, .(v4_3 = value, `Data marking` = marking,
+                 `Lower limit` = value - 0.2, `Upper limit` = value + 0.2,
+                 `yyyy-yy` = period, Time = period,
+                 `administrative-geography` = gss, Geography = name,
+                 `measure-of-wellbeing` = tolower(gsub(" ", "-",
+                                                       MeasureOfWellbeing)),
+                 MeasureOfWellbeing,
+                 `wellbeing-estimate`, Estimate = "Average (mean)")]
+# proportion rows the script must ignore
+wb_out <- rbind(wb_out, copy(wb_out)[, `:=`(`wellbeing-estimate` = "good",
+                                            Estimate = "Good")])
+fwrite(wb_out, file.path(wb_dir, "ons4-wellbeing-local-authority-timeseries-v4.csv"))
+
+# ---- Life expectancy workbook (sheet "1", header on row 6) ---------------
+if (requireNamespace("writexl", quietly = TRUE)) {
+  le_dir <- file.path(root, "data", "raw", "life_expectancy")
+  dir.create(le_dir, recursive = TRUE)
+  le <- CJ(Period = c("2009 to 2011", "2010 to 2012"),
+           gss = setdiff(BOROUGHS$gss, "E09000001"),   # City of London absent
+           Sex = c("Male", "Female"),
+           `Age group` = c("<1", "65 to 69", "20 to 24"), sorted = FALSE)
+  le <- merge(le, BOROUGHS[, .(gss, name)], by = "gss")
+  le[, le_val := fifelse(`Age group` == "<1", runif(.N, 78, 85),
+                  fifelse(`Age group` == "65 to 69", runif(.N, 18, 24),
+                          runif(.N, 55, 62)))]
+  body <- le[, .(Period, Country = "England", `Area type` = "Local Areas",
+                 `Area code` = gss, `Area name` = name, Sex, `Sex code` = "1",
+                 `Age group`, `Age code` = "1",
+                 `Life expectancy` = round(le_val, 1),
+                 `Lower confidence interval` = round(le_val - 0.4, 1),
+                 `Upper confidence interval` = round(le_val + 0.4, 1))]
+  pad <- as.data.table(matrix("", nrow = 5L, ncol = ncol(body)))
+  setnames(pad, names(body))
+  pad[1, 1] <- "Sheet 1: Life expectancy for local areas"
+  hdr <- as.data.table(as.list(names(body))); setnames(hdr, names(body))
+  sheet <- rbind(pad, hdr, body[, lapply(.SD, as.character)])
+  writexl::write_xlsx(list(`1` = sheet),
+                      file.path(le_dir,
+                                "ons-lifeexpectancylocalareas-2022to2024.xlsx"),
+                      col_names = FALSE)
+} else {
+  message("NOTE: writexl not installed — skipping the life-expectancy fixture ",
+          "and 13_tidy_life_expectancy.R.")
+}
+
+# ---- Borough boundaries (British National Grid, plus non-London districts) --
+if (requireNamespace("sf", quietly = TRUE)) {
+  suppressPackageStartupMessages(library(sf))
+  bdir <- file.path(root, "data", "raw", "boundaries")
+  dir.create(bdir, recursive = TRUE)
+  cell <- function(i) {
+    x0 <- 500000 + (i %% 6) * 6000; y0 <- 175000 + (i %/% 6) * 6000
+    ring <- rbind(c(x0, y0), c(x0 + 5000, y0), c(x0 + 5000, y0 + 5000),
+                  c(x0, y0 + 5000), c(x0, y0))
+    st_polygon(list(ring))
+  }
+  codes <- c(BOROUGHS$gss, "E08000001", "W06000001")
+  nms   <- c(BOROUGHS$name, "Elsewhere", "Somewhere")
+  bnd <- st_sf(LAD22CD = codes, LAD22NM = nms,
+               geometry = st_sfc(lapply(seq_along(codes) - 1L, cell),
+                                 crs = 27700))
+  st_write(bnd, file.path(bdir, "ons-lad-uk-bgc.geojson"),
+           driver = "GeoJSON", quiet = TRUE)
+} else {
+  message("NOTE: sf not installed — skipping 03_borough_boundaries.R.")
+}
+
 # ---- Run -----------------------------------------------------------------
+# The window must span the IMD snapshot years (2015, 2019) as well as the
+# annual fixtures, or 20_unify_metrics.R correctly refuses to drop a whole
+# snapshot metric on the floor.
 env <- c("CRIME_START=2011-01", "CRIME_END=2011-12",
-         "ANALYSIS_START=2011", "ANALYSIS_END=2012", "TREND_END=2012")
+         "ANALYSIS_START=2011", "ANALYSIS_END=2019", "TREND_END=2019")
 
 owd <- setwd(root); on.exit(setwd(owd), add = TRUE)
 
 SCRIPTS <- c("pipeline/00_download.R", "pipeline/00_crime_rowcounts.R",
              "pipeline/00_LSAOlookup.R", "pipeline/01_crime_by_borough.R",
              "pipeline/02_population_and_rates.R", "pipeline/10_tidy_income.R",
-             "pipeline/11_tidy_imd.R", "pipeline/QA/01_QA.R")
+             "pipeline/11_tidy_imd.R", "pipeline/12_tidy_wellbeing.R",
+             if (requireNamespace("sf", quietly = TRUE))
+               "pipeline/03_borough_boundaries.R",
+             if (requireNamespace("writexl", quietly = TRUE) &&
+                 requireNamespace("readxl", quietly = TRUE))
+               "pipeline/13_tidy_life_expectancy.R",
+             "pipeline/20_unify_metrics.R", "pipeline/QA/01_QA.R")
+SCRIPTS <- Filter(Negate(is.null), SCRIPTS)
 
 failures <- character()
 expect <- function(label, want, got, log = NULL) {

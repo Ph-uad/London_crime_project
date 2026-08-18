@@ -55,6 +55,7 @@ rates <- fread(need(file.path(PROC_DIR, "crime_rates_by_borough_year.csv"),
                showProgress = FALSE)
 
 pass <- TRUE
+`%||%` <- function(a, b) if (is.null(a)) b else a
 
 # --- 1. Two independent reads of the raw archive must agree ---------------
 raw_counted <- rowcounts[, sum(rows)]
@@ -118,6 +119,73 @@ for (f in metric_files) {
   pass <- record(paste0(basename(f), ": no NA borough or value"), 0,
                  sum(is.na(full$borough_gss)) + sum(is.na(full$value)),
                  !anyNA(full$borough_gss) && !anyNA(full$value)) && pass
+}
+
+# --- 8. Unified export agrees with the metric CSVs ------------------------
+bj <- file.path(PROC_DIR, "boroughs.json")
+cj <- file.path(PROC_DIR, "coverage.json")
+if (file.exists(bj) && file.exists(cj)) {
+  suppressPackageStartupMessages(library(jsonlite))
+  b <- fromJSON(bj); cv <- fromJSON(cj, simplifyVector = FALSE)
+  bo <- as.data.table(b$observations)
+  pass <- record("boroughs.json under the 1 MB budget", "< 1024 KB",
+                 paste0(round(file.size(bj) / 1024), " KB"),
+                 file.size(bj) < 1024^2) && pass
+  pass <- record("boroughs.json covers all boroughs", LONDON_BOROUGH_N,
+                 uniqueN(bo$borough_gss),
+                 uniqueN(bo$borough_gss) == LONDON_BOROUGH_N) && pass
+  pass <- record("every metric in boroughs.json is described in coverage.json",
+                 0, length(setdiff(unique(bo$metric), names(cv$metrics))),
+                 length(setdiff(unique(bo$metric), names(cv$metrics))) == 0L) && pass
+  # A direction of "higher_is_better" silently applied to anxiety, crime or a
+  # deprivation score is the single most consequential metadata error here.
+  MUST_BE_WORSE <- c("wellbeing_anxiety", "crime_rate_per_1000", "crime_count")
+  wrong <- Filter(function(m) !is.null(cv$metrics[[m]]) &&
+                    !identical(cv$metrics[[m]]$direction, "higher_is_worse"),
+                  MUST_BE_WORSE)
+  pass <- record("anxiety and crime are marked higher_is_worse", 0,
+                 length(wrong), length(wrong) == 0L) && pass
+  imd_wrong <- Filter(function(m) grepl("^imd_", m) &&
+                        !identical(cv$metrics[[m]]$cadence, "snapshot"),
+                      names(cv$metrics))
+  pass <- record("IMD metrics are marked snapshot, not annual", 0,
+                 length(imd_wrong), length(imd_wrong) == 0L) && pass
+  leaked_imd <- grep("^imd_crime", unique(bo$metric), value = TRUE)
+  pass <- record("no IMD crime domain in the unified export", 0,
+                 length(leaked_imd), length(leaked_imd) == 0L) && pass
+} else {
+  message("\nNote: boroughs.json / coverage.json not present — ",
+          "run 20_unify_metrics.R to include them in QA.")
+}
+
+# --- 9. Borough boundaries ------------------------------------------------
+gj <- file.path(PROC_DIR, "london.geojson")
+if (file.exists(gj)) {
+  suppressPackageStartupMessages(library(jsonlite))
+  fc <- fromJSON(gj, simplifyVector = FALSE)
+  feats <- fc$features
+  gss <- vapply(feats, function(f) f$properties$borough_gss %||% NA_character_,
+                character(1))
+  pass <- record("london.geojson feature count", LONDON_BOROUGH_N,
+                 length(feats), length(feats) == LONDON_BOROUGH_N) && pass
+  pass <- record("london.geojson under the 500 KB budget", "< 500 KB",
+                 paste0(round(file.size(gj) / 1024), " KB"),
+                 file.size(gj) <= 512000) && pass
+  if (exists("by_year")) {
+    pass <- record("london.geojson GSS codes match the crime aggregate", 0,
+                   length(setdiff(unique(by_year$borough_gss), gss)),
+                   length(setdiff(unique(by_year$borough_gss), gss)) == 0L) && pass
+  }
+  # Coordinates must be WGS84 degrees. British National Grid eastings here
+  # would render the map in the North Sea and nothing else would catch it.
+  flat <- unlist(lapply(feats, function(f) f$geometry$coordinates))
+  pass <- record("london.geojson coordinates are WGS84 degrees",
+                 "within London bbox",
+                 sprintf("%.1f..%.1f", min(flat), max(flat)),
+                 min(flat) > -1 && max(flat) < 52) && pass
+} else {
+  message("\nNote: london.geojson not present — run 03_borough_boundaries.R ",
+          "to include it in QA.")
 }
 
 # --- Superseded outputs (warning, not a failure) --------------------------

@@ -1,0 +1,3 @@
+dataset,path,url,bytes,md5,downloaded_utc
+"ONS4 personal well-being (local authority, time series)",data/raw/wellbeing/ons4-wellbeing-local-authority-timeseries-v4.csv,https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/4.csv,9515176,568d6c7f672a9758df1e6d033b5740c8,2026-08-16T17:55:31Z
+Life expectancy for local areas of the UK,data/raw/life_expectancy/ons-lifeexpectancylocalareas-2022to2024.xlsx,https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/datasets/lifeexpectancyforlocalareasoftheuk/between2001to2003and2022to2024/lifeexpectancylocalareas.xlsx,36573893,ce33f64dd5a7329d6594112f24c95af2,2026-08-16T17:55:36Z
