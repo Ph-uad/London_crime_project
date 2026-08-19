@@ -1,7 +1,18 @@
 {
-  "name": "SDOH", 
-  "private": true, 
+  "name": "sdoh",
+  "private": true,
   "workspaces": [
     "web"
-  ]
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace web",
+    "build": "npm run build --workspace web",
+    "start": "npm run start --workspace web",
+    "lint": "npm run lint --workspace web",
+    "test": "npm run test --workspace web",
+    "typecheck": "npm run typecheck --workspace web",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run build",
+    "pipeline:test": "Rscript pipeline/tests/smoke.R",
+    "pipeline:qa": "Rscript pipeline/QA/01_QA.R"
+  }
 }
