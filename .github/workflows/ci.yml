@@ -6,32 +6,7 @@ on:
   push:
     branches: [main, v2]
 
-jobs: 
-  lint-and-build:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: web   #Next.js app lives here, not the repo root
-    steps:
-      - name: Check out the code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-          cache-dependency-path: package-lock.json
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Build the app
-        run: npm run build
-
+jobs:
   web:
     name: Lint and build the web app
     runs-on: ubuntu-latest
@@ -54,6 +29,16 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint --workspace web
+
+      - name: Type-check
+        run: npm run typecheck --workspace web
+
+      # Route tests for /api/metrics, /api/meta and /api/geo. They import the
+      # handlers directly and call them with Request objects, so no server and no
+      # network are needed. They read the real data/processed exports, which also
+      # makes them a contract check on the pipeline's output.
+      - name: Run route tests
+        run: npm run test --workspace web
 
       - name: Build the app
         run: npm run build --workspace web

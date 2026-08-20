@@ -25,8 +25,8 @@ built as a reproducible R data pipeline feeding a Next.js web interface.
   assertion breaks.
 - **Honest measurement decisions:** documented exclusions and window limits
   rather than silently convenient data (see *Analytical decisions*).
-- **Full-stack delivery:** R data layer → JSON contract → Next.js API routes →
-  interactive choropleth frontend (not yet started).
+- **Full-stack delivery:** R data layer → JSON contract → Next.js API routes (done) →
+  interactive choropleth frontend (next).
 
 ## Data
 
@@ -98,7 +98,10 @@ projects-plan.md        roadmap: issues, branches, acceptance criteria
 3. From the repository root, run the scripts in the order listed in
    [`pipeline/README.md`](pipeline/README.md). Any non-zero exit means the run
    failed; do not use the outputs.
-4. Frontend: `npm ci` at the root, then `npm run dev --workspace web`.
+4. Frontend, from the repository root: `npm ci`, then `npm run dev`.
+   `npm run check` runs lint, type-check, the route tests and the build — the same
+   sequence as CI. Run `npm ci` again after pulling changes that touch
+   `package-lock.json`, or `npm run test` will fail with `vitest: not found`.
 
 To check the pipeline without raw data: `Rscript pipeline/tests/smoke.R`.
 
@@ -119,12 +122,13 @@ To check the pipeline without raw data: `Rscript pipeline/tests/smoke.R`.
 - Borough boundaries: 33 polygons, EPSG:4326, no self-intersections, GSS codes
   asserted against `boroughs.json`, no topology-breaking simplification.
 - QA that reconciles independent artefacts and can fail (31 checks).
+- Data API: `/api/metrics`, `/api/meta` and `/api/geo`, with 28 route tests that reject a
+  typo'd parameter rather than silently returning everything.
 
 **Next**
 
-- API routes serving `boroughs.json`, `coverage.json` and `london.geojson`
-  (issues 2.1, 2.2) — Epic 1 is complete and nothing blocks these.
-- Choropleth with coverage-aware controls (Epic 3), narrative write-up (4.1).
+- Layout shell (3.1), then the choropleth and coverage-aware controls (3.2–3.7).
+- Narrative write-up (4.1), Vercel deployment (0.4), CI workflow installation (0.3).
 
 ## Known limitations
 
