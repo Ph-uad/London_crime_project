@@ -7,7 +7,7 @@
  * pipeline/03_borough_boundaries.R, so the map and the data cannot disagree about
  * which boroughs exist.
  */
-import { boroughGeoJson, GEOJSON_PATH } from "@/lib/data";
+import { boroughGeoJson, GEOJSON_PATH } from "@/lib/geo";
 import { errorResponse, handle, jsonResponse } from "@/lib/http";
 
 export function GET(request: Request): Promise<Response> {

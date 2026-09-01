@@ -25,8 +25,9 @@ built as a reproducible R data pipeline feeding a Next.js web interface.
   assertion breaks.
 - **Honest measurement decisions:** documented exclusions and window limits
   rather than silently convenient data (see *Analytical decisions*).
-- **Full-stack delivery:** R data layer → JSON contract → Next.js API routes (done) →
-  interactive choropleth frontend (next).
+- **Full-stack delivery:** R data layer → JSON contract → Next.js API routes →
+  responsive accessible shell → interactive choropleth, coverage-aware controls and a
+  crime-vs-determinant scatterplot. All done, with 139 unit tests and 81 browser checks.
 
 ## Data
 
@@ -109,7 +110,7 @@ To check the pipeline without raw data: `Rscript pipeline/tests/smoke.R`.
 
 **Done**
 
-- Monorepo, CI (web lint/build + R parse and smoke test on PRs).
+- Monorepo, CI (web lint/build, browser and accessibility checks, R parse and smoke test on PRs).
 - LSOA→borough lookup across both code vintages, with a one-borough-per-code
   assertion and 33-borough verification.
 - Crime→borough join with a single reconciling exclusion ledger, complete
@@ -124,18 +125,30 @@ To check the pipeline without raw data: `Rscript pipeline/tests/smoke.R`.
 - QA that reconciles independent artefacts and can fail (31 checks).
 - Data API: `/api/metrics`, `/api/meta` and `/api/geo`, with 28 route tests that reject a
   typo'd parameter rather than silently returning everything.
+- Responsive, accessible app shell with a validated design-token palette — verified by 28
+  browser checks that run axe at 375, 768 and 1280 px on every route.
+- Interactive dashboard: borough choropleth, metric switcher and borough exclusions, a
+  per-metric year control, a borough detail panel, a crime-vs-determinant scatterplot and a
+  summary strip — all reading direction, scale, cadence and coverage from the matrix rather
+  than assuming them. 53 further browser checks, including a deuteranopia simulation of the
+  colour ramp. **No mapping or charting library**: the map is inline SVG over hand-written
+  Web Mercator, which is what makes it readable by a screen reader and assertable by a test.
 
 **Next**
 
-- Layout shell (3.1), then the choropleth and coverage-aware controls (3.2–3.7).
 - Narrative write-up (4.1), Vercel deployment (0.4), CI workflow installation (0.3).
+- **Issue 1.11**, a data-quality defect the choropleth exposed: two of the six IMD domains
+  are published at a precision that leaves them with one and two distinct values across all
+  33 boroughs. See the roadmap.
 
 ## Known limitations
 
 Ecological analysis over 33 units — associations only, no causal
 identification. Police geocoding gaps (blank LSOAs) are excluded, not imputed.
 IMD exists at two snapshots, so deprivation supports cross-sectional comparison
-rather than trends, and its domains sit on three different scales. Well-being
+rather than trends, and its domains sit on three different scales — and two of them, income
+and employment, are published at a precision that leaves them with almost no borough-level
+variance at all (issue 1.11). Well-being
 ends at 2022-23, one year short of the analysis window, and is absent for City
 of London; life expectancy is absent for City of London too. Crime
 categories are not comparable across the April 2013 taxonomy change even after

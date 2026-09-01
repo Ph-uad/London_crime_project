@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Design tokens for the dashboard (plan issue 3.1).
+ *
+ * Values are the validated reference palette. The three categorical slots were
+ * checked with the palette validator rather than eyeballed — all-pairs, both
+ * modes: worst CVD ΔE 9.2 light / 9.4 dark against a ≥8 target, worst
+ * normal-vision ΔE 27.6 / 26.5 against a ≥15 floor. Aqua sits at 2.74:1 on the
+ * light surface, under 3:1, so anything using it ships a visible label or a
+ * table view rather than leaning on the colour.
+ *
+ * Dark mode is SELECTED, not an automatic flip: its own steps from the same
+ * ramps, chosen for the dark surface. The media query covers the OS setting;
+ * the [data-theme] scopes let an explicit choice win either way.
+ *
+ * Charts (3.2 onwards) read these roles. They must not introduce raw hex.
+ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --page-plane: #f9f9f7;
+  --surface-1: #fcfcfb;
+
+  /* Ink */
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  /* Chart chrome ONLY — axis ticks, gridline labels. 3.50:1 on the light
+     surface, which is under the 4.5:1 AA floor for text, so it must not be used
+     for prose, captions or small print. Use --text-secondary (7.73:1) there. */
+  --text-muted: #898781;
+
+  /* Structure */
+  --gridline: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgb(11 11 11 / 0.1);
+
+  /* Categorical — fixed order, never cycled. Capped at 3 for all-pairs forms
+     (choropleth, scatter); a 4th series folds into "Other" or facets. */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+
+  /* Sequential — one hue, light to dark. The choropleth ramp (3.2). */
+  --seq-100: #cde2fb;
+  --seq-200: #9ec5f4;
+  --seq-300: #6da7ec;
+  --seq-400: #3987e5;
+  --seq-500: #256abf;
+  --seq-600: #184f95;
+  --seq-700: #0d366b;
+
+  /* Diverging — two poles, neutral gray midpoint. For standardised IMD
+     domains, which go negative and must not use the sequential ramp. */
+  --div-low: #2a78d6;
+  --div-mid: #f0efec;
+  --div-high: #d03b3b;
+
+  /* Status — reserved. Never reused as a series colour, always with a label. */
+  --status-good: #0ca30c;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+  --delta-good: #006300;
+
+  /* No-data. Boroughs a metric does not cover — City of London on well-being
+     and life expectancy — are rendered in this, never omitted and never zero. */
+  --no-data: #e6e5e0;
+  --no-data-ink: #52514e;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page-plane: #0d0d0d;
+    --surface-1: #1a1a19;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --gridline: #2c2c2a;
+    --baseline: #383835;
+    --border: rgb(255 255 255 / 0.1);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --series-3: #199e70;
+    --div-mid: #383835;
+    --delta-good: #0ca30c;
+    --no-data: #2c2c2a;
+    --no-data-ink: #c3c2b7;
   }
 }
 
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-plane: #0d0d0d;
+  --surface-1: #1a1a19;
+  --text-primary: #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted: #898781;
+  --gridline: #2c2c2a;
+  --baseline: #383835;
+  --border: rgb(255 255 255 / 0.1);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --div-mid: #383835;
+  --delta-good: #0ca30c;
+  --no-data: #2c2c2a;
+  --no-data-ink: #c3c2b7;
+}
+
+@theme inline {
+  --color-plane: var(--page-plane);
+  --color-surface: var(--surface-1);
+  --color-ink: var(--text-primary);
+  --color-ink-secondary: var(--text-secondary);
+  --color-ink-muted: var(--text-muted);
+  --color-hairline: var(--border);
+  --color-gridline: var(--gridline);
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+  --color-series-3: var(--series-3);
+  --color-no-data: var(--no-data);
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  background: var(--page-plane);
+  color: var(--text-primary);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  /* The skill's typeface rule: system sans everywhere, proportional figures by
+     default. tabular-nums is applied only where columns must align. */
+}
+
+/* One visible focus treatment everywhere, so keyboard position is never lost.
+   :focus-visible rather than :focus keeps it off mouse clicks. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

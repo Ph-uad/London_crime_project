@@ -467,6 +467,58 @@ against the real ONS boundary file.**
 
 ---
 
+### Issue 1.11 — IMD income and employment scores carry no borough-level variance
+**Status: Open — raised by 3.2**
+**Branch:** `fix/pipeline/imd-score-precision` · **Labels:** `pipeline` `data-quality` `bug` · **Estimate:** 1–2 hrs
+
+**Description:**
+Building the choropleth surfaced this and nothing before it would have. Two of the six IMD domains
+are published in `metrics_imd.csv` at one decimal place as *proportions*, which at borough level
+leaves them with essentially no information:
+
+| Metric | Scale | Distinct values across 33 boroughs (2019) |
+|---|---|---|
+| `imd_employment_score` | proportion | **1** — every borough is 0.1 |
+| `imd_income_score` | proportion | **2** — 0.1 and 0.2 |
+| `imd_education_skills_and_training_score` | score | 29 |
+| `imd_health_deprivation_and_disability_score` | standardised | 17 |
+| `imd_living_environment_score` | score | 31 |
+| `imd_barriers_to_housing_and_services_score` | score | 31 |
+
+The four `score` and `standardised` domains are fine. The two `proportion` domains are not: MHCLG
+publishes the income and employment domain averages as proportions in the 0–1 range, so one decimal
+place is a resolution of ten percentage points. Every London borough lands in the same bucket.
+
+`pipeline/11_tidy_imd.R` contains no rounding — it reads the `"<Domain> - Average score"` columns
+verbatim — so this is either the source file's own precision or a precision loss at acquisition.
+**It could not be confirmed during 3.2 because `data/raw/` has been cleared**, which is itself worth
+noting: the recipe in `SOURCES.md` is the only route back to the answer.
+
+**Acceptance criteria:**
+- [ ] Re-acquire the MHCLG local authority district summaries per `SOURCES.md` and record the
+      precision the source actually publishes for the income and employment domain averages
+- [ ] If the source carries more precision, fix the read and re-run; if it does not, record it in
+      `SOURCES.md` as a known limitation of the borough-level summary file and consider deriving
+      the borough average from the LSOA-level file instead
+- [ ] Either way, `20_unify_metrics.R` gains a **distinct-value assertion**: a metric with fewer
+      than three distinct values across 33 boroughs fails the run, or is explicitly declared in
+      `coverage.json` as having no borough-level variance
+- [ ] `pipeline/QA/01_QA.R` gains the same check, so this cannot recur silently
+
+**What the frontend does in the meantime.** It handles it honestly rather than hiding it: the map
+draws one flat mid-tone with a caption saying every borough has the same value and that this is the
+source's precision, not a rendering fault; the summary cards refuse to name a "highest" and a
+"lowest" that are the same borough; and the scatterplot declines to fit a line, saying the variable
+has no variation at this precision. See `web/e2e/dashboard.spec.ts`.
+
+**This is the argument for building the visualisation.** Nineteen metrics passed 31 QA checks and
+139 unit tests without anyone noticing that two of them are constants. Drawing them on a map took
+about a second.
+
+**Technologies:** R (data.table) · **Alternatives:** derive borough averages from the LSOA-level IMD file
+
+---
+
 ## Epic 2 — API Layer (Next.js Routes)
 
 > **Epic 2 is complete.** Both routes are delivered and covered by tests in CI. The
@@ -546,18 +598,37 @@ degrees — British National Grid eastings here would render the map in the Nort
 
 ## Epic 3 — Frontend
 
-> **Three data constraints run through this epic.** They come from `coverage.json` and are
-> not optional:
+> **Epic 3 is complete.** 3.1 through 3.8 are delivered, with **139 unit tests** and **81
+> browser checks** — axe-core over every route and four dashboard states at 375 / 768 /
+> 1280 px — running in CI against the real production build.
+>
+> **Three data constraints ran through this epic.** They come from `coverage.json`, they were
+> not optional, and each is now enforced by a test that has been shown to fail:
 > 1. **Two metrics cover 32 boroughs, not 33** — City of London has no well-being and no
->    life expectancy. Missing boroughs must render as an explicit no-data state, never be
->    omitted or coloured as zero.
-> 2. **Direction is per metric.** Anxiety and crime are `higher_is_worse`; most others are
->    `higher_is_better`; taxpayer count is `neutral`. Read it from `coverage.json`.
+>    life expectancy. Those boroughs render in a hatched no-data style, are named in the
+>    legend, say "no data" in the table, and are dropped from the correlation with the count
+>    shown. Their ranks are n/32.
+> 2. **Direction is per metric.** The map reads *darker = worse* for every metric, so the
+>    ramp reverses for `higher_is_better`; extremes are labelled by meaning rather than by
+>    value; trend arrows carry a word as well as a colour; `neutral` metrics get no
+>    better/worse claim at all.
 > 3. **IMD domains sit on three different scales** — proportion, score, standardised — and
->    two go negative. One shared colour ramp across them is meaningless.
+>    two go negative. Standardised metrics get a diverging ramp centred on zero and no
+>    quantile classing; everything else gets quantile classes on the sequential ramp.
+>
+> **Two things the epic found that nothing upstream had.** Both are recorded rather than
+> quietly patched:
+> - **Issue 1.11**, a data-quality defect: two of the six IMD domains have one and two
+>   distinct values across all 33 boroughs. They passed 31 QA checks; drawing them on a map
+>   took a second.
+> - A **516 KB client-bundle regression** inherited from 3.1, in which every visitor
+>   downloaded all 6,001 observations to render the site header. Fixed in 3.8.
+>
+> **No runtime dependency was added for the whole epic.** No MapLibre, no d3, no chart
+> library — see 3.2 for the argument and its cost.
 
 ### Issue 3.1 — Responsive layout shell
-**Status: In progress**
+**Status: Done**
 **Branch:** `feat/frontend/layout-shell` · **Labels:** `frontend` `blocked-by:0.2` · **Estimate:** 2–3 hrs
 
 **Description:**
@@ -566,161 +637,340 @@ attributions. Mobile-first with a defined breakpoint where the map/controls stac
 (requirement: multi-device access).
 
 **Acceptance criteria:**
-- [ ] Renders correctly at 375 px, 768 px, 1280 px widths
-- [ ] Controls stack below the map on mobile
-- [ ] Data source attributions in footer (OGL licence compliance)
-- [ ] Lighthouse accessibility score ≥ 90 on the shell
+- [x] Renders correctly at 375 px, 768 px, 1280 px widths
+- [x] Controls stack below the map on mobile
+- [x] Data source attributions in footer (OGL licence compliance)
+- [x] Lighthouse accessibility score ≥ 90 on the shell
 
-**Note:** currently a bare scaffold — `layout.tsx` has no header, navigation or footer.
-Attribution must name ONS, MHCLG, HMRC and data.police.uk, and carry the Ordnance Survey +
-ONS rights statement that comes with the boundary data.
+**Delivered as:** three routes (`/`, `/insights`, `/methodology`); the scaffold's `/one`
+placeholder is removed. The dashboard is one grid — single column to 1024px, where the map
+takes two thirds and the controls move alongside. DOM order never diverges from visual
+order, so reading and tab sequence match at every width.
+
+**Verification, not assertion.** The last two criteria were measurable, so they are
+measured: `web/e2e/shell.spec.ts` renders the real production build at all three widths and
+runs **axe-core** over every route at each, against the same `wcag2a/2aa/21a/21aa` rule set
+Lighthouse scores its accessibility category on. 28 checks, in CI. They also assert no
+horizontal overflow, reachable navigation, and 44px minimum touch targets. Screenshots at
+each width are in `documentation/screenshots/`.
+
+Two real faults were caught this way and fixed:
+
+- **Contrast.** `--text-muted` is 3.50:1 on the light surface — the palette's chart-chrome
+  colour, under the 4.5:1 AA floor. It had been used for captions and footer prose; 17
+  nodes failed. Prose now uses `--text-secondary` (7.73:1), and the token carries a comment
+  saying it is for axis labels only.
+- **A scrollable region with no keyboard access.** The methodology coverage table scrolls
+  horizontally at 375px and could not be scrolled by keyboard.
+
+**Beyond the criteria:**
+
+- **Design tokens for the whole epic.** `app/globals.css` defines surfaces, ink,
+  categorical, sequential, diverging, status and no-data as CSS custom properties. The
+  categorical slots were run through a palette validator rather than eyeballed — all-pairs,
+  both modes, worst CVD ΔE 9.2 light / 9.4 dark against a ≥8 target — and capped at three,
+  because a fourth slot puts yellow beside orange and fails the floor for scatter and
+  choropleth. 3.2 onwards read these roles and add no raw hex.
+- **Dark mode is selected, not flipped.** Its own steps for the dark surface, with a stored
+  choice beating the OS setting in both directions, applied before first paint.
+- **Live figures.** The shell reads the coverage matrix, so 33 boroughs, 19 metrics and the
+  window are real. Footer attributions are derived from each metric's `source` rather than
+  typed, and the partial-coverage note is generated — it cannot drift from the data.
+
+**One architectural fix this surfaced:** `lib/data.ts` had a `node:fs` import for the
+GeoJSON reader, and the header is a client component that reaches it through `lib/site.ts`.
+Type-check and lint both accepted that; only `next build` rejected it. Filesystem access
+moved to `lib/geo.ts` behind the `server-only` marker, so the same mistake now fails with
+its cause named.
 
 ---
 
 ### Issue 3.2 — Choropleth map component
-**Status: Planned**
+**Status: Done**
 **Branch:** `feat/frontend/choropleth-map` · **Labels:** `frontend` `blocked-by:2.1` `blocked-by:2.2` `blocked-by:3.1` · **Estimate:** 5–6 hrs
 
 **Description:**
-Render the borough choropleth with MapLibre GL via react-map-gl, joining `/api/geo` geometry
-to `/api/metrics` values. Colour scale via d3-scale with a legend component.
+Render the borough choropleth, joining boundary geometry to metric values. Colour scale with a
+legend component.
 
 **Acceptance criteria:**
-- [ ] All 33 boroughs render and colour by the selected metric
-- [ ] Legend reflects the active scale and units
-- [ ] Touch pan/zoom works on mobile
-- [ ] No-data boroughs styled distinctly, not omitted
-- [ ] Boroughs listed in the metric's `boroughs_missing` render in the no-data style — City of London on well-being and life expectancy is the live case, not hypothetical
-- [ ] Colour scale direction follows the metric's `direction`; a `higher_is_worse` metric is not coloured like a `higher_is_better` one
-- [ ] Legend units come from the metric's `unit`, and diverging metrics (`standardised`) use a scale centred on zero
+- [x] All 33 boroughs render and colour by the selected metric
+- [x] Legend reflects the active scale and units
+- [x] Touch pan/zoom works on mobile
+- [x] No-data boroughs styled distinctly, not omitted
+- [x] Boroughs listed in the metric's `boroughs_missing` render in the no-data style — City of London on well-being and life expectancy is the live case, not hypothetical
+- [x] Colour scale direction follows the metric's `direction`; a `higher_is_worse` metric is not coloured like a `higher_is_better` one
+- [x] Legend units come from the metric's `unit`, and diverging metrics (`standardised`) use a scale centred on zero
 
-**Technologies:** MapLibre GL JS, react-map-gl, d3-scale · **Alternatives:** Leaflet + react-leaflet, deck.gl
+**Delivered as** an inline SVG map, **not MapLibre GL**. The decision and its cost are recorded
+here because the plan named MapLibre as the likely technology:
+
+- The map is 33 static polygons with no basemap. MapLibre's value is tiles, labels and a style
+  pipeline. Using it here means either a third-party tile endpoint — a network dependency, an API
+  key and an attribution obligation this project does not otherwise carry — or a style with no
+  basemap, which is ~900 KB of WebGL to fill polygons.
+- It renders into a canvas, which is one opaque node to a screen reader and to axe, and which
+  Playwright cannot assert on without pixel diffing. Issue 3.8 asks for a *measured* accessibility
+  pass, so an SVG the tests can read is worth more than a GPU this does not need.
+- **The cost, stated:** no basemap context and no street detail. Pan and zoom operate on the SVG
+  viewBox instead, so the touch criterion is met, but a reader cannot zoom in to see roads. For a
+  borough-level choropleth that is the right trade; for a point map of individual crimes it would
+  not be. **No new runtime dependency was added for the whole epic** — projection, scales, ticks
+  and the correlation are about 400 lines of tested code against ~250 KB of library.
+
+**Projection.** Exact Web Mercator, hand-written and checked against the closed form at known
+latitudes (`tests/projection.test.ts`), computed **on the server**: the browser receives 33 path
+strings in viewBox units rather than 171 KB of longitude/latitude pairs it would have to project on
+every render. The join to metric values is on GSS code, and the test that proves it reorders the
+borough list — the pipeline currently writes both files in the same order, so a positional join
+would pass by luck today and silently draw every borough with its neighbour's outline the moment
+either file is re-sorted.
+
+**Colour.** Three rules, all read from `coverage.json`, none guessable from the values:
+
+- **Darker = worse, for every metric.** `higher_is_worse` runs light→dark with value;
+  `higher_is_better` runs dark→light. So crime and median income can be compared without
+  relearning the ramp. `neutral` metrics get no better/worse claim at all.
+- **Quantile classes, not equal intervals.** City of London's crime rate is 671 per 1,000 against a
+  median of 113; seven equal intervals put 32 boroughs in the lowest class. The cost — quantiles
+  flatten magnitude — is paid back by printing the real break values in the legend and by 3.3's
+  exclusion control.
+- **Diverging metrics are centred on zero and do NOT use quantiles.** The IMD health domain runs
+  −1.4 to +0.4, whose observed midpoint is −0.5; putting the neutral colour there would destroy the
+  only thing a diverging ramp is for.
+
+**No-data is a hatch as well as a colour** (`<pattern>` + `--no-data`), because a mid grey between a
+pale ramp step and a dark one is exactly where colour alone fails.
+
+**Accessibility.** The SVG is `role="img"` with a description naming the metric, the year and how
+many boroughs have no data. It is not the keyboard path and does not pretend to be — 33 focusable
+polygons in geographic order is a tab sequence nobody can hold in their head. A **borough table**
+beneath it carries the same values, the same selection and the same no-data states, one tab stop
+per row, and doubles as the exact-value view for everyone.
 
 ---
 
 ### Issue 3.3 — Metric switcher and feature toggles
-**Status: Planned**
+**Status: Done**
 **Branch:** `feat/frontend/metric-controls` · **Labels:** `frontend` `blocked-by:3.2` · **Estimate:** 3–4 hrs
 
-**Description:**
-Control panel to switch the mapped metric and toggle features on/off — hide/show metrics in
-the comparison views and exclude boroughs (e.g. remove the City of London outlier) from
-scales and charts (requirement: adjustable parameters).
-
 **Acceptance criteria:**
-- [ ] Metric switch re-renders map + legend without reload
-- [ ] Borough exclusion recomputes colour scale and charts
-- [ ] State held in URL query params (shareable views)
-- [ ] Keyboard accessible
-- [ ] The metric list is built from `coverage.json`, with labels from `label` — no hardcoded metric names
-- [ ] Switching between IMD domains rebuilds the scale rather than reusing it, since the domains do not share units
+- [x] Metric switch re-renders map + legend without reload
+- [x] Borough exclusion recomputes colour scale and charts
+- [x] State held in URL query params (shareable views)
+- [x] Keyboard accessible
+- [x] The metric list is built from `coverage.json`, with labels from `label` — no hardcoded metric names
+- [x] Switching between IMD domains rebuilds the scale rather than reusing it, since the domains do not share units
 
-**Technologies:** React state, Next.js searchParams · **Alternatives:** Zustand/Redux (unnecessary at this scale)
+**Delivered as** a native `<select>` with `<optgroup>`, grouped by metric family derived from the
+data. Nothing about the 19 metrics is typed into the component: a metric added to the pipeline
+appears without a code change, and one removed cannot linger as a dead option. A native select is
+keyboard-correct and screen-reader-correct with no ARIA of ours, and on a phone it opens the
+platform picker.
+
+**Exclusions** drop a borough from the colour classes, the correlation and the summary figures, and
+draw it faded on the map rather than removing it — a hole in the map reads as missing data, which is
+a different claim from "the reader took this one out". The per-borough checkboxes live in the
+borough table, where the value they affect is already visible; the control panel carries only the
+one exclusion the data argues for (City of London, ~8,000 residents).
+
+**URL state** is mirrored with `window.history.replaceState`, not the router. **Trade-off:** the
+back button does not step through metric changes. A router navigation would re-run the route on
+every drag of the year slider for state that is entirely client-side; for a dashboard whose whole
+state is one shareable URL this is the right way round. The **initial** state is parsed on the
+server from the request's search params, so a shared link renders correctly in the first HTML
+instead of flashing the default view.
+
+**A stale link explains itself.** Unlike the API — which rejects unknown parameters, because a
+silently dropped `?metrics=` returns everything and looks like it worked — a page URL ignores
+unknown parameters (it collects `utm_source` from anything that links to it) but reports every
+value it could not honour in a visible notice. `?metric=not_a_metric&year=1999` renders a working
+dashboard and says what it did with each.
 
 ---
 
 ### Issue 3.4 — Year slider with crime trend
-**Status: Planned**
+**Status: Done**
 **Branch:** `feat/frontend/year-slider` · **Labels:** `frontend` `blocked-by:3.2` · **Estimate:** 2–3 hrs
 
-**Description:**
-Year slider scrubbing the crime layer across the window, with debounced updates and the
-active year displayed prominently.
-
 **Acceptance criteria:**
-- [ ] Slider covers the full window; map updates ≤ 150 ms after release
-- [ ] Disabled/static for snapshot-only metrics (IMD), with explanatory hint
-- [ ] Usable by touch on mobile
-- [ ] Slider range and enabled years come from `/api/meta` per selected metric — no hardcoded ranges
-- [ ] Snapshot metrics (IMD) render as discrete selectable points, not a continuous slider
-- [ ] Partial years visually marked and excluded from year-on-year comparisons
-- [ ] Metrics whose series ends early show the end of their own range, not the global one — well-being stops at 2022 while crime runs to 2024
+- [x] Slider covers the full window; map updates ≤ 150 ms after release
+- [x] Disabled/static for snapshot-only metrics (IMD), with explanatory hint
+- [x] Usable by touch on mobile
+- [x] Slider range and enabled years come from each metric's coverage — no hardcoded ranges
+- [x] Snapshot metrics (IMD) render as discrete selectable points, not a continuous slider
+- [x] Partial years visually marked and excluded from year-on-year comparisons
+- [x] Metrics whose series ends early show the end of their own range, not the global one
 
-**Technologies:** React, Radix UI slider (or native input) · **Alternatives:** animated auto-play timeline (defer to v2)
+**Delivered as** two controls chosen by `cadence`. Annual metrics get a slider **indexed by position
+in the metric's own year list**, not by year number, so a gap in a series cannot be scrubbed into —
+dragging a handle through a year the source never collected would be interpolation by interface.
+Snapshot metrics get radio buttons: IMD is two snapshots four years apart, and a slider across them
+invites a reader to look for 2017 and read the absence as a dip.
+
+Ranges come from the selected metric, never the global window — crime runs to 2024 and well-being
+stops at 2022, so a shared slider leaves two years of empty map with no explanation. Switching to a
+shorter metric snaps the year and **says so** in the notice region.
+
+The render is immediate and only the **URL write** is debounced (150 ms), which is what "debounced
+updates" and "≤150 ms after release" mean in practice. The slider is 44 px tall, because the native
+track is about 4 px.
 
 ---
 
 ### Issue 3.5 — Borough tooltip and detail panel
-**Status: Planned**
+**Status: Done**
 **Branch:** `feat/frontend/borough-detail` · **Labels:** `frontend` `blocked-by:3.2` · **Estimate:** 3–4 hrs
 
-**Description:**
-Hover tooltip (desktop) and tap-to-open detail panel (mobile) showing all metrics for the
-selected borough and year, with borough rank per metric for at-a-glance comparison.
-
 **Acceptance criteria:**
-- [ ] Hover shows tooltip on desktop; tap opens panel on touch devices
-- [ ] All metrics with units and borough rank (n/33)
-- [ ] Panel dismissible and keyboard navigable
-- [ ] Rank denominator reflects the metric's actual borough coverage — n/32 where City of London is absent, not n/33
-- [ ] A metric with no value for that borough-year says why (suppressed, no denominator, outside its series), rather than showing a blank
+- [x] Hover shows tooltip on desktop; tap opens panel on touch devices
+- [x] All metrics with units and borough rank (n/33)
+- [x] Panel dismissible and keyboard navigable
+- [x] Rank denominator reflects the metric's actual borough coverage — n/32 where City of London is absent, not n/33
+- [x] A metric with no value for that borough-year says why (suppressed, no denominator, outside its series), rather than showing a blank
 
-**Technologies:** React, MapLibre events · **Alternatives:** permanent sidebar (weaker on mobile)
+**Delivered as** a panel rather than a modal — a modal needs a focus trap and an inert background
+and buys nothing here, since the map underneath stays useful and at 375 px the panel is simply the
+next thing down the page. Focus moves to the heading on open; Escape and a Close button dismiss it.
+
+**Ranks use each metric's own coverage.** Well-being and life expectancy are n/32. Printing n/33
+would assert a position for City of London that the source refuses to estimate. Ranks are
+competition-ranked, so ties share a rank and the panel says how many are tied — which is how
+`imd_employment_score` reads as "1st of 33 (tied with 32)" rather than as a meaningful first place.
+
+**An empty cell says which kind of empty it is.** "Not published for City of London — the resident
+population is too small", "IMD exists only for 2015 and 2019, not 2023", and "no value published for
+Camden in 2019" are three different facts about three different things, and a blank collapses them
+into one unhelpful one.
+
+**A metric whose series does not reach the selected year shows its nearest published year, labelled
+as such.** Showing nothing for every IMD domain because the reader is on 2023 would be correct and
+useless; showing the 2019 value as though it were 2023 would be worse.
+
+The hover tooltip is mouse-only and `aria-hidden`: everything in it is in the table and the panel,
+both reachable, and a tooltip that is also a live region announces on every pixel of movement.
 
 ---
 
 ### Issue 3.6 — Crime-vs-metric scatterplot
-**Status: Planned**
+**Status: Done**
 **Branch:** `feat/frontend/scatterplot` · **Labels:** `frontend` `blocked-by:3.3` · **Estimate:** 4–5 hrs
 
-**Description:**
-Scatterplot of crime rate against the selected social-determinant metric, one point per
-borough, with hover labels and a fitted trend line + correlation coefficient. This is the
-component that makes the project's core association visible. Respects borough exclusions
-from 3.3.
-
 **Acceptance criteria:**
-- [ ] Points update with metric/year selection and exclusions
-- [ ] Pearson r displayed with a "correlation ≠ causation" footnote
-- [ ] Hovering a point highlights the borough on the map (linked brushing)
-- [ ] Renders legibly at mobile widths
-- [ ] Mismatched series pair on nearest-available-year; the pairing is printed on the chart (e.g. "crime 2019 × IMD 2019")
-- [ ] No silent interpolation anywhere
-- [ ] Axis/legend language is associative ("crime rate vs median income"), never causal
-- [ ] Where the two series use different `year_rule` values, the printed pairing says so — pairing a calendar year against a rolling period ending that year is not the same as pairing two calendar years
-- [ ] Boroughs missing from either series are dropped from the fit and the dropped count is shown, not silently excluded
+- [x] Points update with metric/year selection and exclusions
+- [x] Pearson r displayed with a "correlation ≠ causation" footnote
+- [x] Hovering a point highlights the borough on the map (linked brushing)
+- [x] Renders legibly at mobile widths
+- [x] Mismatched series pair on nearest-available-year; the pairing is printed on the chart
+- [x] No silent interpolation anywhere
+- [x] Axis/legend language is associative, never causal
+- [x] Where the two series use different `year_rule` values, the printed pairing says so
+- [x] Boroughs missing from either series are dropped from the fit and the dropped count is shown
 
-**Technologies:** visx or D3, React · **Alternatives:** Recharts (faster, less control), Observable Plot
+**Delivered as** hand-drawn SVG with an OLS fit and Pearson r computed in `lib/stats.ts`. Most of
+the work is in what it refuses to do: it never interpolates (each series is taken at its own nearest
+published year and **both** years are printed); it names the year rules when they differ, because
+"2019 × 2019" hides that one covers 2017–2019 and the other April 2019 to March 2020; and it counts
+what it dropped rather than absorbing it into a quieter n.
+
+**Legibility at 375 px** is handled by measuring the container with a `ResizeObserver` and drawing in
+real pixels, so a 12 px axis label is 12 px at every width. A fixed viewBox scaled by CSS shrinks the
+type with the chart, which is how a scatter becomes unreadable on a phone while looking fine on the
+machine it was built on.
+
+**Two faults this component surfaced:**
+
+- **A fit with no data behind it.** The zero-variance guard was written as `sxx === 0`, which is not
+  the test that holds: 33 identical values of 0.1 have a mean of 0.10000000000000002, so the sum of
+  squared deviations is ~5.8e-34 rather than 0 — enough to return a slope and an r made entirely of
+  rounding error. `imd_employment_score` is exactly this case. The guard is now a
+  magnitude-relative tolerance, and the chart says "no variation between boroughs at this
+  precision" instead of drawing a line.
+- **A fitted line drawn outside the plot.** The line ran to the padded domain edges, which for a
+  steep fit is off the chart and over the axis labels — implying values the chart is not showing.
+  It is clipped to the plotting rectangle.
 
 ---
 
 ### Issue 3.7 — KPI summary panel
-**Status: Planned**
+**Status: Done**
 **Branch:** `feat/frontend/kpi-panel` · **Labels:** `frontend` `blocked-by:3.3` · **Estimate:** 2–3 hrs
 
-**Description:**
-At-a-glance KPI strip: highest/lowest borough for the active metric, London-wide average,
-and long-run change for crime (requirement: signal insight at a glance).
-
 **Acceptance criteria:**
-- [ ] Four KPI cards update with metric/year selection
-- [ ] Trend arrows with correct direction semantics (falling crime = positive)
-- [ ] Cards wrap cleanly on mobile
-- [ ] Arrow semantics are read from the metric's `direction`, not hardcoded — a falling anxiety score is good, a falling life expectancy is not
-- [ ] "Highest" and "lowest" are labelled by meaning (most/least deprived, best/worst) rather than by raw value, so a `higher_is_worse` metric does not read as a league table won by the worst borough
-- [ ] Long-run change endpoints skip partial years
+- [x] Four KPI cards update with metric/year selection
+- [x] Trend arrows with correct direction semantics (falling crime = positive)
+- [x] Cards wrap cleanly on mobile
+- [x] Arrow semantics are read from the metric's `direction`, not hardcoded
+- [x] "Highest" and "lowest" are labelled by meaning rather than by raw value
+- [x] Long-run change endpoints skip partial years
 
-**Technologies:** React, Tailwind CSS · **Alternatives:** sparklines per card (defer to v2)
+**Delivered as** four cards whose wording is derived from `direction`: the extremes read "Highest —
+the worse end" and "Lowest — the worse end", so the same card is always the bad one and a reader is
+never invited to congratulate the borough with the most burglaries. `neutral` metrics get plain
+"Highest"/"Lowest" and no judgement. **The arrow is never the only signal** — "improving" /
+"worsening" is spelled out, so the meaning survives greyscale, colour blindness and a screen reader.
+
+**Two refusals:**
+
+- **No long-run change across IMD snapshots.** The pipeline already drops the 2015 and 2019 ranks as
+  non-comparable; presenting a change between their scores as a trend puts a number on something the
+  source does not support. The card says "Two snapshots four years apart are not a trend."
+- **No "highest" and "lowest" that are the same borough.** Where a metric has no variation the cards
+  collapse to one reading "No variation between boroughs", because naming Barking and Dagenham as
+  both the highest and the lowest is technically true and reads as a bug.
+
+The London figure is labelled a **borough mean, unweighted** — a population-weighted mean is a
+different quantity, dominated by the large outer boroughs, and the unit of analysis throughout this
+project is the borough.
 
 ---
 
 ### Issue 3.8 — Cross-device and accessibility pass
-**Status: Planned**
+**Status: Done**
 **Branch:** `fix/frontend/responsive-a11y` · **Labels:** `frontend` `qa` `blocked-by:3.4` `blocked-by:3.5` `blocked-by:3.6` `blocked-by:3.7` · **Estimate:** 3–4 hrs
 
-**Description:**
-Systematic pass on real or emulated devices (small phone, tablet, desktop): touch targets
-≥ 44 px, contrast ratios, focus order, screen-reader labels on controls, and a
-colour-blind-safe palette check for the choropleth.
-
 **Acceptance criteria:**
-- [ ] All interactions usable at 375 px width with touch only
-- [ ] Lighthouse accessibility ≥ 95 on the main page
-- [ ] Choropleth palette passes a deuteranopia simulation
-- [ ] No horizontal scroll at any breakpoint
-- [ ] The no-data style is distinguishable from the palette's extremes without relying on colour alone
+- [x] All interactions usable at 375 px width with touch only
+- [x] Lighthouse accessibility ≥ 95 on the main page
+- [x] Choropleth palette passes a deuteranopia simulation
+- [x] No horizontal scroll at any breakpoint
+- [x] The no-data style is distinguishable from the palette's extremes without relying on colour alone
 
-**Technologies:** Lighthouse, Chrome DevTools device emulation · **Alternatives:** BrowserStack for real-device coverage
+**Delivered as measurement, not assertion.** `web/e2e/dashboard.spec.ts` is **53 checks** against the
+real production build, joining 3.1's 28 for **81 browser checks** in CI, alongside **139 unit
+tests**. Every criterion above is a check:
+
+- **axe-core** over four dashboard states — default, a 32-borough metric, a diverging metric, and one
+  with a detail panel and an exclusion open — at 375 / 768 / 1280 px. Zero violations against the
+  same `wcag2a/2aa/21a/21aa` rule set Lighthouse scores its accessibility category on.
+- **Touch targets** measured on the *effective* target: for a checkbox wrapped in a label, WCAG 2.5.5
+  measures the label, so the test resolves to it — but a checkbox with no wrapping label is still
+  reported as a 16 px target rather than skipped.
+- **Deuteranopia** simulated with the Machado et al. (2009) matrix at severity 1.0, applied in
+  *linear* RGB (the usual shortcut of applying it to gamma-encoded sRGB exaggerates separation in
+  the shadows, which is the region a sequential ramp depends on). The property tested is the one
+  that makes a sequential ramp CVD-safe: lightness ordering must survive the simulation, so a
+  deuteranope can still say which of two swatches is higher. The diverging poles are checked for
+  ΔE separation — blue against red rather than red against green is why this passes.
+- **No-data without colour**: the `<pattern>` exists, exactly one borough uses it on a 32-borough
+  metric, and the word "no data" appears in both the legend and the table.
+
+**Two guards were verified by deliberately breaking the code** and confirming they fail:
+
+1. Making `darkIsHigh()` ignore `direction`. The unit test caught it — but **the browser test did
+   not**, because it only checked the legend's caption, which is generated by a different code path
+   from the fills. A build that ignored `direction` entirely still printed "Darker means lower" over
+   a ramp running the other way. The test now reads the painted colours and asserts the lightness
+   ordering flips between a `higher_is_worse` and a `higher_is_better` metric.
+2. Making `rankOf()` use 33 as the denominator regardless of coverage. Caught by both.
+
+**One measured regression fixed, inherited from 3.1.** `components/site-header.tsx` is a client
+component; it imported `lib/site.ts`, which imported `lib/data.ts`, which imports the 516 KB
+observation export. Turbopack could not drop it, so **every visitor downloaded all 6,001
+observations in order to render the word "Dashboard" in the header** — confirmed by grepping the
+built chunk for `{"borough_gss":…}` and finding 6,001 of them. The coverage matrix now lives in
+`lib/coverage.ts` (9 KB, client-safe) and the bulk export sits behind a `server-only` marker in
+`lib/data.ts`. Client JavaScript fell from 1.2 MB to 716 KB.
 
 ---
 
