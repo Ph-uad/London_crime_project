@@ -1,5 +1,7 @@
+import "server-only";
+
 /**
- * The single place that knows where pipeline output lives.
+ * The full borough observation export — server-side only.
  *
  * `boroughs.json` and `coverage.json` are imported through the `@data/*` alias
  * (see tsconfig paths → `../data/processed/*`), so they are resolved and bundled
@@ -8,48 +10,38 @@
  * step, no second source of truth, no chance of the API serving a stale copy the
  * pipeline has already replaced.
  *
- * `london.geojson` cannot use the same route — TypeScript's `resolveJsonModule`
- * and the bundler only treat `.json` as a JSON module, and `.geojson` is not
- * that. It is read from disk instead, with `next.config.ts` tracing the file into
- * the deployment bundle. Renaming the pipeline output to `.json` would have been
- * simpler, but `london.geojson` is what issue 1.10's acceptance criteria name.
+ * WHY `server-only`. This module pulls in 516 KB of observations. Nothing in the
+ * browser needs them: the dashboard runs on the compact index built by
+ * `lib/series.ts` and passed down as a prop, and the API routes serve the rest
+ * over HTTP. The marker turns "a client component reached this" from a silent
+ * half-megabyte in the bundle — which is what it was, measured in the built
+ * chunk — into a build failure naming the cause.
+ *
+ * Client-reachable code imports `lib/coverage.ts` instead. The coverage matrix
+ * is re-exported here so server callers still have one import site.
  */
-import { readFileSync } from "node:fs";
-import path from "node:path";
-
 import boroughsJson from "@data/boroughs.json";
-import coverageJson from "@data/coverage.json";
 
-import type {
-  BoroughFeatureCollection,
-  BoroughRef,
-  BoroughsExport,
-  CoverageMatrix,
-  MetricCoverage,
-  Observation,
-} from "./types";
+import { coverage } from "./coverage";
+import type { BoroughRef, BoroughsExport, MetricCoverage, Observation } from "./types";
+
+export {
+  analysisWindow,
+  boroughCodes,
+  boroughs,
+  coverage,
+  metricCoverage,
+  metricIds,
+} from "./coverage";
 
 export const boroughsExport = boroughsJson as unknown as BoroughsExport;
-export const coverage = coverageJson as unknown as CoverageMatrix;
 
 export const observations: readonly Observation[] = boroughsExport.observations;
-export const boroughs: readonly BoroughRef[] = coverage.boroughs;
-export const analysisWindow = coverage.window;
 
-/** Metric ids the API will serve, sorted for stable error messages. */
-export const metricIds: readonly string[] = Object.keys(coverage.metrics).sort();
-
-/** GSS codes of all 33 boroughs — the union across metrics, not any one metric's coverage. */
-export const boroughCodes: ReadonlySet<string> = new Set(boroughs.map((b) => b.gss));
-
-/** Sorting Every year present anywhere in the export. */
+/** Every year present anywhere in the export. */
 export const allYears: readonly number[] = Array.from(
   new Set(observations.map((o) => o.year)),
 ).sort((a, b) => a - b);
-
-export function metricCoverage(id: string): MetricCoverage | undefined {
-  return coverage.metrics[id];
-}
 
 /**
  * The observations matching a filter. `null` for a field means "no filter on it".
@@ -82,24 +74,5 @@ export function coverageFor(rows: readonly Observation[]): Record<string, Metric
   return out;
 }
 
-/**
- * The borough polygons. Read lazily and cached, so a build that never calls
- * /api/geo does not pay for it, and a missing file surfaces as a clear API error
- * rather than a crash at module load.
- */
-let geoCache: BoroughFeatureCollection | null = null;
-
-export const GEOJSON_PATH = path.join(
-  process.cwd(),
-  "..",
-  "data",
-  "processed",
-  "london.geojson",
-);
-
-export function boroughGeoJson(): BoroughFeatureCollection {
-  if (geoCache) return geoCache;
-  const raw = readFileSync(GEOJSON_PATH, "utf8");
-  geoCache = JSON.parse(raw) as BoroughFeatureCollection;
-  return geoCache;
-}
+/** Re-exported so callers do not need a second import for the borough list type. */
+export type { BoroughRef };

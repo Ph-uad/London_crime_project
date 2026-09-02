@@ -13,4 +13,8 @@ const nextConfig: NextConfig = {
   },
 };
 
+module.exports = {
+  allowedDevOrigins: ['http://localhost:3000'],
+};
+
 export default nextConfig;
