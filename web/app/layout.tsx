@@ -15,13 +15,20 @@ export const metadata: Metadata = {
  * the OS theme and then swaps, which is a visible flash and, for a viewer who
  * chose light on a dark OS, a flash of exactly the thing they opted out of.
  */
-// const THEME_INIT = `try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t}}catch(e){}`;
+const THEME_INIT = `try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.dataset.theme=t}}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className="h-full">
+    // suppressHydrationWarning is required, not decorative: THEME_INIT below
+    // stamps data-theme on this element before React hydrates, so the DOM
+    // deliberately carries an attribute the server did not render. Without this,
+    // React 19 treats it as a mismatch, and its recovery path is to re-render
+    // the subtree on the client — which can drop the attribute and produce a
+    // flash of the theme the reader opted out of. It is scoped to this element's
+    // own attributes and does not suppress warnings for the tree below.
+    <html lang="en-GB" className="h-full" suppressHydrationWarning>
       <head>
-        {/* <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} /> */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body className="flex min-h-full flex-col bg-[var(--page-plane)] text-[var(--text-primary)] antialiased">
         {/* First tab stop: lets a keyboard user reach the content without

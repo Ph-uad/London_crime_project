@@ -46,12 +46,24 @@ export function ThemeToggle() {
 
   const toggle = useCallback(() => {
     const next: Theme = readTheme() === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
+    const root = document.documentElement;
+    root.dataset.theme = next;
     try {
       localStorage.setItem("theme", next);
+      delete root.dataset.themePersisted;
     } catch {
-      // Private browsing can refuse storage. The toggle still works for this
-      // session; only persistence is lost, which is not worth surfacing.
+      // Private browsing, blocked site data, or a storage partition the browser
+      // has refused. The toggle still works for this session; only persistence
+      // is lost, and that is not worth interrupting the reader over.
+      //
+      // It IS worth recording. Swallowing this silently made a CI failure
+      // undiagnosable: the attribute above was set, so the click looked like it
+      // worked and the assertion on it passed — and then the choice vanished on
+      // the next page load, three assertions later, reported as a missing
+      // attribute with no hint that storage was the cause. A failed write is now
+      // a fact on the document, so a test (or a support question) can tell
+      // "the theme did not change" from "the theme changed but was not saved".
+      root.dataset.themePersisted = "false";
     }
   }, []);
 

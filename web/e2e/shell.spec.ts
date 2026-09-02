@@ -113,8 +113,68 @@ test.describe("theme", () => {
     await page.getByRole("button", { name: /switch to light theme/i }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 
+    // Persistence is a SEPARATE claim from the attribute, and it is the one the
+    // reload depends on. Checking it here is not belt and braces: the toggle
+    // stamps the attribute first and writes to storage second, so a failed write
+    // leaves the assertion above passing and the one after the reload failing,
+    // with nothing in the log connecting the two. That is precisely how this
+    // test failed in CI and could not be diagnosed. Now a storage failure is
+    // reported as a storage failure, at the line where it happens.
+    const stored = await page.evaluate(() => {
+      try {
+        return { value: localStorage.getItem("theme"), error: null as string | null };
+      } catch (e) {
+        return { value: null, error: String(e) };
+      }
+    });
+    expect(
+      await page.locator("html").getAttribute("data-theme-persisted"),
+      "the toggle reported that writing the theme to localStorage failed",
+    ).toBeNull();
+    expect(stored, "the theme choice was not written to localStorage").toEqual({
+      value: "light",
+      error: null,
+    });
+
     await page.reload();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+
+    // The attribute alone only proves the inline head script ran. The toggle
+    // offering the way back proves the choice also survived hydration, which is
+    // the other way this could regress.
+    await expect(page.getByRole("button", { name: /switch to dark theme/i })).toBeVisible();
+    await ctx.close();
+  });
+
+  test("a browser that refuses storage degrades visibly, not silently", async ({ browser }) => {
+    // The regression test for a CI failure that could not be reproduced locally.
+    // The toggle stamps data-theme first and writes to localStorage second, and
+    // the write was wrapped in a catch that swallowed everything. So a refused
+    // write left the click looking successful and the choice gone on the next
+    // load, reported as a missing attribute with no mention of storage.
+    //
+    // This pins the contract: the theme still changes for the session, and the
+    // failure to persist it is recorded on the document where a test — or
+    // someone reading a bug report — can see it.
+    const ctx = await browser.newContext({ colorScheme: "dark" });
+    await ctx.addInitScript(() => {
+      const real = Storage.prototype.setItem;
+      Storage.prototype.setItem = function (key: string, value: string) {
+        if (key === "theme") throw new DOMException("blocked", "SecurityError");
+        return real.call(this, key, value);
+      };
+    });
+    const page = await ctx.newPage();
+    await page.goto("/");
+    await page.getByRole("button", { name: /switch to light theme/i }).click();
+
+    // Still usable this session...
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+    // ...and the reason the next load will not remember it is on the record.
+    await expect(page.locator("html")).toHaveAttribute("data-theme-persisted", "false");
+
+    await page.reload();
+    expect(await page.locator("html").getAttribute("data-theme")).toBeNull();
     await ctx.close();
   });
 });

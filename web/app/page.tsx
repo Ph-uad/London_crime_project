@@ -23,16 +23,22 @@ import { FACTS, SITE } from "@/lib/site";
  * a parameterised dashboard, and the underlying data is still bundled at build
  * time, so there is no per-request I/O beyond the parse.
  */
-export default async function DashboardPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const params = await searchParams;
-  const { state, rejected } = parseState(params, coverage);
+/**
+ * Built once per process, not once per request.
+ *
+ * Reading `searchParams` makes this route dynamic, so its body runs on every
+ * request — but none of this depends on the request. `buildSeries` walks all
+ * 6,001 observations and allocates the whole index; without memoising it, every
+ * page view repeated that work and every concurrent view repeated it again.
+ * The data is bundled at build time and cannot change while the process lives,
+ * which is the same assumption behind the long `s-maxage` in lib/http.ts.
+ */
+let dashboardData: DashboardData | null = null;
 
+function buildDashboardData(): DashboardData {
+  if (dashboardData) return dashboardData;
   const geometry = boroughShapes(boroughs);
-  const data: DashboardData = {
+  dashboardData = {
     generatedUtc: coverage.generated_utc,
     boroughs: [...boroughs],
     metrics: coverage.metrics,
@@ -42,6 +48,17 @@ export default async function DashboardPage({
     viewBox: geometry.viewBox,
     window: coverage.window,
   };
+  return dashboardData;
+}
+
+export default async function DashboardPage({
+  searchParams,
+}: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const params = await searchParams;
+  const { state, rejected } = parseState(params, coverage);
+  const data = buildDashboardData();
 
   const annual = Object.values(coverage.metrics).filter((m) => m.cadence === "annual").length;
 

@@ -598,7 +598,7 @@ degrees — British National Grid eastings here would render the map in the Nort
 
 ## Epic 3 — Frontend
 
-> **Epic 3 is complete.** 3.1 through 3.8 are delivered, with **139 unit tests** and **81
+> **Epic 3 is complete.** 3.1 through 3.8 are delivered, with **139 unit tests** and **82
 > browser checks** — axe-core over every route and four dashboard states at 375 / 768 /
 > 1280 px — running in CI against the real production build.
 >
@@ -937,7 +937,7 @@ project is the borough.
 - [x] The no-data style is distinguishable from the palette's extremes without relying on colour alone
 
 **Delivered as measurement, not assertion.** `web/e2e/dashboard.spec.ts` is **53 checks** against the
-real production build, joining 3.1's 28 for **81 browser checks** in CI, alongside **139 unit
+real production build, joining 3.1's 29 for **82 browser checks** in CI, alongside **139 unit
 tests**. Every criterion above is a check:
 
 - **axe-core** over four dashboard states — default, a 32-borough metric, a diverging metric, and one
@@ -963,6 +963,29 @@ tests**. Every criterion above is a check:
    a ramp running the other way. The test now reads the painted colours and asserts the lightness
    ordering flips between a `higher_is_worse` and a `higher_is_better` metric.
 2. Making `rankOf()` use 33 as the denominator regardless of coverage. Caught by both.
+
+**A CI-only failure, and what it exposed.** The first CI run failed on 3.1's theme test at
+the assertion *after* a page reload, having passed the assertion three lines earlier. It could
+not be reproduced locally — 100+ runs, including under CI conditions with four workers — so it
+was diagnosed from the failure's shape instead. Exactly one code path produces it: the toggle
+stamped `data-theme` on the document and *then* wrote to `localStorage` inside a `catch` that
+swallowed everything. A refused write therefore left the click looking successful, the
+attribute assertion passing, and the choice gone on the next load — reported as a missing
+attribute with nothing in the log mentioning storage.
+
+Confirmed by making `localStorage.setItem` throw and observing the identical signature. Three
+changes: the toggle records a failed write as `data-theme-persisted="false"` rather than
+discarding it; the test asserts persistence at the point it happens, with a message that names
+it; and a new test pins the degradation contract — a browser that refuses storage still gets a
+working toggle for the session and a visible reason the next load will not remember it. Two
+supporting fixes went in with it: `suppressHydrationWarning` on `<html>`, which this pattern
+requires and which was missing since 3.1, and `trace: "on-first-retry"` plus trace upload in
+CI, so the next failure that only happens on a runner is diagnosed from evidence rather than
+from its shape.
+
+**One per-request performance defect fixed.** Reading `searchParams` makes the dashboard route
+dynamic, so its body runs on every request — and it was calling `buildSeries` over all 6,001
+observations each time, for a result that cannot change while the process lives. Memoised.
 
 **One measured regression fixed, inherited from 3.1.** `components/site-header.tsx` is a client
 component; it imported `lib/site.ts`, which imported `lib/data.ts`, which imports the 516 KB

@@ -130,7 +130,7 @@ To check the pipeline without raw data: `Rscript pipeline/tests/smoke.R`.
 - Interactive dashboard: borough choropleth, metric switcher and borough exclusions, a
   per-metric year control, a borough detail panel, a crime-vs-determinant scatterplot and a
   summary strip — all reading direction, scale, cadence and coverage from the matrix rather
-  than assuming them. 53 further browser checks, including a deuteranopia simulation of the
+  than assuming them. 54 further browser checks, including a deuteranopia simulation of the
   colour ramp. **No mapping or charting library**: the map is inline SVG over hand-written
   Web Mercator, which is what makes it readable by a screen reader and assertable by a test.
 

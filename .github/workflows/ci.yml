@@ -76,12 +76,18 @@ jobs:
       - name: Run browser checks
         run: npm run e2e --workspace web
 
-      - name: Upload report on failure
+      # The report is the summary; test-results holds the traces the config
+      # records on the first retry. A trace is the only way to diagnose a
+      # failure that happens on a runner and not on a developer's machine —
+      # without one, the log says an assertion failed and nothing about why.
+      - name: Upload report and traces on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: web/playwright-report/
+          path: |
+            web/playwright-report/
+            web/test-results/
           retention-days: 7
 
   pipeline:

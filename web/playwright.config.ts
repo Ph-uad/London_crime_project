@@ -17,6 +17,11 @@ export default defineConfig({
   use: {
     baseURL: "http://127.0.0.1:3210",
     ...devices["Desktop Chrome"],
+    // A failure that only happens on a CI runner is worth nothing without a
+    // record of it. The retry carries a trace — DOM snapshots, console, network
+    // and the exact state at each step — so the next intermittent failure is
+    // diagnosed from evidence rather than reproduced by guesswork.
+    trace: "on-first-retry",
     // Normally Playwright uses the browser it downloaded. Some CI images and
     // dev containers ship one already; point PW_CHROMIUM_PATH at it to skip the
     // download rather than pinning a version here.

@@ -156,16 +156,26 @@ about them are load-bearing:
 | `tests/scales.test.ts` | direction, quantile vs diverging classing, degenerate domains | 19 |
 | `tests/stats.test.ts` | rank denominators, OLS and *r*, partial-year handling | 26 |
 | `tests/url-state.test.ts` | parse, fall back, round-trip every metric | 19 |
-| `e2e/shell.spec.ts` | shell + axe at 375/768/1280 on every route | 28 |
+| `e2e/shell.spec.ts` | shell + axe at 375/768/1280 on every route; theme persistence | 29 |
 | `e2e/dashboard.spec.ts` | every 3.2–3.8 acceptance criterion, plus axe and CVD simulation | 53 |
 
-139 unit, 81 browser. The browser suite runs against a real production build.
+139 unit, 82 browser. The browser suite runs against a real production build.
 
 Two guards were checked by deliberately breaking the code: ignoring `direction`
 in the ramp, and ranking against 33 boroughs regardless of coverage. The first
 exposed a weak test — the browser check was reading the legend caption, which is
 generated separately from the fills, so it passed on the broken build. It now
 reads the painted colours.
+
+A third was found by CI rather than by design. The theme test failed on a runner
+and nowhere else, at the assertion after a reload, having passed the equivalent
+one three lines earlier. `ThemeToggle` set `data-theme` and *then* wrote to
+`localStorage` inside a `catch {}` that discarded the error, so a refused write
+looked like a successful click and lost the choice on the next load. A failed
+write is now recorded as `data-theme-persisted="false"`, the test asserts
+persistence where it happens, and a new test pins what a storage-refusing browser
+should get. Traces are captured on the first retry and uploaded by CI, so the next
+runner-only failure is diagnosed from evidence.
 
 ## Status
 

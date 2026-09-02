@@ -4,8 +4,11 @@
 **Covers:** issues 3.2 (choropleth), 3.3 (metric controls), 3.4 (year control),
 3.5 (borough detail), 3.6 (scatterplot), 3.7 (KPI panel), 3.8 (cross-device and
 accessibility pass).
-**Status at the end:** Epic 3 complete. 139 unit tests, 81 browser checks, all
+**Status at the end:** Epic 3 complete. 139 unit tests, 82 browser checks, all
 passing against a real production build.
+
+**Amended 2026-09-01,** after the first CI run failed on a test that passed
+locally. The finding is in §4; the body above it is unchanged.
 
 This is a record, not a living document. Current state is in
 [`../projects-plan.md`](../projects-plan.md) and [`../README.md`](../README.md).
@@ -192,6 +195,31 @@ put a number on something the source does not support. It now refuses for any
 **A fitted line drawn outside the plot**, over the axis labels, implying values the
 chart was not showing. Clipped.
 
+**A swallowed storage failure, found by CI and not by any local run.** The first CI run failed
+on the theme test at the assertion after a reload, having passed the equivalent assertion three
+lines earlier. It did not reproduce locally in 100+ attempts, including under CI conditions with
+four workers, so it was diagnosed from the failure's *shape*: only one code path can pass line
+114 and fail line 117. `ThemeToggle` set `document.documentElement.dataset.theme` and then wrote
+to `localStorage` inside a `catch {}` that discarded any error. A refused write left the
+attribute set — so the click looked successful — and the choice absent on the next load, three
+assertions away, with nothing connecting the two.
+
+Reproduced deliberately by making `setItem` throw, which produced the identical signature. The
+write failure is now recorded as `data-theme-persisted="false"` on the document, the test
+asserts persistence where it happens, and the degradation contract has its own test.
+
+The general lesson is the same one as the ramp-caption test: **a `catch` that discards the error
+and a test that asserts on a proxy both convert a specific failure into a vague one.** Neither
+is visible while things work.
+
+**A missing `suppressHydrationWarning`** on `<html>`, present since 3.1. The inline theme script
+deliberately puts an attribute on `<html>` that the server did not render; without the
+attribute, React 19 can treat that as a mismatch and re-render on the client, dropping it.
+
+**`buildSeries` running on every request.** The dashboard route is dynamic because it reads
+`searchParams`, so its body executes per request — including a walk over all 6,001 observations
+building a structure that cannot change while the process lives. Memoised.
+
 **A one-slot geometry cache** that any caller alternating between two borough lists
 would thrash, paying for a 6,587-vertex projection on every call while appearing to
 work. Now keyed.
@@ -214,7 +242,7 @@ reasonable proxy for a screen reader having the same problem.
 | `tests/scales.test.ts` | direction, quantile vs diverging, degenerate domains | 19 |
 | `tests/stats.test.ts` | rank denominators, OLS and *r*, partial years | 26 |
 | `tests/url-state.test.ts` | parse, fall back, round-trip every metric | 19 |
-| `e2e/shell.spec.ts` | shell + axe at three widths on every route | 28 |
+| `e2e/shell.spec.ts` | shell + axe at three widths on every route; theme persistence | 29 |
 | `e2e/dashboard.spec.ts` | every 3.2–3.8 criterion, axe, CVD simulation | 53 |
 
 Points worth naming:
