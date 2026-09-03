@@ -1,4 +1,4 @@
-# Epic 3 — the frontend, 3.2 to 3.8
+# Epic 3 : the frontend, 3.2 to 3.8
 
 **Date:** 2026-09-01
 **Covers:** issues 3.2 (choropleth), 3.3 (metric controls), 3.4 (year control),
@@ -26,7 +26,7 @@ One route, `/`, rendering a dashboard whose entire state is in the query string:
 | Component | Issue | File |
 |---|---|---|
 | Choropleth with pan/zoom, hatched no-data, legend | 3.2 | `components/dashboard/choropleth.tsx`, `legend.tsx` |
-| Borough table — the keyboard and screen-reader path | 3.2, 3.5 | `borough-table.tsx` |
+| Borough table : the keyboard and screen-reader path | 3.2, 3.5 | `borough-table.tsx` |
 | Metric switcher, borough exclusions | 3.3 | `metric-controls.tsx` |
 | Year slider / snapshot radios, per metric | 3.4 | `year-control.tsx` |
 | Borough detail, all 19 metrics with ranks | 3.5 | `borough-detail.tsx` |
@@ -49,9 +49,9 @@ The plan named MapLibre GL + react-map-gl for 3.2 and visx or D3 for 3.6. Neithe
 was used. The reasoning:
 
 - The map is **33 static polygons with no basemap**. MapLibre's value is tiles,
-  labels and a style pipeline. Using it means either a third-party tile endpoint —
+  labels and a style pipeline. Using it means either a third-party tile endpoint :
   a network dependency, an API key and an attribution obligation this project does
-  not otherwise carry — or a style with no basemap, which is ~900 KB of WebGL to
+  not otherwise carry : or a style with no basemap, which is ~900 KB of WebGL to
   fill polygons.
 - MapLibre renders into a **canvas**, which is one opaque node to a screen reader
   and to axe, and which Playwright cannot assert on without pixel diffing. Issue
@@ -63,7 +63,7 @@ was used. The reasoning:
 **What this cost.** No basemap and no street detail; pan and zoom operate on the
 SVG viewBox, so a reader cannot zoom in to see roads. For a borough choropleth
 that is right; for a point map of individual crimes it would not be. It also cost
-about 400 lines of code that had to be written and tested — against roughly 250 KB
+about 400 lines of code that had to be written and tested : against roughly 250 KB
 of library that would have arrived tested. The trade was taken because the
 accessibility and testability arguments are specific to this project's stated
 goals, not because dependencies are bad.
@@ -89,7 +89,7 @@ the delta; ranks put the worst borough at 1 for every directional metric.
 
 Sequential metrics use quantile breaks. City of London's crime rate is 671 per
 1,000 against a median of 113; seven equal intervals put 32 boroughs in the lowest
-class and produce a map of one dot. The cost — quantiles flatten magnitude — is
+class and produce a map of one dot. The cost : quantiles flatten magnitude : is
 paid back by printing the real break values in the legend and by 3.3's exclusion
 control, which exists so a reader can drop the outlier and re-class the rest.
 
@@ -105,12 +105,12 @@ metrics get an equal-interval scale symmetric about zero.
 Two things, neither of which anything upstream had caught. Both are recorded in
 the roadmap rather than quietly patched.
 
-### 3.1 Two IMD domains carry no borough-level variance — plan issue 1.11
+### 3.1 Two IMD domains carry no borough-level variance : plan issue 1.11
 
 | Metric | Scale | Distinct values across 33 boroughs (2019) |
 |---|---|---|
-| `imd_employment_score` | proportion | **1** — every borough is 0.1 |
-| `imd_income_score` | proportion | **2** — 0.1 and 0.2 |
+| `imd_employment_score` | proportion | **1** : every borough is 0.1 |
+| `imd_income_score` | proportion | **2** : 0.1 and 0.2 |
 | `imd_education_skills_and_training_score` | score | 29 |
 | `imd_health_deprivation_and_disability_score` | standardised | 17 |
 | `imd_living_environment_score` | score | 31 |
@@ -121,8 +121,8 @@ MHCLG publishes the income and employment domain averages as proportions in the
 every London borough lands in the same bucket. The four `score` and `standardised`
 domains are unaffected.
 
-`pipeline/11_tidy_imd.R` contains no rounding — it reads the
-`"<Domain> - Average score"` columns verbatim — so this is either the source file's
+`pipeline/11_tidy_imd.R` contains no rounding : it reads the
+`"<Domain> - Average score"` columns verbatim : so this is either the source file's
 own precision or a precision loss at acquisition. **It could not be resolved during
 this work because `data/raw/` has been cleared**, which is itself a finding: the
 recipe in `SOURCES.md` is now the only route back to the answer.
@@ -153,7 +153,7 @@ scope.
 
 Fixed by splitting: `lib/coverage.ts` holds the 9 KB matrix and is client-safe;
 `lib/data.ts` holds the bulk export behind a `server-only` marker. Client
-JavaScript fell from 1.2 MB to 716 KB. The marker is the enforcement — a repeat is
+JavaScript fell from 1.2 MB to 716 KB. The marker is the enforcement : a repeat is
 now a build failure naming the cause rather than a silent half megabyte.
 
 This is the same class of fault as the `node:fs` import that 3.1 found, and the
@@ -168,7 +168,7 @@ Recorded because each was caught by a check that could have been written to pass
 **A fit built out of rounding error.** The zero-variance guard in `fitLine` was
 `sxx === 0`, which is not the test that holds. Thirty-three identical values of 0.1
 have a mean of 0.10000000000000002, so each deviation is about −1.4e-17 and the sum
-of squared deviations is ~5.8e-34 — non-zero, and enough to return a slope and a
+of squared deviations is ~5.8e-34 : non-zero, and enough to return a slope and a
 correlation coefficient made entirely of floating-point residue.
 `imd_employment_score` is exactly this case, so the scatterplot would have shown a
 fitted line and an *r* with no data behind either. The guard is now a
@@ -176,7 +176,7 @@ magnitude-relative tolerance; real data clears it by twenty-odd orders of magnit
 
 **A weak test that passed on a broken build.** `darkIsHigh()` was deliberately
 changed to ignore `direction`. The unit test caught it. The browser test did
-**not** — it was reading the legend's caption, which is generated by a different
+**not** : it was reading the legend's caption, which is generated by a different
 code path from the fills, so a build that ignored `direction` entirely still
 printed "Darker means lower" over a ramp running the other way. The browser test
 now reads the painted colours and asserts the lightness ordering flips between a
@@ -201,7 +201,7 @@ lines earlier. It did not reproduce locally in 100+ attempts, including under CI
 four workers, so it was diagnosed from the failure's *shape*: only one code path can pass line
 114 and fail line 117. `ThemeToggle` set `document.documentElement.dataset.theme` and then wrote
 to `localStorage` inside a `catch {}` that discarded any error. A refused write left the
-attribute set — so the click looked successful — and the choice absent on the next load, three
+attribute set : so the click looked successful : and the choice absent on the next load, three
 assertions away, with nothing connecting the two.
 
 Reproduced deliberately by making `setItem` throw, which produced the identical signature. The
@@ -217,7 +217,7 @@ deliberately puts an attribute on `<html>` that the server did not render; witho
 attribute, React 19 can treat that as a mismatch and re-render on the client, dropping it.
 
 **`buildSeries` running on every request.** The dashboard route is dynamic because it reads
-`searchParams`, so its body executes per request — including a walk over all 6,001 observations
+`searchParams`, so its body executes per request : including a walk over all 6,001 observations
 building a structure that cannot change while the process lives. Memoised.
 
 **A one-slot geometry cache** that any caller alternating between two borough lists
@@ -262,7 +262,7 @@ Points worth naming:
   depends on. The property tested is the one that makes a sequential ramp CVD-safe:
   lightness ordering must survive the simulation.
 - **Touch targets are measured on the effective target.** WCAG 2.5.5 measures the
-  label for a checkbox wrapped in one, so the test resolves to it — but a checkbox
+  label for a checkbox wrapped in one, so the test resolves to it : but a checkbox
   with *no* wrapping label is still reported as a 16 px target rather than skipped.
 
 Screenshots at 375 / 768 / 1280 px in both themes, plus the diverging, 32-borough,
@@ -283,8 +283,8 @@ excluded-outlier, detail-panel and no-variance states, are in
   the exact values in the table and detail panel, but there is no equivalent of
   "which point is where". Its unique content is the *relationship*, which the *r*
   and the fit describe in words.
-- **The KPI "borough mean" is unweighted.** Deliberate and labelled — a
-  population-weighted London mean is a different quantity — but it is not the
+- **The KPI "borough mean" is unweighted.** Deliberate and labelled : a
+  population-weighted London mean is a different quantity : but it is not the
   London-wide rate a reader might assume.
 - **Ranks are competition-ranked and can be near-meaningless on coarse data.**
   `imd_employment_score` reads "1st of 33 (tied with 32)". Honest, but the tie count

@@ -10,13 +10,13 @@
  *   scale       IMD domains span proportion, score and standardised
  *   cadence     IMD is two snapshots, not an annual series
  *   year_rule   a calendar year and a rolling-period end year are not the same year
- *   boroughsMissing  City of London is absent from two metrics — 32, not 33
+ *   boroughsMissing  City of London is absent from two metrics : 32, not 33
  *
  * Field names follow the JSON exactly (snake_case) so a type error appears if the
  * pipeline's contract changes, rather than a silent `undefined` at runtime.
  */
 
-/** Which way is "good". Never assume — read it per metric. */
+/** Which way is "good". Never assume : read it per metric. */
 export type Direction = "higher_is_better" | "higher_is_worse" | "neutral";
 
 /** `annual` drives a continuous slider; `snapshot` drives discrete points. */
@@ -103,7 +103,7 @@ export interface AppliedFilters {
  *
  * `coverage` carries the matrix entry for every metric in `observations`. That is
  * what satisfies issue 2.1's "responses include partial flags so clients cannot
- * mistake 4-month 2026 for a year" — the flags travel with the data rather than
+ * mistake 4-month 2026 for a year" : the flags travel with the data rather than
  * requiring a second call the client might skip.
  */
 export interface MetricsResponse {
@@ -135,7 +135,7 @@ export interface BoroughFeature {
   geometry: GeoJsonPolygon;
 }
 
-/** `data/processed/london.geojson` — 33 features, EPSG:4326, RFC 7946. */
+/** `data/processed/london.geojson` : 33 features, EPSG:4326, RFC 7946. */
 export interface BoroughFeatureCollection {
   type: "FeatureCollection";
   features: BoroughFeature[];

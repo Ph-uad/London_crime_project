@@ -4,7 +4,7 @@
  *
  * The simulation is Machado, Oliveira and Fernandes (2009), the matrix set most
  * colour tools use, applied at severity 1.0 in LINEAR RGB. Applying it to
- * gamma-encoded sRGB — the common shortcut — exaggerates separation in the
+ * gamma-encoded sRGB : the common shortcut : exaggerates separation in the
  * shadows and understates it in the highlights, which for a sequential ramp is
  * precisely the region the answer depends on.
  *
@@ -37,7 +37,7 @@ const toSrgb = (c: number) => {
   return Math.min(255, Math.max(0, Math.round(v * 255)));
 };
 
-/** Machado et al. (2009), deuteranomaly severity 1.0 — i.e. deuteranopia. */
+/** Machado et al. (2009), deuteranomaly severity 1.0 : i.e. deuteranopia. */
 const DEUTERANOPIA = [
   [0.367322, 0.860646, -0.227968],
   [0.280085, 0.672501, 0.047413],

@@ -1,24 +1,24 @@
 # =============================================================
-# 13_tidy_life_expectancy.R — ONS life expectancy to the common long schema.
+# 13_tidy_life_expectancy.R : ONS life expectancy to the common long schema.
 # Implements plan issue 1.8.
 #
 # PERIOD -> YEAR RULE: rolling three-year periods are assigned to their END
 # year. "2022 to 2024" becomes metric year 2024, with the full period kept in
-# `notes`. The alternative — midpoint year — was rejected because the end year
+# `notes`. The alternative : midpoint year : was rejected because the end year
 # is what a reader assumes when a dashboard says "2024", and because it keeps
 # the most recent estimate at the most recent year rather than pushing it back.
 #
 # This DIFFERS from the income and well-being rule, which assigns a financial
 # year to its start year. The two are not in conflict: one is a three-year
 # rolling window, the other a twelve-month accounting year. The difference is
-# recorded in SOURCES.md and must stay visible wherever metrics are paired —
+# recorded in SOURCES.md and must stay visible wherever metrics are paired :
 # issue 3.6 prints the pairing on the chart for exactly this reason.
 #
 # Four metrics: {male, female} x {at birth, at age 65}. "At birth" is the
 # headline measure; at-65 is carried because it is in the same table and is
 # the more informative one for later-life health inequality.
 #
-# City of London is absent from the source entirely — too few residents for
+# City of London is absent from the source entirely : too few residents for
 # ONS to publish. Declared, not silently dropped.
 #
 # Reading a 36 MB xlsx needs `readxl`, the pipeline's only dependency beyond
@@ -59,7 +59,7 @@ check(!is.na(hdr_row),
       "' of ", LIFEEXP_RAW, ".")
 
 message("Reading sheet '", SHEET, "' (header at row ", hdr_row,
-        ") — this takes a minute for a 36 MB workbook ...")
+        ") : this takes a minute for a 36 MB workbook ...")
 raw <- as.data.table(readxl::read_excel(
   LIFEEXP_RAW, sheet = SHEET, skip = hdr_row - 1L, col_types = "text",
   progress = FALSE))
@@ -69,7 +69,7 @@ NEEDED <- c("Period", "Area code", "Area name", "Sex", "Age group",
             "Upper confidence interval")
 missing_cols <- setdiff(NEEDED, names(raw))
 check(!length(missing_cols),
-      "the ONS workbook layout has changed — missing column(s): ",
+      "the ONS workbook layout has changed : missing column(s): ",
       paste(missing_cols, collapse = ", "), ".\n       Found: ",
       paste(names(raw), collapse = ", "))
 
@@ -147,7 +147,7 @@ if (all(c("life_expectancy_birth_male", "life_expectancy_65_male")
   check(wide[!is.na(life_expectancy_birth_male) &
                !is.na(life_expectancy_65_male),
              all(life_expectancy_65_male < life_expectancy_birth_male)],
-        "at-65 life expectancy is not below at-birth for every borough-year — ",
+        "at-65 life expectancy is not below at-birth for every borough-year : ",
         "the age groups have been mixed up.")
   ok("at-65 figures are remaining-years, below at-birth as expected")
 }

@@ -1,5 +1,5 @@
 # =============================================================
-# 00_crime_rowcounts.R — per-year row totals as a sanity check.
+# 00_crime_rowcounts.R : per-year row totals as a sanity check.
 #
 # The log now carries a `files` column alongside `rows`. Reading rows alone
 # invites the wrong conclusion: Metropolitan rows fell 87% in 2013, which
@@ -12,7 +12,7 @@
 
 source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-banner("00_crime_rowcounts — per-year totals")
+banner("00_crime_rowcounts : per-year totals")
 
 files <- crime_files()
 

@@ -1,10 +1,10 @@
 # =============================================================
-# 12_tidy_wellbeing.R — ONS4 personal well-being to the common long schema.
+# 12_tidy_wellbeing.R : ONS4 personal well-being to the common long schema.
 # Implements plan issue 1.7.
 #
 # Source shape: the ONS "v4" cube. One row per
 # (period x geography x measure x estimate-type). We take the
-# `average-mean` estimate only — the other four estimate types (poor, fair,
+# `average-mean` estimate only : the other four estimate types (poor, fair,
 # good, very good) are the proportion of people in each rating band, not the
 # borough's average score.
 #
@@ -16,7 +16,7 @@
 #   same way by accident.
 #
 #   CITY OF LONDON HAS NO DATA. Every one of its 48 borough-year-measure cells
-#   is marked [u] — sample too small to publish. It is declared as a permitted
+#   is marked [u] : sample too small to publish. It is declared as a permitted
 #   absence rather than dropped quietly.
 #
 # The ward well-being bundle plays no part here (see SOURCES.md, "Retired").
@@ -44,7 +44,7 @@ NEEDED <- c("v4_3", "Data marking", "Lower limit", "Upper limit", "yyyy-yy",
             "wellbeing-estimate")
 missing_cols <- setdiff(NEEDED, names(raw))
 check(!length(missing_cols),
-      "the ONS cube layout has changed — missing column(s): ",
+      "the ONS cube layout has changed : missing column(s): ",
       paste(missing_cols, collapse = ", "), ".\n       Found: ",
       paste(names(raw), collapse = ", "))
 

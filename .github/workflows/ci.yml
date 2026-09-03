@@ -23,7 +23,7 @@ jobs:
 
       # Installed from the repository root, not from web/. The lockfile lives
       # at the root because the root package.json declares `workspaces: [web]`,
-      # so `npm ci` inside web/ fails with EUSAGE — there is no lockfile there.
+      # so `npm ci` inside web/ fails with EUSAGE : there is no lockfile there.
       - name: Install dependencies
         run: npm ci
 
@@ -66,9 +66,9 @@ jobs:
 
       # 81 checks against the real production build. They render every route and
       # four dashboard states at 375/768/1280px and run axe at each, which is
-      # how issues 3.1 and 3.8 state their measurable criteria — no horizontal
+      # how issues 3.1 and 3.8 state their measurable criteria : no horizontal
       # overflow, reachable navigation, 44px touch targets, zero WCAG 2.1 AA
-      # violations — as checks rather than claims. The dashboard suite also
+      # violations : as checks rather than claims. The dashboard suite also
       # asserts the things this dataset makes easy to get wrong: a 32-borough
       # metric drawn as if it had 33, a colour ramp that runs the same way for
       # `higher_is_worse` and `higher_is_better`, a rank denominator of 33 where
@@ -78,7 +78,7 @@ jobs:
 
       # The report is the summary; test-results holds the traces the config
       # records on the first retry. A trace is the only way to diagnose a
-      # failure that happens on a runner and not on a developer's machine —
+      # failure that happens on a runner and not on a developer's machine :
       # without one, the log says an assertion failed and nothing about why.
       - name: Upload report and traces on failure
         if: failure()
@@ -104,7 +104,7 @@ jobs:
             r-base-core r-cran-data.table r-cran-jsonlite
 
       # Catches syntax errors only. It does NOT catch a call to an undefined
-      # function or a use of an undefined object — `tr(...)` parses fine — so
+      # function or a use of an undefined object : `tr(...)` parses fine : so
       # the smoke test below is the check that actually matters.
       - name: Parse every script
         run: |

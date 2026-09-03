@@ -14,7 +14,7 @@ export const metadata: Metadata = {
  *
  * The coverage table is generated from coverage.json rather than written out, so
  * it cannot claim a year range or a borough count the data does not have. The
- * limitations prose is deliberately hand-written — it is an argument, not a
+ * limitations prose is deliberately hand-written : it is an argument, not a
  * field.
  */
 export default function MethodologyPage() {
@@ -22,7 +22,7 @@ export default function MethodologyPage() {
     .map(([id, m]) => ({
       id,
       label: m.label,
-      years: m.years.length ? `${Math.min(...m.years)}–${Math.max(...m.years)}` : "—",
+      years: m.years.length ? `${Math.min(...m.years)}–${Math.max(...m.years)}` : ":",
       cadence: m.cadence,
       direction: m.direction,
       boroughs: m.boroughs_covered,

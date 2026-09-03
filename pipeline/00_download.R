@@ -1,5 +1,5 @@
 # =============================================================
-# 00_download.R — verify that the raw crime archive is complete.
+# 00_download.R : verify that the raw crime archive is complete.
 #
 # This is the guard that should have caught the 33 missing Metropolitan
 # months in 2012-2015. Two changes make it actually do that:
@@ -17,7 +17,7 @@
 
 source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-banner("00_download — raw crime coverage")
+banner("00_download : raw crime coverage")
 
 ensure_dir(CRIME_RAW_DIR)
 files <- crime_files()

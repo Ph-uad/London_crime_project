@@ -32,7 +32,7 @@ describe("defaults", () => {
   });
 });
 
-describe("parseState — valid input", () => {
+describe("parseState : valid input", () => {
   it("round-trips a fully specified state", () => {
     const { state, rejected } = parse(
       "metric=wellbeing_anxiety&year=2018&compare=income_median&exclude=E09000001&borough=E09000007",
@@ -60,7 +60,7 @@ describe("parseState — valid input", () => {
   });
 });
 
-describe("parseState — bad input falls back and says so", () => {
+describe("parseState : bad input falls back and says so", () => {
   it("falls back to the default metric and names the rejection", () => {
     const { state, rejected } = parse("metric=not_a_metric");
     expect(state.metric).toBe(DEFAULT_METRIC);

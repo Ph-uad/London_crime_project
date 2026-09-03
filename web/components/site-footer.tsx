@@ -11,7 +11,7 @@ import { ATTRIBUTIONS, FACTS, PARTIAL_COVERAGE } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-[var(--border)] bg-[var(--surface-1)]">
-      <div className="mx-auto max-w-[1280px] px-4 py-8 sm:px-6">
+      <div className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6">
         <h2 className="text-sm font-semibold text-[var(--text-primary)]">
           Data sources &amp; licence
         </h2>
@@ -30,7 +30,7 @@ export function SiteFooter() {
             {PARTIAL_COVERAGE.map(
               (g) => `${g.borough} has no ${g.families.join(" or ")} data`,
             ).join("; ")}
-            {" — "}
+            {" : "}
             the resident population is too small for those estimates to be published.
             Affected boroughs are shown as no-data, never as zero.
           </p>

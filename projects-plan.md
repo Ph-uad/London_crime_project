@@ -1,4 +1,4 @@
-# London Crime × Social Determinants — GitHub Projects Plan
+# London Crime × Social Determinants : GitHub Projects Plan
 
 **Architecture (locked):** Next.js (App Router, TypeScript) serving both the frontend and
 the data API via API routes · R data pipeline (offline, outputs versioned JSON/GeoJSON) ·
@@ -19,7 +19,7 @@ encode hard dependencies.
 
 ---
 
-## Numbering — how the merge resolved the overlap
+## Numbering : how the merge resolved the overlap
 
 The revision reused numbers that the original plan had already assigned, so three issues
 collide. Resolved as follows, and every `blocked-by` label below has been rewritten to match.
@@ -34,16 +34,16 @@ The renumbering of boundaries to **1.10** is taken, not left open as the revisio
 delivered script, `SOURCES.md` and both READMEs already cite it as 1.10.
 
 **Two `blocked-by` labels in the revision were wrong and are corrected here.** The revision
-gave new 1.5 (tidy income) and new 1.6 (tidy IMD) `blocked-by:1.1` — crime acquisition.
+gave new 1.5 (tidy income) and new 1.6 (tidy IMD) `blocked-by:1.1` : crime acquisition.
 Neither touches crime data. Both need the borough lookup for GSS resolution, so both are
 `blocked-by:1.2`. The delivered scripts confirm it: `10_tidy_income.R` and `11_tidy_imd.R`
 read `lsoa_lookup.csv` and nothing from `data/raw/crime/`.
 
 ---
 
-## Epic 0 — Repository & Infrastructure Setup
+## Epic 0 : Repository & Infrastructure Setup
 
-### Issue 0.1 — Initialise monorepo structure
+### Issue 0.1 : Initialise monorepo structure
 **Status: Done**
 **Branch:** `chore/setup/monorepo-init` · **Labels:** `setup` `no-dependencies` · **Estimate:** 1–2 hrs
 
@@ -59,12 +59,12 @@ project overview, architecture summary, and local setup instructions.
 - [x] `data/` directory with `raw/` (gitignored) and `processed/` (committed) subfolders
 - [x] Initial commit pushed to `main`
 
-**Delivered as:** `.gitignore` was rewritten 2026-08-12 — duplicate rules removed,
+**Delivered as:** `.gitignore` was rewritten 2026-08-12 : duplicate rules removed,
 `derby.log` caught at any depth, and the retired Spark intermediates named explicitly.
 
 ---
 
-### Issue 0.2 — Scaffold Next.js application
+### Issue 0.2 : Scaffold Next.js application
 **Status: Done**
 **Branch:** `chore/setup/nextjs-scaffold` · **Labels:** `setup` `frontend` `blocked-by:0.1` · **Estimate:** 1–2 hrs
 
@@ -76,11 +76,11 @@ Router. Verify dev server runs and a placeholder home page renders.
 - [x] `npx create-next-app` completed with TypeScript + Tailwind + App Router
 - [x] `npm run dev` serves a placeholder page locally
 - [x] `npm run build` passes with zero errors
-- [ ] Prettier config committed — **outstanding**
+- [ ] Prettier config committed : **outstanding**
 
 ---
 
-### Issue 0.3 — CI workflow for lint and build
+### Issue 0.3 : CI workflow for lint and build
 **Status: In progress**
 **Branch:** `chore/setup/ci-lint-build` · **Labels:** `setup` `ci` `blocked-by:0.2` · **Estimate:** 1–2 hrs
 
@@ -89,15 +89,15 @@ Add a GitHub Actions workflow that runs ESLint and `next build` on every pull re
 `main`. Failing checks block merge via branch protection.
 
 **Acceptance criteria:**
-- [ ] `.github/workflows/ci.yml` runs lint + build on PRs — file written, **not installed**
+- [ ] `.github/workflows/ci.yml` runs lint + build on PRs : file written, **not installed**
 - [ ] Branch protection on `main` requires the CI check
 - [ ] CI passes on a test PR
 
-**Delivered as:** a replacement `ci.yml` exists but **is not installed** — GitHub workflow
+**Delivered as:** a replacement `ci.yml` exists but **is not installed** : GitHub workflow
 files cannot be written by the remote tooling used, so it must be pasted in manually. It
 adds a second job the original scope did not have: R install, a parse check over every
 script, and `pipeline/tests/smoke.R`. That job is the control that prevents the Epic 1
-failure recurring — three scripts that could not execute were committed precisely because
+failure recurring : three scripts that could not execute were committed precisely because
 nothing ran them. It also fixes the trigger, which reached only PRs targeting `v2`.
 
 **Amended acceptance criteria:**
@@ -108,7 +108,7 @@ nothing ran them. It also fixes the trigger, which reached only PRs targeting `v
 
 ---
 
-### Issue 0.4 — Vercel deployment pipeline
+### Issue 0.4 : Vercel deployment pipeline
 **Status: Planned**
 **Branch:** `chore/setup/vercel-deploy` · **Labels:** `setup` `deploy` `blocked-by:0.2` · **Estimate:** 1 hr
 
@@ -123,13 +123,13 @@ preview deploys on every PR.
 
 ---
 
-## Epic 1 — Data Pipeline (R)
+## Epic 1 : Data Pipeline (R)
 
 > **Epic 1 is complete.** Issues 1.1–1.10 all meet their acceptance criteria. The pipeline
 > was rewritten on `data.table` in August 2026; the original `sparklyr` scripts are retired
 > to `pipeline/experimental/` and are not part of the canonical run.
 
-### Issue 1.1 — Acquire raw crime data (Met + City of London)
+### Issue 1.1 : Acquire raw crime data (Met + City of London)
 **Status: Done**
 **Branch:** `feat/data/crime-acquisition` · **Labels:** `data` `no-dependencies` · **Estimate:** 2–3 hrs
 
@@ -140,20 +140,20 @@ Service and City of London Police. Document the exact date range, download date,
 re-download script).
 
 **Acceptance criteria:**
-- [x] All monthly CSVs for the 10-year window present locally — **368/368** (184 months × 2 forces)
+- [x] All monthly CSVs for the 10-year window present locally : **368/368** (184 months × 2 forces)
 - [x] `pipeline/SOURCES.md` records URL, date range, licence, download date
 - [x] `pipeline/00_download.R` (or documented manual steps) reproduces the acquisition
 - [x] Row-count sanity check logged (per-year totals)
 
 **Delivered as:** the window is 2011-01 – 2026-04 (15 years, not 10). `00_download.R`
-**verifies** rather than downloads — the archive is a manual bulk export — and it checks
+**verifies** rather than downloads : the archive is a manual bulk export : and it checks
 coverage **per force**, failing the run on any gap. This matters: 33 Metropolitan monthly
 files were missing across 2012–2015 and a pooled check passed the entire time, because City
 of London was complete throughout. Re-downloaded 2026-08-13; 2.77 M records recovered.
 
 ---
 
-### Issue 1.2 — LSOA→borough lookup and code harmonisation
+### Issue 1.2 : LSOA→borough lookup and code harmonisation
 **Status: Done**
 **Branch:** `feat/data/lsoa-borough-lookup` · **Labels:** `data` `blocked-by:1.1` · **Estimate:** 3–4 hrs
 
@@ -163,24 +163,24 @@ Download the ONS Open Geography Portal LSOA-to-local-authority lookup. Harmonise
 single clean lookup keyed on LSOA code → borough name/GSS code.
 
 **Acceptance criteria:**
-- [x] Lookup covers ≥99.5% of LSOA codes appearing in the crime data — **99.763%**
+- [x] Lookup covers ≥99.5% of LSOA codes appearing in the crime data : **99.763%**
 - [x] Unmatched codes logged with counts and a documented handling decision
 - [x] 2011↔2021 boundary changes harmonised and footnoted in `SOURCES.md`
 - [x] Output saved as `data/processed/lsoa_lookup.csv`
 
 **Delivered as:** the criterion was ambiguous and previously resolved to 98.73%, 99.64% or
 92.5% depending on which script you believed. The denominator is now pinned in `SOURCES.md`
-— records carrying a **non-blank** LSOA code — and enforced in code. The lookup no longer
+: records carrying a **non-blank** LSOA code : and enforced in code. The lookup no longer
 reads the crime files at all; record-level exclusion accounting moved to 1.3, so one script
 owns it. A one-borough-per-code assertion was added: four such codes exist elsewhere in
 England and Wales and joining on one would duplicate every attached crime record.
 
-**Note:** `blocked-by:1.1` is retained but is now only a *verification* dependency — the
+**Note:** `blocked-by:1.1` is retained but is now only a *verification* dependency : the
 lookup is built from the ONS file alone.
 
 ---
 
-### Issue 1.3 — Aggregate crime to borough-year rates
+### Issue 1.3 : Aggregate crime to borough-year rates
 **Status: Done**
 **Branch:** `feat/data/crime-aggregation` · **Labels:** `data` `blocked-by:1.2` · **Estimate:** 3–4 hrs
 
@@ -193,7 +193,7 @@ daytime-population caveat in the output metadata.
 **Acceptance criteria:**
 - [x] Output table: borough × year × category with `count` and `rate_per_1000`
 - [x] ONS mid-year estimates sourced per year (not a single snapshot)
-- [x] Totals reconcile with raw row counts (±0.5% after unmatched-LSOA exclusions) — **exact, 0 residual**
+- [x] Totals reconcile with raw row counts (±0.5% after unmatched-LSOA exclusions) : **exact, 0 residual**
 - [x] City of London anomaly documented in metadata field
 
 **Delivered as:** split across `01_crime_by_borough.R` and `02_population_and_rates.R`.
@@ -204,24 +204,24 @@ Three additions the criteria did not anticipate:
 - **No `NA` borough key.** A `left_join` had been leaving 36,574 records under an unnamed
   34th "borough" in one output, silently dropped by the next.
 - **Complete crime-type mapping, asserted.** `Violent crime` and `Public disorder and
-  weapons` had no branch and fell into a silent `"No-category"` bucket — Violence read
+  weapons` had no branch and fell into a silent `"No-category"` bucket : Violence read
   **0** for 2011–2012. Both vocabularies are now mapped into one continuous series
   (owner's decision); every row carries a `vocabulary` column marking which side of the
   April 2013 change its label belongs to. The mapping makes the series continuous, not
-  comparable — see `SOURCES.md`.
+  comparable : see `SOURCES.md`.
 
 Rates are published only for complete twelve-month years; `coverage_flag` carries
 `complete`, `partial_year` or `no_denominator`.
 
 ---
 
-### ~~Issue 1.4 — Ingest income, life expectancy, IMD, well-being~~
+### ~~Issue 1.4 : Ingest income, life expectancy, IMD, well-being~~
 **Status: Superseded** by issues 1.4–1.8. The single issue conflated four sources with
 different grains, cadences and coverage, and named a well-being source that stops at 2013.
 
 ---
 
-### Issue 1.4 — Acquire annual well-being and life-expectancy series (data swap)
+### Issue 1.4 : Acquire annual well-being and life-expectancy series (data swap)
 **Status: Done**
 **Branch:** `feat/data/annual-wellbeing-lifeexp` · **Labels:** `data` `no-dependencies` · **Estimate:** 1–2 hrs
 
@@ -258,7 +258,7 @@ timestamp.
 
 ---
 
-### Issue 1.5 — Tidy income to long format
+### Issue 1.5 : Tidy income to long format
 **Status: Done**
 **Branch:** `feat/data/tidy-income` · **Labels:** `data` `blocked-by:1.2` · **Estimate:** 2–3 hrs
 
@@ -276,7 +276,7 @@ missing 2008 survey year rather than interpolating it.
 - [x] All borough names resolved to GSS codes with zero mismatches
 
 **Delivered as:** the source labels **financial** years (`1999-00` … `2023-24`), each
-assigned to its **start** year — metric year 2011 means tax year 2011/12, recorded in
+assigned to its **start** year : metric year 2011 means tax year 2011/12, recorded in
 `SOURCES.md`. There are **two** unlabelled trailing artefact columns, not one; both dropped
 and logged. Boroughs are matched on GSS code, never on name. `blocked-by` corrected from
 1.1 to 1.2.
@@ -285,7 +285,7 @@ and logged. Boroughs are matched on GSS code, never on name. `blocked-by` correc
 
 ---
 
-### Issue 1.6 — Tidy IMD scores to long format
+### Issue 1.6 : Tidy IMD scores to long format
 **Status: Done**
 **Branch:** `feat/data/tidy-imd` · **Labels:** `data` `blocked-by:1.2` · **Estimate:** 2–3 hrs
 
@@ -293,7 +293,7 @@ and logged. Boroughs are matched on GSS code, never on name. `blocked-by` correc
 `pipeline/11_tidy_imd.R`: extract only `*_Average_score_2015/2019` columns for the Income,
 Employment, Education, Health, Barriers-to-Housing and Living-Environment domains.
 **Exclude the IMD Crime domain from analysis outputs** (circular with the outcome variable)
-— emit it to a separate validation-only file. Exclude all `Rank_*` and
+: emit it to a separate validation-only file. Exclude all `Rank_*` and
 `Proportion_of_LSOAs_*` columns from analysis; optionally retain ranks in a display-copy file.
 
 **Acceptance criteria:**
@@ -302,7 +302,7 @@ Employment, Education, Health, Barriers-to-Housing and Living-Environment domain
 - [x] Exclusion rationale (circularity) recorded in `SOURCES.md` decisions section
 - [x] 2015 vs 2019 methodology non-comparability of ranks noted
 
-**Delivered as:** one thing the criteria did not anticipate — **the six domains are not on a
+**Delivered as:** one thing the criteria did not anticipate : **the six domains are not on a
 common scale, and two are legitimately negative.** Income and Employment are proportions
 (0–0.3), Education / Barriers / Living Environment are scores (3.5–55), Health and Crime are
 standardised (−1.7 to 1.0). A blanket "score ≥ 0" check is wrong and fails on half of London.
@@ -313,7 +313,7 @@ the frontend: one colour ramp across IMD domains is not meaningful (see 3.2, 3.3
 
 ---
 
-### Issue 1.7 — Tidy well-being to long format
+### Issue 1.7 : Tidy well-being to long format
 **Status: Done**
 **Branch:** `feat/data/tidy-wellbeing` · **Labels:** `data` `blocked-by:1.4` · **Estimate:** 2–3 hrs
 
@@ -334,7 +334,7 @@ workbook before use.
 not arise. Two findings the issue did not anticipate:
 
 - **City of London has no well-being data.** All 48 of its cells (4 measures × 12 years) are
-  marked `[u]` — sample too small to publish. The metric covers **32 boroughs**, declared as
+  marked `[u]` : sample too small to publish. The metric covers **32 boroughs**, declared as
   a permitted absence; the script fails if any *other* borough goes missing.
 - **The series ends at 2022-23**, one year short of the 2011–2023 analysis window. ONS has
   published no later local-authority edition. Absent in `coverage.json`, not carried forward.
@@ -347,7 +347,7 @@ matching 1.5.
 
 ---
 
-### Issue 1.8 — Tidy life expectancy to long format
+### Issue 1.8 : Tidy life expectancy to long format
 **Status: Done**
 **Branch:** `feat/data/tidy-lifeexp` · **Labels:** `data` `blocked-by:1.4` · **Estimate:** 1–2 hrs
 
@@ -361,30 +361,30 @@ are assigned to their **end year** with the full period preserved in `notes`.
 - [x] Period→year assignment rule applied consistently and documented
 - [x] Coverage span reported in the run log
 
-**Delivered as:** **four** metrics, not two — at birth *and* at age 65, male and female. The
+**Delivered as:** **four** metrics, not two : at birth *and* at age 65, male and female. The
 at-65 figures are in the same ONS table, cost nothing, and are the more informative measure
 for later-life inequality. An assertion checks at-65 sits below at-birth for every
 borough-year, which is what would catch an age-group mix-up; the numbers look plausible
 otherwise.
 
-**City of London is absent from the source entirely** — ONS does not publish life expectancy
+**City of London is absent from the source entirely** : ONS does not publish life expectancy
 for ~8,000 residents. 32 boroughs, declared the same way as well-being.
 
 **The end-year rule differs from 1.5 and 1.7**, which use the start year of a financial year.
-This is deliberate — a three-year rolling window and a twelve-month accounting year are
-different objects — and each metric publishes its `year_rule` so a cross-metric pairing can
+This is deliberate : a three-year rolling window and a twelve-month accounting year are
+different objects : and each metric publishes its `year_rule` so a cross-metric pairing can
 be stated rather than assumed (see 3.6).
 
 **Technologies:** R (data.table, readxl) · **Alternatives:** midpoint-year assignment (rejected; end year is what a reader assumes when a dashboard says "2024")
 
 ---
 
-### ~~Issue 1.5 (original) — Build unified dataset and export JSON~~
+### ~~Issue 1.5 (original) : Build unified dataset and export JSON~~
 **Status: Superseded** by issue 1.9, which adds the coverage matrix and the window rules.
 
 ---
 
-### Issue 1.9 — Unify metrics, crime, and coverage matrix
+### Issue 1.9 : Unify metrics, crime, and coverage matrix
 **Status: Done (pending run)**
 **Branch:** `feat/data/unify-coverage` · **Labels:** `data` `blocked-by:1.3` `blocked-by:1.5` `blocked-by:1.6` `blocked-by:1.7` `blocked-by:1.8` · **Estimate:** 3–4 hrs
 
@@ -400,23 +400,23 @@ boroughs, value ranges, and schema conformance.
 - [x] `boroughs.json` in the common schema; validation script passes
 - [x] `coverage.json` lists available years per metric and drives no hardcoded year lists downstream
 - [x] Window rules (2011–2023 analysis / 2024 trend / partial flags) implemented and documented in `SOURCES.md`
-- [x] Combined export < 1 MB — **450 KB**
+- [x] Combined export < 1 MB : **450 KB**
 
 **Delivered as: `coverage.json` carries considerably more than "the years with data",**
 because the data imposes constraints the issue did not foresee. Per metric it declares:
 
 | Field | Why |
 |---|---|
-| `years`, `partial_years` | 3.4 — slider range, and years excluded from year-on-year comparison |
+| `years`, `partial_years` | 3.4 : slider range, and years excluded from year-on-year comparison |
 | `cadence` | `snapshot` (IMD) renders as discrete points, `annual` as a slider |
-| `direction` | 3.7 — falling crime is good, falling life expectancy is not |
+| `direction` | 3.7 : falling crime is good, falling life expectancy is not |
 | `scale`, `unit` | IMD spans proportion, score and standardised; one ramp across them is wrong |
-| `year_rule` | 3.6 — `calendar`, `financial_start`, `rolling_end` or `snapshot` |
-| `boroughs_missing` | City of London, per metric — no silent 32-vs-33 mismatch |
+| `year_rule` | 3.6 : `calendar`, `financial_start`, `rolling_end` or `snapshot` |
+| `boroughs_missing` | City of London, per metric : no silent 32-vs-33 mismatch |
 
 Every metric must have a registry entry or the run fails; a default `higher_is_better` is
 wrong for eleven of nineteen metrics. `boroughs.json` uses a normalised shape (boroughs and
-metric metadata factored out of the observation rows) to stay inside the 1 MB budget —
+metric metadata factored out of the observation rows) to stay inside the 1 MB budget :
 logically the same borough × year × metric × value contract. Array fields keep their shape
 at length 1, so `partial_years` is always `[2026]`, never `2026`.
 
@@ -427,7 +427,7 @@ expectancy, with a synthetic crime series. **Awaiting regeneration with the real
 
 ---
 
-### Issue 1.10 — Borough boundaries GeoJSON
+### Issue 1.10 : Borough boundaries GeoJSON
 *(was 1.6 in the original plan)*
 **Status: Done (pending run)**
 **Branch:** `feat/data/boundaries-geojson` · **Labels:** `data` `no-dependencies` · **Estimate:** 2 hrs
@@ -449,26 +449,26 @@ hairline slivers that no downstream step can repair. `rmapshaper` does preserve 
 requires V8.
 
 The budget is met instead by taking a generalisation level **ONS produced across the whole
-UK coverage** — adjacent districts still share edges exactly — keeping only the 33 London
+UK coverage** : adjacent districts still share edges exactly : keeping only the 33 London
 features, and rounding coordinates to 6 decimal places (~0.1 m, far finer than a 20 m
 generalisation). If that ever misses the budget the script stops and directs you to ONS's
 coarser BUC product rather than degrading geometry itself. Source is ONS via data.gov.uk
 (OGL v3.0 verified), not the London Datastore.
 
 Two things worth carrying forward: output is EPSG:4326 / RFC 7946, and **geometry is
-validated in the source projection**, before reprojection — once coordinates are lon/lat, sf
+validated in the source projection**, before reprojection : once coordinates are lon/lat, sf
 validates with spherical `s2`, which rejects a merely duplicated vertex and would report
 every ONS borough invalid.
 
 **Verification:** all five guards tested against synthetic fixtures. **Awaiting first run
 against the real ONS boundary file.**
 
-**Technologies:** R (sf) · **Alternatives:** rmapshaper / mapshaper CLI / QGIS (all rejected — see above)
+**Technologies:** R (sf) · **Alternatives:** rmapshaper / mapshaper CLI / QGIS (all rejected : see above)
 
 ---
 
-### Issue 1.11 — IMD income and employment scores carry no borough-level variance
-**Status: Open — raised by 3.2**
+### Issue 1.11 : IMD income and employment scores carry no borough-level variance
+**Status: Open : raised by 3.2**
 **Branch:** `fix/pipeline/imd-score-precision` · **Labels:** `pipeline` `data-quality` `bug` · **Estimate:** 1–2 hrs
 
 **Description:**
@@ -478,8 +478,8 @@ leaves them with essentially no information:
 
 | Metric | Scale | Distinct values across 33 boroughs (2019) |
 |---|---|---|
-| `imd_employment_score` | proportion | **1** — every borough is 0.1 |
-| `imd_income_score` | proportion | **2** — 0.1 and 0.2 |
+| `imd_employment_score` | proportion | **1** : every borough is 0.1 |
+| `imd_income_score` | proportion | **2** : 0.1 and 0.2 |
 | `imd_education_skills_and_training_score` | score | 29 |
 | `imd_health_deprivation_and_disability_score` | standardised | 17 |
 | `imd_living_environment_score` | score | 31 |
@@ -489,8 +489,8 @@ The four `score` and `standardised` domains are fine. The two `proportion` domai
 publishes the income and employment domain averages as proportions in the 0–1 range, so one decimal
 place is a resolution of ten percentage points. Every London borough lands in the same bucket.
 
-`pipeline/11_tidy_imd.R` contains no rounding — it reads the `"<Domain> - Average score"` columns
-verbatim — so this is either the source file's own precision or a precision loss at acquisition.
+`pipeline/11_tidy_imd.R` contains no rounding : it reads the `"<Domain> - Average score"` columns
+verbatim : so this is either the source file's own precision or a precision loss at acquisition.
 **It could not be confirmed during 3.2 because `data/raw/` has been cleared**, which is itself worth
 noting: the recipe in `SOURCES.md` is the only route back to the answer.
 
@@ -519,12 +519,12 @@ about a second.
 
 ---
 
-## Epic 2 — API Layer (Next.js Routes)
+## Epic 2 : API Layer (Next.js Routes)
 
 > **Epic 2 is complete.** Both routes are delivered and covered by tests in CI. The
 > remaining item is the Vercel latency measurement in 2.2, which needs issue 0.4.
 
-### Issue 2.1 — Metrics API route
+### Issue 2.1 : Metrics API route
 **Status: Done**
 **Branch:** `feat/api/metrics-route` · **Labels:** `backend` `blocked-by:0.2` `blocked-by:1.9` · **Estimate:** 2–3 hrs (+1 hr for coverage metadata)
 
@@ -541,8 +541,8 @@ Implement `GET /api/metrics` serving the unified dataset with query-parameter fi
 - [x] Responses include `partial` flags so clients cannot mistake 4-month 2026 for a year
 
 **Delivered as:** `/api/meta` as its own route rather than `?meta=true`, so it caches
-separately from a filtered query. `web/lib/types.ts` mirrors `coverage.json` **in full** —
-`direction`, `scale`, `cadence`, `year_rule` and `boroughs_missing` included — so Epic 3
+separately from a filtered query. `web/lib/types.ts` mirrors `coverage.json` **in full** :
+`direction`, `scale`, `cadence`, `year_rule` and `boroughs_missing` included : so Epic 3
 cannot reach for a field the API declined to pass through.
 
 Three things beyond the written criteria:
@@ -551,17 +551,17 @@ Three things beyond the written criteria:
   The partial-year flags travel with the data rather than needing a second call a caller
   might skip.
 - **An unknown query parameter is a 400, not an ignored one.** `?metrics=` (plural) would
-  otherwise return the entire dataset and look like it worked — the same class of failure
+  otherwise return the entire dataset and look like it worked : the same class of failure
   as a silent fallback in the pipeline.
 - **28 route tests** (`web/tests/api.test.ts`, vitest), wired into the CI web job alongside
-  a type-check. They import the handlers and call them with `Request` objects — no server,
-  no network — and read the real `data/processed` exports, so they double as a contract
+  a type-check. They import the handlers and call them with `Request` objects : no server,
+  no network : and read the real `data/processed` exports, so they double as a contract
   check on pipeline output. Verified to fail when the unknown-parameter guard is removed
   and when filters are OR-ed instead of AND-ed.
 
 **Data access:** `web/lib/data.ts` is the only module that knows where the exports live.
 `boroughs.json` and `coverage.json` are imported through a `@data/*` tsconfig alias and
-bundled at build time — which is what justifies the year-long `s-maxage`.
+bundled at build time : which is what justifies the year-long `s-maxage`.
 **Consequence:** the web build now has a hard dependency on those two files being present
 and committed. A missing export fails the build with `Module not found`, deliberately.
 
@@ -569,7 +569,7 @@ and committed. A missing export fails the build with `Module not found`, deliber
 
 ---
 
-### Issue 2.2 — Boundaries API route
+### Issue 2.2 : Boundaries API route
 **Status: Done**
 **Branch:** `feat/api/geo-route` · **Labels:** `backend` `blocked-by:0.2` `blocked-by:1.10` · **Estimate:** 1–2 hrs
 
@@ -579,32 +579,32 @@ Serve `GET /api/geo` returning the simplified borough GeoJSON with long-lived ca
 **Acceptance criteria:**
 - [x] Route returns valid GeoJSON, content-type `application/geo+json`
 - [x] Response cached at the edge
-- [ ] Load time < 300 ms on Vercel preview — **cannot be measured until 0.4 is done**
+- [ ] Load time < 300 ms on Vercel preview : **cannot be measured until 0.4 is done**
 
 *`blocked-by` updated from 1.6 to 1.10 per the renumbering above.*
 
-**Delivered as:** `london.geojson` cannot use the `@data/*` alias — TypeScript and the
-bundler treat only `.json` as a JSON module — so it is read from disk, with
+**Delivered as:** `london.geojson` cannot use the `@data/*` alias : TypeScript and the
+bundler treat only `.json` as a JSON module : so it is read from disk, with
 `next.config.ts` tracing it into the deployment bundle. Renaming the pipeline output would
 have been simpler but `london.geojson` is what 1.10's criteria name.
 
 A missing file returns **503** naming the script to run, rather than a generic 500. Tests
 assert 33 features, GSS codes matching the metrics data, and that coordinates are WGS84
-degrees — British National Grid eastings here would render the map in the North Sea.
+degrees : British National Grid eastings here would render the map in the North Sea.
 
 **Technologies:** Next.js API routes · **Alternatives:** static import into the client bundle (simpler, loses the API showcase)
 
 ---
 
-## Epic 3 — Frontend
+## Epic 3 : Frontend
 
 > **Epic 3 is complete.** 3.1 through 3.8 are delivered, with **139 unit tests** and **82
-> browser checks** — axe-core over every route and four dashboard states at 375 / 768 /
-> 1280 px — running in CI against the real production build.
+> browser checks** : axe-core over every route and four dashboard states at 375 / 768 /
+> 1280 px : running in CI against the real production build.
 >
 > **Three data constraints ran through this epic.** They come from `coverage.json`, they were
 > not optional, and each is now enforced by a test that has been shown to fail:
-> 1. **Two metrics cover 32 boroughs, not 33** — City of London has no well-being and no
+> 1. **Two metrics cover 32 boroughs, not 33** : City of London has no well-being and no
 >    life expectancy. Those boroughs render in a hatched no-data style, are named in the
 >    legend, say "no data" in the table, and are dropped from the correlation with the count
 >    shown. Their ranks are n/32.
@@ -612,7 +612,7 @@ degrees — British National Grid eastings here would render the map in the Nort
 >    ramp reverses for `higher_is_better`; extremes are labelled by meaning rather than by
 >    value; trend arrows carry a word as well as a colour; `neutral` metrics get no
 >    better/worse claim at all.
-> 3. **IMD domains sit on three different scales** — proportion, score, standardised — and
+> 3. **IMD domains sit on three different scales** : proportion, score, standardised : and
 >    two go negative. Standardised metrics get a diverging ramp centred on zero and no
 >    quantile classing; everything else gets quantile classes on the sequential ramp.
 >
@@ -625,9 +625,9 @@ degrees — British National Grid eastings here would render the map in the Nort
 >   downloaded all 6,001 observations to render the site header. Fixed in 3.8.
 >
 > **No runtime dependency was added for the whole epic.** No MapLibre, no d3, no chart
-> library — see 3.2 for the argument and its cost.
+> library : see 3.2 for the argument and its cost.
 
-### Issue 3.1 — Responsive layout shell
+### Issue 3.1 : Responsive layout shell
 **Status: Done**
 **Branch:** `feat/frontend/layout-shell` · **Labels:** `frontend` `blocked-by:0.2` · **Estimate:** 2–3 hrs
 
@@ -643,7 +643,7 @@ attributions. Mobile-first with a defined breakpoint where the map/controls stac
 - [x] Lighthouse accessibility score ≥ 90 on the shell
 
 **Delivered as:** three routes (`/`, `/insights`, `/methodology`); the scaffold's `/one`
-placeholder is removed. The dashboard is one grid — single column to 1024px, where the map
+placeholder is removed. The dashboard is one grid : single column to 1024px, where the map
 takes two thirds and the controls move alongside. DOM order never diverges from visual
 order, so reading and tab sequence match at every width.
 
@@ -656,7 +656,7 @@ each width are in `documentation/screenshots/`.
 
 Two real faults were caught this way and fixed:
 
-- **Contrast.** `--text-muted` is 3.50:1 on the light surface — the palette's chart-chrome
+- **Contrast.** `--text-muted` is 3.50:1 on the light surface : the palette's chart-chrome
   colour, under the 4.5:1 AA floor. It had been used for captions and footer prose; 17
   nodes failed. Prose now uses `--text-secondary` (7.73:1), and the token carries a comment
   saying it is for axis labels only.
@@ -667,15 +667,15 @@ Two real faults were caught this way and fixed:
 
 - **Design tokens for the whole epic.** `app/globals.css` defines surfaces, ink,
   categorical, sequential, diverging, status and no-data as CSS custom properties. The
-  categorical slots were run through a palette validator rather than eyeballed — all-pairs,
-  both modes, worst CVD ΔE 9.2 light / 9.4 dark against a ≥8 target — and capped at three,
+  categorical slots were run through a palette validator rather than eyeballed : all-pairs,
+  both modes, worst CVD ΔE 9.2 light / 9.4 dark against a ≥8 target : and capped at three,
   because a fourth slot puts yellow beside orange and fails the floor for scatter and
   choropleth. 3.2 onwards read these roles and add no raw hex.
 - **Dark mode is selected, not flipped.** Its own steps for the dark surface, with a stored
   choice beating the OS setting in both directions, applied before first paint.
 - **Live figures.** The shell reads the coverage matrix, so 33 boroughs, 19 metrics and the
   window are real. Footer attributions are derived from each metric's `source` rather than
-  typed, and the partial-coverage note is generated — it cannot drift from the data.
+  typed, and the partial-coverage note is generated : it cannot drift from the data.
 
 **One architectural fix this surfaced:** `lib/data.ts` had a `node:fs` import for the
 GeoJSON reader, and the header is a client component that reaches it through `lib/site.ts`.
@@ -685,7 +685,7 @@ its cause named.
 
 ---
 
-### Issue 3.2 — Choropleth map component
+### Issue 3.2 : Choropleth map component
 **Status: Done**
 **Branch:** `feat/frontend/choropleth-map` · **Labels:** `frontend` `blocked-by:2.1` `blocked-by:2.2` `blocked-by:3.1` · **Estimate:** 5–6 hrs
 
@@ -698,7 +698,7 @@ legend component.
 - [x] Legend reflects the active scale and units
 - [x] Touch pan/zoom works on mobile
 - [x] No-data boroughs styled distinctly, not omitted
-- [x] Boroughs listed in the metric's `boroughs_missing` render in the no-data style — City of London on well-being and life expectancy is the live case, not hypothetical
+- [x] Boroughs listed in the metric's `boroughs_missing` render in the no-data style : City of London on well-being and life expectancy is the live case, not hypothetical
 - [x] Colour scale direction follows the metric's `direction`; a `higher_is_worse` metric is not coloured like a `higher_is_better` one
 - [x] Legend units come from the metric's `unit`, and diverging metrics (`standardised`) use a scale centred on zero
 
@@ -706,8 +706,8 @@ legend component.
 here because the plan named MapLibre as the likely technology:
 
 - The map is 33 static polygons with no basemap. MapLibre's value is tiles, labels and a style
-  pipeline. Using it here means either a third-party tile endpoint — a network dependency, an API
-  key and an attribution obligation this project does not otherwise carry — or a style with no
+  pipeline. Using it here means either a third-party tile endpoint : a network dependency, an API
+  key and an attribution obligation this project does not otherwise carry : or a style with no
   basemap, which is ~900 KB of WebGL to fill polygons.
 - It renders into a canvas, which is one opaque node to a screen reader and to axe, and which
   Playwright cannot assert on without pixel diffing. Issue 3.8 asks for a *measured* accessibility
@@ -715,14 +715,14 @@ here because the plan named MapLibre as the likely technology:
 - **The cost, stated:** no basemap context and no street detail. Pan and zoom operate on the SVG
   viewBox instead, so the touch criterion is met, but a reader cannot zoom in to see roads. For a
   borough-level choropleth that is the right trade; for a point map of individual crimes it would
-  not be. **No new runtime dependency was added for the whole epic** — projection, scales, ticks
+  not be. **No new runtime dependency was added for the whole epic** : projection, scales, ticks
   and the correlation are about 400 lines of tested code against ~250 KB of library.
 
 **Projection.** Exact Web Mercator, hand-written and checked against the closed form at known
 latitudes (`tests/projection.test.ts`), computed **on the server**: the browser receives 33 path
 strings in viewBox units rather than 171 KB of longitude/latitude pairs it would have to project on
 every render. The join to metric values is on GSS code, and the test that proves it reorders the
-borough list — the pipeline currently writes both files in the same order, so a positional join
+borough list : the pipeline currently writes both files in the same order, so a positional join
 would pass by luck today and silently draw every borough with its neighbour's outline the moment
 either file is re-sorted.
 
@@ -732,8 +732,8 @@ either file is re-sorted.
   `higher_is_better` runs dark→light. So crime and median income can be compared without
   relearning the ramp. `neutral` metrics get no better/worse claim at all.
 - **Quantile classes, not equal intervals.** City of London's crime rate is 671 per 1,000 against a
-  median of 113; seven equal intervals put 32 boroughs in the lowest class. The cost — quantiles
-  flatten magnitude — is paid back by printing the real break values in the legend and by 3.3's
+  median of 113; seven equal intervals put 32 boroughs in the lowest class. The cost : quantiles
+  flatten magnitude : is paid back by printing the real break values in the legend and by 3.3's
   exclusion control.
 - **Diverging metrics are centred on zero and do NOT use quantiles.** The IMD health domain runs
   −1.4 to +0.4, whose observed midpoint is −0.5; putting the neutral colour there would destroy the
@@ -743,14 +743,14 @@ either file is re-sorted.
 pale ramp step and a dark one is exactly where colour alone fails.
 
 **Accessibility.** The SVG is `role="img"` with a description naming the metric, the year and how
-many boroughs have no data. It is not the keyboard path and does not pretend to be — 33 focusable
+many boroughs have no data. It is not the keyboard path and does not pretend to be : 33 focusable
 polygons in geographic order is a tab sequence nobody can hold in their head. A **borough table**
 beneath it carries the same values, the same selection and the same no-data states, one tab stop
 per row, and doubles as the exact-value view for everyone.
 
 ---
 
-### Issue 3.3 — Metric switcher and feature toggles
+### Issue 3.3 : Metric switcher and feature toggles
 **Status: Done**
 **Branch:** `feat/frontend/metric-controls` · **Labels:** `frontend` `blocked-by:3.2` · **Estimate:** 3–4 hrs
 
@@ -759,7 +759,7 @@ per row, and doubles as the exact-value view for everyone.
 - [x] Borough exclusion recomputes colour scale and charts
 - [x] State held in URL query params (shareable views)
 - [x] Keyboard accessible
-- [x] The metric list is built from `coverage.json`, with labels from `label` — no hardcoded metric names
+- [x] The metric list is built from `coverage.json`, with labels from `label` : no hardcoded metric names
 - [x] Switching between IMD domains rebuilds the scale rather than reusing it, since the domains do not share units
 
 **Delivered as** a native `<select>` with `<optgroup>`, grouped by metric family derived from the
@@ -769,7 +769,7 @@ keyboard-correct and screen-reader-correct with no ARIA of ours, and on a phone 
 platform picker.
 
 **Exclusions** drop a borough from the colour classes, the correlation and the summary figures, and
-draw it faded on the map rather than removing it — a hole in the map reads as missing data, which is
+draw it faded on the map rather than removing it : a hole in the map reads as missing data, which is
 a different claim from "the reader took this one out". The per-borough checkboxes live in the
 borough table, where the value they affect is already visible; the control panel carries only the
 one exclusion the data argues for (City of London, ~8,000 residents).
@@ -781,15 +781,15 @@ state is one shareable URL this is the right way round. The **initial** state is
 server from the request's search params, so a shared link renders correctly in the first HTML
 instead of flashing the default view.
 
-**A stale link explains itself.** Unlike the API — which rejects unknown parameters, because a
-silently dropped `?metrics=` returns everything and looks like it worked — a page URL ignores
+**A stale link explains itself.** Unlike the API : which rejects unknown parameters, because a
+silently dropped `?metrics=` returns everything and looks like it worked : a page URL ignores
 unknown parameters (it collects `utm_source` from anything that links to it) but reports every
 value it could not honour in a visible notice. `?metric=not_a_metric&year=1999` renders a working
 dashboard and says what it did with each.
 
 ---
 
-### Issue 3.4 — Year slider with crime trend
+### Issue 3.4 : Year slider with crime trend
 **Status: Done**
 **Branch:** `feat/frontend/year-slider` · **Labels:** `frontend` `blocked-by:3.2` · **Estimate:** 2–3 hrs
 
@@ -797,18 +797,18 @@ dashboard and says what it did with each.
 - [x] Slider covers the full window; map updates ≤ 150 ms after release
 - [x] Disabled/static for snapshot-only metrics (IMD), with explanatory hint
 - [x] Usable by touch on mobile
-- [x] Slider range and enabled years come from each metric's coverage — no hardcoded ranges
+- [x] Slider range and enabled years come from each metric's coverage : no hardcoded ranges
 - [x] Snapshot metrics (IMD) render as discrete selectable points, not a continuous slider
 - [x] Partial years visually marked and excluded from year-on-year comparisons
 - [x] Metrics whose series ends early show the end of their own range, not the global one
 
 **Delivered as** two controls chosen by `cadence`. Annual metrics get a slider **indexed by position
-in the metric's own year list**, not by year number, so a gap in a series cannot be scrubbed into —
+in the metric's own year list**, not by year number, so a gap in a series cannot be scrubbed into :
 dragging a handle through a year the source never collected would be interpolation by interface.
 Snapshot metrics get radio buttons: IMD is two snapshots four years apart, and a slider across them
 invites a reader to look for 2017 and read the absence as a dip.
 
-Ranges come from the selected metric, never the global window — crime runs to 2024 and well-being
+Ranges come from the selected metric, never the global window : crime runs to 2024 and well-being
 stops at 2022, so a shared slider leaves two years of empty map with no explanation. Switching to a
 shorter metric snaps the year and **says so** in the notice region.
 
@@ -818,7 +818,7 @@ track is about 4 px.
 
 ---
 
-### Issue 3.5 — Borough tooltip and detail panel
+### Issue 3.5 : Borough tooltip and detail panel
 **Status: Done**
 **Branch:** `feat/frontend/borough-detail` · **Labels:** `frontend` `blocked-by:3.2` · **Estimate:** 3–4 hrs
 
@@ -826,19 +826,19 @@ track is about 4 px.
 - [x] Hover shows tooltip on desktop; tap opens panel on touch devices
 - [x] All metrics with units and borough rank (n/33)
 - [x] Panel dismissible and keyboard navigable
-- [x] Rank denominator reflects the metric's actual borough coverage — n/32 where City of London is absent, not n/33
+- [x] Rank denominator reflects the metric's actual borough coverage : n/32 where City of London is absent, not n/33
 - [x] A metric with no value for that borough-year says why (suppressed, no denominator, outside its series), rather than showing a blank
 
-**Delivered as** a panel rather than a modal — a modal needs a focus trap and an inert background
+**Delivered as** a panel rather than a modal : a modal needs a focus trap and an inert background
 and buys nothing here, since the map underneath stays useful and at 375 px the panel is simply the
 next thing down the page. Focus moves to the heading on open; Escape and a Close button dismiss it.
 
 **Ranks use each metric's own coverage.** Well-being and life expectancy are n/32. Printing n/33
 would assert a position for City of London that the source refuses to estimate. Ranks are
-competition-ranked, so ties share a rank and the panel says how many are tied — which is how
+competition-ranked, so ties share a rank and the panel says how many are tied : which is how
 `imd_employment_score` reads as "1st of 33 (tied with 32)" rather than as a meaningful first place.
 
-**An empty cell says which kind of empty it is.** "Not published for City of London — the resident
+**An empty cell says which kind of empty it is.** "Not published for City of London : the resident
 population is too small", "IMD exists only for 2015 and 2019, not 2023", and "no value published for
 Camden in 2019" are three different facts about three different things, and a blank collapses them
 into one unhelpful one.
@@ -852,7 +852,7 @@ both reachable, and a tooltip that is also a live region announces on every pixe
 
 ---
 
-### Issue 3.6 — Crime-vs-metric scatterplot
+### Issue 3.6 : Crime-vs-metric scatterplot
 **Status: Done**
 **Branch:** `feat/frontend/scatterplot` · **Labels:** `frontend` `blocked-by:3.3` · **Estimate:** 4–5 hrs
 
@@ -882,17 +882,17 @@ machine it was built on.
 
 - **A fit with no data behind it.** The zero-variance guard was written as `sxx === 0`, which is not
   the test that holds: 33 identical values of 0.1 have a mean of 0.10000000000000002, so the sum of
-  squared deviations is ~5.8e-34 rather than 0 — enough to return a slope and an r made entirely of
+  squared deviations is ~5.8e-34 rather than 0 : enough to return a slope and an r made entirely of
   rounding error. `imd_employment_score` is exactly this case. The guard is now a
   magnitude-relative tolerance, and the chart says "no variation between boroughs at this
   precision" instead of drawing a line.
 - **A fitted line drawn outside the plot.** The line ran to the padded domain edges, which for a
-  steep fit is off the chart and over the axis labels — implying values the chart is not showing.
+  steep fit is off the chart and over the axis labels : implying values the chart is not showing.
   It is clipped to the plotting rectangle.
 
 ---
 
-### Issue 3.7 — KPI summary panel
+### Issue 3.7 : KPI summary panel
 **Status: Done**
 **Branch:** `feat/frontend/kpi-panel` · **Labels:** `frontend` `blocked-by:3.3` · **Estimate:** 2–3 hrs
 
@@ -904,10 +904,10 @@ machine it was built on.
 - [x] "Highest" and "lowest" are labelled by meaning rather than by raw value
 - [x] Long-run change endpoints skip partial years
 
-**Delivered as** four cards whose wording is derived from `direction`: the extremes read "Highest —
-the worse end" and "Lowest — the worse end", so the same card is always the bad one and a reader is
+**Delivered as** four cards whose wording is derived from `direction`: the extremes read "Highest :
+the worse end" and "Lowest : the worse end", so the same card is always the bad one and a reader is
 never invited to congratulate the borough with the most burglaries. `neutral` metrics get plain
-"Highest"/"Lowest" and no judgement. **The arrow is never the only signal** — "improving" /
+"Highest"/"Lowest" and no judgement. **The arrow is never the only signal** : "improving" /
 "worsening" is spelled out, so the meaning survives greyscale, colour blindness and a screen reader.
 
 **Two refusals:**
@@ -919,13 +919,13 @@ never invited to congratulate the borough with the most burglaries. `neutral` me
   collapse to one reading "No variation between boroughs", because naming Barking and Dagenham as
   both the highest and the lowest is technically true and reads as a bug.
 
-The London figure is labelled a **borough mean, unweighted** — a population-weighted mean is a
+The London figure is labelled a **borough mean, unweighted** : a population-weighted mean is a
 different quantity, dominated by the large outer boroughs, and the unit of analysis throughout this
 project is the borough.
 
 ---
 
-### Issue 3.8 — Cross-device and accessibility pass
+### Issue 3.8 : Cross-device and accessibility pass
 **Status: Done**
 **Branch:** `fix/frontend/responsive-a11y` · **Labels:** `frontend` `qa` `blocked-by:3.4` `blocked-by:3.5` `blocked-by:3.6` `blocked-by:3.7` · **Estimate:** 3–4 hrs
 
@@ -940,24 +940,24 @@ project is the borough.
 real production build, joining 3.1's 29 for **82 browser checks** in CI, alongside **139 unit
 tests**. Every criterion above is a check:
 
-- **axe-core** over four dashboard states — default, a 32-borough metric, a diverging metric, and one
-  with a detail panel and an exclusion open — at 375 / 768 / 1280 px. Zero violations against the
+- **axe-core** over four dashboard states : default, a 32-borough metric, a diverging metric, and one
+  with a detail panel and an exclusion open : at 375 / 768 / 1280 px. Zero violations against the
   same `wcag2a/2aa/21a/21aa` rule set Lighthouse scores its accessibility category on.
 - **Touch targets** measured on the *effective* target: for a checkbox wrapped in a label, WCAG 2.5.5
-  measures the label, so the test resolves to it — but a checkbox with no wrapping label is still
+  measures the label, so the test resolves to it : but a checkbox with no wrapping label is still
   reported as a 16 px target rather than skipped.
 - **Deuteranopia** simulated with the Machado et al. (2009) matrix at severity 1.0, applied in
   *linear* RGB (the usual shortcut of applying it to gamma-encoded sRGB exaggerates separation in
   the shadows, which is the region a sequential ramp depends on). The property tested is the one
   that makes a sequential ramp CVD-safe: lightness ordering must survive the simulation, so a
   deuteranope can still say which of two swatches is higher. The diverging poles are checked for
-  ΔE separation — blue against red rather than red against green is why this passes.
+  ΔE separation : blue against red rather than red against green is why this passes.
 - **No-data without colour**: the `<pattern>` exists, exactly one borough uses it on a 32-borough
   metric, and the word "no data" appears in both the legend and the table.
 
 **Two guards were verified by deliberately breaking the code** and confirming they fail:
 
-1. Making `darkIsHigh()` ignore `direction`. The unit test caught it — but **the browser test did
+1. Making `darkIsHigh()` ignore `direction`. The unit test caught it : but **the browser test did
    not**, because it only checked the legend's caption, which is generated by a different code path
    from the fills. A build that ignored `direction` entirely still printed "Darker means lower" over
    a ramp running the other way. The test now reads the painted colours and asserts the lightness
@@ -966,17 +966,17 @@ tests**. Every criterion above is a check:
 
 **A CI-only failure, and what it exposed.** The first CI run failed on 3.1's theme test at
 the assertion *after* a page reload, having passed the assertion three lines earlier. It could
-not be reproduced locally — 100+ runs, including under CI conditions with four workers — so it
+not be reproduced locally : 100+ runs, including under CI conditions with four workers : so it
 was diagnosed from the failure's shape instead. Exactly one code path produces it: the toggle
 stamped `data-theme` on the document and *then* wrote to `localStorage` inside a `catch` that
 swallowed everything. A refused write therefore left the click looking successful, the
-attribute assertion passing, and the choice gone on the next load — reported as a missing
+attribute assertion passing, and the choice gone on the next load : reported as a missing
 attribute with nothing in the log mentioning storage.
 
 Confirmed by making `localStorage.setItem` throw and observing the identical signature. Three
 changes: the toggle records a failed write as `data-theme-persisted="false"` rather than
 discarding it; the test asserts persistence at the point it happens, with a message that names
-it; and a new test pins the degradation contract — a browser that refuses storage still gets a
+it; and a new test pins the degradation contract : a browser that refuses storage still gets a
 working toggle for the session and a visible reason the next load will not remember it. Two
 supporting fixes went in with it: `suppressHydrationWarning` on `<html>`, which this pattern
 requires and which was missing since 3.1, and `trace: "on-first-retry"` plus trace upload in
@@ -984,22 +984,22 @@ CI, so the next failure that only happens on a runner is diagnosed from evidence
 from its shape.
 
 **One per-request performance defect fixed.** Reading `searchParams` makes the dashboard route
-dynamic, so its body runs on every request — and it was calling `buildSeries` over all 6,001
+dynamic, so its body runs on every request : and it was calling `buildSeries` over all 6,001
 observations each time, for a result that cannot change while the process lives. Memoised.
 
 **One measured regression fixed, inherited from 3.1.** `components/site-header.tsx` is a client
 component; it imported `lib/site.ts`, which imported `lib/data.ts`, which imports the 516 KB
 observation export. Turbopack could not drop it, so **every visitor downloaded all 6,001
-observations in order to render the word "Dashboard" in the header** — confirmed by grepping the
+observations in order to render the word "Dashboard" in the header** : confirmed by grepping the
 built chunk for `{"borough_gss":…}` and finding 6,001 of them. The coverage matrix now lives in
 `lib/coverage.ts` (9 KB, client-safe) and the bulk export sits behind a `server-only` marker in
 `lib/data.ts`. Client JavaScript fell from 1.2 MB to 716 KB.
 
 ---
 
-## Epic 4 — Narrative & Release
+## Epic 4 : Narrative & Release
 
-### Issue 4.1 — Insights and methodology content
+### Issue 4.1 : Insights and methodology content
 **Status: Planned**
 **Branch:** `feat/docs/insights-content` · **Labels:** `docs` `blocked-by:3.7` · **Estimate:** 3–4 hrs
 
@@ -1026,7 +1026,7 @@ architecture diagram.
 
 ---
 
-### Issue 4.2 — Performance audit and release
+### Issue 4.2 : Performance audit and release
 **Status: Planned**
 **Branch:** `chore/release/perf-v1` · **Labels:** `deploy` `qa` `blocked-by:3.8` `blocked-by:4.1` · **Estimate:** 2–3 hrs
 
@@ -1048,8 +1048,8 @@ README with screenshots and live URL, tag `v1.0.0`, and close out the project bo
 
 | Item | Action |
 |---|---|
-| `_to_delete/` at the repository root | Delete — holds retired scripts and superseded outputs |
-| `crime.csv`, `crime_by_borough.csv` (7.6 GB) in `data/processed/` | Delete — retired Spark intermediates; QA warns while they exist |
+| `_to_delete/` at the repository root | Delete : holds retired scripts and superseded outputs |
+| `crime.csv`, `crime_by_borough.csv` (7.6 GB) in `data/processed/` | Delete : retired Spark intermediates; QA warns while they exist |
 | Empty `pipeline/dimension/` directory | Delete |
 | Income and IMD licences recorded as *assumed* | Verify on the dataset pages and update `SOURCES.md` |
-| Regenerate `boroughs.json`, `coverage.json`, `london.geojson` on real data | One pipeline run — see `pipeline/README.md` |
+| Regenerate `boroughs.json`, `coverage.json`, `london.geojson` on real data | One pipeline run : see `pipeline/README.md` |

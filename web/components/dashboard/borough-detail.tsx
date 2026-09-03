@@ -35,7 +35,7 @@ import type { BoroughRef, MetricCoverage } from "@/lib/types";
  *   would be worse.
  *
  * It is a panel, not a modal. A modal needs a focus trap and an inert
- * background, and buys nothing here — the map underneath stays useful, and at
+ * background, and buys nothing here : the map underneath stays useful, and at
  * 375 px the panel is simply the next thing down the page.
  */
 export function BoroughDetail({
@@ -178,7 +178,7 @@ function MetricRow({
               <span className="ml-2 text-xs tabular-nums text-[var(--text-secondary)]">
                 {ordinal(rank.rank)} of {rank.of}
                 {rank.tied > 1 && ` (tied with ${rank.tied - 1})`}
-                {rank.worstFirst && <span className="sr-only"> — 1 is the worse end</span>}
+                {rank.worstFirst && <span className="sr-only"> : 1 is the worse end</span>}
               </span>
             )}
           </>

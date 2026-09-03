@@ -48,7 +48,7 @@ export function YearControl({
         </span>
         {/* A plain span, not an <output>. `<output>` carries an implicit
             role="status", which makes it a live region that re-announces on
-            every tick of the slider — on top of the slider's own aria-valuetext,
+            every tick of the slider : on top of the slider's own aria-valuetext,
             which already says the same thing. Two announcements of one value is
             worse than one. */}
         <span className="text-lg font-semibold tabular-nums text-[var(--text-primary)]">

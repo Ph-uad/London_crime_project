@@ -5,7 +5,7 @@ import { expect, test, type Page } from "@playwright/test";
 import { deltaE, lightness, parseRgb, simulateDeuteranopia } from "./cvd";
 
 /**
- * Browser checks for the dashboard — plan issues 3.2 to 3.8.
+ * Browser checks for the dashboard : plan issues 3.2 to 3.8.
  *
  * Every assertion here maps to a named acceptance criterion, and they are
  * written to fail on the specific things this dataset makes easy to get wrong:
@@ -34,7 +34,7 @@ async function audit(page: Page): Promise<AxeResult> {
   });
 }
 
-/** The detail panel — identified by the Close button only it has. */
+/** The detail panel : identified by the Close button only it has. */
 function detailPanel(page: Page) {
   return page.locator("section", { has: page.getByRole("button", { name: "Close" }) });
 }
@@ -56,7 +56,7 @@ async function mapFills(page: Page): Promise<string[]> {
 
 // ────────────────────────────────────────────────────────────── issue 3.2
 
-test.describe("3.2 — choropleth", () => {
+test.describe("3.2 : choropleth", () => {
   test("draws all 33 boroughs and colours them by the selected metric", async ({ page }) => {
     await page.goto("/");
     await expect(page.locator(PATHS)).toHaveCount(33);
@@ -123,7 +123,7 @@ test.describe("3.2 — choropleth", () => {
     //
     // Checking the CAPTION is not enough. The note and the ramp are built by
     // separate code paths, so a build that ignores `direction` entirely still
-    // prints "Darker means lower" over a ramp running the other way — verified
+    // prints "Darker means lower" over a ramp running the other way : verified
     // by injecting exactly that fault, which an earlier version of this test
     // passed. So this reads the painted colours.
     await page.goto("/?metric=crime_rate_per_1000&year=2023");
@@ -169,7 +169,7 @@ test.describe("3.2 — choropleth", () => {
     // "lowest" that are the same borough.
     expect(new Set(await mapFills(page)).size).toBe(1);
     await expect(page.getByText("No variation between boroughs")).toBeVisible();
-    await expect(page.getByText(/Highest — the worse end/)).toHaveCount(0);
+    await expect(page.getByText(/Highest : the worse end/)).toHaveCount(0);
   });
 
   test("zooms and pans the viewBox, and does not let the page scroll under a touch drag", async ({
@@ -194,7 +194,7 @@ test.describe("3.2 — choropleth", () => {
 
 // ────────────────────────────────────────────────────────────── issue 3.3
 
-test.describe("3.3 — metric switcher and exclusions", () => {
+test.describe("3.3 : metric switcher and exclusions", () => {
   test("builds the metric list from the coverage matrix, with all 19 metrics", async ({ page }) => {
     await page.goto("/");
     const options = page.locator("#metric-select option");
@@ -254,7 +254,7 @@ test.describe("3.3 — metric switcher and exclusions", () => {
 
 // ────────────────────────────────────────────────────────────── issue 3.4
 
-test.describe("3.4 — year control", () => {
+test.describe("3.4 : year control", () => {
   test("offers a slider over the metric's own years, not the global window", async ({ page }) => {
     await page.goto("/?metric=crime_rate_per_1000");
     const slider = page.getByRole("slider");
@@ -304,7 +304,7 @@ test.describe("3.4 — year control", () => {
 
 // ────────────────────────────────────────────────────────────── issue 3.5
 
-test.describe("3.5 — borough detail", () => {
+test.describe("3.5 : borough detail", () => {
   test("opens from the map, lists every metric, and closes again", async ({ page }) => {
     await page.goto("/");
     await page.locator(PATHS).nth(5).click();
@@ -312,7 +312,7 @@ test.describe("3.5 — borough detail", () => {
     const panel = detailPanel(page);
     await expect(panel).toBeVisible();
 
-    // Every metric, grouped by family — scoped to the panel, because the metric
+    // Every metric, grouped by family : scoped to the panel, because the metric
     // switcher holds the same labels in hidden <option> elements.
     await expect(panel.getByText("Median income")).toBeVisible();
     await expect(panel.getByText("Life expectancy at birth, female")).toBeVisible();
@@ -330,7 +330,7 @@ test.describe("3.5 — borough detail", () => {
     await expect(page.getByText("Select a borough")).toBeVisible();
   });
 
-  test("ranks against the metric's real coverage — 32 where City of London is absent", async ({
+  test("ranks against the metric's real coverage : 32 where City of London is absent", async ({
     page,
   }) => {
     await page.goto("/?borough=E09000022&year=2022");
@@ -358,7 +358,7 @@ test.describe("3.5 — borough detail", () => {
 
 // ────────────────────────────────────────────────────────────── issue 3.6
 
-test.describe("3.6 — scatterplot", () => {
+test.describe("3.6 : scatterplot", () => {
   test("plots one point per borough with both values, and reports r", async ({ page }) => {
     await page.goto("/?compare=income_median&year=2023");
     const points = page.locator('svg[aria-label*="Scatterplot"] circle');
@@ -429,14 +429,14 @@ test.describe("3.6 — scatterplot", () => {
 
 // ────────────────────────────────────────────────────────────── issue 3.7
 
-test.describe("3.7 — KPI panel", () => {
+test.describe("3.7 : KPI panel", () => {
   test("labels the extremes by meaning, not by raw value", async ({ page }) => {
     await page.goto("/?metric=crime_rate_per_1000&year=2023");
-    await expect(page.getByText("Highest — the worse end")).toBeVisible();
+    await expect(page.getByText("Highest : the worse end")).toBeVisible();
 
     await page.getByLabel("Map this metric").selectOption("income_median");
     // For a higher_is_better metric the LOW end is the bad one, so the card flips.
-    await expect(page.getByText("Lowest — the worse end")).toBeVisible();
+    await expect(page.getByText("Lowest : the worse end")).toBeVisible();
   });
 
   test("reads trend direction from the metric, not from the sign", async ({ page }) => {
@@ -481,9 +481,9 @@ const VIEWS = [
   "/?borough=E09000022&exclude=E09000001",
 ];
 
-test.describe("3.8 — cross-device and accessibility", () => {
+test.describe("3.8 : cross-device and accessibility", () => {
   for (const vp of WIDTHS) {
-    test.describe(`${vp.name} — ${vp.width}px`, () => {
+    test.describe(`${vp.name} : ${vp.width}px`, () => {
       test.use({ viewport: { width: vp.width, height: vp.height } });
 
       for (const view of VIEWS) {
@@ -507,7 +507,7 @@ test.describe("3.8 — cross-device and accessibility", () => {
         await page.goto("/?borough=E09000022");
         // WCAG 2.5.5 measures the TARGET, which for a checkbox wrapped in a
         // label is the label: clicking anywhere in it activates the control.
-        // Measuring the 16px input alone would fail a perfectly usable row —
+        // Measuring the 16px input alone would fail a perfectly usable row :
         // but a checkbox with no wrapping label really would be a 16px target,
         // so that case is reported rather than skipped.
         const undersized = await page.$$eval(

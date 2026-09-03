@@ -1,5 +1,5 @@
 # =============================================================
-# 01_crime_by_borough.R — join crime records to boroughs and aggregate.
+# 01_crime_by_borough.R : join crime records to boroughs and aggregate.
 #
 # Replaces pipeline/dimension/01_crime_by_LSOA.R (retired to experimental/).
 # What changed and why:
@@ -26,7 +26,7 @@
 
 source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-banner("01_crime_by_borough — join and aggregate")
+banner("01_crime_by_borough : join and aggregate")
 
 files <- crime_files()
 check(file.exists(LOOKUP_OUT),
@@ -144,7 +144,7 @@ assert_london_boroughs(crime$borough_gss, "crime join")
 check(crime[, sum(records)] == attributed,
       "join changed the record count from ", format(attributed, big.mark = ","),
       " to ", format(crime[, sum(records)], big.mark = ","),
-      " — the lookup is duplicating codes.")
+      " : the lookup is duplicating codes.")
 ok("join preserved the record count (no duplication)")
 
 # ---- Categorise ----------------------------------------------------------
@@ -155,7 +155,7 @@ check(nrow(unmapped) == 0L,
       "crime type(s) with no category mapping: ",
       paste(unmapped$crime_type, collapse = ", "),
       ".\n       Add them to CRIME_CATEGORY in this script. Do not add a ",
-      "fallback bucket — a silent catch-all is what hid 240,929 records ",
+      "fallback bucket : a silent catch-all is what hid 240,929 records ",
       "across 2011-2013.")
 ok("every crime type maps to a category")
 

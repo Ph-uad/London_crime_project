@@ -1,11 +1,11 @@
 # =============================================================
-# 20_unify_metrics.R — bind every tidied metric into one export, plus the
+# 20_unify_metrics.R : bind every tidied metric into one export, plus the
 # coverage matrix. Implements plan issue 1.9.
 #
 # Two artefacts:
 #
 #   boroughs.json   the observations: borough x year x metric x value
-#   coverage.json   what exists, and what each metric MEANS — which years,
+#   coverage.json   what exists, and what each metric MEANS : which years,
 #                   which boroughs, which direction is "good", what scale the
 #                   values are on, and how the year was derived
 #
@@ -16,7 +16,7 @@
 # TypeScript.
 #
 # Every metric must have a registry entry below. A metric appearing in the
-# data with no entry FAILS the run — the same rule as the crime-type mapping.
+# data with no entry FAILS the run : the same rule as the crime-type mapping.
 # A silent default is how "higher is better" gets applied to anxiety.
 #
 # Writes data/processed/boroughs.json, data/processed/coverage.json
@@ -112,7 +112,7 @@ check(!any(grepl("crime", obs$metric) & grepl("imd", obs$metric)),
       "and must never enter analysis (SOURCES.md, IMD section).")
 
 # Crime counts, including the years with no denominator, come from the rates
-# table rather than the long export — issue 1.9 wants 2025+ counts present but
+# table rather than the long export : issue 1.9 wants 2025+ counts present but
 # flagged, and a count is not a rate.
 rates_path <- file.path(PROC_DIR, "crime_rates_by_borough_year.csv")
 check(file.exists(rates_path), "run 02_population_and_rates.R first.")
@@ -128,7 +128,7 @@ counts <- rates[, .(borough_gss, borough_name, year, metric = "crime_count",
                     source_file = "crime_rates_by_borough_year.csv")]
 obs <- rbind(obs, counts)
 
-# Which years are not a full twelve months — derived, never hardcoded.
+# Which years are not a full twelve months : derived, never hardcoded.
 partial_years <- sort(rates[months_present < 12L, unique(year)])
 
 # ---- Registry conformance ------------------------------------------------
@@ -136,7 +136,7 @@ unknown <- setdiff(unique(obs$metric), METRIC_META$metric)
 check(!length(unknown),
       "metric(s) with no METRIC_META entry: ", paste(unknown, collapse = ", "),
       ".\n       Add them above with cadence, direction, scale and year rule. ",
-      "Do not let a default apply — 'higher is better' is wrong for anxiety, ",
+      "Do not let a default apply : 'higher is better' is wrong for anxiety, ",
       "crime and every IMD domain.")
 unused <- setdiff(METRIC_META$metric, unique(obs$metric))
 if (length(unused)) {
@@ -209,7 +209,7 @@ metrics_json <- lapply(seq_len(nrow(cov_rows)), function(i) {
     scale = r$scale, unit = r$unit, year_rule = r$year_rule,
     # I() forces a JSON array. Without it auto_unbox turns a one-element
     # vector into a bare scalar, so `partial_years` would be [2026] for one
-    # year and 2026 for another — a contract every client would get wrong.
+    # year and 2026 for another : a contract every client would get wrong.
     years = I(yrs),
     partial_years = I(if (r$metric == "crime_count")
       intersect(partial_years, yrs) else integer(0)),

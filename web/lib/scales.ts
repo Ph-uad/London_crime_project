@@ -22,8 +22,8 @@
  * because n = 33 and the distributions are not symmetric: City of London's crime
  * rate is 698 per 1,000 against a median of 113, so seven equal intervals put 32
  * boroughs in the lowest class and produce a map of one red dot. Quantiles cost
- * magnitude — four classes of eight boroughs look evenly spaced whatever the
- * gaps between them — so the legend prints the real break values, and issue
+ * magnitude : four classes of eight boroughs look evenly spaced whatever the
+ * gaps between them : so the legend prints the real break values, and issue
  * 3.3's borough exclusion exists to let a reader drop the outlier and see the
  * rest on their own terms. Diverging metrics do NOT use quantiles: a quantile
  * break would move the midpoint off zero, which is the one thing a diverging
@@ -57,7 +57,7 @@ const SEQUENTIAL = [
 
 /**
  * Diverging steps built from the three poles by mixing in oklab, which keeps
- * lightness moving evenly — mixing in sRGB puts a muddy band either side of the
+ * lightness moving evenly : mixing in sRGB puts a muddy band either side of the
  * midpoint. Index 3 is the midpoint, which sits at zero.
  */
 function divergingSteps(negativePole: string, positivePole: string): string[] {
@@ -146,12 +146,12 @@ function sequentialNote(metric: MetricCoverage): string {
     return "Darker means a higher value. This metric has no better or worse direction.";
   }
   const worseEnd = metric.direction === "higher_is_worse" ? "higher" : "lower";
-  return `Darker means ${worseEnd} — the worse end for this metric.`;
+  return `Darker means ${worseEnd} : the worse end for this metric.`;
 }
 
 function divergingNote(metric: MetricCoverage): string {
   const redEnd = metric.direction === "higher_is_better" ? "below" : "above";
-  return `Centred on zero. Red is ${redEnd} the national average — the worse end for this metric — and blue is the other side. The midpoint is zero, not the middle of London's range.`;
+  return `Centred on zero. Red is ${redEnd} the national average : the worse end for this metric : and blue is the other side. The midpoint is zero, not the middle of London's range.`;
 }
 
 /**
@@ -269,7 +269,7 @@ function divergingScale(
 }
 
 function degenerateNote(metric: MetricCoverage, value: number): string {
-  return `Every borough shown has the same value (${formatValue(value, metric.scale)}), so the map is one flat colour. That is what the source publishes at this precision, not a rendering fault — see the methodology note on IMD score precision.`;
+  return `Every borough shown has the same value (${formatValue(value, metric.scale)}), so the map is one flat colour. That is what the source publishes at this precision, not a rendering fault : see the methodology note on IMD score precision.`;
 }
 
 /** Pick k evenly spaced entries from a ramp, always including both ends. */

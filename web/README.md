@@ -21,7 +21,7 @@ All optional, all comma-separated, all AND-ed:
 ```
 
 Boroughs are filtered by **GSS code**, not name. An unknown metric, year or
-borough returns **400** with the valid values. So does an unknown parameter —
+borough returns **400** with the valid values. So does an unknown parameter :
 `?metrics=` (plural) is rejected rather than ignored, because silently returning
 the whole dataset looks like it worked.
 
@@ -37,9 +37,9 @@ The coverage matrix is the contract that stops the frontend guessing. Per metric
 |---|---|
 | `years`, `partial_years` | slider range; partial years are excluded from year-on-year comparison |
 | `cadence` | `snapshot` (IMD) is discrete points, `annual` is a slider |
-| `direction` | **anxiety and crime are `higher_is_worse`** — most other metrics are not |
+| `direction` | **anxiety and crime are `higher_is_worse`** : most other metrics are not |
 | `scale`, `unit` | IMD domains span proportion, score and standardised; one colour ramp across them is wrong |
-| `year_rule` | `calendar`, `financial_start`, `rolling_end` or `snapshot` — needed to state a cross-metric pairing honestly |
+| `year_rule` | `calendar`, `financial_start`, `rolling_end` or `snapshot` : needed to state a cross-metric pairing honestly |
 | `boroughs_missing` | City of London has no well-being and no life expectancy: those metrics cover **32** boroughs, not 33 |
 
 ## Where the data comes from
@@ -48,9 +48,9 @@ Three modules, split by what may reach the browser:
 
 | Module | Holds | Client-safe? |
 |---|---|---|
-| `lib/coverage.ts` | `coverage.json` — labels, units, direction, cadence, years, per-metric borough coverage (9 KB) | **yes** |
-| `lib/data.ts` | `boroughs.json` — all 6,001 observations (516 KB) | **no** — `server-only` |
-| `lib/geo.ts` | `london.geojson`, and the projection into SVG paths | **no** — `server-only` |
+| `lib/coverage.ts` | `coverage.json` : labels, units, direction, cadence, years, per-metric borough coverage (9 KB) | **yes** |
+| `lib/data.ts` | `boroughs.json` : all 6,001 observations (516 KB) | **no** : `server-only` |
+| `lib/geo.ts` | `london.geojson`, and the projection into SVG paths | **no** : `server-only` |
 
 `boroughs.json` and `coverage.json` are imported through the `@data/*` alias
 (tsconfig → `../data/processed/*`) and bundled at build time; `london.geojson` is
@@ -60,15 +60,15 @@ on a redeploy, which is what the long `s-maxage` assumes.
 **Why `lib/data.ts` is marked `server-only`,** given it has no filesystem access:
 `components/site-header.tsx` is a client component, it imports `lib/site.ts`, and
 `lib/site.ts` used to import `lib/data.ts` for the borough count. Turbopack could
-not drop the JSON — the module derives `observations` and `allYears` from it at
-module scope — so every visitor downloaded all 6,001 observations in order to
+not drop the JSON : the module derives `observations` and `allYears` from it at
+module scope : so every visitor downloaded all 6,001 observations in order to
 render the word "Dashboard" in the header. Confirmed by grepping the built chunk
 and finding 6,001 `{"borough_gss":…}` objects; client JS fell from 1.2 MB to
 716 KB once it was split. The marker turns a repeat of that from a silent half
 megabyte into a build failure naming the cause.
 
 The dashboard itself never reads any of these from the client. The server builds
-a **compact index** — `metric → year → value[boroughIndex]`, see `lib/series.ts` —
+a **compact index** : `metric → year → value[boroughIndex]`, see `lib/series.ts` :
 and passes it down as a prop.
 
 If the pipeline has not been run, `/api/geo` returns **503** naming the script to
@@ -95,7 +95,7 @@ container that already ships one, point `PW_CHROMIUM_PATH` at it instead of
 downloading.
 
 Running them from inside `web/` works too. What does **not** work is a bare
-`npm run <script>` at the root without those delegating scripts — the root
+`npm run <script>` at the root without those delegating scripts : the root
 package is workspace-only and has no `next` or `vitest` of its own.
 
 ## The dashboard
@@ -108,7 +108,7 @@ One route (`/`), one client component tree, all state in the query string:
 
 The initial state is parsed **on the server** from the request's search params, so
 a shared link renders correctly in the first HTML. Updates are mirrored with
-`history.replaceState` rather than a router navigation — the trade is that the
+`history.replaceState` rather than a router navigation : the trade is that the
 back button does not step through metric changes, which for a dashboard is the
 right way round.
 
@@ -119,7 +119,7 @@ unknown API parameters outright.
 
 **No mapping or charting library.** The choropleth is inline SVG over
 hand-written Web Mercator (`lib/projection.ts`), the scales and class breaks are
-in `lib/scales.ts`, and the correlation and fit are in `lib/stats.ts` — about
+in `lib/scales.ts`, and the correlation and fit are in `lib/stats.ts` : about
 400 lines, all unit-tested, against roughly 250 KB of MapLibre + d3. The cost is
 that there is no basemap: pan and zoom operate on the SVG viewBox, so a reader
 cannot zoom in to see streets. For 33 borough polygons that is the right trade.
@@ -130,7 +130,7 @@ screen-reader path, and carries the same values, selection and no-data states.
 
 ## Layout and design tokens
 
-`app/globals.css` holds the palette as CSS custom properties — surfaces, ink,
+`app/globals.css` holds the palette as CSS custom properties : surfaces, ink,
 categorical, sequential, diverging, status, and a no-data colour. **Charts from
 3.2 onwards read these roles and must not introduce raw hex.** Three things
 about them are load-bearing:
@@ -139,7 +139,7 @@ about them are load-bearing:
   all-pairs in both modes, worst CVD ΔE 9.2 light / 9.4 dark against a ≥8
   target. The set is capped at three, because a fourth puts yellow beside
   orange and fails the floor for scatter and choropleth.
-- `--text-muted` is **chart chrome only** — 3.50:1 on the light surface, under
+- `--text-muted` is **chart chrome only** : 3.50:1 on the light surface, under
   the 4.5:1 AA floor. Prose and captions use `--text-secondary` (7.73:1). Using
   muted for body text is what the axe run caught first time.
 - Dark mode is *selected*: its own steps chosen for the dark surface, not an
@@ -163,7 +163,7 @@ about them are load-bearing:
 
 Two guards were checked by deliberately breaking the code: ignoring `direction`
 in the ramp, and ranking against 33 boroughs regardless of coverage. The first
-exposed a weak test — the browser check was reading the legend caption, which is
+exposed a weak test : the browser check was reading the legend caption, which is
 generated separately from the fills, so it passed on the broken build. It now
 reads the painted colours.
 

@@ -1,8 +1,8 @@
 # =============================================================
-# pipeline/tests/smoke.R — end-to-end smoke test on synthetic fixtures.
+# pipeline/tests/smoke.R : end-to-end smoke test on synthetic fixtures.
 #
 # Why this exists: the retired scripts shipped as if they worked. They did
-# not — 01_LSOA_by_population.R called an undefined tr(), reused a closed
+# not : 01_LSOA_by_population.R called an undefined tr(), reused a closed
 # Spark connection and had an assignment swallowed into a comment. None of
 # that is a syntax error, so `parse()` accepts all three; only executing the
 # code finds them.
@@ -191,7 +191,7 @@ if (requireNamespace("writexl", quietly = TRUE)) {
                                 "ons-lifeexpectancylocalareas-2022to2024.xlsx"),
                       col_names = FALSE)
 } else {
-  message("NOTE: writexl not installed — skipping the life-expectancy fixture ",
+  message("NOTE: writexl not installed : skipping the life-expectancy fixture ",
           "and 13_tidy_life_expectancy.R.")
 }
 
@@ -214,7 +214,7 @@ if (requireNamespace("sf", quietly = TRUE)) {
   st_write(bnd, file.path(bdir, "ons-lad-uk-bgc.geojson"),
            driver = "GeoJSON", quiet = TRUE)
 } else {
-  message("NOTE: sf not installed — skipping 03_borough_boundaries.R.")
+  message("NOTE: sf not installed : skipping 03_borough_boundaries.R.")
 }
 
 # ---- Run -----------------------------------------------------------------

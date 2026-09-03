@@ -36,7 +36,7 @@ async function audit(page: Page): Promise<AxeResult> {
 }
 
 for (const vp of WIDTHS) {
-  test.describe(`${vp.name} — ${vp.width}px`, () => {
+  test.describe(`${vp.name} : ${vp.width}px`, () => {
     test.use({ viewport: { width: vp.width, height: vp.height } });
 
     for (const route of ROUTES) {
@@ -109,7 +109,7 @@ test.describe("theme", () => {
     // OS dark, no choice stored: the toggle reports dark.
     await expect(page.getByRole("button", { name: /switch to light theme/i })).toBeVisible();
 
-    // Choosing light must win over OS dark — the case an automatic flip breaks.
+    // Choosing light must win over OS dark : the case an automatic flip breaks.
     await page.getByRole("button", { name: /switch to light theme/i }).click();
     await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 
@@ -154,8 +154,8 @@ test.describe("theme", () => {
     // load, reported as a missing attribute with no mention of storage.
     //
     // This pins the contract: the theme still changes for the session, and the
-    // failure to persist it is recorded on the document where a test — or
-    // someone reading a bug report — can see it.
+    // failure to persist it is recorded on the document where a test : or
+    // someone reading a bug report : can see it.
     const ctx = await browser.newContext({ colorScheme: "dark" });
     await ctx.addInitScript(() => {
       const real = Storage.prototype.setItem;

@@ -4,7 +4,7 @@
  * Design tokens for the dashboard (plan issue 3.1).
  *
  * Values are the validated reference palette. The three categorical slots were
- * checked with the palette validator rather than eyeballed — all-pairs, both
+ * checked with the palette validator rather than eyeballed : all-pairs, both
  * modes: worst CVD ΔE 9.2 light / 9.4 dark against a ≥8 target, worst
  * normal-vision ΔE 27.6 / 26.5 against a ≥15 floor. Aqua sits at 2.74:1 on the
  * light surface, under 3:1, so anything using it ships a visible label or a
@@ -27,7 +27,7 @@
   /* Ink */
   --text-primary: #0b0b0b;
   --text-secondary: #52514e;
-  /* Chart chrome ONLY — axis ticks, gridline labels. 3.50:1 on the light
+  /* Chart chrome ONLY : axis ticks, gridline labels. 3.50:1 on the light
      surface, which is under the 4.5:1 AA floor for text, so it must not be used
      for prose, captions or small print. Use --text-secondary (7.73:1) there. */
   --text-muted: #898781;
@@ -37,13 +37,13 @@
   --baseline: #c3c2b7;
   --border: rgb(11 11 11 / 0.1);
 
-  /* Categorical — fixed order, never cycled. Capped at 3 for all-pairs forms
+  /* Categorical : fixed order, never cycled. Capped at 3 for all-pairs forms
      (choropleth, scatter); a 4th series folds into "Other" or facets. */
   --series-1: #2a78d6;
   --series-2: #eb6834;
   --series-3: #1baf7a;
 
-  /* Sequential — one hue, light to dark. The choropleth ramp (3.2). */
+  /* Sequential : one hue, light to dark. The choropleth ramp (3.2). */
   --seq-100: #cde2fb;
   --seq-200: #9ec5f4;
   --seq-300: #6da7ec;
@@ -52,21 +52,21 @@
   --seq-600: #184f95;
   --seq-700: #0d366b;
 
-  /* Diverging — two poles, neutral gray midpoint. For standardised IMD
+  /* Diverging : two poles, neutral gray midpoint. For standardised IMD
      domains, which go negative and must not use the sequential ramp. */
   --div-low: #2a78d6;
   --div-mid: #f0efec;
   --div-high: #d03b3b;
 
-  /* Status — reserved. Never reused as a series colour, always with a label. */
+  /* Status : reserved. Never reused as a series colour, always with a label. */
   --status-good: #0ca30c;
   --status-warning: #fab219;
   --status-serious: #ec835a;
   --status-critical: #d03b3b;
   --delta-good: #006300;
 
-  /* No-data. Boroughs a metric does not cover — City of London on well-being
-     and life expectancy — are rendered in this, never omitted and never zero. */
+  /* No-data. Boroughs a metric does not cover : City of London on well-being
+     and life expectancy : are rendered in this, never omitted and never zero. */
   --no-data: #e6e5e0;
   --no-data-ink: #52514e;
 }

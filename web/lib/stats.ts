@@ -4,8 +4,8 @@
  * All of it is over 33 aggregated borough units, which is the constraint the
  * whole project is built around: these are associations between area averages,
  * and an association at borough level says nothing reliable about individuals.
- * The functions here therefore return the things needed to state that honestly —
- * n, how many units were dropped, and which years were actually paired — rather
+ * The functions here therefore return the things needed to state that honestly :
+ * n, how many units were dropped, and which years were actually paired : rather
  * than an r on its own.
  */
 import type { Direction, MetricCoverage } from "./types";
@@ -27,7 +27,7 @@ export interface Rank {
  *
  * The denominator is the count of boroughs that actually have a value, which is
  * 32 for well-being and life expectancy. Reporting "n/33" there would be a claim
- * about City of London that the source does not make — issue 3.5 calls this out
+ * about City of London that the source does not make : issue 3.5 calls this out
  * specifically.
  *
  * Rank 1 is the WORST outcome for a directional metric, so ranks mean the same
@@ -127,7 +127,7 @@ export interface Fit {
 /**
  * Ordinary least squares plus Pearson r, in one pass over the pairs.
  *
- * Returns null rather than NaN when the fit is undefined — fewer than three
+ * Returns null rather than NaN when the fit is undefined : fewer than three
  * points, or no variance in one variable. `imd_employment_score` has a single
  * distinct value across all 33 boroughs, so a zero-variance x is a case that
  * occurs in this dataset, not a theoretical guard.
@@ -173,13 +173,13 @@ export function fitLine(pairs: readonly Pair[]): Fit | null {
  * identical values of 0.1 have a mean of 0.10000000000000002, so each deviation
  * is about −1.4e-17 rather than 0 and the sum is ~5.8e-34: small, but non-zero,
  * and enough for the division below to return a slope and an r built entirely
- * out of rounding error. `imd_employment_score` is exactly this — one distinct
- * value across all 33 boroughs — so a scatter against it would have shown a
+ * out of rounding error. `imd_employment_score` is exactly this : one distinct
+ * value across all 33 boroughs : so a scatter against it would have shown a
  * fitted line and a correlation coefficient with no data behind either.
  *
  * The tolerance is relative to the values themselves: identical inputs of
  * magnitude m leave a residue of order n·(m·ε)². Real data clears it by orders
- * of magnitude — the IMD living-environment scores differ by whole points on a
+ * of magnitude : the IMD living-environment scores differ by whole points on a
  * mean of 25, giving a sum around 0.5 against a threshold near 1e-27.
  */
 function noVariance(sumSquares: number, mean: number, n: number): boolean {
@@ -218,7 +218,7 @@ export function longRunChange(
   metric: MetricCoverage,
   valueOf: (year: number) => number | null,
 ): Change | null {
-  // A snapshot is not a series. IMD 2015 and IMD 2019 are separate exercises —
+  // A snapshot is not a series. IMD 2015 and IMD 2019 are separate exercises :
   // the pipeline already drops their ranks because the two are not
   // methodologically comparable, and the scores inherit enough of that to make
   // "deprivation fell by 0.18" a sentence about the index rather than about

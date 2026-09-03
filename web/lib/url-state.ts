@@ -11,7 +11,7 @@
  *
  *   Unknown parameters are ignored rather than rejected. The API rejects them
  *   because a silently dropped `?metrics=` returns the whole dataset and looks
- *   like it worked. A page URL is different — it collects `utm_source` and
+ *   like it worked. A page URL is different : it collects `utm_source` and
  *   friends from anything that links to it, and refusing to render because of a
  *   tracking parameter would be a worse failure than ignoring one.
  *
@@ -109,7 +109,7 @@ export function parseState(
     } else if (!cov.years.includes(parsed)) {
       const snapped = snapYear(cov, parsed);
       rejected.push(
-        `${cov.label} has no data for ${parsed} — its series runs ${Math.min(...cov.years)}–${Math.max(...cov.years)}. Showing ${snapped}.`,
+        `${cov.label} has no data for ${parsed} : its series runs ${Math.min(...cov.years)}–${Math.max(...cov.years)}. Showing ${snapped}.`,
       );
       year = snapped;
     } else {

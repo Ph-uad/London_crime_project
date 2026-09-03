@@ -134,7 +134,7 @@ describe("absenceReason", () => {
   it("distinguishes a year outside the series, and names the real range", () => {
     const reason = absenceReason(wellbeing, "Anxiety", 2024, camden);
     expect(reason.kind).toBe("outside_series");
-    // Well-being stops at 2022 while crime runs to 2024 — the live case.
+    // Well-being stops at 2022 while crime runs to 2024 : the live case.
     expect(reason.text).toContain("2011–2022");
   });
 

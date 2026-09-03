@@ -1,5 +1,5 @@
 # =============================================================
-# 10_tidy_income.R — HMRC personal income to the common long schema.
+# 10_tidy_income.R : HMRC personal income to the common long schema.
 # Implements plan issue 1.5. Replaces the income section of the retired
 # 00_QOL_tidy.R, which could not reproduce its own committed output: it
 # overwrote the column names with the label row and only then tried to read
@@ -10,7 +10,7 @@
 # This is recorded in SOURCES.md and must stay consistent with the
 # life-expectancy rule in issue 1.8 before the two are paired.
 #
-# Median is the analysis metric — borough income is right-skewed and means
+# Median is the analysis metric : borough income is right-skewed and means
 # are dragged by high earners. Mean and taxpayer counts are retained as
 # supplementary rows, not dropped.
 #

@@ -3,7 +3,7 @@
  *
  * These exist for the same reason pipeline/tests/smoke.R does: the R side learned
  * that code which type-checks and builds is not thereby code that works. Every
- * test below asserts something that can actually be got wrong — a filter that
+ * test below asserts something that can actually be got wrong : a filter that
  * silently returns everything, a 400 that never fires, an array that collapses to
  * a scalar, a direction flag that flips.
  */
@@ -26,7 +26,7 @@ const call = async <T>(handler: (r: Request) => Promise<Response>, query = "") =
 
 const AN_ANNUAL_METRIC = "crime_rate_per_1000";
 
-describe("GET /api/metrics — the full dataset", () => {
+describe("GET /api/metrics : the full dataset", () => {
   it("returns every observation when unfiltered", async () => {
     const { res, body } = await call<MetricsResponse>(metrics);
     expect(res.status).toBe(200);
@@ -49,7 +49,7 @@ describe("GET /api/metrics — the full dataset", () => {
   });
 });
 
-describe("GET /api/metrics — filtering", () => {
+describe("GET /api/metrics : filtering", () => {
   it("filters by metric", async () => {
     const { body } = await call<MetricsResponse>(metrics, `?metric=${AN_ANNUAL_METRIC}`);
     expect(body.observations.every((o) => o.metric === AN_ANNUAL_METRIC)).toBe(true);
@@ -100,7 +100,7 @@ describe("GET /api/metrics — filtering", () => {
   });
 });
 
-describe("GET /api/metrics — invalid parameters return 400", () => {
+describe("GET /api/metrics : invalid parameters return 400", () => {
   it("rejects an unknown metric and says where to look", async () => {
     const { res, body } = await call<{ error: string; detail: string }>(
       metrics,
@@ -147,7 +147,7 @@ describe("GET /api/metrics — invalid parameters return 400", () => {
   });
 });
 
-describe("GET /api/meta — the coverage contract", () => {
+describe("GET /api/meta : the coverage contract", () => {
   it("returns the whole matrix", async () => {
     const { res, body } = await call<CoverageMatrix>(meta);
     expect(res.status).toBe(200);
@@ -212,7 +212,7 @@ describe("GET /api/meta — the coverage contract", () => {
   });
 });
 
-describe("GET /api/geo — borough boundaries", () => {
+describe("GET /api/geo : borough boundaries", () => {
   it("returns 33 features with the GeoJSON media type", async () => {
     const { res, body } = await call<BoroughFeatureCollection>(geo);
     expect(res.status).toBe(200);

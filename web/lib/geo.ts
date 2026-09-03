@@ -7,7 +7,7 @@ import { anchorFor, extentOf, fitExtent, pathFor } from "./projection";
 import type { BoroughFeatureCollection } from "./types";
 
 /**
- * Borough polygons — server-only.
+ * Borough polygons : server-only.
  *
  * `london.geojson` cannot go through the `@data/*` alias: TypeScript and the
  * bundler treat only `.json` as a JSON module, and `.geojson` is not that. It is
@@ -47,13 +47,13 @@ export function boroughGeoJson(): BoroughFeatureCollection {
  * 171 KB of longitude/latitude pairs that the browser would have to project on
  * every render; and `lib/geo.ts` is `server-only`, so a client component cannot
  * reach the filesystem read that produces it. What crosses to the browser is 33
- * path strings in viewBox units — about half the bytes and none of the work.
+ * path strings in viewBox units : about half the bytes and none of the work.
  *
  * The join is on GSS code, not array position: `coverage.boroughs` is sorted by
  * name and the GeoJSON features are in code order. A positional join would
  * silently draw every borough with its neighbour's outline, which looks
  * plausible enough on a map of a city nobody in the room knows well. A borough
- * with no geometry is a hard failure — the pipeline already asserts the two
+ * with no geometry is a hard failure : the pipeline already asserts the two
  * files agree, so reaching this means that assertion was bypassed.
  */
 const VIEWBOX = { width: 1000, height: 720 } as const;

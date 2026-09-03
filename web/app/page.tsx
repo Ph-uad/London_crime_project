@@ -11,7 +11,7 @@ import { FACTS, SITE } from "@/lib/site";
  * A server component that does three things and then gets out of the way:
  *
  *   1. Projects the borough polygons into SVG paths. `lib/geo.ts` is
- *      `server-only` — it reads the filesystem — so this is the last point at
+ *      `server-only` : it reads the filesystem : so this is the last point at
  *      which the geometry can be touched.
  *   2. Compacts 6,001 observations into an index keyed by metric, year and
  *      borough position. The raw export is 516 KB; the index is a fraction of
@@ -27,7 +27,7 @@ import { FACTS, SITE } from "@/lib/site";
  * Built once per process, not once per request.
  *
  * Reading `searchParams` makes this route dynamic, so its body runs on every
- * request — but none of this depends on the request. `buildSeries` walks all
+ * request : but none of this depends on the request. `buildSeries` walks all
  * 6,001 observations and allocates the whole index; without memoising it, every
  * page view repeated that work and every concurrent view repeated it again.
  * The data is bundled at build time and cannot change while the process lives,
