@@ -1,5 +1,5 @@
 # =============================================================
-# QA/01_QA.R — cross-script reconciliation and schema conformance.
+# QA/01_QA.R : cross-script reconciliation and schema conformance.
 #
 # The previous version could not fail. It computed
 #   aggregated_total <- sum of group counts over rows already filtered to
@@ -11,8 +11,8 @@
 # grouped by LSOA_name under the column alias `Borough`.
 #
 # This version compares quantities produced by DIFFERENT scripts reading the
-# source independently — 00_crime_rowcounts.R counts raw file rows,
-# 01_crime_by_borough.R classifies and aggregates them — so a disagreement
+# source independently : 00_crime_rowcounts.R counts raw file rows,
+# 01_crime_by_borough.R classifies and aggregates them : so a disagreement
 # is real information. Every check can fail, and a failure exits non-zero.
 #
 # Writes pipeline/logs/dataQuality.log
@@ -20,7 +20,7 @@
 
 source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-banner("QA — reconciliation")
+banner("QA : reconciliation")
 
 results <- data.table(check = character(), expected = character(),
                       actual = character(), status = character())
@@ -154,7 +154,7 @@ if (file.exists(bj) && file.exists(cj)) {
   pass <- record("no IMD crime domain in the unified export", 0,
                  length(leaked_imd), length(leaked_imd) == 0L) && pass
 } else {
-  message("\nNote: boroughs.json / coverage.json not present — ",
+  message("\nNote: boroughs.json / coverage.json not present : ",
           "run 20_unify_metrics.R to include them in QA.")
 }
 
@@ -184,7 +184,7 @@ if (file.exists(gj)) {
                  sprintf("%.1f..%.1f", min(flat), max(flat)),
                  min(flat) > -1 && max(flat) < 52) && pass
 } else {
-  message("\nNote: london.geojson not present — run 03_borough_boundaries.R ",
+  message("\nNote: london.geojson not present : run 03_borough_boundaries.R ",
           "to include it in QA.")
 }
 

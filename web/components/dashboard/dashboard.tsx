@@ -24,8 +24,8 @@ import type { CoverageMatrix } from "@/lib/types";
  * navigation re-runs the route on every drag of the year slider for a value
  * that is entirely client-side. The trade this makes is explicit: the back
  * button does not step through metric changes. For a dashboard whose whole
- * state is one shareable URL that is the right way round — nobody expects Back
- * to undo a slider — and the URL stays copy-pasteable, which is what issue 3.3
+ * state is one shareable URL that is the right way round : nobody expects Back
+ * to undo a slider : and the URL stays copy-pasteable, which is what issue 3.3
  * asks for.
  *
  * The initial state is parsed on the SERVER from the request's search params, so
@@ -35,7 +35,7 @@ import type { CoverageMatrix } from "@/lib/types";
  * DATA. Everything arrives as props. This file and its children never import
  * `@/lib/data`: that module imports the 516 KB borough export, and reaching it
  * from a client component would put the whole thing in the browser bundle. The
- * server builds a compact index instead — see `lib/series.ts`.
+ * server builds a compact index instead : see `lib/series.ts`.
  */
 export function Dashboard({
   data,
@@ -150,8 +150,8 @@ export function Dashboard({
       />
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {/* Map first in DOM order, so the controls stack below it on mobile —
-            issue 3.1's stacking rule — and the reading order matches. */}
+        {/* Map first in DOM order, so the controls stack below it on mobile :
+            issue 3.1's stacking rule : and the reading order matches. */}
         <section
           aria-labelledby="map-heading"
           className="rounded-lg border border-[var(--border)] bg-[var(--surface-1)] p-4 sm:p-5 lg:col-span-2"
@@ -277,7 +277,7 @@ export function Dashboard({
               Borough detail
             </h2>
             <p className="mt-2 text-sm text-[var(--text-secondary)]">
-              Select a borough — on the map, in the table, or on the scatterplot — to see all{" "}
+              Select a borough : on the map, in the table, or on the scatterplot : to see all{" "}
               {Object.keys(metrics).length} metrics for it, each ranked against the boroughs that
               metric actually covers.
             </p>

@@ -1,5 +1,5 @@
 # =============================================================
-# 11_tidy_imd.R — IMD borough domain scores to the common long schema.
+# 11_tidy_imd.R : IMD borough domain scores to the common long schema.
 # Implements plan issue 1.6. Replaces the deprivation section of the retired
 # 00_QOL_tidy.R, whose output (IDMP_2015_n_2019.csv, 94 columns) kept every
 # rank and proportion column and, critically, kept the Crime domain.
@@ -57,9 +57,9 @@ read_snapshot <- function(year, path) {
   check(!is.na(code_col),
         "no 'Local Authority District code' column in the IMD ", year, " file.")
 
-  # Keep only "<Domain> - Average score". Everything else — average rank,
+  # Keep only "<Domain> - Average score". Everything else : average rank,
   # rank of average rank, proportion of LSOAs in the most deprived decile,
-  # scale, and every rank thereof — is excluded from analysis.
+  # scale, and every rank thereof : is excluded from analysis.
   score_cols <- grep(" - Average score$", names(d), value = TRUE)
   check(length(score_cols) > 0L,
         "no '- Average score' columns found in the IMD ", year, " file.")
@@ -92,7 +92,7 @@ crime_out <- merge(crime_dom, boroughs, by = "borough_gss")[
       metric = "imd_crime_score", value,
       source = "MHCLG Indices of Deprivation, borough domain summaries",
       geography_native = "borough (LSOA-derived)",
-      notes = paste0("VALIDATION ONLY — excluded from analysis. The IMD ",
+      notes = paste0("VALIDATION ONLY : excluded from analysis. The IMD ",
                      "Crime domain is constructed from recorded crime, so ",
                      "using it to explain crime rates is circular. ",
                      "Scale: standardised (negative = less deprived)."))]
@@ -114,7 +114,7 @@ out <- merge(analysis, boroughs, by = "borough_gss")[
       source = "MHCLG Indices of Deprivation, borough domain summaries",
       geography_native = "borough (LSOA-derived)",
       notes = paste0(domain, " domain, average score. Scale: ", scale_type,
-                     ". Snapshot year — not a time series. 2015 and 2019 ",
+                     ". Snapshot year : not a time series. 2015 and 2019 ",
                      "ranks are not methodologically comparable; scores used ",
                      "instead."))]
 

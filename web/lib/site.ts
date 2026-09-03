@@ -3,7 +3,7 @@
  * and able to drift from what the data actually says.
  *
  * Server components import from `@/lib/coverage` rather than fetching
- * `/api/meta`. It is the same source the API route serves — fetching your own
+ * `/api/meta`. It is the same source the API route serves : fetching your own
  * route from a server component adds a round trip and an absolute-URL problem
  * for no gain. The HTTP contract itself is covered by the route tests.
  *
@@ -23,7 +23,7 @@ export const NAV = [
 
 export const SITE = {
   name: "London Crime & Social Determinants",
-  short: "Crime × Determinants",
+  short: "Crime × Associations",
   tagline: "How recorded crime in London associates with income, deprivation, well-being and life expectancy",
 } as const;
 

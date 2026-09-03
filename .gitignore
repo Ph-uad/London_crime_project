@@ -18,7 +18,7 @@ data/raw/
 
 # Raw crime CSVs must live in data/raw/crime/ ONLY. This rule stays as a
 # backstop in case a copy reappears here, but note that data/processed/ is a
-# pipeline output directory — anything the pipeline can overwrite belongs
+# pipeline output directory : anything the pipeline can overwrite belongs
 # nowhere near your only copy of the source data.
 data/processed/crime/
 

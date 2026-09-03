@@ -1,5 +1,5 @@
 /**
- * GET /api/metrics — the unified borough × year × metric × value dataset.
+ * GET /api/metrics : the unified borough × year × metric × value dataset.
  * Plan issue 2.1.
  *
  * Filters (all optional, all comma-separated, all AND-ed):

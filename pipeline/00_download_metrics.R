@@ -1,21 +1,21 @@
 # =============================================================
-# 00_download_metrics.R — acquire the well-being and life-expectancy series
+# 00_download_metrics.R : acquire the well-being and life-expectancy series
 # (issue 1.4) and the borough boundaries (issue 1.10).
 #
 # Why these two sources and not the ones the issue names:
 #
 #   The issue says "from the London Datastore". Both Datastore copies were
 #   checked on 2026-08-16 and are unusable for a recent analysis:
-#     personal-well-being-borough-2r87d  — Apr 2011 to Mar 2019, last updated
+#     personal-well-being-borough-2r87d  : Apr 2011 to Mar 2019, last updated
 #                                          2019. Better than the ward file's
 #                                          2013 cutoff, still four years short.
-#     life-expectancy-...-borough-23gm7  — 2000-2002 to 2008-2010, and it is
+#     life-expectancy-...-borough-23gm7  : 2000-2002 to 2008-2010, and it is
 #                                          Open Government Licence **v2**,
 #                                          not v3 like everything else here.
 #   Both are GLA re-publications of ONS data, so this goes to ONS directly:
 #   longer series, current releases, and OGL v3.0 on both.
 #
-# Licences were READ on the ONS dataset pages, not assumed — see SOURCES.md.
+# Licences were READ on the ONS dataset pages, not assumed : see SOURCES.md.
 #
 # Downloads are recorded in pipeline/logs/acquisition.log with size, MD5 and
 # UTC timestamp, so "when did we pull this and what exactly did we get" is
@@ -25,12 +25,12 @@
 #
 # Needs outbound network access. If your machine is behind a proxy that
 # blocks ons.gov.uk, download the two URLs by hand into the paths this
-# script reports and re-run it — it verifies whatever is already on disk.
+# script reports and re-run it : it verifies whatever is already on disk.
 # =============================================================
 
 source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-banner("00_download_metrics — well-being and life expectancy")
+banner("00_download_metrics : well-being and life expectancy")
 
 TARGETS <- list(
   list(name = "ONS4 personal well-being (local authority, time series)",
@@ -62,7 +62,7 @@ sniff <- function(path) {
   con <- file(path, "rb"); on.exit(close(con))
   head <- readBin(con, "raw", n = 512L)     # enough to see past a BOM/preamble
   if (length(head) >= 2L && identical(head[1:2], as.raw(c(0x50, 0x4b)))) {
-    return("xlsx")          # PK.. — any zip container, which xlsx is
+    return("xlsx")          # PK.. : any zip container, which xlsx is
   }
   txt <- tolower(rawToChar(head[head != as.raw(0)]))
   if (grepl("<!doctype|<html|<head|<body", txt)) return("html")
@@ -72,7 +72,7 @@ sniff <- function(path) {
 fetch <- function(t) {
   ensure_dir(dirname(t$path))
   if (file.exists(t$path)) {
-    message("  have  ", t$path, " — verifying, not re-downloading")
+    message("  have  ", t$path, " : verifying, not re-downloading")
   } else {
     message("  get   ", t$name, "\n        ", t$url)
     ok_dl <- tryCatch({
@@ -90,7 +90,7 @@ fetch <- function(t) {
       fail("could not download '", t$name, "'.\n",
            "       URL:  ", t$url, "\n",
            "       Save it to:  ", t$path, "\n",
-           "       Then re-run this script — it verifies files already on disk.")
+           "       Then re-run this script : it verifies files already on disk.")
     }
   }
 

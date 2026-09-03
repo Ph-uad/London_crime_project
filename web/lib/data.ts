@@ -1,7 +1,7 @@
 import "server-only";
 
 /**
- * The full borough observation export — server-side only.
+ * The full borough observation export : server-side only.
  *
  * `boroughs.json` and `coverage.json` are imported through the `@data/*` alias
  * (see tsconfig paths → `../data/processed/*`), so they are resolved and bundled
@@ -14,8 +14,8 @@ import "server-only";
  * browser needs them: the dashboard runs on the compact index built by
  * `lib/series.ts` and passed down as a prop, and the API routes serve the rest
  * over HTTP. The marker turns "a client component reached this" from a silent
- * half-megabyte in the bundle — which is what it was, measured in the built
- * chunk — into a build failure naming the cause.
+ * half-megabyte in the bundle : which is what it was, measured in the built
+ * chunk : into a build failure naming the cause.
  *
  * Client-reachable code imports `lib/coverage.ts` instead. The coverage matrix
  * is re-exported here so server callers still have one import site.

@@ -18,8 +18,8 @@ export default defineConfig({
     baseURL: "http://127.0.0.1:3210",
     ...devices["Desktop Chrome"],
     // A failure that only happens on a CI runner is worth nothing without a
-    // record of it. The retry carries a trace — DOM snapshots, console, network
-    // and the exact state at each step — so the next intermittent failure is
+    // record of it. The retry carries a trace : DOM snapshots, console, network
+    // and the exact state at each step : so the next intermittent failure is
     // diagnosed from evidence rather than reproduced by guesswork.
     trace: "on-first-retry",
     // Normally Playwright uses the browser it downloaded. Some CI images and
@@ -34,7 +34,7 @@ export default defineConfig({
     url: "http://127.0.0.1:3210",
     // Never reuse. A `next start` left running from an earlier session answers
     // on this port with an OLD build, and the suite then reports failures
-    // against code that is no longer on disk — which cost real time once
+    // against code that is no longer on disk : which cost real time once
     // already. Always paying for a build is cheaper than debugging a ghost.
     reuseExistingServer: false,
     timeout: 180_000,

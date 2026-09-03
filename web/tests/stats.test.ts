@@ -133,7 +133,7 @@ describe("fitLine", () => {
 });
 
 describe("describeStrength", () => {
-  it("is symmetric in sign — a strong negative association is still strong", () => {
+  it("is symmetric in sign : a strong negative association is still strong", () => {
     expect(describeStrength(-0.8)).toBe(describeStrength(0.8));
   });
 

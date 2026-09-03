@@ -11,7 +11,7 @@ import type { MetricCoverage } from "@/lib/types";
  * are quantiles: seven evenly sized swatches would otherwise imply seven evenly
  * spaced value ranges, which is exactly what quantile classing is not. The
  * units come from the metric's `unit`, and the note states which end of the ramp
- * is the worse one — a `higher_is_worse` metric and a `higher_is_better` one use
+ * is the worse one : a `higher_is_worse` metric and a `higher_is_better` one use
  * the same colours for opposite values, so leaving that to be inferred is how a
  * reader concludes that rich boroughs have the most crime.
  */

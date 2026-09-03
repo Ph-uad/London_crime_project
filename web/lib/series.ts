@@ -13,7 +13,7 @@
  * an array index rather than a scan of 6,001 rows, and the payload drops to
  * roughly a sixth of the raw export.
  *
- * `null` means "no value", and every hole is explicit — a missing borough is a
+ * `null` means "no value", and every hole is explicit : a missing borough is a
  * null in its slot, never a short array or an absent key. Anything that renders
  * a value has to decide what to do about the null, which is the point: City of
  * London has no well-being figure and must not quietly become a zero.
@@ -90,7 +90,7 @@ export function valueAt(
  *
  * Ties break towards the earlier year, so a pairing is never silently moved
  * forward into a year the reader has not selected. This is a *pairing* rule, not
- * interpolation — the value returned is the one actually published for that
+ * interpolation : the value returned is the one actually published for that
  * year, and the caller is expected to print which year it used.
  */
 export function nearestYear(coverage: MetricCoverage, target: number): number | null {
@@ -135,7 +135,7 @@ export function absenceReason(
   if (metric.boroughs_missing.some((b) => b.gss === borough.gss)) {
     return {
       kind: "not_covered",
-      text: `Not published for ${borough.name} — the resident population is too small for a reliable estimate.`,
+      text: `Not published for ${borough.name} : the resident population is too small for a reliable estimate.`,
     };
   }
   if (!metric.years.includes(year)) {
@@ -199,7 +199,7 @@ export function groupByFamily(
   }));
 }
 
-/** Distinct sorted years across a set of metrics — the union, not any one range. */
+/** Distinct sorted years across a set of metrics : the union, not any one range. */
 export function unionYears(
   metrics: Record<string, MetricCoverage>,
   ids: readonly string[],

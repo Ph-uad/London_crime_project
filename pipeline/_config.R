@@ -1,5 +1,5 @@
 # =============================================================
-# _config.R — single source of truth for windows, paths and forces.
+# _config.R : single source of truth for windows, paths and forces.
 #
 # Every downstream script and the exported coverage matrix read from
 # here. Nothing else in the pipeline may hardcode a year range.
@@ -90,7 +90,7 @@ LOOKUP_OUT <- file.path(PROC_DIR, "lsoa_lookup.csv")
 # Two generalisation levels, tried in order. BGC is the quality choice; BUC is
 # the fallback if the London subset will not fit the 500 KB budget. Both are
 # generalised BY ONS across the whole coverage, so adjacent boroughs still
-# share edges exactly. We never simplify ourselves — a non-topology-preserving
+# share edges exactly. We never simplify ourselves : a non-topology-preserving
 # simplify opens slivers between neighbouring boroughs, which on a choropleth
 # shows up as hairline gaps you cannot fix afterwards.
 BOUNDARY_GEN <- cfg_env("BOUNDARY_GEN", "BGC")     # "BGC" (20m) or "BUC" (500m)
@@ -113,7 +113,7 @@ BOUNDARY_RAW <- file.path(RAW_DIR, "boundaries",
 BOUNDARY_OUT <- file.path(PROC_DIR, "london.geojson")
 
 # Issue 1.10's budget, and the coordinate precision used to meet it.
-# 6 decimal places is ~0.1 m at London's latitude — far finer than a 20 m
+# 6 decimal places is ~0.1 m at London's latitude : far finer than a 20 m
 # generalisation, so rounding to it discards nothing real.
 BOUNDARY_MAX_BYTES <- as.numeric(cfg_env("BOUNDARY_MAX_BYTES", "512000"))
 BOUNDARY_COORD_DP  <- as.integer(cfg_env("BOUNDARY_COORD_DP", "6"))

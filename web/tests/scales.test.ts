@@ -25,7 +25,7 @@ function metric(overrides: Partial<MetricCoverage> = {}): MetricCoverage {
 /** 33 values, evenly spread, so quantile breaks are unambiguous. */
 const SPREAD = Array.from({ length: 33 }, (_, i) => i + 1);
 
-describe("buildColourScale — sequential", () => {
+describe("buildColourScale : sequential", () => {
   it("uses seven classes when the data supports them", () => {
     const scale = buildColourScale(metric(), SPREAD);
     expect(scale.ramp).toBe("sequential");
@@ -78,7 +78,7 @@ describe("buildColourScale — sequential", () => {
   });
 });
 
-describe("buildColourScale — degenerate domains", () => {
+describe("buildColourScale : degenerate domains", () => {
   it("collapses to one class when every value is identical, and says why", () => {
     // imd_employment_score is published to one decimal place and has a single
     // distinct value across all 33 boroughs. This is real data, not a fixture.
@@ -110,7 +110,7 @@ describe("buildColourScale — degenerate domains", () => {
   });
 });
 
-describe("buildColourScale — diverging", () => {
+describe("buildColourScale : diverging", () => {
   const standardised = metric({ scale: "standardised", direction: "higher_is_worse" });
 
   it("uses the diverging ramp for standardised metrics", () => {
@@ -178,7 +178,7 @@ describe("no-data handling", () => {
 });
 
 describe("palette discipline", () => {
-  it("emits no raw hex anywhere — every fill is a token or a mix of tokens", () => {
+  it("emits no raw hex anywhere : every fill is a token or a mix of tokens", () => {
     // globals.css sets this rule for everything from 3.2 onwards. A hex here
     // would look right in light mode and wrong in dark mode, silently.
     for (const id of Object.keys(coverage.metrics)) {

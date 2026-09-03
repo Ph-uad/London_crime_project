@@ -25,7 +25,7 @@ describe("project", () => {
     expect(project([0, -51.5]).y).toBeCloseTo(-60.27892362247676, 10);
   });
 
-  it("leaves longitude untouched — Mercator only distorts north–south", () => {
+  it("leaves longitude untouched : Mercator only distorts north–south", () => {
     expect(project([-0.5103, 51.5]).x).toBe(-0.5103);
     expect(project([0.334, 51.28]).x).toBe(0.334);
   });

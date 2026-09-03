@@ -1,5 +1,5 @@
 # =============================================================
-# _common.R — shared helpers. Source this (it sources _config.R) at the
+# _common.R : shared helpers. Source this (it sources _config.R) at the
 # top of every pipeline script.
 #
 # Design rules encoded here:
@@ -82,7 +82,7 @@ crime_files <- function(dir = CRIME_RAW_DIR) {
     if (length(stray)) {
       fail("no crime CSVs in '", dir, "', but ", length(stray),
            " were found under '", PROC_DIR, "'.\n",
-           "       Raw source data must not live in data/processed/ — the ",
+           "       Raw source data must not live in data/processed/ : the ",
            "pipeline writes there.\n",
            "       Move them:  mv ", PROC_DIR, "/crime/*-street.csv ", dir, "/")
     }
@@ -124,7 +124,7 @@ assert_london_boroughs <- function(gss, what = "output") {
 }
 
 # Not every metric is published for all 33 boroughs. ONS suppresses or omits
-# small-population areas — City of London (~8,000 residents) has no life
+# small-population areas : City of London (~8,000 residents) has no life
 # expectancy at all and every well-being year is marked [u].
 #
 # A metric therefore declares which boroughs it is allowed to be missing, and
@@ -151,12 +151,12 @@ assert_metric_boroughs <- function(gss, what, all_gss,
   check(!length(stale),
         what, " declares ", paste(stale, collapse = ", "), " as missing, but ",
         "the data now contains ", if (length(stale) > 1) "them" else "it",
-        ". Remove the exception — the documented reason is out of date.")
+        ". Remove the exception : the documented reason is out of date.")
 
   if (length(missing)) {
     message("  note  ", what, ": ", length(u), "/", length(all_gss),
             " boroughs. Missing by design: ", paste(missing, collapse = ", "),
-            if (nzchar(reason)) paste0(" — ", reason) else "")
+            if (nzchar(reason)) paste0(" : ", reason) else "")
   } else {
     ok(what, ": all ", length(all_gss), " boroughs")
   }

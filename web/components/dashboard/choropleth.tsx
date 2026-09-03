@@ -14,7 +14,7 @@ import type { BoroughRef, MetricCoverage } from "@/lib/types";
  * order is a tab sequence nobody can hold in their head, and a screen reader
  * cannot see a shape anyway. The borough table beneath it carries the same
  * values, the same selection, and the same no-data states, and is the route for
- * keyboard and assistive technology. That split is deliberate — the picture is
+ * keyboard and assistive technology. That split is deliberate : the picture is
  * for people who can see it, the table is for everyone.
  *
  * Pan and zoom operate on the viewBox rather than on a tile layer, so touch
@@ -114,7 +114,7 @@ export function Choropleth({
 
   /**
    * Wheel zoom is registered non-passively on the element, because React's
-   * onWheel is passive and cannot preventDefault — without that the page
+   * onWheel is passive and cannot preventDefault : without that the page
    * scrolls behind the map while it zooms.
    */
   useEffect(() => {
@@ -171,8 +171,8 @@ export function Choropleth({
   const describe = (i: number): string => {
     const v = values[i];
     const name = boroughs[i].name;
-    if (excluded.has(boroughs[i].gss)) return `${name} — excluded from the scale`;
-    if (v === null) return `${name} — no data`;
+    if (excluded.has(boroughs[i].gss)) return `${name} : excluded from the scale`;
+    if (v === null) return `${name} : no data`;
     return `${name}: ${formatWithUnit(v, metric)}`;
   };
 
@@ -208,7 +208,7 @@ export function Choropleth({
             No-data is a hatch as well as a colour. Issue 3.8 requires it to be
             distinguishable without relying on colour alone, and a mid grey
             between a pale ramp step and a dark one is precisely where colour
-            alone fails — for a deuteranope and for anyone on a dim screen.
+            alone fails : for a deuteranope and for anyone on a dim screen.
           */}
           <pattern
             id={NO_DATA_PATTERN_ID}

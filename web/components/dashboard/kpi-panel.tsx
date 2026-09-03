@@ -13,7 +13,7 @@ import type { BoroughRef, MetricCoverage } from "@/lib/types";
  *   Extremes are labelled by MEANING, not by value. "Highest" is the wrong word
  *   for the top of a `higher_is_better` metric and a league table nobody wants
  *   to win at the top of a `higher_is_worse` one. The cards read "Most crime"
- *   and "Lowest income" — both of which are the same card, the worse end — so a
+ *   and "Lowest income" : both of which are the same card, the worse end : so a
  *   reader is never invited to congratulate the borough with the most burglaries.
  *
  *   Trend arrows come from `direction`. Falling crime is an improvement and
@@ -58,7 +58,7 @@ export function KpiPanel({
   const cards: { label: string; value: string; sub: string }[] = [];
 
   // Every borough on the same value. Naming one of them as the "highest" and
-  // the same one as the "lowest" is technically true and reads as a bug — which
+  // the same one as the "lowest" is technically true and reads as a bug : which
   // is what happens with imd_employment_score, published to one decimal place
   // and identical across all 33 boroughs.
   const flat = stats !== null && stats.min.value === stats.max.value;
@@ -71,12 +71,12 @@ export function KpiPanel({
     });
   } else if (stats && bad !== null && worst && best) {
     cards.push({
-      label: metric.direction === "higher_is_worse" ? "Highest — the worse end" : "Lowest — the worse end",
+      label: metric.direction === "higher_is_worse" ? "Highest : the worse end" : "Lowest : the worse end",
       value: boroughs[worst.index].name,
       sub: formatWithUnit(worst.value, metric),
     });
     cards.push({
-      label: metric.direction === "higher_is_worse" ? "Lowest — the better end" : "Highest — the better end",
+      label: metric.direction === "higher_is_worse" ? "Lowest : the better end" : "Highest : the better end",
       value: boroughs[best.index].name,
       sub: formatWithUnit(best.value, metric),
     });

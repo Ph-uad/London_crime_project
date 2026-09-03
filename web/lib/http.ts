@@ -4,7 +4,7 @@
 import type { ApiError } from "./types";
 
 /**
- * The exported data is immutable for the life of a deployment — it is bundled at
+ * The exported data is immutable for the life of a deployment : it is bundled at
  * build time and only changes when the pipeline is re-run and the app redeployed.
  * So: never trusted in the browser, cached hard at the edge, and allowed to serve
  * stale for a day while revalidating.
@@ -29,7 +29,7 @@ export function jsonResponse(
 }
 
 /**
- * A 4xx with an actionable message. Errors are never cached — a client that fixes
+ * A 4xx with an actionable message. Errors are never cached : a client that fixes
  * its query must not be served its own mistake from the edge.
  */
 export function errorResponse(status: number, body: ApiError): Response {
@@ -101,7 +101,7 @@ export function assertAllowed(
   if (bad.length) {
     throw new BadRequest({
       error: `Unknown ${name}`,
-      detail: `${bad.join(", ")} — ${hint}`,
+      detail: `${bad.join(", ")} : ${hint}`,
       parameter: name,
       valid: sample([...set].sort()),
     });
@@ -117,7 +117,7 @@ export function yearParam(params: URLSearchParams, known: readonly number[]): nu
   if (bad.length) {
     throw new BadRequest({
       error: "Invalid year",
-      detail: `${bad.join(", ")} — years must be four digits, e.g. 2019. Use a comma-separated list for several.`,
+      detail: `${bad.join(", ")} : years must be four digits, e.g. 2019. Use a comma-separated list for several.`,
       parameter: "year",
     });
   }
@@ -128,7 +128,7 @@ export function yearParam(params: URLSearchParams, known: readonly number[]): nu
   if (missing.length) {
     throw new BadRequest({
       error: "Year not in the dataset",
-      detail: `${missing.join(", ")} — the export covers ${Math.min(...known)}–${Math.max(...known)}. Coverage differs per metric; see /api/meta.`,
+      detail: `${missing.join(", ")} : the export covers ${Math.min(...known)}–${Math.max(...known)}. Coverage differs per metric; see /api/meta.`,
       parameter: "year",
       valid: known.map(String),
     });

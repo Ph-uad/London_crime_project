@@ -1,5 +1,5 @@
 # =============================================================
-# 00_LSOAlookup.R — build the LSOA -> borough lookup, harmonised across the
+# 00_LSOAlookup.R : build the LSOA -> borough lookup, harmonised across the
 # 2011 and 2021 code vintages.
 #
 # Change from the previous version: this script no longer reads the crime
@@ -13,7 +13,7 @@
 
 source(file.path(if (dir.exists("pipeline")) "pipeline" else ".", "_common.R"))
 
-banner("00_LSOAlookup — borough lookup")
+banner("00_LSOAlookup : borough lookup")
 
 check(file.exists(LOOKUP_RAW),
       "ONS lookup not found at '", LOOKUP_RAW, "'. See pipeline/SOURCES.md.")

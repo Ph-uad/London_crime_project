@@ -1,4 +1,4 @@
-> **ARCHIVED 2026-08-19 — superseded, do not use as a roadmap.**
+> **ARCHIVED 2026-08-19 : superseded, do not use as a roadmap.**
 >
 > Every issue and amendment below was merged into
 > [`../projects-plan.md`](../projects-plan.md), which is now the single live roadmap.
@@ -9,11 +9,11 @@
 > 1. **Numbering collision resolved.** This file reused 1.5 and 1.6 for new issues (tidy
 >    income, tidy IMD) while the original plan already used them for the unified export and
 >    the boundaries. Original 1.5 is superseded by 1.9; original 1.6 is renumbered **1.10**
->    — the option this file left open ("renumber to 1.10 or keep as-is") is taken.
+>    : the option this file left open ("renumber to 1.10 or keep as-is") is taken.
 > 2. **Two `blocked-by` labels corrected.** New 1.5 and 1.6 are given `blocked-by:1.1`
 >    (crime acquisition) below. Neither touches crime data; both need the borough lookup,
 >    so both are `blocked-by:1.2` in the merged plan.
-> 3. **Delivered work diverged in three places** — the well-being and life-expectancy
+> 3. **Delivered work diverged in three places** : the well-being and life-expectancy
 >    sources (ONS, not the London Datastore), the boundary simplification (none, not
 >    `rmapshaper`), and the contents of `coverage.json` (considerably more than years). The
 >    merged plan keeps the original criteria verbatim and records each divergence in a
@@ -23,7 +23,7 @@
 
 ---
 
-# Plan Revision — New & Amended Issues
+# Plan Revision : New & Amended Issues
 
 **Context:** The metric sources have mismatched time coverage and geographies, and the
 objective is reframed from "quality of life" to "social determinants associated with
@@ -33,12 +33,12 @@ amends the API and frontend issues to consume it, and records the analysis-windo
 decision.
 
 **Issue bookkeeping:** Old 1.4 is superseded by 1.4–1.8 below. Old 1.5 (unified export)
-is superseded by 1.9. Old 1.6 (boundaries) is unchanged — renumber to 1.10 or keep as-is
+is superseded by 1.9. Old 1.6 (boundaries) is unchanged : renumber to 1.10 or keep as-is
 on the board. Issues 2.1, 3.4, 3.6 are amended in place (new criteria appended).
 
 ---
 
-### Issue 1.4 — Acquire annual well-being and life-expectancy series (data swap)
+### Issue 1.4 : Acquire annual well-being and life-expectancy series (data swap)
 **Branch:** `feat/data/annual-wellbeing-lifeexp`
 **Labels:** `data` `no-dependencies`
 **Estimate:** 1–2 hrs
@@ -63,7 +63,7 @@ greenspace), clearly marked as 2011–2013 coverage.
 
 ---
 
-### Issue 1.5 — Tidy income to long format
+### Issue 1.5 : Tidy income to long format
 **Branch:** `feat/data/tidy-income`
 **Labels:** `data` `blocked-by:1.1`
 **Estimate:** 2–3 hrs
@@ -86,7 +86,7 @@ Note the missing 2008 survey year rather than interpolating it.
 
 ---
 
-### Issue 1.6 — Tidy IMD scores to long format
+### Issue 1.6 : Tidy IMD scores to long format
 **Branch:** `feat/data/tidy-imd`
 **Labels:** `data` `blocked-by:1.1`
 **Estimate:** 2–3 hrs
@@ -95,7 +95,7 @@ Note the missing 2008 survey year rather than interpolating it.
 `pipeline/11_tidy_imd.R`: extract only `*_Average_score_2015/2019` columns for the
 Income, Employment, Education, Health, Barriers-to-Housing and Living-Environment
 domains. **Exclude the IMD Crime domain from analysis outputs** (circular with the
-outcome variable) — emit it to a separate validation-only file. Exclude all `Rank_*`
+outcome variable) : emit it to a separate validation-only file. Exclude all `Rank_*`
 and `Proportion_of_LSOAs_*` columns from analysis; optionally retain ranks in a
 display-copy file.
 
@@ -110,7 +110,7 @@ display-copy file.
 
 ---
 
-### Issue 1.7 — Tidy well-being to long format
+### Issue 1.7 : Tidy well-being to long format
 **Branch:** `feat/data/tidy-wellbeing`
 **Labels:** `data` `blocked-by:1.4`
 **Estimate:** 2–3 hrs
@@ -133,7 +133,7 @@ columns from the source workbook before use.
 
 ---
 
-### Issue 1.8 — Tidy life expectancy to long format
+### Issue 1.8 : Tidy life expectancy to long format
 **Branch:** `feat/data/tidy-lifeexp`
 **Labels:** `data` `blocked-by:1.4`
 **Estimate:** 1–2 hrs
@@ -154,7 +154,7 @@ in `notes`.
 
 ---
 
-### Issue 1.9 — Unify metrics, crime, and coverage matrix
+### Issue 1.9 : Unify metrics, crime, and coverage matrix
 **Branch:** `feat/data/unify-coverage`
 **Labels:** `data` `blocked-by:1.3` `blocked-by:1.5` `blocked-by:1.6` `blocked-by:1.7` `blocked-by:1.8`
 **Estimate:** 3–4 hrs
@@ -178,7 +178,7 @@ with data. Validation asserts 33 boroughs, value ranges, and schema conformance.
 
 ---
 
-### Issue 2.1 (amendment) — Metrics API serves coverage metadata
+### Issue 2.1 (amendment) : Metrics API serves coverage metadata
 **Branch:** `feat/api/meta-coverage`
 **Labels:** `backend` `blocked-by:1.9`
 **Estimate:** +1 hr on original
@@ -189,15 +189,15 @@ with data. Validation asserts 33 boroughs, value ranges, and schema conformance.
 
 ---
 
-### Issue 3.4 (amendment) — Year slider driven by coverage matrix
+### Issue 3.4 (amendment) : Year slider driven by coverage matrix
 **Additional acceptance criteria:**
-- [ ] Slider range and enabled years come from `/api/meta` per selected metric — no hardcoded ranges
+- [ ] Slider range and enabled years come from `/api/meta` per selected metric : no hardcoded ranges
 - [ ] Snapshot metrics (IMD) render as discrete selectable points, not a continuous slider
 - [ ] Partial years visually marked and excluded from year-on-year comparisons
 
 ---
 
-### Issue 3.6 (amendment) — Scatterplot year-pairing rule
+### Issue 3.6 (amendment) : Scatterplot year-pairing rule
 **Additional acceptance criteria:**
 - [ ] Mismatched series pair on nearest-available-year; the pairing is printed on the chart (e.g. "crime 2019 × IMD 2019")
 - [ ] No silent interpolation anywhere
@@ -205,7 +205,7 @@ with data. Validation asserts 33 boroughs, value ranges, and schema conformance.
 
 ---
 
-### Issue 4.1 (amendment) — Narrative reflects associative framing
+### Issue 4.1 (amendment) : Narrative reflects associative framing
 **Additional acceptance criteria:**
 - [ ] All copy states associations; a limitations note covers ecological inference (33 aggregated units) and the IMD-crime-domain exclusion
 - [ ] The 15-year window and the 2011–2023 analysis window are stated explicitly

@@ -139,7 +139,7 @@ export function Scatterplot({
           <h2 className="text-sm font-semibold text-[var(--text-primary)]">
             {outcome.label} against {compare.label}
           </h2>
-          {/* The pairing, stated. Not a footnote — the reader needs it to know
+          {/* The pairing, stated. Not a footnote : the reader needs it to know
               what they are looking at. */}
           <p className="mt-0.5 text-xs text-[var(--text-secondary)]">
             {yYear === null || xYear === null ? (
@@ -148,7 +148,7 @@ export function Scatterplot({
               <>
                 <span className="tabular-nums">{describeYear(yYear, outcome)}</span> ×{" "}
                 <span className="tabular-nums">{describeYear(xYear, compare)}</span>
-                {!sameYear && " — the nearest published year on each side, not interpolated"}
+                {!sameYear && " : the nearest published year on each side, not interpolated"}
                 {rulesDiffer && (
                   <>
                     {" "}
@@ -200,7 +200,7 @@ export function Scatterplot({
         >
           <defs>
             {/* The fitted line runs to the edges of the padded domain, which
-                can be outside the value range on the other axis — a steep fit
+                can be outside the value range on the other axis : a steep fit
                 leaves the plot and draws over the axis labels. Clip it to the
                 plotting rectangle so the line never implies a value the chart
                 is not showing. */}
@@ -354,7 +354,7 @@ export function Scatterplot({
               <span className="font-semibold text-[var(--text-primary)]">
                 Pearson r = <span className="tabular-nums">{fit.r.toFixed(2)}</span>
               </span>{" "}
-              — a {describeStrength(fit.r)} {fit.r < 0 ? "negative" : "positive"} association across{" "}
+              : a {describeStrength(fit.r)} {fit.r < 0 ? "negative" : "positive"} association across{" "}
               <span className="tabular-nums">{fit.n}</span> boroughs.
             </>
           ) : (
@@ -383,7 +383,7 @@ export function Scatterplot({
         <p>
           <strong className="text-[var(--text-primary)]">Association, not cause.</strong> These are
           33 aggregated borough averages. A relationship between area averages does not hold for
-          the people inside those areas, and neither variable is shown to act on the other — both
+          the people inside those areas, and neither variable is shown to act on the other : both
           may follow from something not measured here.
         </p>
       </div>

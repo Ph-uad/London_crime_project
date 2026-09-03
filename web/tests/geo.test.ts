@@ -20,7 +20,7 @@ describe("boroughShapes", () => {
     // The pipeline currently writes london.geojson in the same order as
     // boroughs.json, so a positional join would pass by luck today and draw
     // every borough with a neighbour's outline the moment either file is
-    // re-sorted — which looks entirely plausible on a map of a city you do not
+    // re-sorted : which looks entirely plausible on a map of a city you do not
     // know well. Reordering the request is what distinguishes the two.
     const reversed = [...boroughs].reverse();
     const byReversed = boroughShapes(reversed);

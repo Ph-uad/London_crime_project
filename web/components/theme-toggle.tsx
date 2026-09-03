@@ -5,7 +5,7 @@ import { useCallback, useSyncExternalStore } from "react";
 type Theme = "light" | "dark";
 
 /**
- * Dark mode is a choice, not an automatic flip — the palette's dark steps were
+ * Dark mode is a choice, not an automatic flip : the palette's dark steps were
  * selected for the dark surface, so the viewer's preference has to beat the OS
  * setting in both directions. The chosen value is stamped on <html> as
  * data-theme, which globals.css scopes on.
@@ -58,7 +58,7 @@ export function ThemeToggle() {
       //
       // It IS worth recording. Swallowing this silently made a CI failure
       // undiagnosable: the attribute above was set, so the click looked like it
-      // worked and the assertion on it passed — and then the choice vanished on
+      // worked and the assertion on it passed : and then the choice vanished on
       // the next page load, three assertions later, reported as a missing
       // attribute with no hint that storage was the cause. A failed write is now
       // a fact on the document, so a test (or a support question) can tell
@@ -73,12 +73,12 @@ export function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-pressed={theme === null ? undefined : isDark}
-      className="inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-md border border-[var(--border)] px-3 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+      className="inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-[var(--border)] px-3 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
     >
       <span aria-hidden="true">{isDark ? "◐" : "◑"}</span>
       <span>{theme === null ? "Theme" : isDark ? "Dark" : "Light"}</span>
       <span className="sr-only">
-        {theme === null ? "" : `— switch to ${isDark ? "light" : "dark"} theme`}
+        {theme === null ? "" : `: switch to ${isDark ? "light" : "dark"} theme`}
       </span>
     </button>
   );

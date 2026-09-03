@@ -7,8 +7,8 @@
  *
  *   The map is 33 static polygons with no basemap. MapLibre's value is tiles,
  *   labels and a style pipeline; using it here means either a third-party tile
- *   endpoint — a network dependency, an API key and an attribution obligation
- *   this project does not otherwise carry — or a style with no basemap, which is
+ *   endpoint : a network dependency, an API key and an attribution obligation
+ *   this project does not otherwise carry : or a style with no basemap, which is
  *   ~900 KB of WebGL to fill polygons. It also renders into a canvas, which is
  *   one opaque node to a screen reader and to axe, and which Playwright cannot
  *   assert on without pixel diffing. Issue 3.8 asks for a measured accessibility
@@ -135,7 +135,7 @@ function ringsOf(geometry: { type: string; coordinates: unknown }): Ring[] {
  * An SVG path for one borough, in viewBox units.
  *
  * Coordinates are rounded to `dp` decimals. At the default 1 dp in a 1000-unit
- * box that is a tenth of a unit — sub-pixel at every zoom the UI offers — and it
+ * box that is a tenth of a unit : sub-pixel at every zoom the UI offers : and it
  * roughly halves the payload the server sends to the browser. Rounding is done
  * here, once, rather than in the renderer, so the client never carries the
  * unrounded numbers at all.

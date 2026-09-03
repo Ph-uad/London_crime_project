@@ -1,5 +1,5 @@
 /**
- * GET /api/meta — the coverage matrix.
+ * GET /api/meta : the coverage matrix.
  * Plan issue 2.1 (amendment).
  *
  * This is the contract that lets the frontend stop guessing: per metric it

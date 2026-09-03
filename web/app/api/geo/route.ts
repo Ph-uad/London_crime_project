@@ -1,5 +1,5 @@
 /**
- * GET /api/geo — the 33 borough polygons, EPSG:4326 / RFC 7946.
+ * GET /api/geo : the 33 borough polygons, EPSG:4326 / RFC 7946.
  * Plan issue 2.2.
  *
  * Served verbatim from pipeline output with the GeoJSON media type. The GSS codes

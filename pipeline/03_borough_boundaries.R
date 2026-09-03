@@ -1,5 +1,5 @@
 # =============================================================
-# 03_borough_boundaries.R — the 33 London borough polygons as GeoJSON.
+# 03_borough_boundaries.R : the 33 London borough polygons as GeoJSON.
 # Implements plan issue 1.10 (was 1.6).
 #
 # WE DO NOT SIMPLIFY. The issue proposes rmapshaper, but simplification is
@@ -9,7 +9,7 @@
 # cannot be repaired downstream.
 #
 # Instead we take a generalisation level ONS already produced across the whole
-# UK coverage — where adjacent districts still share their edges exactly — and
+# UK coverage : where adjacent districts still share their edges exactly : and
 # reduce file size by two lossless-in-practice means:
 #
 #   1. keep only the 33 London features and two attributes
@@ -17,8 +17,8 @@
 #      London's latitude, far finer than a 20 m generalisation)
 #
 # If that still misses the budget the answer is to switch BOUNDARY_GEN to
-# "BUC" in _config.R and re-download — ONS's coarser product, still
-# topologically sound — not to simplify here. The script says so and stops.
+# "BUC" in _config.R and re-download : ONS's coarser product, still
+# topologically sound : not to simplify here. The script says so and stops.
 #
 # The GSS codes are checked against boroughs.json, which is what makes a
 # vintage difference between the boundary release and the LAD22 lookup
@@ -83,7 +83,7 @@ check(!length(missing) && !length(extra),
 ok("all ", LONDON_BOROUGH_N, " GSS codes match the pipeline's boroughs exactly")
 
 # Use the lookup's names so map labels and data agree character for character
-# — boundary files sometimes carry different casing or a suffix.
+# : boundary files sometimes carry different casing or a suffix.
 lon$borough_name <- boroughs$borough_name[match(lon$borough_gss,
                                                 boroughs$borough_gss)]
 lon <- lon[order(lon$borough_name), ]
@@ -97,7 +97,7 @@ check(!any(st_is_empty(lon)), "empty geometry for: ",
 # ---- Geometry validity, in the NATIVE projected CRS ----------------------
 # This must happen before reprojecting to WGS84. Once coordinates are lon/lat,
 # sf validates with s2 (spherical), which is far stricter than the planar
-# question we actually care about — "does this ring cross itself on the map".
+# question we actually care about : "does this ring cross itself on the map".
 # s2 rejects a merely duplicated vertex, so every ONS borough would be
 # reported invalid and st_make_valid() would then damage them. Planar GEOS
 # validity in the source projection is the right check.
@@ -111,7 +111,7 @@ if (any(!valid | is.na(valid))) {
   message("Invalid geometry in ", length(bad), " feature(s): ",
           paste(head(bad, 5), collapse = ", "),
           if (length(bad) > 5) ", ..." else "",
-          " — repairing with st_make_valid()")
+          " : repairing with st_make_valid()")
   lon <- st_make_valid(lon)
   check(all(st_is_valid(lon)),
         "geometry still invalid after st_make_valid(): ",
@@ -125,7 +125,7 @@ if (any(!valid | is.na(valid))) {
 # ONS publishes in British National Grid; MapLibre needs WGS84.
 crs <- st_crs(lon)
 if (is.na(crs)) {
-  message("No CRS declared — assuming EPSG:4326 per the GeoJSON spec.")
+  message("No CRS declared : assuming EPSG:4326 per the GeoJSON spec.")
   st_crs(lon) <- 4326
 } else if (!isTRUE(crs$epsg == 4326)) {
   from <- if (is.null(crs$epsg) || is.na(crs$epsg)) crs$input else crs$epsg
@@ -143,7 +143,7 @@ check(bb[["xmin"]] > -1 && bb[["xmax"]] < 1 &&
       paste(sprintf("%s=%.1f", names(bb), bb), collapse = ", "),
       ".\n       The coordinates are probably still in British National Grid ",
       "while the file claims EPSG:4326.")
-ok(sprintf("bounding box %.3f,%.3f to %.3f,%.3f — Greater London",
+ok(sprintf("bounding box %.3f,%.3f to %.3f,%.3f : Greater London",
            bb[["xmin"]], bb[["ymin"]], bb[["xmax"]], bb[["ymax"]]))
 
 # ---- Write ---------------------------------------------------------------
@@ -162,7 +162,7 @@ message("  ->  ", BOUNDARY_OUT, "  (",
 check(size <= BOUNDARY_MAX_BYTES,
       "london.geojson is ", round(size / 1024), " KB, over the ",
       round(BOUNDARY_MAX_BYTES / 1024), " KB budget in issue 1.10.\n",
-      "       Do NOT simplify here — that breaks shared edges between ",
+      "       Do NOT simplify here : that breaks shared edges between ",
       "boroughs.\n       Set BOUNDARY_GEN=\"BUC\" in pipeline/_config.R and ",
       "re-run 00_download_metrics.R to take ONS's coarser product, which is ",
       "generalised across the whole coverage and keeps its topology.")
@@ -192,7 +192,7 @@ if (file.exists(bj)) {
         "boroughs.json and london.geojson disagree on the borough set.")
   ok("GSS codes match boroughs.json")
 } else {
-  message("Note: boroughs.json not present — run 20_unify_metrics.R to ",
+  message("Note: boroughs.json not present : run 20_unify_metrics.R to ",
           "cross-check the two.")
 }
 

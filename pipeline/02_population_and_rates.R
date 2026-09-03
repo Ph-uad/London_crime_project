@@ -1,11 +1,11 @@
 # =============================================================
-# 02_population_and_rates.R — borough population and crime rates per 1,000.
+# 02_population_and_rates.R : borough population and crime rates per 1,000.
 #
 # Replaces pipeline/dimension/01_LSOA_by_population.R (retired to
 # experimental/), which could not run: it called an undefined `tr()`, reused
 # a disconnected Spark connection, referenced an undefined object, had an
 # assignment swallowed into a comment, and ran tidyr::pivot_longer on a
-# tbl_spark. Its output columns were also mislabelled — `lsoa_code` held a
+# tbl_spark. Its output columns were also mislabelled : `lsoa_code` held a
 # borough GSS code and `lsoa_name` held the string "London Borough".
 #
 # Boroughs are matched on GSS code, not on name. Name matching silently
@@ -29,7 +29,7 @@ boroughs <- unique(lookup[, .(borough_gss, borough_name)])
 # ---- Population ----------------------------------------------------------
 # Find the header row rather than hardcoding a skip count: ONS moves the
 # preamble between releases, and a wrong skip shifts every column silently.
-# readLines rather than fread — the preamble rows are ragged, and fread has to
+# readLines rather than fread : the preamble rows are ragged, and fread has to
 # commit to a column count before it has seen the real header.
 peek <- readLines(POP_RAW, n = 40L, warn = FALSE)
 hdr <- which(grepl('^"?Code"?\\s*,', peek))[1]
@@ -87,7 +87,7 @@ rates[, crime_rate_per_1000 := round(crimes / population * 1000, 2)]
 rates[, coverage_flag := fifelse(is.na(population), "no_denominator",
                           fifelse(!complete_year, "partial_year", "complete"))]
 # A rate computed from a partial year is not a rate. Keep the count, drop the
-# rate, and say why — rather than publishing a number that reads as a fall.
+# rate, and say why : rather than publishing a number that reads as a fall.
 rates[coverage_flag != "complete", crime_rate_per_1000 := NA_real_]
 
 assert_london_boroughs(rates$borough_gss, "crime rates")

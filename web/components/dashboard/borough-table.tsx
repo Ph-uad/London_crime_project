@@ -9,7 +9,7 @@ import type { BoroughRef, MetricCoverage } from "@/lib/types";
  *
  * This is not a decorative extra. A choropleth is an image, and an image cannot
  * be read by a screen reader, scrubbed by a keyboard, or compared precisely by
- * eye — three quantile classes apart still looks like "darker". The table is the
+ * eye : three quantile classes apart still looks like "darker". The table is the
  * accessible equivalent of the map and the exact-value view for everyone: same
  * values, same selection state, same no-data cases, in one tab stop per row.
  *
@@ -112,7 +112,7 @@ export function BoroughTable({
                   }`}
                 >
                   <td className="px-3 py-1.5 text-xs tabular-nums text-[var(--text-secondary)]">
-                    {rank ? rank.rank : "—"}
+                    {rank ? rank.rank : ":"}
                   </td>
                   <th scope="row" className="p-0 font-normal">
                     <button
@@ -165,7 +165,7 @@ export function BoroughTable({
       <p className="mt-2 text-xs text-[var(--text-secondary)]">
         {rankLabel}. Ranks use the {metric.boroughs_covered} boroughs this metric covers, not
         always {boroughs.length}. Unticking a borough drops it from the colour scale, the
-        correlation and the summary figures — it stays on the map, faded.
+        correlation and the summary figures : it stays on the map, faded.
       </p>
     </div>
   );

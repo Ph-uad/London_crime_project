@@ -7,7 +7,7 @@ import type { BoroughRef, MetricCoverage } from "@/lib/types";
 /**
  * Metric switcher and exclusions (plan issue 3.3).
  *
- * The list is built from the coverage matrix — ids, labels and grouping all come
+ * The list is built from the coverage matrix : ids, labels and grouping all come
  * from the data, so a metric added to the pipeline appears here without a code
  * change and a metric removed cannot linger as a dead option. Nothing about the
  * 19 metrics is typed into this file.
@@ -18,7 +18,7 @@ import type { BoroughRef, MetricCoverage } from "@/lib/types";
  * anything reimplemented in a div.
  *
  * The per-borough exclusion checkboxes live in the borough table rather than
- * here — 33 checkboxes in a sidebar is a wall, and the table already lists every
+ * here : 33 checkboxes in a sidebar is a wall, and the table already lists every
  * borough with the value the exclusion would affect. This panel carries the one
  * exclusion the data actually argues for.
  */
@@ -128,7 +128,7 @@ export function MetricControls({
             <span>
               Exclude {outlier.name}
               <span className="block text-xs text-[var(--text-secondary)]">
-                About 8,000 residents, so its per-capita rates are extreme — a crime rate around
+                About 8,000 residents, so its per-capita rates are extreme : a crime rate around
                 six times the London median.
               </span>
             </span>
